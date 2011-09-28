@@ -90,6 +90,7 @@
     <ClInclude Include="Matrix3.h" />
     <ClInclude Include="Matrix4.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="Node.h" />
     <ClInclude Include="RootTransformNode.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="TransformNode.h" />
