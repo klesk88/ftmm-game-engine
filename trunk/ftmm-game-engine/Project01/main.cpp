@@ -30,7 +30,7 @@ TransformNode * node2 ;
 TransformNode * node3 ;
 SceneManager * sc_mng;
 float translate_ratio = 0.0;
-
+//GLfloat arr[16];
 
 bool rotateFlagUP = FALSE;
 bool rotateFlagDOWN = FALSE;
@@ -257,8 +257,9 @@ void triangle_tester()
 int drawGLScene( GLvoid )
 {
 	//GLfloat ratio;
-	translate_ratio += 1; 
-
+	translate_ratio += 1;
+	//GL_MODELVIEW_MATRIX = arr;
+	//glLoadMatrixf(arr);
 /*
 	std::list<TransformNode*> * tn = node1->getChildrenPtr();
 

@@ -19,6 +19,23 @@ TransformNode * TransformNode::createChild(const std::string & stringName, float
 	child_list.push_back(temp_node);
 	children_names.push_back(stringName);
 
+	arr[0] = 1 ;
+	arr[1] =0 ;
+	arr[2] = 0;
+	arr[3] = 0;
+	arr[4] = 0;
+	arr[5] = 1;
+	arr[6] = 0;
+	arr[7] = 0;
+	arr[8] =0 ;
+	arr[9] = 0;
+	arr[10] = 1;
+	arr[11] = 0;
+	arr[12] = 0;
+	arr[13] = 0;
+	arr[14] =0 ;
+	arr[15] =1 ;
+
 	return temp_node;
 	
 }
@@ -44,9 +61,12 @@ void TransformNode::attachObject(Mesh * mesh_ptr){
 
 void TransformNode::updateNode(){
 
-	translate_ratio += 0.003; 
+	translate_ratio += 0.003;
+	arr[12] = translate_ratio;
+	arr[5] = translate_ratio;
 	glPushMatrix();
-	
+	//glMultMatrixf(arr);
+	//glLoadMatrixf(arr);
 	glTranslatef(relative_x,relative_y,relative_z);
 	glRotatef(translate_ratio * 5,0.0,1.0,0.0);
 	if(attached_obj.size() != 0) { 

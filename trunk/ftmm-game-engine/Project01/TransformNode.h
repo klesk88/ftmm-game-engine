@@ -73,6 +73,7 @@ class TransformNode{
 		TransformNode * parent_ptr;
 		void deleteChild (TransformNode * child_ptr);
 		void insertChildInList(TransformNode * new_child);
+		GLfloat arr[16];
 
 
 
