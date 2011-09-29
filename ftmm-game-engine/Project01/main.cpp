@@ -12,6 +12,7 @@
 #include "Mesh.h"
 #include "RootTransformNode.h"
 #include "SceneManager.h"
+//#include "Matrix4.h"
 
 
 /* screen width, height, and bit depth */
@@ -35,6 +36,7 @@ GLfloat arr_cube2[16];
 GLfloat stam_arr[16];
 Mesh * cube ;
 Mesh * cube2;
+
 
 bool rotateFlagUP = FALSE;
 bool rotateFlagDOWN = FALSE;
@@ -115,16 +117,17 @@ int initGL( GLvoid )
 
 	//node1 = new RootTransformNode ("node1",0.0,0.0,0.0);
 	sc_mng = SceneManager::getInstance();
-	node1 = sc_mng->getRootTransformNode()->createChild("node1",0.0,0.0,0.0); 
-	node2 = node1->createChild("node2",0.8,0.0,0.0);
-	node3 = node2->createChild ("node3",0.5,0.0,0.0);
-	node4 = node1->createChild("node4",0.0,0.0,0.0);
-
+	node1 = sc_mng->getRootTransformNode()->createChild("node1"); 
+	node2 = node1->createChild("node2");
+	node3 = node2->createChild ("node3",Vector3(0.2,0.0,0.0));
+	node4 = node1->createChild("node4");
+	//node1->getOrientation();
 	cube = new Mesh(0.3,1.0,0.0,0.0);
 	cube2 = new Mesh(0.5,0.0,0.0,1.0);
 	node2->attachObject(cube);
 	node3->attachObject(cube2);
 	
+
 
 	arr_cube[0] = 1 ;
 	arr_cube[1] =0 ;
@@ -318,7 +321,7 @@ int drawGLScene( GLvoid )
 	
 	if ( translate_ratio > 5){
 		
-		node3->changeParent(node1,0.0,0.0,0.0);
+		node3->changeParent(node1);
 	}
 
 	translate_ratio += 0.1;
@@ -357,13 +360,14 @@ int drawGLScene( GLvoid )
 	
 	
 
-	node3->translate (Vector3 (0.5,0.0,-1.0));
-	node2->rotate(translate_ratio);
+	//node3->translate (Vector3 (0.5,0.0,-1.0));
+	//node2->rotate(translate_ratio);
 	
 
 	node1->updateNode();
 	//sc_mng->getRootTransformNode()->updateNode();
-	node1->stampMatrix();
+	//node1->stampMatrix();
+	
 	
 	/*HERE you should put your code in order to do render something on the screen, use lighting, modify the camera position etc... */
 

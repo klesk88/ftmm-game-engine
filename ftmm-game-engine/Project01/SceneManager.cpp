@@ -2,7 +2,7 @@
 
 SceneManager::SceneManager(){
 
-	root_ptr = RootTransformNode::getInstance("Root",0.0,0.0,0.0);
+	root_ptr = RootTransformNode::getInstance("Root");
 }
 
 SceneManager * SceneManager::p_instance = NULL;

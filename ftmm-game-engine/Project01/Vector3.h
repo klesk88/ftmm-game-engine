@@ -1,5 +1,5 @@
 #include <assert.h>
-#include <math.h>
+#include <Math.h>
 
 #ifndef __Vector3_H__
 #define __Vector3_H__
@@ -134,6 +134,15 @@ class Vector3
 				- call Vector2::normalise on the result if you wish this to
 				be done. 		*/
 		Vector3 crossProduct( const Vector3& ) const;
+
+		static const Vector3 ZERO;
+        static const Vector3 UNIT_X;
+        static const Vector3 UNIT_Y;
+        static const Vector3 UNIT_Z;
+        static const Vector3 NEGATIVE_UNIT_X;
+        static const Vector3 NEGATIVE_UNIT_Y;
+        static const Vector3 NEGATIVE_UNIT_Z;
+        static const Vector3 UNIT_SCALE;
 
 		/** Returns true if this vector is zero length. */
 		bool isZeroLength(void) const;

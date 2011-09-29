@@ -192,7 +192,7 @@ float Matrix3::Determinant () const
         // product of vectors A and B.
 
         // compute q0
-        float fInvLength = InvSqrt(m[0][0]*m[0][0]
+        float fInvLength = Math::InvSqrt(m[0][0]*m[0][0]
             + m[1][0]*m[1][0] +
             m[2][0]*m[2][0]);
 
@@ -210,7 +210,7 @@ float Matrix3::Determinant () const
         m[1][1] -= fDot0*m[1][0];
         m[2][1] -= fDot0*m[2][0];
 
-        fInvLength = InvSqrt(m[0][1]*m[0][1] +
+        fInvLength = Math::InvSqrt(m[0][1]*m[0][1] +
             m[1][1]*m[1][1] +
             m[2][1]*m[2][1]);
 
@@ -233,7 +233,7 @@ float Matrix3::Determinant () const
         m[1][2] -= fDot0*m[1][0] + fDot1*m[1][1];
         m[2][2] -= fDot0*m[2][0] + fDot1*m[2][1];
 
-        fInvLength = InvSqrt(m[0][2]*m[0][2] +
+        fInvLength = Math::InvSqrt(m[0][2]*m[0][2] +
             m[1][2]*m[1][2] +
             m[2][2]*m[2][2]);
 
@@ -708,7 +708,15 @@ float Matrix3::Determinant () const
 
         *this = kZMat*(kYMat*kXMat);
     }
+	
+	
 
+	const float EPSILON = 1e-06;
+	const Matrix3 ZERO(0,0,0,0,0,0,0,0,0);
+	const Matrix3 IDENTITY(1,0,0,0,1,0,0,0,1);
+	const float ms_fSvdEpsilon = 1e-04;
+	const unsigned int ms_iSvdMaxIterations = 32;
+	/*
 float Matrix3::InvSqrt(float x){
    float xhalf=.5f*x;
    int i=*(int*)&x;
@@ -717,4 +725,4 @@ float Matrix3::InvSqrt(float x){
    x=x*(1.5f-xhalf*x*x);
    return x;
 }
-
+*/

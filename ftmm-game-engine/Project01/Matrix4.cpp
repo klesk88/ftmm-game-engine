@@ -166,7 +166,15 @@ void Matrix4::setScale( const Vector3& v )
 	m[2][2] = v.z;
 }
 
+
+Vector3 Matrix4::getScale() const{
+
+
+	return Vector3(m[0][0],m[1][1],m[2][2]);
+}
+
 // I removed static here, so if it causes bugs look into it
+/*
 Matrix4 Matrix4::getScale( const Vector3& v )
 {
 	Matrix4 r;
@@ -177,7 +185,7 @@ Matrix4 Matrix4::getScale( const Vector3& v )
 
 	return r;
 }
-
+*/
 void Matrix4::extract3x3Matrix(Matrix3& m3x3) const
 {
 	m3x3.m[0][0] = m[0][0];
@@ -190,3 +198,18 @@ void Matrix4::extract3x3Matrix(Matrix3& m3x3) const
 	m3x3.m[2][1] = m[2][1];
 	m3x3.m[2][2] = m[2][2];
 }
+
+
+const Matrix4 Matrix4::ZERO(
+0, 0, 0, 0,
+0, 0, 0, 0,
+0, 0, 0, 0,
+0, 0, 0, 0 );
+
+const Matrix4 Matrix4::IDENTITY(
+1, 0, 0, 0,
+0, 1, 0, 0,
+0, 0, 1, 0,
+0, 0, 0, 1 );
+
+
