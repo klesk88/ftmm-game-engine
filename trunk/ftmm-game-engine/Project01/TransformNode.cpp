@@ -8,17 +8,6 @@ TransformNode::TransformNode(const std::string & stringName, float x,float y,flo
 	relative_y = y;
 	relative_z = z;
 
-}
-
-TransformNode * TransformNode::createChild(const std::string & stringName, float x,float y,float z){
-
-	SceneManager * sc_mn = SceneManager::getInstance();
-	sc_mn->getRootTransformNode()->matchNames(stringName);
-	TransformNode * temp_node = new TransformNode(stringName, x,y,z);
-	temp_node->setParent(this);
-	child_list.push_back(temp_node);
-	children_names.push_back(stringName);
-
 	arr[0] = 1 ;
 	arr[1] =0 ;
 	arr[2] = 0;
@@ -36,6 +25,18 @@ TransformNode * TransformNode::createChild(const std::string & stringName, float
 	arr[14] =0 ;
 	arr[15] =1 ;
 
+}
+
+TransformNode * TransformNode::createChild(const std::string & stringName, float x,float y,float z){
+
+	SceneManager * sc_mn = SceneManager::getInstance();
+	sc_mn->getRootTransformNode()->matchNames(stringName);
+	TransformNode * temp_node = new TransformNode(stringName, x,y,z);
+	temp_node->setParent(this);
+	child_list.push_back(temp_node);
+	children_names.push_back(stringName);
+
+	
 	return temp_node;
 	
 }
@@ -61,14 +62,14 @@ void TransformNode::attachObject(Mesh * mesh_ptr){
 
 void TransformNode::updateNode(){
 
-	translate_ratio += 0.003;
-	arr[12] = translate_ratio;
-	arr[5] = translate_ratio;
+	translate_ratio = 0.3;
+	
 	glPushMatrix();
-	//glMultMatrixf(arr);
-	//glLoadMatrixf(arr);
-	glTranslatef(relative_x,relative_y,relative_z);
-	glRotatef(translate_ratio * 5,0.0,1.0,0.0);
+	glMultMatrixf(arr);
+	glGetFloatv(GL_MODELVIEW_MATRIX,arr2);
+
+	//glTranslatef(relative_x,relative_y,relative_z);
+	//glRotatef(translate_ratio * 5,0.0,1.0,0.0);
 	if(attached_obj.size() != 0) { 
 		
 		std::list<Mesh*>::iterator it;
@@ -174,5 +175,42 @@ void TransformNode::matchNames(std::string matching_name){
 		}
 	
 	}
+
+}
+
+void TransformNode::stampMatrix(){
+
+	for (int i=0;i<4;i++){
+
+		std::cout << arr2[i];
+		std::cout << ",";
+		std::cout << arr2[i+4];
+		std::cout << ",";
+		std::cout << arr2[i+8];
+		std::cout << ",";
+		std::cout << arr2[i+12];
+		std::cout << "  " << std::endl;
+		
+	}
+	std::cout<<"     " <<std::endl;
+
+}
+
+void TransformNode::rotate(float angle){
+
+	arr[0] = cos(angle);
+	arr[2] = -sin(angle);
+	arr[8] = sin(angle);
+	arr[10] = cos(angle);
+
+}
+
+void TransformNode::translate(Vector3 translation){
+
+	arr[12] = translation.x;
+	arr[13] = translation.y;
+	arr[14] = translation.z;
+	//glTranslatef(translation.x,translation.y,translation.z);
+	
 
 }

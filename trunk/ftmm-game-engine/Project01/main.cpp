@@ -25,12 +25,16 @@
 
 
 TransformNode * node1 ;
-//RootTransformNode * node4 ;
+TransformNode * node4 ;
 TransformNode * node2 ;
 TransformNode * node3 ;
 SceneManager * sc_mng;
 float translate_ratio = 0.0;
-//GLfloat arr[16];
+GLfloat arr_cube[16];
+GLfloat arr_cube2[16];
+GLfloat stam_arr[16];
+Mesh * cube ;
+Mesh * cube2;
 
 bool rotateFlagUP = FALSE;
 bool rotateFlagDOWN = FALSE;
@@ -114,13 +118,47 @@ int initGL( GLvoid )
 	node1 = sc_mng->getRootTransformNode()->createChild("node1",0.0,0.0,0.0); 
 	node2 = node1->createChild("node2",0.8,0.0,0.0);
 	node3 = node2->createChild ("node3",0.5,0.0,0.0);
-	//node4 = RootTransformNode::getInstance("root2",0.0,0.0,0.0);
+	node4 = node1->createChild("node4",0.0,0.0,0.0);
 
-	Mesh * cube = new Mesh(0.3,1.0,0.0,0.0);
-	Mesh * cube2 = new Mesh(0.05,0.0,0.0,1.0);
+	cube = new Mesh(0.3,1.0,0.0,0.0);
+	cube2 = new Mesh(0.5,0.0,0.0,1.0);
 	node2->attachObject(cube);
 	node3->attachObject(cube2);
 	
+
+	arr_cube[0] = 1 ;
+	arr_cube[1] =0 ;
+	arr_cube[2] = 0;
+	arr_cube[3] = 0;
+	arr_cube[4] = 0;
+	arr_cube[5] = 1;
+	arr_cube[6] = 0;
+	arr_cube[7] = 0;
+	arr_cube[8] =0 ;
+	arr_cube[9] = 0;
+	arr_cube[10] = 1;
+	arr_cube[11] = 0;
+	arr_cube[12] = 0;
+	arr_cube[13] = 0;
+	arr_cube[14] =0 ;
+	arr_cube[15] =1 ;
+
+	arr_cube2[0] = 1 ;
+	arr_cube2[1] =0 ;
+	arr_cube2[2] = 0;
+	arr_cube2[3] = 0;
+	arr_cube2[4] = 0;
+	arr_cube2[5] = 1;
+	arr_cube2[6] = 0;
+	arr_cube2[7] = 0;
+	arr_cube2[8] =0 ;
+	arr_cube2[9] = 0;
+	arr_cube2[10] = 1;
+	arr_cube2[11] = 0;
+	arr_cube2[12] = 0;
+	arr_cube2[13] = 0;
+	arr_cube2[14] =0 ;
+	arr_cube2[15] =1 ;
 	
 	/*
 	std::list<std::string> * names = node1->getChildrenNames();
@@ -256,10 +294,8 @@ void triangle_tester()
 /* Here goes our drawing code */
 int drawGLScene( GLvoid )
 {
-	//GLfloat ratio;
-	translate_ratio += 1;
-	//GL_MODELVIEW_MATRIX = arr;
-	//glLoadMatrixf(arr);
+	
+	
 /*
 	std::list<TransformNode*> * tn = node1->getChildrenPtr();
 
@@ -280,18 +316,17 @@ int drawGLScene( GLvoid )
 	}
 */
 	
-	if ( translate_ratio == 5001){
+	if ( translate_ratio > 5){
 		
 		node3->changeParent(node1,0.0,0.0,0.0);
 	}
 
-
+	translate_ratio += 0.1;
 	/* Clear The Screen And The Depth Buffer */
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-
 	glLoadIdentity();
-	
 	glTranslatef(0.0,0.0,-3.0);
+	
 	//gluLookAt(0.0,1.0,3.0,0.0,0.0,0.0,0.0,1.0,0.0);
 	
 	/*glPushMatrix();
@@ -317,13 +352,18 @@ int drawGLScene( GLvoid )
 	glVertex3f(100000.0f, 0.0f, 0.0f); // ending point of the line
 
 	glEnd();
+
 	glPopMatrix();
 	
 	
+
+	node3->translate (Vector3 (0.5,0.0,-1.0));
+	node2->rotate(translate_ratio);
 	
 
 	node1->updateNode();
-	
+	//sc_mng->getRootTransformNode()->updateNode();
+	node1->stampMatrix();
 	
 	/*HERE you should put your code in order to do render something on the screen, use lighting, modify the camera position etc... */
 

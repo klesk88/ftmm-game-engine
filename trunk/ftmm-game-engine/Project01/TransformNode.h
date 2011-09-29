@@ -11,6 +11,9 @@
 #include <list>
 #include <string>
 #include "Mesh.h"
+#include "Math.h"
+#include "Vector3.h"
+#include "Node.h"
 
 
 class TransformNode{
@@ -44,6 +47,12 @@ class TransformNode{
 		
 		//This method returns a pointer of a list of pointers of all the children of the TranformNode
 		std::list<TransformNode*> * getChildrenPtr();
+
+		void stampMatrix();
+
+		void rotate(float angle);
+
+		void translate (Vector3 translation);
 		
 		~TransformNode(){delete this;}
 
@@ -74,7 +83,8 @@ class TransformNode{
 		void deleteChild (TransformNode * child_ptr);
 		void insertChildInList(TransformNode * new_child);
 		GLfloat arr[16];
-
+		GLfloat arr2[16];
+		
 
 
 
