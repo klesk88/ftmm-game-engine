@@ -1,7 +1,7 @@
 #include "Vector3.h"
 #include "Matrix3.h"
 #include "Vector4.h"
-
+#include "Quaternion.h"
 
 #ifndef __Matrix4_H__
 #define __Matrix4_H__
@@ -77,11 +77,32 @@ class Matrix4
         void setScale( const Vector3& v );
 
         /** Gets a scale matrix.	*/
-        static Matrix4 getScale( const Vector3& v );
+        //static Matrix4 getScale( const Vector3& v );
+		Vector3 getScale() const;
 
 		/** Extracts the rotation / scaling part of the Matrix as a 3x3 matrix. 
 			@param m3x3 Destination Matrix3		*/
         void extract3x3Matrix(Matrix3& m3x3) const;
+
+		static const Matrix4 ZERO;
+
+		static const Matrix4 IDENTITY;
+
+		float* operator [] ( size_t iRow )
+        {
+            assert( iRow < 4 );
+            return m[iRow];
+        }
+
+		Quaternion extractQuaternion() const
+		{
+		Matrix3 m3x3;
+		extract3x3Matrix(m3x3);
+		return Quaternion(m3x3);
+		}
+
+		
+
 };
 
 #endif

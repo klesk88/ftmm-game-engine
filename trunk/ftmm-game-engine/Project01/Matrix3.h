@@ -1,11 +1,9 @@
 #include "Vector3.h"
 #include "Math.h"
-
+//#include "Matrix4.h"
 
 #ifndef __Matrix3_H__
 #define __Matrix3_H__
-
-
 
 class Matrix3
 {
@@ -28,6 +26,7 @@ class Matrix3
 		{
 			return (float*)m[iRow];
 		}
+
 
 		/** Tests 2 matrices for equality.	*/
 		bool operator== (const Matrix3& rkMatrix) const;
@@ -75,8 +74,14 @@ class Matrix3
         void FromEulerAnglesZXY (const Radian& fYAngle, const Radian& fPAngle, const Radian& fRAngle);
         void FromEulerAnglesZYX (const Radian& fYAngle, const Radian& fPAngle, const Radian& fRAngle);
 
-		//This is taken from http://www.ogre3d.org/forums/viewtopic.php?p=258032
-		float Matrix3::InvSqrt(float x);
+		static const float EPSILON ;
+		static const Matrix3 ZERO;
+		static const Matrix3 IDENTITY;
+		static const float ms_fSvdEpsilon;
+		static const unsigned int ms_iSvdMaxIterations ;
+		
+		//Matrix4 toMatrix4 () const;
+
 };
 
 #endif

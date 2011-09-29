@@ -14,20 +14,20 @@
 #include "Math.h"
 #include "Vector3.h"
 #include "Node.h"
+#include "MovableObject.h"
 
 
-class TransformNode{
+class TransformNode : public MovableObject{
 
 	public:
 
 		
 	
 		//Method to create a child of a TransformNode.
-		TransformNode * createChild(const std::string & stringName, float x,float y,float z);
+		TransformNode * createChild(const std::string & stringName, Vector3 initial_position = Vector3::ZERO);
 		
 		//Method to get the name of this TransformNode
 		std::string getName();
-		std::list<std::string> * getChildrenNames();
 		
 		//A TranformNode can have an object attached like a mesh.
 		void attachObject(Mesh * mesh_ptr);
@@ -43,16 +43,12 @@ class TransformNode{
 		TransformNode * getParent();
 		
 		//This metod allows to change the parent in runtime attaching the TranformNode to another parent
-		void changeParent(TransformNode * new_parent,float x,float y,float z);
+		void changeParent(TransformNode * new_parent,Vector3 initial_position = Vector3::ZERO);
 		
 		//This method returns a pointer of a list of pointers of all the children of the TranformNode
 		std::list<TransformNode*> * getChildrenPtr();
 
 		void stampMatrix();
-
-		void rotate(float angle);
-
-		void translate (Vector3 translation);
 		
 		~TransformNode(){delete this;}
 
@@ -66,16 +62,12 @@ class TransformNode{
 		Root that is automatically created by the SceneManager. If you want 
 		to create a node that is child of the Root you have to call the method 
 		getRootTranformNode from the SceneManager.*/
-		TransformNode(const std::string & stringName,float x,float y,float z);
+		TransformNode(const std::string & stringName,Vector3 initial_position = Vector3::ZERO);
 
 		std::list<TransformNode*> child_list;
 		std::string node_name;
-		std::list<std::string> children_names;
 		//Mesh * mesh_attached;
 		std::list<Mesh*> attached_obj;
-		float relative_x;
-		float relative_y;
-		float relative_z;
 		float translate_ratio;
 		void matchNames ( std::string matching_name);
 		void setParent(TransformNode * parent);

@@ -1,12 +1,10 @@
 #include "TransformNode.h"
 #include "SceneManager.h"
 
-TransformNode::TransformNode(const std::string & stringName, float x,float y,float z){
+TransformNode::TransformNode(const std::string & stringName, Vector3 initial_position ){
 
 	node_name = stringName;
-	relative_x = x;
-	relative_y = y;
-	relative_z = z;
+	
 
 	arr[0] = 1 ;
 	arr[1] =0 ;
@@ -27,14 +25,14 @@ TransformNode::TransformNode(const std::string & stringName, float x,float y,flo
 
 }
 
-TransformNode * TransformNode::createChild(const std::string & stringName, float x,float y,float z){
+TransformNode * TransformNode::createChild(const std::string & stringName, Vector3 initial_position ){
 
 	SceneManager * sc_mn = SceneManager::getInstance();
 	sc_mn->getRootTransformNode()->matchNames(stringName);
-	TransformNode * temp_node = new TransformNode(stringName, x,y,z);
+	TransformNode * temp_node = new TransformNode(stringName, initial_position);
 	temp_node->setParent(this);
 	child_list.push_back(temp_node);
-	children_names.push_back(stringName);
+	
 
 	
 	return temp_node;
@@ -46,11 +44,7 @@ std::string TransformNode::getName(){
 	return node_name;
 }
 
-std::list<std::string> * TransformNode::getChildrenNames(){
 
-	
-	return & children_names;
-}
 
 void TransformNode::attachObject(Mesh * mesh_ptr){
 
@@ -140,15 +134,12 @@ std::list<TransformNode*> * TransformNode::getChildrenPtr(){
 
 }
 
-void TransformNode::changeParent(TransformNode * new_parent,float x,float y,float z){
+void TransformNode::changeParent(TransformNode * new_parent,Vector3 initial_position ){
 
 	TransformNode * temp_parent_ptr = this->getParent();
 	new_parent->insertChildInList(this);
 	temp_parent_ptr->deleteChild(this);
-	relative_x = x;
-	relative_y = y;
-	relative_z = z;
-
+	
 
 }
 
@@ -196,21 +187,66 @@ void TransformNode::stampMatrix(){
 
 }
 
-void TransformNode::rotate(float angle){
 
-	arr[0] = cos(angle);
-	arr[2] = -sin(angle);
-	arr[8] = sin(angle);
-	arr[10] = cos(angle);
+const Quaternion& MovableObject::getOrientation() const{
+
+	return global_transform.extractQuaternion();
+}
+
+const Vector3 & MovableObject::getScale() const{
+
+	return global_transform.getScale();
 
 }
 
-void TransformNode::translate(Vector3 translation){
+const Vector3 & MovableObject::getPosition() const{
 
-	arr[12] = translation.x;
-	arr[13] = translation.y;
-	arr[14] = translation.z;
-	//glTranslatef(translation.x,translation.y,translation.z);
+	//global_transform
 	
+	return global_transform.getTrans();
+}
 
+void MovableObject::translate (const Vector3& translation_value, TransformSpace relativeTo){
+	
+	/*global_transform[0][3] 
+	global_transform[1][3]
+	global_transform[2][3]*/
+}
+
+void MovableObject::setPosition(const Vector3& position_value){
+
+	global_transform[0][3] = position_value.x;
+	global_transform[1][3] = position_value.y;
+	global_transform[2][3] = position_value.z;
+
+}
+
+void MovableObject::rotate(const Vector3& axis, const Radian& angle, TransformSpace relativeTo){
+}
+
+void MovableObject::rotate(const Quaternion& rotation_value, TransformSpace relativeTo){
+}
+
+void MovableObject::roll(const Radian& angle, TransformSpace relativeTo ){
+}
+
+void MovableObject::pitch(const Radian& angle, TransformSpace relativeTo ){
+}
+
+void MovableObject::yaw(const Radian& angle, TransformSpace relativeTo ){
+}
+
+void MovableObject::setOrientation(const Quaternion & orientation_value){
+}
+
+void MovableObject::scale(const Vector3& scale_value){
+
+	Vector3 sc = global_transform.getScale() + scale_value;
+	global_transform.setScale(sc);
+
+}
+
+void MovableObject::setScale(const Vector3& scale_value){
+
+	global_transform.setScale(scale_value);
 }
