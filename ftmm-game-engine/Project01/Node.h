@@ -28,7 +28,7 @@ class Node{
 		virtual void attachObject();
 		
 		//This method provides a pointer of a list of pointers of all object attached to the node
-		virtual std::list<void*> * getAttachedObjectPtr();
+		virtual std::list<Mesh*> * getAttachedObjectPtr();
 		
 		/*This method returns a pointer to the parent of the TransformNode. Noticed that the parent of the
 		Root is the same Root*/
@@ -38,7 +38,7 @@ class Node{
 		virtual void changeParent(Node * new_parent);
 		
 		//This method returns a pointer of a list of pointers of all the children of the Node
-		virtual std::list<Node*> * getChildrenPtr();
+		virtual void getChildrenPtr();
 		
 		virtual ~Node(){delete this;}
 
@@ -50,15 +50,9 @@ class Node{
 		the method createChild, since all Nodes are children of a 
 		Root. If you want to create a node that is child of the 
 		Root you have to call the method getRootNode.*/
-		virtual Node(const std::string & stringName);
-
-		virtual std::list<Node*> child_list;
-		virtual std::string node_name;
-		virtual std::list<std::string> children_names;
-		virtual std::list<void*> attached_obj;
+		Node(const std::string & stringName);
 		virtual void matchNames ( std::string matching_name);
 		virtual void setParent(Node * parent);
-		virtual Node * parent_ptr;
 		virtual void deleteChild (Node * child_ptr);
 		virtual void insertChildInList(Node * new_child);
 
