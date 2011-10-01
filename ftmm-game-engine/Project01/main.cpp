@@ -12,8 +12,13 @@
 #include "Mesh.h"
 #include "RootTransformNode.h"
 #include "SceneManager.h"
-//#include "Matrix4.h"
-
+#include <gl\gl.h>                         // Header File For The OpenGL32 Library
+#include <gl\glu.h>                            // Header File For The GLu32 Library
+#include <Windows.h>
+#include <wchar.h>
+#include "Vector4.h"
+#include "Vector3.h"
+#include "Matrix4.h"
 
 /* screen width, height, and bit depth */
 #define SCREEN_WIDTH  640
@@ -41,8 +46,24 @@ Mesh * cube2;
 bool rotateFlagUP = FALSE;
 bool rotateFlagDOWN = FALSE;
 bool rotateFlag = FALSE;
-GLfloat angle = 0.05;
+GLfloat angle = 0.05f;
 
+/*light
+Vector4 v_vertex;
+Vector3 v_normal;
+Vector3 v_light_position;
+Matrix4 mvp_matrix;
+Matrix4 mv_matrix;
+Matrix3 normal_matrix;
+Vector4 v_varying_color;
+Vector3 v_varying_normal;
+Vector3 v_varying_light_dir;
+Vector4 gl_position;
+*/
+float lightAmbient[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+float lightDiffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+float matAmbient[] = { 0.3f, 0.0f, 0.0f, 1.0f };
+float matDiffuse[] = { 0.6f, 0.6f, 0.6f, 1.0f };
 
 
 /* This is our SDL surface */
@@ -60,6 +81,7 @@ void Quit( int returnCode )
 	/* and exit appropriately */
 	exit( returnCode );
 }
+
 
 /* function to reset our viewport after a window resize */
 int resizeWindow( int width, int height )
@@ -95,6 +117,12 @@ int resizeWindow( int width, int height )
 /* general OpenGL initialization function */
 int initGL( GLvoid )
 {
+	sc_mng = SceneManager::getInstance();
+
+    /* Load in the texture */
+	if ( !sc_mng->LoadGLTextures("data/abc.bmp", 0) )
+		return FALSE;
+
 
 	/* Enable smooth shading */
 	glShadeModel( GL_SMOOTH );
@@ -108,6 +136,19 @@ int initGL( GLvoid )
 	/* Enables Depth Testing */
 	glEnable( GL_DEPTH_TEST );
 
+	/* Enables Light */
+	glEnable( GL_LIGHTING);
+	glEnable(GL_LIGHT0);
+
+	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, matAmbient);
+//	glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, matDiffuse);
+	
+	glLightfv(GL_LIGHT0, GL_AMBIENT, lightAmbient);
+//	glLightfv(GL_LIGHT0, GL_DIFFUSE, lightDiffuse);
+
+	/*Enable gouraud shading */
+	glShadeModel(GL_SMOOTH);	
+
 	/* The Type Of Depth Test To Do */
 	glDepthFunc( GL_LEQUAL );
 
@@ -116,14 +157,14 @@ int initGL( GLvoid )
 
 
 	//node1 = new RootTransformNode ("node1",0.0,0.0,0.0);
-	sc_mng = SceneManager::getInstance();
+	
 	node1 = sc_mng->getRootTransformNode()->createChild("node1"); 
 	node2 = node1->createChild("node2");
-	node3 = node2->createChild ("node3",Vector3(0.2,0.0,0.0));
+	node3 = node2->createChild ("node3",Vector3(0.2f,0.0f,0.0f));
 	node4 = node1->createChild("node4");
 	//node1->getOrientation();
-	cube = new Mesh(0.3,1.0,0.0,0.0);
-	cube2 = new Mesh(0.5,0.0,0.0,1.0);
+	cube = new Mesh(0.3f,1.0f,0.0f,0.0f);
+	cube2 = new Mesh(0.5f,0.0f,1.0f,0.0f);
 	node2->attachObject(cube);
 	node3->attachObject(cube2);
 	
@@ -297,7 +338,7 @@ void triangle_tester()
 /* Here goes our drawing code */
 int drawGLScene( GLvoid )
 {
-	
+	 
 	
 /*
 	std::list<TransformNode*> * tn = node1->getChildrenPtr();
@@ -320,11 +361,13 @@ int drawGLScene( GLvoid )
 */
 	
 	if ( translate_ratio > 5){
-		
+
+		//node3->changeParent(node1,0.0,0.0,0.0);
+
 		//node3->changeParent(node1);
 	}
 
-	translate_ratio += 0.1;
+	translate_ratio += 0.1f;
 	/* Clear The Screen And The Depth Buffer */
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 	glLoadIdentity();
@@ -339,7 +382,7 @@ int drawGLScene( GLvoid )
 	pyramidizer(5,5,5);
 	glPopMatrix();*/
 
-	
+	/*
 	glPushMatrix();
 	glBegin(GL_LINES);
 
@@ -358,9 +401,8 @@ int drawGLScene( GLvoid )
 	glEnd();
 
 	glPopMatrix();
+	*/
 	
-	
-
 	//node3->translate (Vector3 (0.5,0.0,-1.0));
 	//node2->rotate(translate_ratio);
 	//node2->scale(Vector3(0.08,0.08,0.08));
@@ -411,6 +453,13 @@ int main( int argc, char **argv )
 	const SDL_VideoInfo *videoInfo;
 
 
+	/*
+	*light */
+	
+
+	
+
+
 	/* initialize SDL */
 	if ( SDL_Init( SDL_INIT_VIDEO ) < 0 )
 	{
@@ -459,6 +508,7 @@ int main( int argc, char **argv )
 		Quit( 1 );
 	}
 
+	
 	/* initialize OpenGL */
 	initGL( );
 
@@ -506,7 +556,7 @@ int main( int argc, char **argv )
 		drawGLScene( );
 	}
 
-	if (done == true){
+	if (done){
 	
 		delete sc_mng;
 	
@@ -522,4 +572,4 @@ int main( int argc, char **argv )
 		std::cout << "error  " << e << std::endl; 
 	
 	}
-}
+};

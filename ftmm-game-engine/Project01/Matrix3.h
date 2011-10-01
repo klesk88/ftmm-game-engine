@@ -44,6 +44,8 @@ class Matrix3
 
 		/** Multiply matrix with scalar */
         Matrix3 operator* (float fScalar) const;
+		/** Multiply matrix whit vector */
+		Vector3 operator* (Vector3 vec) const;
 
         Matrix3 Transpose () const;
         bool Inverse (Matrix3& rkInverse, float fTolerance = 1e-06) const;

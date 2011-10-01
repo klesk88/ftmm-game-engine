@@ -92,3 +92,8 @@ float Vector4::dotProduct(const Vector4& vec) const
 {
 	return x * vec.x + y * vec.y + z * vec.z + w * vec.w;
 }
+
+Vector3 Vector4::xyz() const
+{
+	return Vector3(x,y,z);
+}

@@ -44,6 +44,9 @@ class Matrix4
 		/** Concatenate
 			@note: A * B is not B * A :)	*/
 		Matrix4 operator * (const Matrix4 &m2) const;
+		
+		/** Multiply the Matrix4 with a Vector4 */
+		Vector4 operator * ( const Vector4 & v) const;
 
 		/** Matrix addition.	*/
         Matrix4 operator + ( const Matrix4 &m2 ) const;
@@ -53,6 +56,7 @@ class Matrix4
 
 		/** "Change row with columns" */
 		Matrix4 transpose(void) const;
+
 
 		/*-----------------------------------------------------------------------
         Translation Transformation

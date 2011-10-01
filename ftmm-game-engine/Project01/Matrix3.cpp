@@ -94,6 +94,18 @@ Matrix3 Matrix3::operator* (float fScalar) const
 	return kProd;
 }
 
+Vector3 Matrix3::operator *( const Vector3  v) const
+{
+	Vector3 result = Vector3(0.0,0.0,0.0);
+	
+	result.x = m[0][0] * v.x + m[0][1] * v.y + m[0][2] * v.z;
+	result.x = m[1][0] * v.x + m[1][1] * v.y + m[1][2] * v.z;
+	result.x = m[2][0] * v.x + m[2][1] * v.y + m[2][2] * v.z;
+
+	return result;
+
+}
+
 Matrix3 Matrix3::Transpose () const
 {
 	Matrix3 kTranspose;
