@@ -1,5 +1,6 @@
 #include <assert.h>
 #include <math.h>
+#include "Vector3.h"
 
 #ifndef __Vector4_H__
 #define __Vector4_H__
@@ -61,6 +62,8 @@ class Vector4
 				A float representing the dot product value.		*/
 		float dotProduct(const Vector4& vec) const;
 
+		/** return the x,y,z parametrers */
+		Vector3 xyz () const;
 };
 
 #endif

@@ -20,6 +20,9 @@ class SceneManager{
 		static SceneManager * getInstance ();
 		TransformNode * getRootTransformNode();
 		~SceneManager(){delete this;}
+		//Texture function
+		int LoadGLTextures(char*, int);
+		GLuint getTexture(int);
 
 	protected:
 		SceneManager();
@@ -28,6 +31,9 @@ class SceneManager{
 	private:
 
 		static SceneManager * p_instance;
+		/*texture*/
+		static const int size = 1;
+		GLuint texture[size];
 
 
 };
