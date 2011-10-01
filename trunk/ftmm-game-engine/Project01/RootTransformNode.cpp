@@ -3,6 +3,9 @@
 
 RootTransformNode::RootTransformNode(const std::string & stringName,Vector3 initial_position ) : TransformNode(stringName,initial_position){
 
+	node_name = stringName;
+	global_transform = Matrix4::IDENTITY;
+	
 	arr[0] = 1 ;
 	arr[1] =0 ;
 	arr[2] = 0;

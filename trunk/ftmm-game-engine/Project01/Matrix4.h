@@ -101,6 +101,8 @@ class Matrix4
 		return Quaternion(m3x3);
 		}
 
+		void fromMatrix3( const Matrix3& mt3 );
+
 		
 
 };

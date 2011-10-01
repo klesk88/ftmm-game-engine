@@ -1,9 +1,13 @@
+#ifndef __Matrix3_H__
+#define __Matrix3_H__
+
+
 #include "Vector3.h"
 #include "Math.h"
 //#include "Matrix4.h"
+//#include "Matrix4.h"
 
-#ifndef __Matrix3_H__
-#define __Matrix3_H__
+
 
 class Matrix3
 {
