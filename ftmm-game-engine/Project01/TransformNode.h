@@ -15,6 +15,7 @@
 #include "Vector3.h"
 #include "Node.h"
 #include "MovableObject.h"
+#include "Matrix3.h"
 
 
 class TransformNode : public MovableObject{
@@ -49,6 +50,21 @@ class TransformNode : public MovableObject{
 		std::list<TransformNode*> * getChildrenPtr();
 
 		void stampMatrix();
+
+
+		const Quaternion & getOrientation()  ;
+		const Vector3 & getScale() ;
+		const Vector3 & getPosition() ;
+		void translate (const Vector3& translation_value, TransformSpace relativeTo);
+		void setPosition(const Vector3& position_value);
+		void rotate(const Vector3& axis, const Radian& angle, TransformSpace relativeTo);
+		void rotate(const Quaternion& rotation_value, TransformSpace relativeTo);
+		void roll(const Radian& angle, TransformSpace relativeTo = TS_LOCAL);
+        void pitch(const Radian& angle, TransformSpace relativeTo = TS_LOCAL);
+        void yaw(const Radian& angle, TransformSpace relativeTo = TS_LOCAL);
+		void setOrientation(const Quaternion & orientation_value);
+		void scale(const Vector3& scale_value);
+		void setScale(const Vector3& scale_value);
 		
 		~TransformNode(){delete this;}
 
@@ -68,15 +84,18 @@ class TransformNode : public MovableObject{
 		std::string node_name;
 		//Mesh * mesh_attached;
 		std::list<Mesh*> attached_obj;
-		float translate_ratio;
+		//float translate_ratio;
 		void matchNames ( std::string matching_name);
 		void setParent(TransformNode * parent);
 		TransformNode * parent_ptr;
 		void deleteChild (TransformNode * child_ptr);
 		void insertChildInList(TransformNode * new_child);
+		Matrix4 global_transform;
 		GLfloat arr[16];
 		GLfloat arr2[16];
-		
+		Matrix4 getParentTransform() ;
+		void convertMatrixToFloat();
+		void convertFloatToMatrix();
 
 
 

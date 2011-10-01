@@ -1,5 +1,4 @@
-#ifndef __MovableObject_H__
-#define __MovableObject_H__
+
 
 #pragma once
 
@@ -33,28 +32,27 @@ class MovableObject{
             TS_WORLD
         };
 		
-		virtual const Quaternion & getOrientation() const;
-		virtual const Vector3 & getScale() const;
-		virtual const Vector3 & getPosition() const;
-		virtual void translate (const Vector3& translation_value, TransformSpace relativeTo);
-		virtual void setPosition(const Vector3& position_value);
-		virtual void rotate(const Vector3& axis, const Radian& angle, TransformSpace relativeTo);
-		virtual void rotate(const Quaternion& rotation_value, TransformSpace relativeTo);
-		virtual void roll(const Radian& angle, TransformSpace relativeTo = TS_LOCAL);
-        virtual void pitch(const Radian& angle, TransformSpace relativeTo = TS_LOCAL);
-        virtual void yaw(const Radian& angle, TransformSpace relativeTo = TS_LOCAL);
-		virtual void setOrientation(const Quaternion & orientation_value);
-		virtual void scale(const Vector3& scale_value);
-		virtual void setScale(const Vector3& scale_value);
+		virtual const Quaternion & getOrientation() = 0 ;
+		virtual const Vector3 & getScale()  = 0 ;
+		virtual const Vector3 & getPosition()  = 0 ;
+		virtual void translate (const Vector3& translation_value, TransformSpace relativeTo) = 0 ;
+		virtual void setPosition(const Vector3& position_value) = 0 ;
+		virtual void rotate(const Vector3& axis, const Radian& angle, TransformSpace relativeTo) = 0 ;
+		virtual void rotate(const Quaternion& rotation_value, TransformSpace relativeTo) = 0 ;
+		virtual void roll(const Radian& angle, TransformSpace relativeTo = TS_LOCAL) = 0 ;
+        virtual void pitch(const Radian& angle, TransformSpace relativeTo = TS_LOCAL) = 0 ;
+        virtual void yaw(const Radian& angle, TransformSpace relativeTo = TS_LOCAL) = 0 ;
+		virtual void setOrientation(const Quaternion & orientation_value) = 0 ;
+		virtual void scale(const Vector3& scale_value) = 0 ;
+		virtual void setScale(const Vector3& scale_value) = 0 ;
 		
 		
 
-	protected:
 
-		Matrix4 global_transform;
+
+		
 
 
 
 };
 
-#endif

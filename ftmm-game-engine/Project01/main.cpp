@@ -321,15 +321,16 @@ int drawGLScene( GLvoid )
 	
 	if ( translate_ratio > 5){
 		
-		node3->changeParent(node1);
+		//node3->changeParent(node1);
 	}
 
 	translate_ratio += 0.1;
 	/* Clear The Screen And The Depth Buffer */
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 	glLoadIdentity();
-	glTranslatef(0.0,0.0,-3.0);
 	
+	glRotatef(-40,0.0,1.0,0.0);
+	glTranslatef(-1.5,0.0,-3.0);
 	//gluLookAt(0.0,1.0,3.0,0.0,0.0,0.0,0.0,1.0,0.0);
 	
 	/*glPushMatrix();
@@ -362,9 +363,11 @@ int drawGLScene( GLvoid )
 
 	//node3->translate (Vector3 (0.5,0.0,-1.0));
 	//node2->rotate(translate_ratio);
-	
-
-	node1->updateNode();
+	//node2->scale(Vector3(0.08,0.08,0.08));
+	node3->setPosition(Vector3(0.5,0.0,0.0));
+	//node2->translate(Vector3(0.0,0.0,0.002),TransformNode::TransformSpace::TS_WORLD);
+	node2->stampMatrix();
+	sc_mng->getRootTransformNode()->updateNode();
 	//sc_mng->getRootTransformNode()->updateNode();
 	//node1->stampMatrix();
 	

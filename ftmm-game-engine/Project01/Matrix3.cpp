@@ -708,14 +708,16 @@ float Matrix3::Determinant () const
 
         *this = kZMat*(kYMat*kXMat);
     }
+
+	
 	
 	
 
-	const float EPSILON = 1e-06;
-	const Matrix3 ZERO(0,0,0,0,0,0,0,0,0);
-	const Matrix3 IDENTITY(1,0,0,0,1,0,0,0,1);
-	const float ms_fSvdEpsilon = 1e-04;
-	const unsigned int ms_iSvdMaxIterations = 32;
+	const float Matrix3::EPSILON = 1e-06;
+	const Matrix3 Matrix3::ZERO(0,0,0,0,0,0,0,0,0);
+	const Matrix3 Matrix3::IDENTITY(1,0,0,0,1,0,0,0,1);
+	const float Matrix3::ms_fSvdEpsilon = 1e-04;
+	const unsigned int Matrix3::ms_iSvdMaxIterations = 32;
 	/*
 float Matrix3::InvSqrt(float x){
    float xhalf=.5f*x;
