@@ -18,7 +18,7 @@ void GameLoop::gameLoop(){
 		const int TICKS_PER_SECOND = base_fps;
 		const int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
 		const int MAX_FRAMESKIP = low_fps;
-		UpdatableListener* update = new UpdatableListener();
+		UpdatableListener<int>* update = nullptr;//YOU MUST INSERT IN THE BRACKETS THE TYPE OF OBJECT YOU WANT FOR EXAMPLE INT
 		FrameListener* frame = new FrameListener();
 	    DWORD next_game_tick = SDL_GetTicks();//see what getticks return!!!!!!!!!!!!!!!!!!!
 		int loops;
