@@ -3,6 +3,9 @@
 #include "UpdatableListener.h";
 #include "FrameListener.h";
 #include "EventHandler.h"
+#include "SDL.h";
+#include "SDL_opengl.h";
+#include <windows.h>;
 
 class GameLoop{
 public:

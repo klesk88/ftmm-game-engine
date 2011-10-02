@@ -40,7 +40,4 @@ public:
 		*/
 		void setInitialClock(double clock);
 
-
-		
-
 };

@@ -1,26 +1,29 @@
 #include "UpdatableListener.h";
 
-void UpdatableListener::addUpdatableObject(GameObject* game_obj){
+template <class T>
+void UpdatableListener<T>::addUpdatableObject(T* game_obj){
 	
 		list_of_game_object.push_back(game_obj);//add the gameobject to the end of the list 
 	}
 
-void UpdatableListener::removeObject(GameObject* game_obj){
+template <class T>
+void UpdatableListener<T>::removeObject(T* game_obj){
 	
-		list<GameObject*>::iterator i;
+		list<T*>::iterator i;
 
 		for(i=list_of_game_object.begin(); i!=list_of_game_object.end();i++){
 		
 			if(i==game_obj){//when i found the element to remove i remove it and terminate the cycle
-				list_of_game_object.erase(i);
+				list_of_game_object.remove(i);
 				break;
 			}
 		}
 	}
 
-void UpdatableListener::notifyObjects(){
+template <class T>
+void UpdatableListener<T>::notifyObjects(){
 	
-		list<GameObject*>::iterator ;
+		list<T*>::iterator ;
 		EventHandler eh;
 		list<Event*>::iterator ev;
 

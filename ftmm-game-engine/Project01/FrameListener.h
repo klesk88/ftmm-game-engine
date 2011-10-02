@@ -12,9 +12,9 @@
 class FrameListener{
 public:
 	virtual bool frameStarted()
-		  { (void)ev; return true; };
+		  {  return true; };
 	virtual bool frameEnded()
-		  { (void)ev; return true; };
+		  {  return true; };
 };
 
 #endif

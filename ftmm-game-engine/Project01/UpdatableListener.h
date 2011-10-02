@@ -5,15 +5,16 @@
 //#include "GameObject.h"; 
 using namespace std;
 
-;
+//this class must cbe changed. We don't use template but GameObjects. It's like that only for debug puropose and only until we don't have the right objects
+
+template <class T>
 class UpdatableListener{
 private:
-	list<GameObject*> list_of_game_object;//list containing all the game objects connected with this frame listener
+	list<T*> list_of_game_object;//list containing all the game objects connected with this frame listener
 
 public:
-
-	void addUpdatableObject(GameObject* game_obj);
-	void removeObject(GameObject* game_obj);
+	void addUpdatableObject(T* game_obj);
+	void removeObject(T* game_obj);
 	void notifyObjects();
 
 };
