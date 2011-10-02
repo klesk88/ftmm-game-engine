@@ -1,8 +1,6 @@
 #pragma once
-#include "SDL.h";
-#include "SDL_opengl.h";
 #include "GameLoop.h";
-#include <windows.h>;
+
 
 
 GameLoop::GameLoop(const int base,const int low):base_fps(base),low_fps(low)
@@ -22,7 +20,7 @@ void GameLoop::gameLoop(){
 		const int MAX_FRAMESKIP = low_fps;
 		UpdatableListener* update = new UpdatableListener();
 		FrameListener* frame = new FrameListener();
-	    DWORD next_game_tick = SDL_GetTicks();//see what hetticks return!!!!!!!!!!!!!!!!!!!
+	    DWORD next_game_tick = SDL_GetTicks();//see what getticks return!!!!!!!!!!!!!!!!!!!
 		int loops;
 
 		while(game_is_run) {
@@ -45,4 +43,4 @@ void GameLoop::gameLoop(){
 		 }
 	}
 
-};
+

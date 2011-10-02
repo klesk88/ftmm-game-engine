@@ -73,7 +73,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="EventHandler.cpp" />
-    <ClCompile Include="Events.cpp" />
+    <ClCompile Include="Event.cpp" />
     <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
@@ -93,7 +93,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="EventHandler.h" />
-    <ClInclude Include="Events.h" />
+    <ClInclude Include="Event.h" />
     <ClInclude Include="FrameListener.h" />
     <ClInclude Include="GameLoop.h" />
     <ClInclude Include="Light.h" />

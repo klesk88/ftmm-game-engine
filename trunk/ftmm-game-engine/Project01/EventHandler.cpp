@@ -1,7 +1,8 @@
 #include "EventHandler.h";
-;
 
-void EventHandler::addEvents(Event& ev){
+
+
+void EventHandler::addEvents(Event* ev){
 	
 		list_of_events.push_back(ev);//add an event to the end of the list 
 	}
