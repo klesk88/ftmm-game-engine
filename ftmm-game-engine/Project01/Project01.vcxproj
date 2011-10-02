@@ -41,8 +41,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Documents and Settings\tgei\Desktop\SDL-1.2.14\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Documents and Settings\tgei\Desktop\SDL-1.2.14\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>D:\SDL-1.2.14\include;$(IncludePath)</IncludePath>
+    <LibraryPath>D:\SDL-1.2.14\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
