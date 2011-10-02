@@ -61,7 +61,7 @@ void TransformNode::updateNode(){
 	glPushMatrix();
 	this->convertMatrixToFloat();
 	glMultMatrixf(arr);
-	//glGetFloatv(GL_MODELVIEW_MATRIX,arr2);
+	glGetFloatv(GL_MODELVIEW_MATRIX,arr2);
 	//global_transform = Matrix4::IDENTITY;
 	//this->convertFloatToMatrix();
 
@@ -290,6 +290,8 @@ void TransformNode::rotate(const Quaternion& rotation_value, TransformSpace rela
             // Rotations are normally relative to local axes, transform up
 			qnorm.ToRotationMatrix(temp_mt3);
 			temp_mt4.fromMatrix3(temp_mt3);
+			temp_mt4[0][0] = -temp_mt4[0][0];
+			temp_mt4[2][2] = -temp_mt4[2][2];
 			global_transform = temp_mt4 * global_transform;
         
             break;
@@ -301,6 +303,8 @@ void TransformNode::rotate(const Quaternion& rotation_value, TransformSpace rela
 			temp_quat = global_transform.extractQuaternion() * this->getParentTransform().extractQuaternion().Inverse() * qnorm * this->getParentTransform().extractQuaternion();
 			temp_quat.ToRotationMatrix(temp_mt3);
 			temp_mt4.fromMatrix3(temp_mt3);
+			temp_mt4[0][0] = -temp_mt4[0][0];
+			temp_mt4[2][2] = -temp_mt4[2][2];
 			global_transform = global_transform * temp_mt4;
 			
             break;
@@ -310,6 +314,8 @@ void TransformNode::rotate(const Quaternion& rotation_value, TransformSpace rela
             // Note the order of the mult, i.e. q comes after
 			qnorm.ToRotationMatrix(temp_mt3);
 			temp_mt4.fromMatrix3(temp_mt3);
+			temp_mt4[0][0] = -temp_mt4[0][0];
+			temp_mt4[2][2] = -temp_mt4[2][2];
 			global_transform = global_transform * temp_mt4 ;
            
             break;
@@ -339,9 +345,15 @@ void TransformNode::setOrientation(const Quaternion & orientation_value){
 	q.normalise();
 	Matrix3 temp_mt3 = Matrix3::IDENTITY;
 	Matrix4 temp_mt4 = Matrix4::IDENTITY;
+	Vector3 vt3 = global_transform.getScale();
+	temp_mt4[0][0] = temp_mt4[0][0] * vt3.x;
+	temp_mt4[1][1] = temp_mt4[1][1] * vt3.y;
+	temp_mt4[2][2] = temp_mt4[2][2] * vt3.z;
 	q.ToRotationMatrix(temp_mt3);
 	temp_mt4.fromMatrix3(temp_mt3);
-	temp_mt4.setScale(global_transform.getScale());
+	//temp_mt4[0][0] = -temp_mt4[0][0];
+	//temp_mt4[2][2] = -temp_mt4[2][2];
+	//temp_mt4.setScale(global_transform.getScale());
 	temp_mt4.setTrans(global_transform.getTrans());
 	global_transform = temp_mt4;
 
@@ -365,7 +377,7 @@ Matrix4 TransformNode::getParentTransform() {
 	Matrix4 mt4 = global_transform;
 	TransformNode * temp_parent = this->getParent();
 
-	while (temp_parent->getName() == "root"){
+	while (temp_parent->getName() != "Root"){
 	
 		mt4 = temp_parent->global_transform * mt4;
 		temp_parent = temp_parent->getParent();
