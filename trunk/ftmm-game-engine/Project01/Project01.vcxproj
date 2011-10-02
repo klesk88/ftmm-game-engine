@@ -72,8 +72,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\..\..\Desktop\Events.cpp" />
     <ClCompile Include="EventHandler.cpp" />
+    <ClCompile Include="Events.cpp" />
     <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
@@ -92,8 +92,8 @@
     <ClCompile Include="Vector4.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\..\..\Desktop\Events.h" />
     <ClInclude Include="EventHandler.h" />
+    <ClInclude Include="Events.h" />
     <ClInclude Include="FrameListener.h" />
     <ClInclude Include="GameLoop.h" />
     <ClInclude Include="Light.h" />
