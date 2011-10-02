@@ -34,6 +34,7 @@ TransformNode * node1 ;
 TransformNode * node4 ;
 TransformNode * node2 ;
 TransformNode * node3 ;
+TransformNode * node5 ;
 SceneManager * sc_mng;
 float translate_ratio = 0.0;
 GLfloat arr_cube[16];
@@ -161,14 +162,20 @@ int initGL( GLvoid )
 	node1 = sc_mng->getRootTransformNode()->createChild("node1"); 
 	node2 = node1->createChild("node2");
 	node3 = node2->createChild ("node3",Vector3(0.2f,0.0f,0.0f));
-	node4 = node1->createChild("node4");
+	node4 = node3->createChild("node4");
+	node5 = sc_mng->getRootTransformNode()->createChild("node5"); 
 	//node1->getOrientation();
-	cube = new Mesh(0.3f,1.0f,0.0f,0.0f);
-	cube2 = new Mesh(0.5f,0.0f,1.0f,0.0f);
+
+	cube = new Mesh(0.4,1.0,0.0,0.0);
+	cube2 = new Mesh(0.3,0.0,0.0,1.0);
+	Mesh * cube3 = new Mesh(0.2,0.0,1.0,0.0);
+	Mesh * cube4 = new Mesh(0.3,0.5,0.0,0.5);
+
 	node2->attachObject(cube);
 	node3->attachObject(cube2);
-	
-
+	node4->attachObject(cube3);
+	node5->attachObject(cube4);
+	node2->setOrientation(Quaternion(12,0.0,0.0,1.0));
 
 	arr_cube[0] = 1 ;
 	arr_cube[1] =0 ;
@@ -371,9 +378,8 @@ int drawGLScene( GLvoid )
 	/* Clear The Screen And The Depth Buffer */
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
 	glLoadIdentity();
-	
-	glRotatef(-40,0.0,1.0,0.0);
-	glTranslatef(-1.5,0.0,-3.0);
+	//glRotatef(180,0.0,1.0,0.0);
+	glTranslatef(0.0,0.0,-3.0);
 	//gluLookAt(0.0,1.0,3.0,0.0,0.0,0.0,0.0,1.0,0.0);
 	
 	/*glPushMatrix();
@@ -399,16 +405,24 @@ int drawGLScene( GLvoid )
 	glVertex3f(100000.0f, 0.0f, 0.0f); // ending point of the line
 
 	glEnd();
-
+	
 	glPopMatrix();
 	*/
 	
 	//node3->translate (Vector3 (0.5,0.0,-1.0));
 	//node2->rotate(translate_ratio);
 	//node2->scale(Vector3(0.08,0.08,0.08));
-	node3->setPosition(Vector3(0.5,0.0,0.0));
-	//node2->translate(Vector3(0.0,0.0,0.002),TransformNode::TransformSpace::TS_WORLD);
-	node2->stampMatrix();
+	node3->setPosition(Vector3(1.2,0.0,0.0));
+	node4->setPosition(Vector3(0.8,0.0,0.0));
+	//node2->translate(Vector3(0.002,0.0,0.0),TransformNode::TransformSpace::TS_WORLD);
+	//node2->stampMatrix();
+	
+	node2->rotate(Quaternion(0.0003,0.0,1.0,0.0),MovableObject::TS_PARENT);
+	node3->rotate(Quaternion(0.0003,0.0,1.0,0.0),MovableObject::TS_PARENT);
+	node5->setPosition(Vector3(1.2,0.0,0.0));
+	node5->setOrientation(Quaternion(node4->getOrientation()));
+	
+	//node3->setOrientation(Quaternion(45,0.0,1.0,0.0));
 	sc_mng->getRootTransformNode()->updateNode();
 	//sc_mng->getRootTransformNode()->updateNode();
 	//node1->stampMatrix();
