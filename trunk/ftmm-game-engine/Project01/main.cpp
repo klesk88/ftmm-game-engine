@@ -19,6 +19,7 @@
 #include "Vector4.h"
 #include "Vector3.h"
 #include "Matrix4.h"
+#include "Vector2.h"
 
 /* screen width, height, and bit depth */
 #define SCREEN_WIDTH  640
@@ -42,7 +43,10 @@ GLfloat arr_cube2[16];
 GLfloat stam_arr[16];
 Mesh * cube ;
 Mesh * cube2;
-
+Camera * cam;
+SDL_Event keyevent;
+Vector2 pos = Vector2(0.0,0.0);
+int posx, posy;
 
 bool rotateFlagUP = FALSE;
 bool rotateFlagDOWN = FALSE;
@@ -159,6 +163,7 @@ int initGL( GLvoid )
 
 	//node1 = new RootTransformNode ("node1",0.0,0.0,0.0);
 	
+	cam = sc_mng->createCamera("camera1");
 	node1 = sc_mng->getRootTransformNode()->createChild("node1"); 
 	node2 = node1->createChild("node2");
 	node3 = node2->createChild ("node3",Vector3(0.2f,0.0f,0.0f));
@@ -347,48 +352,35 @@ int drawGLScene( GLvoid )
 {
 	 
 	
-/*
-	std::list<TransformNode*> * tn = node1->getChildrenPtr();
-
-	if(tn->size()!= 0){
-
-		std::list<TransformNode*>::iterator it3;
-		for (it3 = tn->begin(); it3!= tn->end(); ++it3){
-		
-			std::cout << (**it3).getName()<< std::endl;
-	
-		}
-	}
-	else{
-	
-		std::cout << "non ha figli"<< std::endl;
-
-
-	}
-*/
-	
+	/*
 	if ( translate_ratio > 5){
 
 		//node3->changeParent(node1,0.0,0.0,0.0);
 
 		//node3->changeParent(node1);
 	}
+	*/
 
-	translate_ratio += 0.1f;
+	//translate_ratio += 0.1f;
+
 	/* Clear The Screen And The Depth Buffer */
-	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-	glLoadIdentity();
+	
+	 glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+
+	//glLoadIdentity();
 	//glRotatef(180,0.0,1.0,0.0);
-	glTranslatef(0.0,0.0,-3.0);
+	//glTranslatef(0.0,0.0,-3.0);
 	//gluLookAt(0.0,1.0,3.0,0.0,0.0,0.0,0.0,1.0,0.0);
 	
+	//cam->setPosition(Vector3(0.0,0.0,-3.0));
+
 	/*glPushMatrix();
 	glTranslatef(translate_ratio/5,0.0,0.0);
 	//glRotatef(translate_ratio * 10000,1.0,0.0,0.0);
 	pyramidizer(5,5,5);
 	glPopMatrix();*/
 
-	/*
+	
 	glPushMatrix();
 	glBegin(GL_LINES);
 
@@ -407,8 +399,22 @@ int drawGLScene( GLvoid )
 	glEnd();
 	
 	glPopMatrix();
-	*/
 	
+	
+	
+	if(keyevent.type == SDL_KEYDOWN){
+	
+		if(keyevent.key.keysym.sym == SDLK_w){
+
+			cam->translate(Vector3(0.0,0.0,0.02),MovableObject::TS_LOCAL);
+	
+		}
+	
+		if(keyevent.key.keysym.sym == SDLK_s){
+
+			cam->translate(Vector3(0.0,0.0,-0.02),MovableObject::TS_LOCAL);
+		}
+	}
 	//node3->translate (Vector3 (0.5,0.0,-1.0));
 	//node2->rotate(translate_ratio);
 	//node2->scale(Vector3(0.08,0.08,0.08));
@@ -416,14 +422,16 @@ int drawGLScene( GLvoid )
 	node4->setPosition(Vector3(0.8,0.0,0.0));
 	//node2->translate(Vector3(0.002,0.0,0.0),TransformNode::TransformSpace::TS_WORLD);
 	//node2->stampMatrix();
-	
 	node2->rotate(Quaternion(0.0003,0.0,1.0,0.0),MovableObject::TS_PARENT);
 	node3->rotate(Quaternion(0.0003,0.0,1.0,0.0),MovableObject::TS_PARENT);
 	node5->setPosition(Vector3(1.2,0.0,0.0));
 	node5->setOrientation(Quaternion(node4->getOrientation()));
 	
+	
+	sc_mng->renderScene();
+	
 	//node3->setOrientation(Quaternion(45,0.0,1.0,0.0));
-	sc_mng->getRootTransformNode()->updateNode();
+	//sc_mng->getRootTransformNode()->updateNode();
 	//sc_mng->getRootTransformNode()->updateNode();
 	//node1->stampMatrix();
 	
@@ -434,11 +442,6 @@ int drawGLScene( GLvoid )
 	//GLfloat pass[3] = {mesh_01->get_translation(0)+movecam, mesh_01->get_translation(1), mesh_01->get_translation(2)};
 
 	
-
-	//	Testing basic vector operations
-	//	Vector3 bla(3,4,5);
-	//	cout << "3 =" << bla[0] << endl;
-
 	
 	
 	/* Draw it to the screen */
@@ -534,26 +537,26 @@ int main( int argc, char **argv )
 	{
 		/* handle the events in the queue */
 
-		while ( SDL_PollEvent( &event ) )
+		while ( SDL_PollEvent( &keyevent ) )
 		{
-			switch( event.type )
+			switch( keyevent.type )
 			{
 			  
 			case SDL_VIDEORESIZE:
 				/* handle resize event */
-				surface = SDL_SetVideoMode( event.resize.w,
-							event.resize.h,
+				surface = SDL_SetVideoMode( keyevent.resize.w,
+							keyevent.resize.h,
 							16, videoFlags );
 				if ( !surface )
 				{
 					fprintf( stderr, "Could not get a surface after resize: %s\n", SDL_GetError( ) );
 					Quit( 1 );
 				}
-				resizeWindow( event.resize.w, event.resize.h );
+				resizeWindow( keyevent.resize.w, keyevent.resize.h );
 				break;
 			case SDL_KEYDOWN:
 				/* handle key presses */
-				handleKeyPress( &event.key.keysym );
+				handleKeyPress( &keyevent.key.keysym );
 				break;
 			case SDL_QUIT:
 				/* handle quit requests */

@@ -74,3 +74,26 @@ GLuint SceneManager::getTexture(int i)
 	else
 		return NULL;
 }
+
+Camera * SceneManager::createCamera(const std::string  & stringName){
+
+
+	Camera * cam = new Camera (stringName);
+	camera_list.push_back(cam);
+
+	return cam;
+
+}
+
+void SceneManager::renderScene(){
+
+	std::list<Camera*>::iterator cam_it;
+
+	for ( cam_it = camera_list.begin(); cam_it != camera_list.end(); ++cam_it){
+	
+		(**cam_it).updateCamera();
+		this->getRootTransformNode()->updateNode();
+
+	}
+
+}

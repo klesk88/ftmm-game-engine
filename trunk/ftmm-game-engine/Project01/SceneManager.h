@@ -12,6 +12,7 @@
 #include <string>
 #include "Mesh.h"
 #include "RootTransformNode.h"
+#include "Camera.h"
 
 class SceneManager{
 
@@ -19,6 +20,8 @@ class SceneManager{
 
 		static SceneManager * getInstance ();
 		TransformNode * getRootTransformNode();
+		Camera * createCamera(const std::string  & stringName);
+		void renderScene();
 		~SceneManager(){delete this;}
 		//Texture function
 		int LoadGLTextures(char*, int);
@@ -27,6 +30,7 @@ class SceneManager{
 	protected:
 		SceneManager();
 		TransformNode * root_ptr;
+		std::list <Camera*> camera_list;
 
 	private:
 
