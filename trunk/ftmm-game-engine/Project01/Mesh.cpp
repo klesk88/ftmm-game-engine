@@ -18,16 +18,16 @@ void Mesh::drawCube(){
 
 	glBegin(GL_QUADS);
 	
-	glColor3f(1.0,1.0,1.0);
-	glTexCoord2f( 0.0f, 0.0f );
+	glColor3f(red,green,blue);
+	glTexCoord2f( 0.1f, 0.1f );
 	glVertex3f(size_p/2,size_p/2,size_p/2);
 	
-	glTexCoord2f( 1.0f, 0.0f );
+	glTexCoord2f( 0.9f, 0.1f );
 	glVertex3f(-size_p/2,size_p/2,size_p/2);
 	
-	glTexCoord2f( 1.0f, 1.0f );
+	glTexCoord2f( 0.9f, 0.9f );
 	glVertex3f(-size_p/2,-size_p/2,size_p/2);
-	glTexCoord2f( 0.0f, 1.0f );
+	glTexCoord2f( 0.1f, 0.9f );
 	
 	glVertex3f(size_p/2,-size_p/2,size_p/2);
 
@@ -52,25 +52,34 @@ void Mesh::drawCube(){
 
 
 	//glColor3f(1.0,1.0,1.0);
+	glDisable( GL_TEXTURE_2D );
+	//glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
 
-	glTexEnvi(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_REPLACE);
-	glColor3f(1.0,1.0,1.0);
-
+	glTexCoord2f( 0.0f, 0.0f );
 	glVertex3f(size_p/2,size_p/2,-size_p/2);
+	glTexCoord2f( 1.0f, 0.0f );
 	glVertex3f(size_p/2,size_p/2,size_p/2);
+	glTexCoord2f( 1.0f, 1.0f );
 	glVertex3f(size_p/2,-size_p/2,size_p/2);
+	glTexCoord2f( 0.0f, 1.0f );
 	glVertex3f(size_p/2,-size_p/2,-size_p/2);
 
-	//glColor3f(red,green,blue);
+	glTexCoord2f( 0.0f, 0.0f );
 	glVertex3f(size_p/2,size_p/2,size_p/2);
+	glTexCoord2f( 1.0f, 0.0f );
 	glVertex3f(-size_p/2,size_p/2,size_p/2);
+	glTexCoord2f( 1.0f, 1.0f );
 	glVertex3f(-size_p/2,size_p/2,-size_p/2);
+	glTexCoord2f( 0.0f, 1.0f );
 	glVertex3f(size_p/2,size_p/2,-size_p/2);
 
-	
+	glTexCoord2f( 0.0f, 0.0f );
 	glVertex3f(size_p/2,-size_p/2,size_p/2);
+	glTexCoord2f( 1.0f, 0.0f );
 	glVertex3f(-size_p/2,-size_p/2,size_p/2);
+	glTexCoord2f( 1.0f, 1.0f );
 	glVertex3f(-size_p/2,-size_p/2,-size_p/2);
+	glTexCoord2f( 0.0f, 1.0f );
 	glVertex3f(size_p/2,-size_p/2,-size_p/2);
 	
 	
