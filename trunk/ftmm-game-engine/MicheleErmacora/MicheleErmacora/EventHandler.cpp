@@ -83,15 +83,15 @@ std::vector<Event*>::iterator EventHandler::returnPhysicsStartPointer(){
 
 std::vector<Event*>::iterator EventHandler::returnAiEndPointer(){
 
-	return physics-1;
+	return vector_of_events->end();
 }
 
 std::vector<Event*>::iterator EventHandler::returnPhysicsEndPointer(){
 
-	return vector_of_events->end();
+	return ai-1;
 }
 
 std::vector<Event*>::iterator EventHandler::returnInputEndPointer(){
 
-	return ai-1;
+	return physics-1;
 }
