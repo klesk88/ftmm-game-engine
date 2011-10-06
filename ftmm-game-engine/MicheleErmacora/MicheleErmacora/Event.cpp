@@ -2,8 +2,10 @@
 
 Event::Event(){
 
+	name="";
 	cycles=1;
 	milliseconds=1;
+	priority=0;
 }
 
 void Event::updateCycles(){
@@ -22,7 +24,12 @@ void Event::setInitialClock(clock_t clo){
 	tick = clock();
 }
 
-void Event::setInitialTime(int time){
+void Event::setInitialTime(DWORD time){
 	milliseconds = time; 
 	start=SDL_GetTicks();
+}
+
+void Event::setPriority(int priority){
+
+	this->priority=priority;
 }
