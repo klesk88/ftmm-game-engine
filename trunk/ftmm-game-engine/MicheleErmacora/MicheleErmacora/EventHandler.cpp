@@ -17,22 +17,22 @@ void EventHandler::addEvents(Event* ev){
 	
 
 	//if(std::type_info.name(ev=="")
-		vector_of_events->insert(returnIndex(input,ai,ev->priority),ev);
+	vector_of_events->insert(returnIndex(input,ai,ev->getPriority()),ev);
 		//increment the iterator pointing to the position of the other 2 events
 		physics++;
 		ai++;
 	//if(std::type_info.name(ev=="")
-		vector_of_events->insert(returnIndex(ai,physics,ev->priority),ev);
+		vector_of_events->insert(returnIndex(ai,physics,ev->getPriority()),ev);
 		ai++;
 	//if(std::type_info.name(ev=="")
-		vector_of_events->insert(returnIndex(physics,vector_of_events->end(),ev->priority),ev);
+		vector_of_events->insert(returnIndex(physics,vector_of_events->end(),ev->getPriority()),ev);
 }
 
 std::vector<Event*>::iterator EventHandler::returnIndex(std::vector<Event*>::iterator begin,std::vector<Event*>::iterator end,int priority){
 	std::vector<Event*>::iterator i;
 
 	for(i=begin; i!=end;i++){
-		if(priority>(*i)->priority)//if the priority of the event is greater then the priority off the first member of the vector
+		if(priority>(*i)->getPriority())//if the priority of the event is greater then the priority off the first member of the vector
 		{	
 			
 			return i;
@@ -44,7 +44,7 @@ std::vector<Event*>::iterator EventHandler::returnIndex(std::vector<Event*>::ite
 				have the same priority, so that means all the lements from now on have the same priority, 
 				put the element in the end.
 			*/
-			if(priority==(*i)->priority && priority==(*(end-1))->priority)
+			if(priority==(*i)->getPriority() && priority==(*(end-1))->getPriority())
 			{
 				return i;
 			}

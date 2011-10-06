@@ -2,7 +2,6 @@
 
 Event::Event(){
 
-	name="";
 	cycles=1;
 	milliseconds=1;
 	priority=0;
@@ -32,4 +31,9 @@ void Event::setInitialTime(DWORD time){
 void Event::setPriority(int priority){
 
 	this->priority=priority;
+}
+
+int Event::getPriority(){
+
+	return priority;
 }
