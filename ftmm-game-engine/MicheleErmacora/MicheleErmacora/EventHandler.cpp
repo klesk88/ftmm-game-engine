@@ -21,11 +21,15 @@ void EventHandler::addEvents(Event* ev){
 		//increment the iterator pointing to the position of the other 2 events
 		physics++;
 		ai++;
+		ev->setStartEndIndex(vector_of_events->begin(),physics-1);
+
 	//if(std::type_info.name(ev=="")
 		vector_of_events->insert(returnIndex(ai,physics,ev->getPriority()),ev);
 		ai++;
+		ev->setStartEndIndex(physics,ai-1);
 	//if(std::type_info.name(ev=="")
 		vector_of_events->insert(returnIndex(physics,vector_of_events->end(),ev->getPriority()),ev);
+		ev->setStartEndIndex(ai,vector_of_events->end());
 }
 
 std::vector<Event*>::iterator EventHandler::returnIndex(std::vector<Event*>::iterator begin,std::vector<Event*>::iterator end,int priority){

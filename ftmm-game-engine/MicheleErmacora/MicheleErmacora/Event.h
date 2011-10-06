@@ -5,14 +5,14 @@
 #include "SDL_opengl.h"
 #include <windows.h>
 #include <ctime>
-
+#include <vector>
 
 class Event{//must be an interface for all the events
 
 public:	
 		clock_t cycles;//@ param number of clock ticks
-		DWORD start;
-		DWORD milliseconds;//@param  number of milliseconds
+		unsigned int start;
+		unsigned int milliseconds;//@param  number of milliseconds
 		clock_t tick;
 		
 
@@ -33,7 +33,7 @@ public:
 		@warning
 			set the time variable in milliseconds
 		*/
-		virtual void setInitialTime(DWORD time);
+		virtual void setInitialTime(unsigned int time);
 
 		/*
 		@warning
@@ -46,11 +46,15 @@ public:
 		*/
 		void setPriority(int);
 		int getPriority();
-
+		void setStartEndIndex(std::vector<Event*>::iterator start,std::vector<Event*>::iterator end);
+		std::vector<Event*>::iterator getStartIndex();
+		std::vector<Event*>::iterator getEndIndex();
 private:
 
 	int priority;
-	
+
+	//start and end of the type of event inside the vector list
+	std::vector<Event*>::iterator started,end;
 };
 
 #endif

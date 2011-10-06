@@ -23,7 +23,7 @@ void Event::setInitialClock(clock_t clo){
 	tick = clock();
 }
 
-void Event::setInitialTime(DWORD time){
+void Event::setInitialTime(unsigned int time){
 	milliseconds = time; 
 	start=SDL_GetTicks();
 }
@@ -36,4 +36,20 @@ void Event::setPriority(int priority){
 int Event::getPriority(){
 
 	return priority;
+}
+
+void Event::setStartEndIndex(std::vector<Event*>::iterator start,std::vector<Event*>::iterator end){
+
+	this->started=start;
+	this->end=end;
+}
+
+std::vector<Event*>::iterator Event::getEndIndex(){
+
+	return started;
+}
+
+std::vector<Event*>::iterator Event::getStartIndex(){
+
+	return end;
 }
