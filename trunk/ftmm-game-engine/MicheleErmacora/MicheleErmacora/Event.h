@@ -5,15 +5,18 @@
 #include "SDL_opengl.h"
 #include <windows.h>
 #include <ctime>
+#include <string>
 
 class Event{//must be an interface for all the events
 
 public:	
 		clock_t cycles;//@ param number of clock ticks
-		int start;
+		DWORD start;
 		DWORD milliseconds;//@param  number of milliseconds
 		clock_t tick;
-		
+		int priority;
+		std::string name;
+
 		Event();
 		/*
 		@warning
@@ -36,7 +39,7 @@ public:
 		@warning
 			set the time variable in milliseconds
 		*/
-		void setInitialTime(int time);
+		void setInitialTime(DWORD time);
 
 		/*
 		@warning
@@ -44,6 +47,12 @@ public:
 		*/
 		void setInitialClock(clock_t clo);
 
+		/*
+			set the priority of the event
+		*/
+		void setPriority(int);
+
+	
 };
 
 #endif
