@@ -16,15 +16,19 @@ public:
 	/*
 		return the pointer to the initial position of the ai events (3r position)
 	*/
-	std::vector<Event*>::iterator returnAiPointer(); 
+	std::vector<Event*>::iterator returnAiStartPointer(); 
 	/*
 		return the pointer to the initial position of the physics events (2nd position)
 	*/
-	std::vector<Event*>::iterator returnPhysicsPointer(); 
+	std::vector<Event*>::iterator returnPhysicsStartPointer(); 
 	/*
 		return the pointer to the initial position of the input events (1st postion)
 	*/
-	std::vector<Event*>::iterator returnInputPointer();
+	std::vector<Event*>::iterator returnInputStartPointer();
+
+	std::vector<Event*>::iterator returnAiEndPointer(); 
+	std::vector<Event*>::iterator returnPhysicsEndPointer(); 
+	std::vector<Event*>::iterator returnInputEndPointer(); 
 
 private:
 
