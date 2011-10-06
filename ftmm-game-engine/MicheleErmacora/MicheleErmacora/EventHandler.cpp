@@ -66,17 +66,32 @@ std::vector<Event*> * EventHandler::returnVectorOfEvents(){
 	return &(*vector_of_events);
 }
 
-std::vector<Event*>::iterator EventHandler::returnAiPointer(){
+std::vector<Event*>::iterator EventHandler::returnAiStartPointer(){
 
 	return ai;
 }
 
-std::vector<Event*>::iterator EventHandler::returnInputPointer(){
+std::vector<Event*>::iterator EventHandler::returnInputStartPointer(){
 
 	return input;
 }
 
-std::vector<Event*>::iterator EventHandler::returnPhysicsPointer(){
+std::vector<Event*>::iterator EventHandler::returnPhysicsStartPointer(){
 
 	return physics;
+}
+
+std::vector<Event*>::iterator EventHandler::returnAiEndPointer(){
+
+	return physics-1;
+}
+
+std::vector<Event*>::iterator EventHandler::returnPhysicsEndPointer(){
+
+	return vector_of_events->end();
+}
+
+std::vector<Event*>::iterator EventHandler::returnInputEndPointer(){
+
+	return ai-1;
 }
