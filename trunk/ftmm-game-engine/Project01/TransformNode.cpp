@@ -271,7 +271,6 @@ void TransformNode::rotate(const Vector3& axis, const Radian& angle, TransformSp
 	Quaternion q;
     q.FromAngleAxis(angle,axis);
     rotate(q, relativeTo);
-
 }
 
 void TransformNode::rotate(const Quaternion& rotation_value, TransformSpace relativeTo){
@@ -290,10 +289,8 @@ void TransformNode::rotate(const Quaternion& rotation_value, TransformSpace rela
             // Rotations are normally relative to local axes, transform up
 			qnorm.ToRotationMatrix(temp_mt3);
 			temp_mt4.fromMatrix3(temp_mt3);
-			temp_mt4[0][0] = -temp_mt4[0][0];
-			temp_mt4[2][2] = -temp_mt4[2][2];
 			global_transform = temp_mt4 * global_transform;
-        
+
             break;
 
         case TS_WORLD:
@@ -303,8 +300,6 @@ void TransformNode::rotate(const Quaternion& rotation_value, TransformSpace rela
 			temp_quat = global_transform.extractQuaternion() * this->getParentTransform().extractQuaternion().Inverse() * qnorm * this->getParentTransform().extractQuaternion();
 			temp_quat.ToRotationMatrix(temp_mt3);
 			temp_mt4.fromMatrix3(temp_mt3);
-			temp_mt4[0][0] = -temp_mt4[0][0];
-			temp_mt4[2][2] = -temp_mt4[2][2];
 			global_transform = global_transform * temp_mt4;
 			
             break;
@@ -314,8 +309,6 @@ void TransformNode::rotate(const Quaternion& rotation_value, TransformSpace rela
             // Note the order of the mult, i.e. q comes after
 			qnorm.ToRotationMatrix(temp_mt3);
 			temp_mt4.fromMatrix3(temp_mt3);
-			temp_mt4[0][0] = -temp_mt4[0][0];
-			temp_mt4[2][2] = -temp_mt4[2][2];
 			global_transform = global_transform * temp_mt4 ;
            
             break;

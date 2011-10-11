@@ -10,6 +10,7 @@
 #include "SDL_opengl.h"
 #include <list>
 #include <string>
+#include "Vector3.h"
 
 class Mesh{
 
