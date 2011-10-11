@@ -1,85 +1,83 @@
-﻿Build started 07-10-2011 17:44:57.
-     1>Project "C:\Documents and Settings\tgei\Desktop\a\TilmanGeishauser\TilmanProject\TilmanProject.vcxproj" on node 2 (rebuild target(s)).
-     1>_PrepareForClean:
-         Deleting file "Debug\TilmanProject.lastbuildstate".
-       InitializeBuildStatus:
+﻿Build started 11-10-2011 11:24:07.
+     1>Project "C:\Documents and Settings\tgei\Desktop\bla\ftmm-game-engine\TilmanGeishauser\TilmanProject\TilmanProject.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
          Touching "Debug\TilmanProject.unsuccessfulbuild".
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\TilmanProject\SDL-1.2.14\include" /ZI /nologo /W3 /WX- /Od /Oy- /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp Event.cpp EventHandler.cpp GameLoop.cpp InputManager.cpp Light.cpp main.cpp Math.cpp Matrix3.cpp Matrix4.cpp Mesh.cpp Quaternion.cpp RootTransformNode.cpp SceneManager.cpp TransformNode.cpp Triangle.cpp UpdatableListener.cpp Vector2.cpp Vector3.cpp Vector4.cpp
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\TilmanProject\SDL-1.2.14\include" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Camera.cpp Event.cpp EventHandler.cpp GameLoop.cpp InputManager.cpp Light.cpp main.cpp Math.cpp Matrix3.cpp Matrix4.cpp Mesh.cpp Quaternion.cpp RootTransformNode.cpp SceneManager.cpp TransformNode.cpp Triangle.cpp UpdatableListener.cpp Vector2.cpp Vector3.cpp Vector4.cpp
          Vector4.cpp
          Vector3.cpp
          Vector2.cpp
          UpdatableListener.cpp
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\updatablelistener.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\updatablelistener.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          Triangle.cpp
          TransformNode.cpp
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\transformnode.cpp(196): warning C4172: returning address of local variable or temporary
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\transformnode.cpp(201): warning C4172: returning address of local variable or temporary
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\transformnode.cpp(209): warning C4172: returning address of local variable or temporary
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\transformnode.cpp(196): warning C4172: returning address of local variable or temporary
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\transformnode.cpp(201): warning C4172: returning address of local variable or temporary
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\transformnode.cpp(209): warning C4172: returning address of local variable or temporary
          SceneManager.cpp
          RootTransformNode.cpp
          Quaternion.cpp
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\quaternion.cpp(44): warning C4305: 'initializing' : truncation from 'double' to 'const float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\quaternion.cpp(143): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\quaternion.cpp(365): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\quaternion.cpp(44): warning C4305: 'initializing' : truncation from 'double' to 'const float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\quaternion.cpp(143): warning C4244: 'argument' : conversion from 'double' to 'const float', possible loss of data
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\quaternion.cpp(365): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
          Mesh.cpp
          Matrix4.cpp
          Matrix3.cpp
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\matrix3.cpp(288): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\matrix3.cpp(390): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\matrix3.cpp(392): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\matrix3.cpp(427): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\matrix3.cpp(429): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\matrix3.cpp(464): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\matrix3.cpp(466): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\matrix3.cpp(501): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\matrix3.cpp(503): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\matrix3.cpp(538): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\matrix3.cpp(540): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\matrix3.cpp(575): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\matrix3.cpp(577): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\matrix3.cpp(728): warning C4305: 'initializing' : truncation from 'double' to 'const float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\matrix3.cpp(731): warning C4305: 'initializing' : truncation from 'double' to 'const float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\matrix3.cpp(288): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\matrix3.cpp(390): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\matrix3.cpp(392): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\matrix3.cpp(427): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\matrix3.cpp(429): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\matrix3.cpp(464): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\matrix3.cpp(466): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\matrix3.cpp(501): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\matrix3.cpp(503): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\matrix3.cpp(538): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\matrix3.cpp(540): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\matrix3.cpp(575): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\matrix3.cpp(577): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\matrix3.cpp(728): warning C4305: 'initializing' : truncation from 'double' to 'const float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\matrix3.cpp(731): warning C4305: 'initializing' : truncation from 'double' to 'const float'
          Math.cpp
          main.cpp
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\mousemovementinputword.h(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\mousemovementinputword.h(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\main.cpp(169): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\main.cpp(170): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\main.cpp(171): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\main.cpp(172): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\main.cpp(296): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\main.cpp(302): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\main.cpp(309): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\main.cpp(310): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\main.cpp(313): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\main.cpp(314): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\main.cpp(315): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\main.cpp(353): warning C4101: 'event' : unreferenced local variable
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\mousemovementinputword.h(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\mousemovementinputword.h(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(169): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(170): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(171): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(172): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(296): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(302): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(309): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(310): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(313): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(314): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(315): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(353): warning C4101: 'event' : unreferenced local variable
          Light.cpp
          InputManager.cpp
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\mousemovementinputword.h(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\mousemovementinputword.h(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\mousemovementinputword.h(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\mousemovementinputword.h(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
          GameLoop.cpp
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\gameloop.cpp(2): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\gameloop.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\gameloop.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\gameloop.h(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\gameloop.h(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\gameloop.h(8): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\gameloop.cpp(31): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\gameloop.cpp(2): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\gameloop.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\gameloop.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\gameloop.h(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\gameloop.h(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\gameloop.h(8): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\gameloop.cpp(31): warning C4018: '>' : signed/unsigned mismatch
          EventHandler.cpp
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\eventhandler.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\eventhandler.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          Event.cpp
          Camera.cpp
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\camera.cpp(36): warning C4172: returning address of local variable or temporary
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\camera.cpp(41): warning C4172: returning address of local variable or temporary
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\camera.cpp(49): warning C4172: returning address of local variable or temporary
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\camera.cpp(36): warning C4172: returning address of local variable or temporary
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\camera.cpp(41): warning C4172: returning address of local variable or temporary
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\camera.cpp(49): warning C4172: returning address of local variable or temporary
          Generating Code...
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\inputmanager.cpp(204): warning C4715: 'InputManager::handle_input' : not all control paths return a value
-     1>c:\documents and settings\tgei\desktop\a\tilmangeishauser\tilmanproject\main.cpp(493): warning C4715: 'SDL_main' : not all control paths return a value
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\inputmanager.cpp(204): warning C4715: 'InputManager::handle_input' : not all control paths return a value
+     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(493): warning C4715: 'SDL_main' : not all control paths return a value
        Link:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\tgei\Desktop\a\TilmanGeishauser\Debug\TilmanProject.exe" /NOLOGO /LIBPATH:"..\TilmanProject\SDL-1.2.14\lib" SDL.lib SDLmain.lib opengl32.lib glu32.lib sdl.lib sdlmain.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\TilmanProject.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\tgei\Desktop\a\TilmanGeishauser\Debug\TilmanProject.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\tgei\Desktop\a\TilmanGeishauser\Debug\TilmanProject.lib" /MACHINE:X86 Debug\Camera.obj
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\tgei\Desktop\bla\ftmm-game-engine\TilmanGeishauser\Debug\TilmanProject.exe" /NOLOGO /LIBPATH:"..\TilmanProject\SDL-1.2.14\lib" SDL.lib SDLmain.lib opengl32.lib glu32.lib sdl.lib sdlmain.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\TilmanProject.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\tgei\Desktop\bla\ftmm-game-engine\TilmanGeishauser\Debug\TilmanProject.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\tgei\Desktop\bla\ftmm-game-engine\TilmanGeishauser\Debug\TilmanProject.lib" /MACHINE:X86 Debug\Camera.obj
          Debug\Event.obj
          Debug\EventHandler.obj
          Debug\GameLoop.obj
@@ -100,8 +98,8 @@
          Debug\Vector3.obj
          Debug\Vector4.obj
      1>LINK : fatal error LNK1561: entry point must be defined
-     1>Done Building Project "C:\Documents and Settings\tgei\Desktop\a\TilmanGeishauser\TilmanProject\TilmanProject.vcxproj" (rebuild target(s)) -- FAILED.
+     1>Done Building Project "C:\Documents and Settings\tgei\Desktop\bla\ftmm-game-engine\TilmanGeishauser\TilmanProject\TilmanProject.vcxproj" (build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:10.21
+Time Elapsed 00:00:16.85

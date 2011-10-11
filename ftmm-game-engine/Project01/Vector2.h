@@ -12,6 +12,9 @@ class Vector2
 		float x;
 		float y;
 
+		// empty default constructor
+		Vector2(){};
+
 		Vector2( float, float );
 		float& operator[] ( const size_t );
 
