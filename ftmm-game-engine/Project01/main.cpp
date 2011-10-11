@@ -38,8 +38,6 @@ TransformNode * node3 ;
 TransformNode * node5 ;
 SceneManager * sc_mng;
 float translate_ratio = 0.0;
-GLfloat arr_cube[16];
-GLfloat arr_cube2[16];
 GLfloat stam_arr[16];
 Mesh * cube ;
 Mesh * cube2;
@@ -53,20 +51,11 @@ bool rotateFlagDOWN = FALSE;
 bool rotateFlag = FALSE;
 GLfloat angle = 0.05f;
 
-/*light
-Vector4 v_vertex;
-Vector3 v_normal;
-Vector3 v_light_position;
-Matrix4 mvp_matrix;
-Matrix4 mv_matrix;
-Matrix3 normal_matrix;
-Vector4 v_varying_color;
-Vector3 v_varying_normal;
-Vector3 v_varying_light_dir;
-Vector4 gl_position;
-*/
+/*light*/
+
 float lightAmbient[] = { 1.0f, 1.0f, 1.0f, 1.0f };
 float lightDiffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f };
+float lightPosition[] = { 0.0f, 0.0f, 2.0f , 1.0f };
 float matAmbient[] = { 0.3f, 0.0f, 0.0f, 1.0f };
 float matDiffuse[] = { 0.6f, 0.6f, 0.6f, 1.0f };
 
@@ -124,11 +113,6 @@ int initGL( GLvoid )
 {
 	sc_mng = SceneManager::getInstance();
 
-    /* Load in the texture */
-	if ( !sc_mng->LoadGLTextures("data/abc.bmp", 0) )
-		return FALSE;
-
-
 	/* Enable smooth shading */
 	glShadeModel( GL_SMOOTH );
 
@@ -146,10 +130,11 @@ int initGL( GLvoid )
 	glEnable(GL_LIGHT0);
 
 	glMaterialfv(GL_FRONT_AND_BACK, GL_AMBIENT, matAmbient);
-//	glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, matDiffuse);
+	glMaterialfv(GL_FRONT_AND_BACK, GL_DIFFUSE, matDiffuse);
 	
 	glLightfv(GL_LIGHT0, GL_AMBIENT, lightAmbient);
-//	glLightfv(GL_LIGHT0, GL_DIFFUSE, lightDiffuse);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, lightDiffuse);
+	glLightfv(GL_LIGHT0, GL_POSITION, lightPosition);
 
 	/*Enable gouraud shading */
 	glShadeModel(GL_SMOOTH);	
@@ -181,50 +166,8 @@ int initGL( GLvoid )
 	node4->attachObject(cube3);
 	node5->attachObject(cube4);
 	node2->setOrientation(Quaternion(12,0.0,0.0,1.0));
+	//node2->setOrientation(Quaternion(5,0.0,1.0,0.0));
 
-	arr_cube[0] = 1 ;
-	arr_cube[1] =0 ;
-	arr_cube[2] = 0;
-	arr_cube[3] = 0;
-	arr_cube[4] = 0;
-	arr_cube[5] = 1;
-	arr_cube[6] = 0;
-	arr_cube[7] = 0;
-	arr_cube[8] =0 ;
-	arr_cube[9] = 0;
-	arr_cube[10] = 1;
-	arr_cube[11] = 0;
-	arr_cube[12] = 0;
-	arr_cube[13] = 0;
-	arr_cube[14] =0 ;
-	arr_cube[15] =1 ;
-
-	arr_cube2[0] = 1 ;
-	arr_cube2[1] =0 ;
-	arr_cube2[2] = 0;
-	arr_cube2[3] = 0;
-	arr_cube2[4] = 0;
-	arr_cube2[5] = 1;
-	arr_cube2[6] = 0;
-	arr_cube2[7] = 0;
-	arr_cube2[8] =0 ;
-	arr_cube2[9] = 0;
-	arr_cube2[10] = 1;
-	arr_cube2[11] = 0;
-	arr_cube2[12] = 0;
-	arr_cube2[13] = 0;
-	arr_cube2[14] =0 ;
-	arr_cube2[15] =1 ;
-	
-	/*
-	std::list<std::string> * names = node1->getChildrenNames();
-	std::list<std::string>::iterator i;
-	for (i = names->begin(); i!=names->end(); ++i){
-	
-		std::cout << (*i) << std::endl;
-	
-	}
-	*/
 
 	return( TRUE );
 }
@@ -273,78 +216,8 @@ void handleKeyPress( SDL_keysym *keysym )
 	return;
 }
 
-/*
-void rotation(Mesh * mesh, GLfloat angle, GLfloat valueX, GLfloat valueY, GLfloat valueZ)
-{
-	mesh->rotate_angle(angle);
-	mesh->rotate_X(valueX);
-	mesh->rotate_Y(valueY);
-	mesh->rotate_Z(valueZ);
-	mesh->draw();
-	return;
-}
-*/
-void pyramidizer(float offspring_x, float offspring_y, float offspring_z)
-
-{
-	glBegin(GL_TRIANGLES);
-
-		glColor3f(1.0f,0.0f,0.0f);          // Red
-		glVertex3f( 0.0f, 0.05f, 0.0f);          // Top Of Triangle (Front)
-		glColor3f(0.0f,1.0f,0.0f);          // Green
-		glVertex3f(-.05f,-.05f, 0.0f);          // Left Of Triangle (Front)
-		glColor3f(0.0f,0.0f,1.0f);          // Blue
-		glVertex3f( .05f,-.05f, 0.0f);          // Right Of Triangle (Front)
-
-		/*
-		glColor3f(1.0f,0.0f,0.0f);          // Red
-		glVertex3f( offspring_x, offspring_y, offspring_z);          // Top Of Triangle (Right)
-		glColor3f(0.0f,0.0f,1.0f);          // Blue
-		glVertex3f( .05f,-.05f, .05f);          // Left Of Triangle (Right)
-		glColor3f(0.0f,1.0f,0.0f);          // Green
-		glVertex3f( .05f,-.05f, -.05f);         // Right Of Triangle (Right)
-
-		glColor3f(1.0f,0.0f,0.0f);          // Red
-		glVertex3f( offspring_x, offspring_y, offspring_z);          // Top Of Triangle (Back)
-		glColor3f(0.0f,1.0f,0.0f);          // Green
-		glVertex3f( .05f,-.05f, -.05f);         // Left Of Triangle (Back)
-		glColor3f(0.0f,0.0f,1.0f);          // Blue
-		glVertex3f(-.05f,-.05f, -.05f);         // Right Of Triangle (Back)
-
-		glColor3f(1.0f,0.0f,0.0f);          // Red
-		glVertex3f( offspring_x, offspring_y, offspring_z);          // Top Of Triangle (Left)
-		glColor3f(0.0f,0.0f,1.0f);          // Blue
-		glVertex3f(-.05f,-.05f,-.05f);          // Left Of Triangle (Left)
-		glColor3f(0.0f,1.0f,0.0f);          // Green
-		glVertex3f(-.05f,-.05f, .05f);          // Right Of Triangle (Left)
-		*/
-	glEnd();
-}
-
-void triangle_tester()
-{
-	GLfloat vertex_01[3] = {0.0f, 0.05f, 0.0f};
-	GLfloat vertex_02[3] = {-0.05f, -0.05f, 0.05f};
-	GLfloat vertex_03[3] = {0.05f, -0.05f, 0.05f};
-	GLfloat color_01[3] = {1.0f, 0.0f, 0.0f};
-	GLfloat color_02[3] = {1.0f, 0.0f, 0.0f};
-	GLfloat color_03[3] = {1.0f, 0.0f, 0.0f};
 
 
-	//mesh_01->create_triangle(vertex_01, vertex_02, vertex_03, color_01, color_02, color_03);
-	//mesh_01->update();
-
-	GLfloat vertex_011[3] = {0.0f, 0.25f, 0.0f};
-	GLfloat vertex_021[3] = {-0.05f, 0.15f, 0.05f};
-	GLfloat vertex_031[3] = {0.05f, 0.15f, 0.05f};
-	GLfloat color_011[3] = {1.0f, 0.0f, 0.0f};
-	GLfloat color_021[3] = {1.0f, 0.0f, 0.0f};
-	GLfloat color_031[3] = {1.0f, 0.0f, 0.0f};
-
-	//mesh_02->create_triangle(vertex_011, vertex_021, vertex_031, color_011, color_021, color_031);
-	//mesh_02->update();
-	//Do i need to manage display lists here??
-}
 
 
 /* Here goes our drawing code */
@@ -361,7 +234,6 @@ int drawGLScene( GLvoid )
 	}
 	*/
 
-	//translate_ratio += 0.1f;
 
 	/* Clear The Screen And The Depth Buffer */
 	
@@ -371,15 +243,10 @@ int drawGLScene( GLvoid )
 	//glRotatef(180,0.0,1.0,0.0);
 	//glTranslatef(0.0,0.0,-3.0);
 	//gluLookAt(0.0,1.0,3.0,0.0,0.0,0.0,0.0,1.0,0.0);
-	
 	//cam->setPosition(Vector3(0.0,0.0,-3.0));
 
-	/*glPushMatrix();
-	glTranslatef(translate_ratio/5,0.0,0.0);
-	//glRotatef(translate_ratio * 10000,1.0,0.0,0.0);
-	pyramidizer(5,5,5);
-	glPopMatrix();*/
-
+	
+	 /*
 	
 	glPushMatrix();
 	glBegin(GL_LINES);
@@ -397,24 +264,61 @@ int drawGLScene( GLvoid )
 	glVertex3f(100000.0f, 0.0f, 0.0f); // ending point of the line
 
 	glEnd();
-	
 	glPopMatrix();
-	
+	*/
 	
 	
 	if(keyevent.type == SDL_KEYDOWN){
 	
 		if(keyevent.key.keysym.sym == SDLK_w){
 
-			cam->translate(Vector3(0.0,0.0,0.02),MovableObject::TS_LOCAL);
+			cam->translate(Vector3(0.0,0.0,0.002),MovableObject::TS_LOCAL);
 	
 		}
 	
 		if(keyevent.key.keysym.sym == SDLK_s){
 
-			cam->translate(Vector3(0.0,0.0,-0.02),MovableObject::TS_LOCAL);
+			cam->translate(Vector3(0.0,0.0,-0.002),MovableObject::TS_LOCAL);
+		}
+
+				if(keyevent.key.keysym.sym == SDLK_d){
+
+			cam->translate(Vector3(-0.002,0.0,0.0),MovableObject::TS_LOCAL);
+	
+		}
+	
+		if(keyevent.key.keysym.sym == SDLK_a){
+
+			cam->translate(Vector3(0.002,0.0,0.0),MovableObject::TS_LOCAL);
+		}
+
+		if(keyevent.key.keysym.sym == SDLK_z){
+
+			cam->rotate(Quaternion(0.0002,0.0,1.0,0.0),MovableObject::TS_PARENT);
+	
+		}
+	
+		if(keyevent.key.keysym.sym == SDLK_x){
+
+			cam->rotate(Quaternion(-0.0002,0.0,1.0,0.0),MovableObject::TS_PARENT);
+		}
+
+		if(keyevent.key.keysym.sym == SDLK_c){
+
+			cam->rotate(Quaternion(0.0002,1.0,0.0,0.0),MovableObject::TS_PARENT);
+	
+		}
+	
+		if(keyevent.key.keysym.sym == SDLK_v){
+
+			cam->rotate(Quaternion(-0.0002,1.0,0.0,0.0),MovableObject::TS_PARENT);
 		}
 	}
+
+
+
+	
+
 	//node3->translate (Vector3 (0.5,0.0,-1.0));
 	//node2->rotate(translate_ratio);
 	//node2->scale(Vector3(0.08,0.08,0.08));
@@ -422,17 +326,16 @@ int drawGLScene( GLvoid )
 	node4->setPosition(Vector3(0.8,0.0,0.0));
 	//node2->translate(Vector3(0.002,0.0,0.0),TransformNode::TransformSpace::TS_WORLD);
 	//node2->stampMatrix();
-	node2->rotate(Quaternion(0.0003,0.0,1.0,0.0),MovableObject::TS_PARENT);
-	node3->rotate(Quaternion(0.0003,0.0,1.0,0.0),MovableObject::TS_PARENT);
+	node2->rotate(Quaternion(9000,0.0,1.0,0.0),MovableObject::TS_PARENT);
+	//node2->rotate(Vector3(1.0,0.5,1.0),Radian(0.0001),MovableObject::TS_PARENT);
+	node3->rotate(Quaternion(8000,0.0,1.0,0.0),MovableObject::TS_PARENT);
 	node5->setPosition(Vector3(1.2,0.0,0.0));
 	node5->setOrientation(Quaternion(node4->getOrientation()));
+	//node2->setOrientation(Quaternion(90.0,0.0,1.0,0.0));
 	
 	
 	sc_mng->renderScene();
 	
-	//node3->setOrientation(Quaternion(45,0.0,1.0,0.0));
-	//sc_mng->getRootTransformNode()->updateNode();
-	//sc_mng->getRootTransformNode()->updateNode();
 	//node1->stampMatrix();
 	
 	
@@ -469,12 +372,6 @@ int main( int argc, char **argv )
 	/* this holds some info about our display */
 	const SDL_VideoInfo *videoInfo;
 
-
-	/*
-	*light */
-	
-
-	
 
 
 	/* initialize SDL */
