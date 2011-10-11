@@ -41,8 +41,8 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>D:\SDL-1.2.14\include;$(IncludePath)</IncludePath>
-    <LibraryPath>D:\SDL-1.2.14\lib;$(LibraryPath)</LibraryPath>
+    <IncludePath>C:\Documents and Settings\tgei\Desktop\bla\ftmm-game-engine\TilmanGeishauser\TilmanProject\SDL-1.2.14\include;..\SDL-1.2.14\include;$(IncludePath)</IncludePath>
+    <LibraryPath>C:\Documents and Settings\tgei\Desktop\bla\ftmm-game-engine\TilmanGeishauser\TilmanProject\SDL-1.2.14\lib;..\SDL-1.2.14\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -72,6 +72,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\TilmanGeishauser\TilmanProject\InputManager.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="Event.cpp" />
@@ -93,6 +94,9 @@
     <ClCompile Include="Vector4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\TilmanGeishauser\TilmanProject\InputEvent.h" />
+    <ClInclude Include="..\TilmanGeishauser\TilmanProject\InputManager.h" />
+    <ClInclude Include="..\TilmanGeishauser\TilmanProject\InputWord.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="Event.h" />
