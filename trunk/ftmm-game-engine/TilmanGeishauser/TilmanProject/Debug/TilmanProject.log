@@ -1,53 +1,37 @@
-﻿Build started 11-10-2011 12:21:09.
+﻿Build started 11-10-2011 13:51:50.
      1>Project "C:\Documents and Settings\tgei\Desktop\bla\ftmm-game-engine\TilmanGeishauser\TilmanProject\TilmanProject.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Touching "Debug\TilmanProject.unsuccessfulbuild".
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\TilmanProject\SDL-1.2.14\include" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt Event.cpp EventHandler.cpp GameLoop.cpp InputManager.cpp UpdatableListener.cpp main.cpp
-         Event.cpp
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\event.cpp(21): error C2511: 'void Event::setInitialClock(double)' : overloaded member function not found in 'Event'
-                 c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\event.h(10) : see declaration of 'Event'
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\event.cpp(27): error C2511: 'void Event::setInitialTime(int)' : overloaded member function not found in 'Event'
-                 c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\event.h(10) : see declaration of 'Event'
-         Generating Code...
-         Compiling...
-         EventHandler.cpp
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\eventhandler.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-         Generating Code...
-         Compiling...
-         main.cpp
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\mousemovementinputword.h(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\mousemovementinputword.h(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(169): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(170): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(171): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(172): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(296): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(302): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(309): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(310): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(313): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(314): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(315): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(353): warning C4101: 'event' : unreferenced local variable
-         UpdatableListener.cpp
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\updatablelistener.cpp(1): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\TilmanProject\SDL-1.2.14\include" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt InputManager.cpp
          InputManager.cpp
      1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\mousemovementinputword.h(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
      1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\mousemovementinputword.h(33): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         GameLoop.cpp
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\gameloop.cpp(2): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\gameloop.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\gameloop.h(4): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\gameloop.h(6): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\gameloop.h(7): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\gameloop.h(8): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\gameloop.cpp(31): warning C4018: '>' : signed/unsigned mismatch
-         Generating Code...
      1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\inputmanager.cpp(204): warning C4715: 'InputManager::handle_input' : not all control paths return a value
-     1>c:\documents and settings\tgei\desktop\bla\ftmm-game-engine\tilmangeishauser\tilmanproject\main.cpp(493): warning C4715: 'SDL_main' : not all control paths return a value
+       Link:
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\tgei\Desktop\bla\ftmm-game-engine\TilmanGeishauser\Debug\TilmanProject.exe" /NOLOGO /LIBPATH:"..\TilmanProject\SDL-1.2.14\lib" SDL.lib SDLmain.lib opengl32.lib glu32.lib sdl.lib sdlmain.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\TilmanProject.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\tgei\Desktop\bla\ftmm-game-engine\TilmanGeishauser\Debug\TilmanProject.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\tgei\Desktop\bla\ftmm-game-engine\TilmanGeishauser\Debug\TilmanProject.lib" /MACHINE:X86 Debug\Camera.obj
+         Debug\Event.obj
+         Debug\EventHandler.obj
+         Debug\GameLoop.obj
+         Debug\InputManager.obj
+         Debug\Light.obj
+         Debug\main.obj
+         Debug\Math.obj
+         Debug\Matrix3.obj
+         Debug\Matrix4.obj
+         Debug\Mesh.obj
+         Debug\Quaternion.obj
+         Debug\RootTransformNode.obj
+         Debug\SceneManager.obj
+         Debug\TransformNode.obj
+         Debug\Triangle.obj
+         Debug\UpdatableListener.obj
+         Debug\Vector2.obj
+         Debug\Vector3.obj
+         Debug\Vector4.obj
+     1>LINK : fatal error LNK1561: entry point must be defined
      1>Done Building Project "C:\Documents and Settings\tgei\Desktop\bla\ftmm-game-engine\TilmanGeishauser\TilmanProject\TilmanProject.vcxproj" (build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:07.24
+Time Elapsed 00:00:01.70

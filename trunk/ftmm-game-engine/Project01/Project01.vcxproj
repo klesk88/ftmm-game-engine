@@ -96,10 +96,13 @@
   <ItemGroup>
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraMovementEvent.h" />
+    <ClInclude Include="Combo_01_InputEvent.h" />
+    <ClInclude Include="Combo_01_InputWord.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="FrameListener.h" />
     <ClInclude Include="GameLoop.h" />
+    <ClInclude Include="GameTime.h" />
     <ClInclude Include="InputEvent.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="InputWord.h" />
@@ -108,7 +111,7 @@
     <ClInclude Include="Matrix3.h" />
     <ClInclude Include="Matrix4.h" />
     <ClInclude Include="Mesh.h" />
-    <ClInclude Include="MouseMovementInputWord.h" />
+    <ClInclude Include="CameraMovementInputWord.h" />
     <ClInclude Include="MovableObject.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Quaternion.h" />

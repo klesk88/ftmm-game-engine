@@ -31,7 +31,7 @@ InputManager::InputManager()
 InputManager::SIGNAL InputManager::handle_input(){
 
     //Poll to see if we have any SDL Events (this returns the first element in a queue)
-    if (SDL_PollEvent(&_event))
+    while (SDL_PollEvent(&_event))
 	{
         //Determine the type of the event
         switch(_event.type)

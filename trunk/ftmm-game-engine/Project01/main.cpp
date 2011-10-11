@@ -496,7 +496,7 @@ int main( int argc, char **argv )
 			if(CameraMovementEvent * cME = dynamic_cast<CameraMovementEvent *>(*it)) 
 			{
 				Vector2 position = cME->get_current_position();
-				cout << position.x << " . " << position.y << endl;
+				//cout << position.x << " . " << position.y << endl;
 			}
 		}
 

@@ -25,6 +25,9 @@
     <Filter Include="Source Files\Math">
       <UniqueIdentifier>{ce893f72-68c1-4611-be52-4b5ab00491bc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Input\InputWords &amp; Events">
+      <UniqueIdentifier>{35a4ec6d-df3f-4d62-936c-d6b93b48ea25}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -162,10 +165,19 @@
       <Filter>Header Files\Input</Filter>
     </ClInclude>
     <ClInclude Include="CameraMovementEvent.h">
-      <Filter>Header Files\Input</Filter>
+      <Filter>Header Files\Input\InputWords &amp; Events</Filter>
     </ClInclude>
-    <ClInclude Include="MouseMovementInputWord.h">
-      <Filter>Header Files\Input</Filter>
+    <ClInclude Include="CameraMovementInputWord.h">
+      <Filter>Header Files\Input\InputWords &amp; Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Combo_01_InputWord.h">
+      <Filter>Header Files\Input\InputWords &amp; Events</Filter>
+    </ClInclude>
+    <ClInclude Include="Combo_01_InputEvent.h">
+      <Filter>Header Files\Input\InputWords &amp; Events</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTime.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
