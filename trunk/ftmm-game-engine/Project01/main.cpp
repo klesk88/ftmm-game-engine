@@ -20,6 +20,8 @@
 #include "Vector3.h"
 #include "Matrix4.h"
 #include "Vector2.h"
+#include "InputManager.h"
+#include <typeinfo.h>
 
 /* screen width, height, and bit depth */
 #define SCREEN_WIDTH  640
@@ -59,6 +61,9 @@ float lightPosition[] = { 0.0f, 0.0f, 2.0f , 1.0f };
 float matAmbient[] = { 0.3f, 0.0f, 0.0f, 1.0f };
 float matDiffuse[] = { 0.6f, 0.6f, 0.6f, 1.0f };
 
+//Input
+InputManager inputManager_instance;
+list<Event*> event_list;
 
 /* This is our SDL surface */
 SDL_Surface *surface;
@@ -432,6 +437,25 @@ int main( int argc, char **argv )
 	/* wait for events */ 
 	while ( !done )
 	{
+
+		//cout << "input_manager starts input" << endl;
+		inputManager_instance.handle_input();
+
+		//cout << "ai ai ai" << endl;
+		//cout << "input_manager_done with input" << endl;
+		if(inputManager_instance.get_input_events().empty() == false)
+		{
+			vector<Event*> temp_vector = inputManager_instance.get_input_events();
+			for (vector<Event*>::iterator it = temp_vector.begin(); it != temp_vector.end(); ++it) 
+			{
+				//cout << "elements in list" << endl;
+
+				//cout << "type:" << typeid(*it).name() << endl;
+				event_list.push_front(*it);
+			}
+		}
+
+		
 		/* handle the events in the queue */
 
 		while ( SDL_PollEvent( &keyevent ) )
@@ -463,6 +487,16 @@ int main( int argc, char **argv )
 				break;
 
 
+			}
+		}
+
+		for (list<Event*>::iterator it = event_list.begin(); it!=event_list.end(); ++it) 
+		{
+			//cout << "type:" << typeid(*it).name() << endl;
+			if(CameraMovementEvent * cME = dynamic_cast<CameraMovementEvent *>(*it)) 
+			{
+				Vector2 position = cME->get_current_position();
+				cout << position.x << " . " << position.y << endl;
 			}
 		}
 

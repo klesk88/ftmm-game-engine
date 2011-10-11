@@ -72,11 +72,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\TilmanGeishauser\TilmanProject\InputManager.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="GameLoop.cpp" />
+    <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Math.cpp" />
@@ -94,19 +94,21 @@
     <ClCompile Include="Vector4.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\TilmanGeishauser\TilmanProject\InputEvent.h" />
-    <ClInclude Include="..\TilmanGeishauser\TilmanProject\InputManager.h" />
-    <ClInclude Include="..\TilmanGeishauser\TilmanProject\InputWord.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="CameraMovementEvent.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="FrameListener.h" />
     <ClInclude Include="GameLoop.h" />
+    <ClInclude Include="InputEvent.h" />
+    <ClInclude Include="InputManager.h" />
+    <ClInclude Include="InputWord.h" />
     <ClInclude Include="Light.h" />
     <ClInclude Include="Math.h" />
     <ClInclude Include="Matrix3.h" />
     <ClInclude Include="Matrix4.h" />
     <ClInclude Include="Mesh.h" />
+    <ClInclude Include="MouseMovementInputWord.h" />
     <ClInclude Include="MovableObject.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Quaternion.h" />
