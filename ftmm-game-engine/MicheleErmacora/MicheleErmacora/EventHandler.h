@@ -5,36 +5,24 @@
 #include "Event.h"
 #include <typeinfo>
 
+
 class EventHandler{
 
 public:
-	
+	const enum positions{Input,Ai,Physics,Sound};//positions in the vector
 	EventHandler();
-	void addEvents(Event* ev);
-	void removeEvents();
-	(std::vector<Event*>)* returnVectorOfEvents();
+	~EventHandler();
+	void addEvents(std::vector<Event*> ev);
+	(std::vector <std::vector<Event*>>)* returnVectorOfEvents();
 	/*
-		return the pointer to the initial position of the ai events (3r position)
+		update the TimeOfLife(tol) of all the events and, if the tol is euqal to zero
+		delete them from the vector
 	*/
-	std::vector<Event*>::iterator returnAiStartPointer(); 
-	/*
-		return the pointer to the initial position of the physics events (2nd position)
-	*/
-	std::vector<Event*>::iterator returnPhysicsStartPointer(); 
-	/*
-		return the pointer to the initial position of the input events (1st postion)
-	*/
-	std::vector<Event*>::iterator returnInputStartPointer();
-
-	std::vector<Event*>::iterator returnAiEndPointer(); 
-	std::vector<Event*>::iterator returnPhysicsEndPointer(); 
-	std::vector<Event*>::iterator returnInputEndPointer(); 
+	void updateEvent();
 
 private:
 
-	std::vector <Event*>* vector_of_events;//list containing all the game objects connected with this frame listener
-	std::vector<Event*>::iterator input,physics,ai;//puntatore
-	std::vector<Event*>::iterator returnIndex(std::vector<Event*>::iterator begin,std::vector<Event*>::iterator end,int);
+	std::vector <std::vector<Event*>>* vector_of_events;//list containing all the events 
 
 };
 #endif
