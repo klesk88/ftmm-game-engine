@@ -75,6 +75,9 @@
     <ClInclude Include="Vector3.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
+    <ClInclude Include="InputManager.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Camera.cpp">
@@ -129,6 +132,9 @@
       <Filter>File di risorse</Filter>
     </ClCompile>
     <ClCompile Include="FrameListener.cpp">
+      <Filter>File di risorse</Filter>
+    </ClCompile>
+    <ClCompile Include="InputManager.cpp">
       <Filter>File di risorse</Filter>
     </ClCompile>
   </ItemGroup>

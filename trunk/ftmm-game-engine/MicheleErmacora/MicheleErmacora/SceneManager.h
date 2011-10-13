@@ -27,8 +27,12 @@ class SceneManager{
 		//Texture function
 		int LoadGLTextures(char*, int);
 		GLuint getTexture(int);
-		void callGameLoop(const int base_fps,const int low_fps);
+		void callGameLoop(bool,const int base_fps,const int low_fps);
 		void createFrameListener(FrameListener*);
+		/*
+			i set the game_is:run variable so i know if the game loop have to start or not.
+			after i call the method for call the game loop with the right parameters		
+		*/
 		void startEngine(bool,const int base_fps,const int low_fps);
 	protected:
 		SceneManager();
@@ -37,8 +41,7 @@ class SceneManager{
 		std::list <FrameListener*> framelistener_list;
 
 	private:
-	
-		void gameLoop(const int base_fps,const int low_fps);
+		bool gameLoop(const int base_fps,const int low_fps);
 		static SceneManager * p_instance;
 		/*texture*/
 		static const int size = 1;

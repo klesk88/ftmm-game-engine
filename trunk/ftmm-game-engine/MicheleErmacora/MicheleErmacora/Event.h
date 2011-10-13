@@ -14,9 +14,11 @@ public:
 		unsigned int start;
 		unsigned int milliseconds;//@param  number of milliseconds
 		clock_t tick;
+		bool time;//variable use for unserstand if i use time or cycles of clock
 		
-
 		Event();
+		Event(unsigned int time);
+		Event(clock_t clo);
 		/*
 		@warning
 			update the time of the object based
@@ -26,35 +28,15 @@ public:
 		/*
 		@warning
 			update the time of the object based
-			on milliseconds		
+			on milliseconds	and return true when the time/cycles are euqal to zero	
 		*/
 		virtual void updateTime();
-		/*
-		@warning
-			set the time variable in milliseconds
-		*/
-		virtual void setInitialTime(unsigned int time);
+		virtual bool update();
 
-		/*
-		@warning
-			set the clock variable
-		*/
-		virtual void setInitialClock(clock_t clo);
 
-		/*
-			set the priority of the event
-		*/
-		void setPriority(int);
-		int getPriority();
-		void setStartEndIndex(std::vector<Event*>::iterator start,std::vector<Event*>::iterator end);
-		std::vector<Event*>::iterator getStartIndex();
-		std::vector<Event*>::iterator getEndIndex();
+    	
 private:
-
-	int priority;
-
-	//start and end of the type of event inside the vector list
-	std::vector<Event*>::iterator started,end;
+		
 };
 
 #endif

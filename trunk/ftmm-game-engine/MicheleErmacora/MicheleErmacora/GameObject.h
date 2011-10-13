@@ -6,7 +6,7 @@
 
 class GameObject{
 public:
-	virtual void update(std::vector<Event*>* ev);
+	virtual void update(std::vector<std::vector<Event*>>* ev);
 };
 
 #endif

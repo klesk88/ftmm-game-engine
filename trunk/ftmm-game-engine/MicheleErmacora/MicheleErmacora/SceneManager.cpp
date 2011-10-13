@@ -2,6 +2,7 @@
 
 SceneManager::SceneManager(){
 
+	game_is_run=false;//by default the game is run state is set to false so the game loop doesn't start until the user start it
 	root_ptr = RootTransformNode::getInstance("Root");
 }
 
@@ -98,8 +99,12 @@ void SceneManager::renderScene(){
 
 }
 
-void SceneManager::callGameLoop(const int base_fps,const int low_fps){
-	gameLoop(base_fps,low_fps);
+void SceneManager::callGameLoop(bool game_is_run,const int base_fps,const int low_fps){
+	while(game_is_run)
+	{
+		game_is_run = gameLoop(base_fps,low_fps);
+
+	}
 }
 
 void SceneManager::createFrameListener(FrameListener* frame){
@@ -109,18 +114,17 @@ void SceneManager::createFrameListener(FrameListener* frame){
 
 void SceneManager::startEngine(bool game_is_run,const int base_fps,const int low_fps){
 
-	while(game_is_run)
-	{
-		gameLoop(base_fps,low_fps);
-	}
+	callGameLoop(game_is_run,base_fps,low_fps);
 }
 
-void SceneManager::gameLoop(const int base_fps,const int low_fps){
+
+bool SceneManager::gameLoop(const int base_fps,const int low_fps){
 		const int TICKS_PER_SECOND = base_fps;
 		const int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
 		const int MAX_FRAMESKIP = low_fps;
 	    DWORD next_game_tick = SDL_GetTicks();
 		int loops;
+		bool game_is_run;
 		std::list<FrameListener*>::iterator i;
 		
 		
@@ -130,7 +134,7 @@ void SceneManager::gameLoop(const int base_fps,const int low_fps){
 				
 			   for(i=framelistener_list.begin(); i!=framelistener_list.end();i++){
 				   if(  (*i)->frameStarted())
-					  (*i)->notifyObjects();		
+					   game_is_run = (*i)->getEvents();		
 			   }
 			   next_game_tick += SKIP_TICKS;
 			   loops++;
@@ -139,4 +143,6 @@ void SceneManager::gameLoop(const int base_fps,const int low_fps){
 		for(i=framelistener_list.begin(); i!=framelistener_list.end();i++){
 			(*i)->frameEnded();		
 		}
+
+		return game_is_run;
 }
