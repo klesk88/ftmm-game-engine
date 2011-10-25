@@ -1,7 +1,9 @@
+#ifndef A_H
+#define A_H
+#pragma once
 /*
  * This is template created for Game Engines 2011 based on the SDL examples from http://nehe.gamedev.net/
  */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <iostream>
@@ -32,52 +34,92 @@
 #define TRUE  1
 #define FALSE 0
 
-//For FPS calculation
-Uint32 startclock = 0;
-Uint32 deltaclock = 0;
-Uint32 currentFPS = 0;
 
 
 
 
-TransformNode * node1 ;
-TransformNode * node4 ;
-TransformNode * node2 ;
-TransformNode * node3 ;
-TransformNode * node5 ;
-SceneManager * sc_mng;
-float translate_ratio = 0.0;
-GLfloat stam_arr[16];
-Mesh * cube ;
-Mesh * cube2;
-Camera * cam;
-SDL_Event keyevent;
-Vector2 pos = Vector2(0.0,0.0);
-int posx, posy;
-
-bool rotateFlagUP = FALSE;
-bool rotateFlagDOWN = FALSE;
-bool rotateFlag = FALSE;
-GLfloat angle = 0.05f;
-
-/*light*/
-static int alpha=0;
-float lightAmbient[] = { 1.0f, 1.0f, 1.0f, 1.0f };
-float lightDiffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f };
-float lightPosition[] = { 0.0f, 0.0f, 2.0f , 1.0f };
-float matAmbient[] = { 0.3f, 0.0f, 0.0f, 1.0f };
-float matDiffuse[] = { 0.6f, 0.6f, 0.6f, 1.0f };
-
-//Input
-InputManager inputManager_instance;
-list<Event*> event_list;
-
-/* This is our SDL surface */
-SDL_Surface *surface;
 
 using namespace std;
 
+class A
+{
 
+private:
+	TransformNode * node1 ;
+	TransformNode * node4 ;
+	TransformNode * node2 ;
+	TransformNode * node3 ;
+	TransformNode * node5 ;
+    SceneManager * sc_mng;
+	float translate_ratio;
+	GLfloat stam_arr[16];
+	Mesh * cube ;
+	Mesh * cube2;
+	Camera * cam;
+	SDL_Event keyevent;
+	Vector2 pos;
+	int posx, posy;
+
+	bool rotateFlagUP;
+	bool rotateFlagDOWN;
+	bool rotateFlag;
+	GLfloat angle;
+
+	/*light*/
+
+	float lightAmbient[4];
+	float lightDiffuse[4];
+	float lightPosition[4];
+	float matAmbient[4];
+	float matDiffuse[4];
+
+	//Input
+	InputManager inputManager_instance;
+	list<Event*> event_list;
+
+
+
+
+	/* This is our SDL surface */
+	SDL_Surface *surface;
+public:
+
+	A(){}
+	A(SDL_Surface *passed_surface)
+	{
+		surface=passed_surface;
+
+		translate_ratio = 0.0;
+		stam_arr[16];
+		pos = Vector2(0.0,0.0);
+		rotateFlagUP = FALSE;
+		rotateFlagDOWN = FALSE;
+		rotateFlag = FALSE;
+		angle = 0.05f;
+
+	/*light*/
+
+		lightAmbient[0] = 1.0f;
+		lightAmbient[1] = 1.0f;
+		lightAmbient[2] = 1.0;
+		lightAmbient[3] = 1.0f;
+		lightDiffuse[0] = 1.0f;
+		lightDiffuse[1] = 1.0f;
+		lightDiffuse[2] = 1.0f;
+		lightDiffuse[3] = 1.0f;
+		lightPosition[0] = 0.0f;
+		lightPosition[1] = 0.0f;
+		lightPosition[2] = 2.0f;
+		lightPosition[3] = 1.0f ;
+		matAmbient[0] = 0.3f;
+		matAmbient[1] = 0.0f;
+		matAmbient[2] = 0.0f;
+		matAmbient[3] = 1.0f;
+		matDiffuse[0] = 0.6f;
+		matDiffuse[1] = 0.6f;
+		matDiffuse[2] = 0.6f;
+		matDiffuse[3] = 1.0f;
+	}
 /* function to release/destroy our resources and restoring the old desktop */
 void Quit( int returnCode )
 {
@@ -118,67 +160,11 @@ int resizeWindow( int width, int height )
 	glLoadIdentity( );
 	return( TRUE );
 }
-int drawGLScene();
-bool gameLoop(const int base_fps,const int low_fps);
-void callGameLoop(bool game_is_run,const int base_fps,const int low_fps){
-	
-	// for FPS counting
-	startclock = SDL_GetTicks();
-
-	while(game_is_run)
-	{
-		game_is_run = gameLoop(base_fps,low_fps);
-
-	}
-}
-
-void startEngine(bool game_is_run,const int base_fps,const int low_fps){
-
-	callGameLoop(game_is_run,base_fps,low_fps);
-}
 
 
-bool gameLoop(const int base_fps,const int low_fps){
-		const int TICKS_PER_SECOND = base_fps;
-		const int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
-		const int MAX_FRAMESKIP = low_fps;
-	    DWORD next_game_tick = SDL_GetTicks();
-		int loops;
-		bool game_is_run=true;
-		std::list<FrameListener*>::iterator i;
-		
-		   loops = 0;
-		   while( unsigned int(SDL_GetTicks() - next_game_tick) > SKIP_TICKS && loops < MAX_FRAMESKIP) {
-				
-			   for(i=sc_mng->framelistener_list.begin(); i!=sc_mng->framelistener_list.end();i++){
-				   //cout << "bla for" << endl;
-				   if(  (*i)->frameStarted())
-					   game_is_run = (*i)->getEvents();	
-						
-			   }
-			   next_game_tick += SKIP_TICKS;
-			   loops++;
-			}
-
-		   drawGLScene();
-
-		for(i=sc_mng->framelistener_list.begin(); i!=sc_mng->framelistener_list.end();i++){
-			(*i)->frameEnded();		
-		}
-		
-
-		// actual fps calculation inside loop
-		deltaclock = SDL_GetTicks() - startclock;startclock = SDL_GetTicks();		
-		if ( deltaclock != 0 )	currentFPS = 1000 / deltaclock;  
-		cout<<"FPS: "<<currentFPS<<endl;
-
-		return game_is_run;
-}
 /* general OpenGL initialization function */
 int initGL( GLvoid )
 {
-
-
 	/* Enable smooth shading */
 	glShadeModel( GL_SMOOTH );
 
@@ -211,8 +197,6 @@ int initGL( GLvoid )
 	/* Really Nice Perspective Calculations */
 	glHint( GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST );
 
-
-	
 	return( TRUE );
 }
 
@@ -243,12 +227,12 @@ void initScenegraph()
 	node2->setOrientation(Quaternion(12,0.0,0.0,1.0));
 	//node2->setOrientation(Quaternion(5,0.0,1.0,0.0));
 
-	//startEngine(true,60,10);
+	//sc_mng->startEngine(true,60,10);
 
 }
 
 /* function to handle key press events */
-void handleKeyPress( SDL_keysym *keysym )
+void handleKeyPress( SDL_keysym *keysym)
 {
 	switch ( keysym->sym )
 	{
@@ -348,11 +332,13 @@ int drawGLScene( GLvoid )
 		if(keyevent.key.keysym.sym == SDLK_s){
 
 			cam->translate(Vector3(0.0,0.0,-0.002),MovableObject::TS_LOCAL);
+			cout << "Michele want to be nacked" << endl;
 		}
 
 				if(keyevent.key.keysym.sym == SDLK_d){
 
 			cam->translate(Vector3(-0.002,0.0,0.0),MovableObject::TS_LOCAL);
+			
 	
 		}
 	
@@ -425,10 +411,7 @@ int drawGLScene( GLvoid )
 
 
 
-
-
-
-int main( int argc, char **argv )
+int amain()
 {
 	//triangle_tester();
 
@@ -499,12 +482,10 @@ int main( int argc, char **argv )
 		initGL( );
 
 
-		
+		initScenegraph();
 
 		/* resize the initial window */
 		resizeWindow( SCREEN_WIDTH, SCREEN_HEIGHT );
-
-		initScenegraph();
 
 		/* wait for events */ 
 		while ( !done )
@@ -542,7 +523,8 @@ int main( int argc, char **argv )
 					break;
 				case SDL_KEYDOWN:
 					/* handle key presses */
-					handleKeyPress( &keyevent.key.keysym );
+					handleKeyPress( &keyevent.key.keysym);
+					cout << "bla bla bla" << endl;
 					break;
 				case SDL_QUIT:
 					/* handle quit requests */
@@ -584,5 +566,10 @@ int main( int argc, char **argv )
 		{		
 			std::cout << "error  " << e << std::endl; 
 		}
+	}
+
+	
 };
+
+#endif
 

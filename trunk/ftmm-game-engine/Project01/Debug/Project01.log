@@ -1,39 +1,36 @@
-﻿Build started 25-10-2011 13:21:51.
+﻿Build started 25-10-2011 19:31:06.
      1>Project "C:\Documents and Settings\tgei\Desktop\blub\ftmm-game-engine\Project01\Project01.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Project01.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\Project01\SDL-1.2.14\include" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt InputManager.cpp main.cpp
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\Project01\SDL-1.2.14\include" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
          main.cpp
      1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\cameramovementinputword.h(35): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
      1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\cameramovementinputword.h(35): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(164): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(165): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(166): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(167): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(280): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(286): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(291): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(297): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(302): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(308): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(313): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(319): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(330): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(331): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(337): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(376): warning C4101: 'event' : unreferenced local variable
-         InputManager.cpp
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\cameramovementinputword.h(35): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\cameramovementinputword.h(35): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         Generating Code...
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\inputmanager.cpp(198): warning C4715: 'InputManager::handle_input' : not all control paths return a value
-     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(516): warning C4715: 'SDL_main' : not all control paths return a value
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(151): warning C4018: '>' : signed/unsigned mismatch
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(234): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(235): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(236): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(237): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(344): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(350): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(355): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(361): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(366): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(372): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(377): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(383): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(394): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(395): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(401): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(444): warning C4101: 'event' : unreferenced local variable
+     1>c:\documents and settings\tgei\desktop\blub\ftmm-game-engine\project01\main.cpp(587): warning C4715: 'SDL_main' : not all control paths return a value
        Link:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\tgei\Desktop\blub\ftmm-game-engine\Debug\Project01.exe" /NOLOGO /LIBPATH:"..\Project01\SDL-1.2.14\lib" SDL.lib SDLmain.lib opengl32.lib glu32.lib sdl.lib sdlmain.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Project01.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\tgei\Desktop\blub\ftmm-game-engine\Debug\Project01.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\tgei\Desktop\blub\ftmm-game-engine\Debug\Project01.lib" /MACHINE:X86 Debug\Camera.obj
-         Debug\EventHandler.obj
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\tgei\Desktop\blub\ftmm-game-engine\Debug\Project01.exe" /NOLOGO /LIBPATH:"..\Project01\SDL-1.2.14\lib" SDL.lib SDLmain.lib opengl32.lib glu32.lib sdl.lib sdlmain.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Project01.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\tgei\Desktop\blub\ftmm-game-engine\Debug\Project01.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\tgei\Desktop\blub\ftmm-game-engine\Debug\Project01.lib" /MACHINE:X86 Debug\A.obj
+         Debug\Camera.obj
          Debug\Event.obj
-         Debug\GameLoop.obj
+         Debug\EventHandler.obj
+         Debug\FrameListener.obj
          Debug\InputManager.obj
          Debug\Light.obj
          Debug\main.obj
@@ -46,7 +43,6 @@
          Debug\SceneManager.obj
          Debug\TransformNode.obj
          Debug\Triangle.obj
-         Debug\UpdatableListener.obj
          Debug\Vector2.obj
          Debug\Vector3.obj
          Debug\Vector4.obj
@@ -61,4 +57,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:02.53
+Time Elapsed 00:00:01.87

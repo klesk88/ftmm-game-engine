@@ -1,14 +1,37 @@
 #include "EventHandler.h";
 
+EventHandler::EventHandler(){
 
+	std::vector <Event*>* vector_of_events = new std::vector <Event*>(1,nullptr);
+}
 
-void EventHandler::addEvents(Event* ev){
+EventHandler::~EventHandler(){
+
+	delete[] vector_of_events;
+}
+
+void EventHandler::addEvents(std::vector<Event*> ev){
 	
-		list_of_events.push_back(ev);//add an event to the end of the list 
-	}
-
-
-void EventHandler::removeEvents(){
+	vector_of_events->push_back(ev);
 	
-		list_of_events.remove(0);//remove the event in first position because is the event compelete
+}
+
+std::vector<std::vector<Event*>> * EventHandler::returnVectorOfEvents(){
+
+	return &(*vector_of_events);
+}
+void EventHandler::updateEvent()
+{
+
+	std::vector <std::vector<Event*>>::iterator i;
+	std::vector <Event*>::iterator m;
+
+	for(i=vector_of_events->begin(); i<vector_of_events->end(); i++){
+		for(m=i->begin(); m<i->end(); m++){
+			if((*m)->update()){
+				i->erase(m);
+			}
+		}
 	}
+}
+

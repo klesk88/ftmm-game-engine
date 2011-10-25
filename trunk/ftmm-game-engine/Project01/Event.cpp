@@ -2,9 +2,23 @@
 
 Event::Event(){
 
-	cycles=1;
+	cycles=0;
 	milliseconds=1;
-	priority=0;
+	time=true;
+}
+
+Event::Event(unsigned int value_of_time){
+
+	milliseconds = value_of_time; 
+	start=SDL_GetTicks();
+	time=true;
+}
+
+Event::Event(clock_t clo){
+
+	cycles=clo;
+	tick = clock();
+	time=false;
 }
 
 void Event::updateCycles(){
@@ -17,39 +31,21 @@ void Event::updateTime(){
 	milliseconds -= SDL_GetTicks() - start;
 }
 
-void Event::setInitialClock(clock_t clo){
+bool Event::update(){
 
-	cycles=clo;
-	tick = clock();
+	if(time){
+		
+		updateTime();
+	}else{
+
+		updateCycles();	
+	}
+	if(milliseconds==0)
+	{
+		return true;
+	}
+	return false;
 }
 
-void Event::setInitialTime(unsigned int time){
-	milliseconds = time; 
-	start=SDL_GetTicks();
-}
 
-void Event::setPriority(int priority){
 
-	this->priority=priority;
-}
-
-int Event::getPriority(){
-
-	return priority;
-}
-
-void Event::setStartEndIndex(std::vector<Event*>::iterator start,std::vector<Event*>::iterator end){
-
-	this->started=start;
-	this->end=end;
-}
-
-std::vector<Event*>::iterator Event::getEndIndex(){
-
-	return started;
-}
-
-std::vector<Event*>::iterator Event::getStartIndex(){
-
-	return end;
-}
