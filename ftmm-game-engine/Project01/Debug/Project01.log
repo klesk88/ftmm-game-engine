@@ -1,0 +1,17 @@
+﻿Build started 25-10-2011 12:35:57.
+     1>Project "C:\Documents and Settings\tgei\Desktop\bla\ftmm-game-engine\Project01\Project01.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\Project01.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         Project01.vcxproj -> C:\Documents and Settings\tgei\Desktop\bla\ftmm-game-engine\Debug\Project01.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\Project01.unsuccessfulbuild".
+         Touching "Debug\Project01.lastbuildstate".
+     1>Done Building Project "C:\Documents and Settings\tgei\Desktop\bla\ftmm-game-engine\Project01\Project01.vcxproj" (build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.10

@@ -155,29 +155,29 @@
     <ClInclude Include="Vector4.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
+    <ClInclude Include="GameTime.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="InputEvent.h">
+      <Filter>Header Files\Input</Filter>
+    </ClInclude>
     <ClInclude Include="InputManager.h">
       <Filter>Header Files\Input</Filter>
     </ClInclude>
     <ClInclude Include="InputWord.h">
       <Filter>Header Files\Input</Filter>
     </ClInclude>
-    <ClInclude Include="InputEvent.h">
-      <Filter>Header Files\Input</Filter>
-    </ClInclude>
-    <ClInclude Include="CameraMovementEvent.h">
+    <ClInclude Include="CameraMovementInputEvent.h">
       <Filter>Header Files\Input\InputWords &amp; Events</Filter>
     </ClInclude>
     <ClInclude Include="CameraMovementInputWord.h">
       <Filter>Header Files\Input\InputWords &amp; Events</Filter>
     </ClInclude>
-    <ClInclude Include="Combo_01_InputWord.h">
-      <Filter>Header Files\Input\InputWords &amp; Events</Filter>
-    </ClInclude>
     <ClInclude Include="Combo_01_InputEvent.h">
       <Filter>Header Files\Input\InputWords &amp; Events</Filter>
     </ClInclude>
-    <ClInclude Include="GameTime.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Combo_01_InputWord.h">
+      <Filter>Header Files\Input\InputWords &amp; Events</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

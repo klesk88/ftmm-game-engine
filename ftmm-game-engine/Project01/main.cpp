@@ -489,7 +489,7 @@ int main( int argc, char **argv )
 
 			}
 		}
-
+		/*
 		for (list<Event*>::iterator it = event_list.begin(); it!=event_list.end(); ++it) 
 		{
 			//cout << "type:" << typeid(*it).name() << endl;
