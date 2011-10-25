@@ -18,18 +18,21 @@ InputManager::InputManager()
 	InputWord key_presser(0);
 	key_presser.set_listen_to_KeyState(true);
 	input_words.push_back(key_presser);
-	
-	MouseMovementInputWord* cameraMotion = new MouseMovementInputWord(0);
+	*/
+	CameraMovementInputWord* cameraMotion = new CameraMovementInputWord(0);
 	cameraMotion->set_listen_to_MouseMovement(true);
 	input_words.push_back(cameraMotion);
 	cout << "type in IM of IW:" << typeid(cameraMotion).name() << endl;
-	*/
+	
 }
 
 
 // makes a coarse pre-selection on which InputWords to update, goes into the case which handles the current input and then iterates through 
 // the vector containing the Input word (bot operations have O(n)). This is faster than updating every vector (already O(n) for calling).
-InputManager::SIGNAL InputManager::handle_input(){
+InputManager::SIGNAL InputManager::handle_input()
+{
+
+	input_events.clear();
 
     //Poll to see if we have any SDL Events (this returns the first element in a queue)
     while (SDL_PollEvent(&_event))
@@ -94,34 +97,23 @@ InputManager::SIGNAL InputManager::handle_input(){
 				
             //User has moved the mouse
             case SDL_MOUSEMOTION:
-
-				//cout << "mouse motion" << endl;
-				/*
+			
+				// iterate through all Input words to see which input words should be updated
 				for (vector<InputWord*>::iterator it = input_words.begin(); it!=input_words.end(); ++it) 
 				{
-					
+					// current input word interested in mouse movement?
 					if((*it)->get_listen_to_MouseMovement() == true)
 					{
-						cout << " . " << endl;
-						//cout << "type:" << typeid(it).name() << endl;
-
-						//cout << "type in IM of IW:" << typeid(&(*it)).name() << endl;
-						InputWord * vp = dynamic_cast<InputWord *>(*it);
-						//cout << "type in IM of IW:" << typeid(vp).name() << endl;
-												
-						MouseMovementInputWord * hp = dynamic_cast<MouseMovementInputWord *>(*it);
-						//cout << "type in IM of IW:" << typeid(hp).name() << endl;
-
+						// get an event from the update method
 						inputEvent = (*it)->update(_event);
-
+						// if the event is interesting, store it so others can request it from the InputManager
 						if(inputEvent->get_eventHasOccured() == true)
 							{
 								input_events.push_back(inputEvent);
-								cout << "..." << endl;
 							}
 					}
 				}
-				*/
+				
                 break;
                 
             //User has pressed one of the buttons (single click register)
