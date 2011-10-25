@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 #ifndef InputWord_H
 #define InputWord_H
 

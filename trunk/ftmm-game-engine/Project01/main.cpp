@@ -437,20 +437,14 @@ int main( int argc, char **argv )
 	/* wait for events */ 
 	while ( !done )
 	{
-
-		//cout << "input_manager starts input" << endl;
 		inputManager_instance.handle_input();
+		event_list.clear();
 
-		//cout << "ai ai ai" << endl;
-		//cout << "input_manager_done with input" << endl;
 		if(inputManager_instance.get_input_events().empty() == false)
 		{
 			vector<Event*> temp_vector = inputManager_instance.get_input_events();
 			for (vector<Event*>::iterator it = temp_vector.begin(); it != temp_vector.end(); ++it) 
 			{
-				//cout << "elements in list" << endl;
-
-				//cout << "type:" << typeid(*it).name() << endl;
 				event_list.push_front(*it);
 			}
 		}
@@ -489,14 +483,13 @@ int main( int argc, char **argv )
 
 			}
 		}
-		/*
+		
 		for (list<Event*>::iterator it = event_list.begin(); it!=event_list.end(); ++it) 
 		{
-			//cout << "type:" << typeid(*it).name() << endl;
-			if(CameraMovementEvent * cME = dynamic_cast<CameraMovementEvent *>(*it)) 
+			if(CameraMovementInputEvent * cME = dynamic_cast<CameraMovementInputEvent *>(*it)) 
 			{
 				Vector2 position = cME->get_current_position();
-				//cout << position.x << " . " << position.y << endl;
+				cout << position.x << " . " << position.y << endl;
 			}
 		}
 

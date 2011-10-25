@@ -22,7 +22,8 @@ public:
 
     /*  Here we define the signals we need to let our parent know the status
         of the program. */
-    enum SIGNAL{
+    enum SIGNAL
+	{
         NORMAL,     //handle_input() processed input correctly
         QUIT        //handle_input() says the user wants to exit the program
     };
@@ -35,8 +36,11 @@ public:
             Input_Manager::QUIT when user requests to quit.  */
     SIGNAL handle_input();
     
+	/*Returns the events that have happend since handle_input() was called last time*/
 	vector<Event*> get_input_events()
-		{	return input_events;}
+		{	
+			return input_events;
+		}
 
 protected:
 
