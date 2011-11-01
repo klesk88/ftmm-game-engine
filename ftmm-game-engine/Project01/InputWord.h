@@ -58,11 +58,11 @@ public:
 	bool get_listen_to_MouseButtonPressed() {return listen_to_MouseButtonPressed;}
 	bool get_listen_to_MouseMovement() {return listen_to_MouseMovement;}
 
-	void set_listen_to_KeyStroke(bool value) {listen_to_KeyStroke = true;}
-	void set_listen_to_KeyState(bool value) {listen_to_KeyState = true;}
-	void set_listen_to_MouseSingleClick(bool value) {listen_to_MouseSingleClick = true;}
-	void set_listen_to_MouseButtonPressed(bool value) {listen_to_MouseButtonPressed = true;}
-	void set_listen_to_MouseMovement(bool value) {listen_to_MouseMovement = true;}
+	void set_listen_to_KeyStroke(bool value) {listen_to_KeyStroke = value;}
+	void set_listen_to_KeyState(bool value) {listen_to_KeyState = value;}
+	void set_listen_to_MouseSingleClick(bool value) {listen_to_MouseSingleClick = value;}
+	void set_listen_to_MouseButtonPressed(bool value) {listen_to_MouseButtonPressed = value;}
+	void set_listen_to_MouseMovement(bool value) {listen_to_MouseMovement = value;}
 
 	//---------------------------------------------------------------------------
 	// Game state management
