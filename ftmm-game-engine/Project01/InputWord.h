@@ -37,11 +37,9 @@ public:
 	// this virtual makes this class a polymorphic class
 	virtual InputEvent* update(SDL_Event _event)
 	{
+		// This returns an empty and meaningless event
+		// think of something better to do here
 		event_current = _event;
-
-		// which event OR update their values
-		// think about whether to throw an event to Michele		
-
 		InputEvent * defaultEvent = new InputEvent() ;
 		return defaultEvent;
 	}
