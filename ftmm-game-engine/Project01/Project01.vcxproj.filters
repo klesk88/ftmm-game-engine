@@ -146,9 +146,6 @@
     <ClInclude Include="Vector4.h">
       <Filter>Header Files\Math</Filter>
     </ClInclude>
-    <ClInclude Include="GameTime.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="InputEvent.h">
       <Filter>Header Files\Input</Filter>
     </ClInclude>
@@ -183,6 +180,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="A.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GameTime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
