@@ -13,8 +13,6 @@
 int main( int argc, char **argv )
 {
 
-
-
 	try
 	{
 		
@@ -31,4 +29,3 @@ int main( int argc, char **argv )
 			std::cout << "error  " << e << std::endl; 
 		}
 };
-

@@ -29,6 +29,8 @@
 #include "Vector2.h"
 #include <typeinfo.h>
 
+#include "GamePlay_01.h"
+
 
 
 
@@ -101,18 +103,18 @@ class SceneManager
 		// ONLY FOR TESTING
 
 		TransformNode * node1 ;
-TransformNode * node4 ;
-TransformNode * node2 ;
-TransformNode * node3 ;
-TransformNode * node5 ;
-SceneManager * sc_mng;
-float translate_ratio;
-GLfloat stam_arr[16];
-Mesh * cube ;
-Mesh * cube2;
-Camera * cam;
-Vector2 pos;
-int posx, posy;
+		TransformNode * node4 ;
+		TransformNode * node2 ;
+		TransformNode * node3 ;
+		TransformNode * node5 ;
+		SceneManager * sc_mng;
+		float translate_ratio;
+		GLfloat stam_arr[16];
+		Mesh * cube ;
+		Mesh * cube2;
+		Camera * cam;
+		Vector2 pos;
+		int posx, posy;
 
 
 };

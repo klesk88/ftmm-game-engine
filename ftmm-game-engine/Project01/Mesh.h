@@ -12,17 +12,22 @@
 #include <string>
 #include "Vector3.h"
 
-class Mesh{
 
+class Mesh
+{
+	protected:
+		float size_p;
+		float red, green, blue;
 
 	public:
-		Mesh(float size,float r,float g,float b);
+		Mesh(float size,float red_,float green_,float blue_)
+		{
+			size_p = size;
+			red = red_;
+			green = green_;
+			blue = blue_;
+		}
 		void drawCube ();
-
-	protected:
-		  float size_p;
-		  float red, green, blue;
-
 };
 
 
