@@ -72,11 +72,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Object3D.cpp" />
     <ClCompile Include="A.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="FrameListener.cpp" />
+    <ClCompile Include="GamePlay_01.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
@@ -94,16 +96,21 @@
     <ClCompile Include="Vector4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CubeObjectTest.h" />
+    <ClInclude Include="Object3D.h" />
     <ClInclude Include="A.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraMovementInputEvent.h" />
     <ClInclude Include="CameraMovementInputWord.h" />
     <ClInclude Include="Combo_01_InputEvent.h" />
     <ClInclude Include="Combo_01_InputWord.h" />
+    <ClInclude Include="EGameObject.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventHandler.h" />
     <ClInclude Include="FrameListener.h" />
     <ClInclude Include="GameObject.h" />
+    <ClInclude Include="GamePlay_01.h" />
+    <ClInclude Include="IGameState.h" />
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="InputEvent.h" />
     <ClInclude Include="InputManager.h" />

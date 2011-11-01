@@ -1,13 +1,7 @@
 #include "Mesh.h"
 #include "SceneManager.h"
 
-Mesh::Mesh(float size, float r,float g,float b){
-
-	size_p = size;
-	red = r;
-	green = g;
-	blue = b;
-}
+//constructor temporily in header file
 
 void Mesh::drawCube(){
 

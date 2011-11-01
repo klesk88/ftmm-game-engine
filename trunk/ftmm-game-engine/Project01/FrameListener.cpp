@@ -16,13 +16,14 @@ void FrameListener::removeObject(GameObject* game_obj){
 }
 
 void FrameListener::notifyObjects(){
+	/*
 	vector<GameObject*>::iterator i;
 	EventHandler eh;
 
 		for(i=vector_of_game_object.begin(); i!=vector_of_game_object.end();i++){//for every object
 			(*i)->update(ev->returnVectorOfEvents());
 		}
-		
+	*/
 }
 
 bool FrameListener::getEvents(){

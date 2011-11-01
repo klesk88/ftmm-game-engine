@@ -15,8 +15,6 @@
 class Node{
 	
 	public:
-
-		
 	
 		//Method to create a child of a Node.
 		virtual Node * createChild(const std::string & stringName);
