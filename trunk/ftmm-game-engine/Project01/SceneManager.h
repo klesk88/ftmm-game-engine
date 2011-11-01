@@ -14,7 +14,27 @@
 #include "RootTransformNode.h"
 #include "Camera.h"
 #include "FrameListener.h"
+#include "InputManager.h"
+//----------------------
+#include "TransformNode.h"
+#include "RootTransformNode.h"
+#include "SceneManager.h"
+#include <gl\gl.h>                         // Header File For The OpenGL32 Library
+#include <gl\glu.h>                            // Header File For The GLu32 Library
+#include <Windows.h>
+#include <wchar.h>
+#include "Vector4.h"
+#include "Vector3.h"
+#include "Matrix4.h"
+#include "Vector2.h"
+#include <typeinfo.h>
 
+
+
+
+#define SCREEN_WIDTH  640
+#define SCREEN_HEIGHT 480
+#define SCREEN_BPP     16
 
 class SceneManager
 {
@@ -40,6 +60,21 @@ class SceneManager
 		*/
 		void startEngine(bool,const int base_fps,const int low_fps);
 		std::list <FrameListener*> framelistener_list;
+
+
+		//FT
+		/*Provisory init for the whole engine*/
+		int initializeEngine();
+		void Quit( int returnCode )
+		{
+			/* clean up the window */
+			SDL_Quit( );
+
+			/* and exit appropriately */
+			exit( returnCode );
+		}
+
+
 	protected:
 
 		SceneManager();
@@ -49,11 +84,35 @@ class SceneManager
 
 	private:
 
+		InputManager inputManager_instance;
 		bool gameLoop(const int base_fps,const int low_fps);
 		static SceneManager * p_instance;
 		/*texture*/
 		static const int size = 1;
 		GLuint texture[size];
+
+
+		//For FPS calculation
+		Uint32 startclock;
+		Uint32 deltaclock;
+		Uint32 currentFPS;
+
+
+		// ONLY FOR TESTING
+
+		TransformNode * node1 ;
+TransformNode * node4 ;
+TransformNode * node2 ;
+TransformNode * node3 ;
+TransformNode * node5 ;
+SceneManager * sc_mng;
+float translate_ratio;
+GLfloat stam_arr[16];
+Mesh * cube ;
+Mesh * cube2;
+Camera * cam;
+Vector2 pos;
+int posx, posy;
 
 
 };
