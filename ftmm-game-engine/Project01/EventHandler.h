@@ -5,11 +5,12 @@
 #include "Event.h"
 #include <typeinfo>
 
+//FT: added gamePlay
 
 class EventHandler{
 
 public:
-	const enum positions{Input,Ai,Physics,Sound};//positions in the vector
+	const enum positions{Input,Ai,Physics,Sound, Gameplay};//positions in the vector
 	EventHandler();
 	~EventHandler();
 	void addEvents(std::vector<Event*> ev);
