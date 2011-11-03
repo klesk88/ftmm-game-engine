@@ -156,9 +156,6 @@ bool SceneManager::gameLoop(const int base_fps,const int low_fps){
 }
 
 
-
-
-
 int SceneManager::initializeEngine()
 {
 
@@ -276,6 +273,9 @@ int SceneManager::initializeEngine()
 
 
 		//sc_mng = SceneManager::getInstance();
+		gameState_01 = GamePlay_01::getInstance();
+		
+
 
 		//node1 = new RootTransformNode ("node1",0.0,0.0,0.0);
 	

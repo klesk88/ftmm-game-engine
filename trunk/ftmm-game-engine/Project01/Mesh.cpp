@@ -1,5 +1,5 @@
 #include "Mesh.h"
-#include "SceneManager.h"
+//#include "SceneManager.h"
 
 //constructor temporily in header file
 

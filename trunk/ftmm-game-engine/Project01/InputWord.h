@@ -33,7 +33,7 @@ protected:
 	bool true_in_all_gameStates; //this speeds up gameState truth queries and can make it easier to manage input words
 
 public:
-
+	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX InputWord included")
 	// this virtual makes this class a polymorphic class
 	virtual InputEvent* update(SDL_Event _event)
 	{

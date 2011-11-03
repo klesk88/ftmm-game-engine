@@ -1,9 +1,13 @@
 
 #include "GamePlay_01.h"
+#include "SceneManager.h"
 
 GamePlay_01 * GamePlay_01::p_instance = NULL;
 
-GamePlay_01::GamePlay_01(){}
+GamePlay_01::GamePlay_01()
+{
+	//newAgeCube = new CubeObjectTest("d", Vector3 (0.0,0.0,0.0), Quaternion.IDENTITY);
+}
 
 
 GamePlay_01 * GamePlay_01::getInstance()
@@ -17,6 +21,8 @@ GamePlay_01 * GamePlay_01::getInstance()
 
 void GamePlay_01::init() 
 {
+	//newAgeCube = new CubeObjectTest("cube01", );
+
 	/*
 	cam = createCamera("camera1");
 	node1 = getRootTransformNode()->createChild("node1"); 
@@ -37,4 +43,16 @@ void GamePlay_01::init()
 	node5->attachObject(cube4);
 	node2->setOrientation(Quaternion(12,0.0,0.0,1.0));
 	*/
+}
+
+void GamePlay_01::loadStuff()
+{
+			SceneManager * sc_mn = SceneManager::getInstance();
+			TransformNode * m_transformNode;
+			Vector3 * position = new Vector3(0.0,0.0,0.0);
+			Quaternion * orientation = new Quaternion(0.0,0.0,0.0);
+			m_transformNode = sc_mn->getRootTransformNode()->createChild("node6");
+			m_transformNode->setPosition(*position);
+			m_transformNode->setOrientation(*orientation);
+
 }

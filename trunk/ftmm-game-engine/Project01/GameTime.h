@@ -5,6 +5,8 @@
 class GameTime
 {
 public:
+	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX GameTime included")
+
 
 	// The amount of elapsed game time since the last update.
 	// public TimeSpan ElapsedGameTime { get; set; }

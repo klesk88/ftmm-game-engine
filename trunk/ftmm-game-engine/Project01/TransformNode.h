@@ -21,6 +21,9 @@
 class TransformNode : public MovableObject{
 
 	public:
+
+		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX TransformNode included")
+
 		//Method to create a child of a TransformNode.
 		TransformNode * createChild(const std::string & stringName, Vector3 initial_position = Vector3::ZERO);
 		

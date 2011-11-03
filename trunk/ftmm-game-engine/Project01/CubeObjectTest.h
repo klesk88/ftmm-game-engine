@@ -1,14 +1,31 @@
-#ifndef __CubeObjectTest_H
-#define __CubeObjectTest_H
+#ifndef CubeObjectTest_H
+#define CubeObjectTest_H
+//#include "GameObject.h"
+//#include "Object3D.h"
+//#ifndef  Object3d_H
+//#define Object3d_H
+//#endif
 
 #include "Object3D.h"
 #include "GameObject.h"
+#include "Quaternion.h"
+#include "Vector3.h"
+#include <string>
+using namespace::std;
 
-class CubeObjectTest : public GameObject : public Object3D
+#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX Why is Object3D not included here?")
+
+class CubeObjectTest : GameObject, Object3D/*: public Object3D, public GameObject*/
 {
-private:
+
+//private:
 public:
-	CubeObjectTest(string name, Vector3 position, Quaterion orientation) : GameObject(name) : Object3D(position, orientation)
+#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX CubeObjectTest included")
+	CubeObjectTest();
+	CubeObjectTest(string name, Vector3 position, Quaternion orientation);
+
+
+	void update(vector<Event*> events){};
 };
 
 #endif

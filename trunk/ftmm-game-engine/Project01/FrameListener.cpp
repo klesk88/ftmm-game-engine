@@ -15,7 +15,8 @@ void FrameListener::removeObject(GameObject* game_obj){
 	vector_of_game_object.erase(vector_of_game_object.begin());//add the gameobject to the end of the list 
 }
 
-void FrameListener::notifyObjects(){
+void FrameListener::notifyObjects()
+{
 	/*
 	vector<GameObject*>::iterator i;
 	EventHandler eh;

@@ -9,6 +9,7 @@ class CameraMovementInputEvent: public InputEvent
 private:
 	Vector2 position;
 public:
+	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputEvent included")
 	CameraMovementInputEvent() : InputEvent()
 	{
 		eventHasOccured = false;
