@@ -1,7 +1,7 @@
-#include "Event.h"
-
 #ifndef InputEvent_H
 #define InputEvent_H
+
+#include "Event.h"
 
 class InputEvent: public Event 
 {
@@ -10,6 +10,8 @@ protected:
 	bool eventHasOccured;
 
 public:
+	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX InputEvent included")
+
 	InputEvent() : Event()
 	{
 		eventHasOccured = false;

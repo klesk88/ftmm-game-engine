@@ -1,7 +1,6 @@
 #ifndef CameraMovementInputWord_H
 #define CameraMovementInputWord_H
 
-
 #include "InputWord.h"
 #include "Vector2.h"
 #include "CameraMovementInputEvent.h"
@@ -11,7 +10,7 @@ class CameraMovementInputWord: public InputWord
 
 		//velocity...
 public:
-
+	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputWord included")
 	CameraMovementInputWord(int count_gameStates) : InputWord(count_gameStates){}
 
 	InputEvent* update(SDL_Event _event)
@@ -50,7 +49,6 @@ public:
 		//throw an MouseMovement event that has velocity, position, etc.
 	}
 };
-
 
 #endif
 

@@ -18,7 +18,7 @@
 //----------------------
 #include "TransformNode.h"
 #include "RootTransformNode.h"
-#include "SceneManager.h"
+//#include "SceneManager.h"
 #include <gl\gl.h>                         // Header File For The OpenGL32 Library
 #include <gl\glu.h>                            // Header File For The GLu32 Library
 #include <Windows.h>
@@ -34,6 +34,8 @@
 
 
 
+
+
 #define SCREEN_WIDTH  640
 #define SCREEN_HEIGHT 480
 #define SCREEN_BPP     16
@@ -42,7 +44,12 @@ class SceneManager
 {
 
 	public:
-		
+
+
+		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX SceneManager included")
+
+		GamePlay_01 * gameState_01;
+
 		static SceneManager * getInstance ();
 		TransformNode * getRootTransformNode();
 		Camera * createCamera(const std::string  & stringName);

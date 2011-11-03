@@ -33,8 +33,6 @@ TransformNode * TransformNode::createChild(const std::string & stringName, Vecto
 	temp_node->setParent(this);
 	child_list.push_back(temp_node);
 	
-
-	
 	return temp_node;
 	
 }

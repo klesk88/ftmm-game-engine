@@ -72,6 +72,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CubeObjectTest.cpp" />
     <ClCompile Include="Object3D.cpp" />
     <ClCompile Include="A.cpp" />
     <ClCompile Include="Camera.cpp" />

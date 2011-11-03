@@ -13,16 +13,20 @@ private:
 	string name_this;
 
 public:
-	// Specify exactly one transfrom node if you want to include this into the SceneGraph
 
+#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX GameObject included")
+
+	// Specify exactly one transfrom node if you want to include this into the SceneGraph
+/*
+	GameObject(){};
 	GameObject(string name)
 	{
 		name_this = name;
 		// If Game Object should be part of SceneGraph do something like this:
 		// TransformNode tn = SceneManager::getInstance()->getRootTransformNode()->createChild("node6");
 	}
-
-	virtual void update(vector<Event*> events);
+*/
+	virtual void update(vector<Event*> events) = 0;
 };
 
 #endif

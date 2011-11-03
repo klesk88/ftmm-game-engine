@@ -15,8 +15,8 @@ int main( int argc, char **argv )
 
 	try
 	{
-		
 		SceneManager * msc = SceneManager::getInstance();
+		//GameStateManager * gsm = GameStateManager::getInstance();
 		msc->initializeEngine();
 		msc->startEngine(true,60,10);
 
@@ -28,4 +28,4 @@ int main( int argc, char **argv )
 		{		
 			std::cout << "error  " << e << std::endl; 
 		}
-};
+}

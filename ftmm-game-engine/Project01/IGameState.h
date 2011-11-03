@@ -1,12 +1,12 @@
-#include "EventHandler.h"
-#include "GameObject.h"
-#include "Vector3.h"
-#include "Quaternion.h"
-#include "EGameObject.h"
-
 #ifndef __IGameState_h__
 #define __IGameState_h__
 
+#include "EventHandler.h"
+//#include "GameObject.h"
+#include "Vector3.h"
+#include "Quaternion.h"
+#include "EGameObject.h"
+class GameObject;
 using std::vector;
 
 class IGameState
@@ -15,7 +15,9 @@ class IGameState
 //private:
 	//vector<GameObject*> vector_of_game_object;//list containing all the game objects connected with this frame listener
 public:
-	IGameState(){};
+	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX IGameState included")
+
+	//IGameState();
 	
 	virtual void init() = 0;
 	

@@ -7,6 +7,7 @@
 class Combo_01_InputWord: public InputWord
 {
 public:
+	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX Combo_01_InputWord included")
 	Combo_01_InputWord(int count_gameStates) : InputWord(count_gameStates){}
 
 	InputEvent* update(SDL_Event _event)

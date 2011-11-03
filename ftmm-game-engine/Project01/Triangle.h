@@ -1,3 +1,6 @@
+#ifndef __Triangle_H
+#define __Triangle_H
+
 #include <vector>
 #include <iostream>
 #include "SDL.h"
@@ -18,6 +21,8 @@ class Triangle
 
 	public:
 
+		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX Triangle included")
+
 		Triangle(GLfloat vertex_01[], GLfloat vertex_02[], GLfloat vertex_03[], GLfloat color_01[], GLfloat color_02[], GLfloat color_03[] );
 		
 		GLfloat get_vertex_01(int);
@@ -28,3 +33,5 @@ class Triangle
 		GLfloat get_color_03(int);
 
 };
+
+#endif

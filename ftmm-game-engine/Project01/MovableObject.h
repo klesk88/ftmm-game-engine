@@ -1,4 +1,5 @@
-
+#ifndef MovableObject_H
+#define MovableObject_H
 
 #pragma once
 
@@ -21,6 +22,8 @@ class MovableObject{
 
 
 	public:
+
+		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX MovableObject included")
 
 		 enum TransformSpace
         {
@@ -45,14 +48,8 @@ class MovableObject{
 		virtual void setOrientation(const Quaternion & orientation_value) = 0 ;
 		virtual void scale(const Vector3& scale_value) = 0 ;
 		virtual void setScale(const Vector3& scale_value) = 0 ;
-		
-		
-
-
-
-		
-
-
 
 };
+
+#endif
 
