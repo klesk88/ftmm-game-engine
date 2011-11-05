@@ -10,6 +10,8 @@
 class Event{//must be an interface for all the events
 
 public:	
+		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX Event included")
+
 		clock_t cycles;//@ param number of clock ticks
 		unsigned int start;
 		unsigned int milliseconds;//@param  number of milliseconds

@@ -20,6 +20,7 @@ private:
 	InputManager* m_im;
 	vector<GameObject*> vector_of_game_object;//list containing all the game objects connected with this frame listener
 public:
+	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX FrameListener included")
 	FrameListener(EventHandler*,InputManager*);
 	virtual bool frameStarted()
 	{return true;}

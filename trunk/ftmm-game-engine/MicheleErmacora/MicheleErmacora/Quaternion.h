@@ -32,14 +32,13 @@ THE SOFTWARE.
 // http://www.boost.org/LICENSE_1_0.txt
 // http://www.geometrictools.com/License/Boost/LICENSE_1_0.txt
 
-#include "Matrix3.h"
-#include "Vector3.h"
-#include "Math.h"
 
 #ifndef __Quaternion_H__
 #define __Quaternion_H__
 
-
+#include "Matrix3.h"
+#include "Vector3.h"
+#include "Math.h"
 
 	/** Implementation of a Quaternion, i.e. a rotation around an axis.
     */
@@ -48,6 +47,8 @@ THE SOFTWARE.
 
     public:
 		
+		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX Quaternion included")
+
         // cutoff for sine near zero
         static const float ms_fEpsilon;
 

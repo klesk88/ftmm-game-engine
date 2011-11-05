@@ -1,4 +1,4 @@
-#ifndef   __Light_H__
+#ifndef  __Light_H__
 #define  __Light_H__
 
 #include "Vector4.h"
@@ -13,6 +13,7 @@ class Light
 {
 
 	public:
+		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX Light included")
 		// internal method for calculating current squared distance from some world position
 		void calcTempSquareDist(const Vector3& worldPos);
 

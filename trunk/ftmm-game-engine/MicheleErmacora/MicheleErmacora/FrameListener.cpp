@@ -15,19 +15,21 @@ void FrameListener::removeObject(GameObject* game_obj){
 	vector_of_game_object.erase(vector_of_game_object.begin());//add the gameobject to the end of the list 
 }
 
-void FrameListener::notifyObjects(){
+void FrameListener::notifyObjects()
+{
+	/*
 	vector<GameObject*>::iterator i;
 	EventHandler eh;
 
 		for(i=vector_of_game_object.begin(); i!=vector_of_game_object.end();i++){//for every object
 			(*i)->update(ev->returnVectorOfEvents());
 		}
-		
+	*/
 }
 
 bool FrameListener::getEvents(){
 
-	if(m_im->handle_input())//the user press esc so he wwants to exit the program
+	if(m_im->QUIT)//the user press esc so he wwants to exit the program
 			return false;
 	
 	/*
