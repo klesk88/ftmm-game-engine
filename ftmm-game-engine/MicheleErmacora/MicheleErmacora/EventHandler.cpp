@@ -20,8 +20,8 @@ std::vector<std::vector<Event*>> * EventHandler::returnVectorOfEvents(){
 
 	return &(*vector_of_events);
 }
-
-void EventHandler::updateEvent(){
+void EventHandler::updateEvent()
+{
 
 	std::vector <std::vector<Event*>>::iterator i;
 	std::vector <Event*>::iterator m;
@@ -31,6 +31,7 @@ void EventHandler::updateEvent(){
 			if((*m)->update()){
 				i->erase(m);
 			}
+		}
 	}
 }
 

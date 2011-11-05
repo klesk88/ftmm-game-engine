@@ -71,7 +71,6 @@ void Camera::rotate(const Vector3& axis, const Radian& angle, TransformSpace rel
 	Quaternion q;
     q.FromAngleAxis(angle,axis);
     rotate(q, relativeTo);
-
 }
 
 void Camera::rotate(const Quaternion& rotation_value, TransformSpace relativeTo){

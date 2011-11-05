@@ -15,9 +15,9 @@
 class Node{
 	
 	public:
-
-		
 	
+		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX Node included")
+
 		//Method to create a child of a Node.
 		virtual Node * createChild(const std::string & stringName);
 		

@@ -22,6 +22,8 @@ class Camera : public MovableObject{
 
 	public:
 
+		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX Camera included")
+
 		Camera (const std::string  & stringName);
 		std::string getName();
 		void updateCamera();

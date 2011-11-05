@@ -13,36 +13,66 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="File di intestazione\MemoryManagement">
+      <UniqueIdentifier>{343700e5-f319-4c10-84c2-be4a61855038}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di risorse\MemoryManagement">
+      <UniqueIdentifier>{cfe62c86-966d-4d34-ba21-f45d12dc0828}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\EventManagement">
+      <UniqueIdentifier>{2b2786eb-90ef-4fbc-b2a8-aef9f1746672}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\GameObjects">
+      <UniqueIdentifier>{5fed675f-763a-4761-aabf-6d43381330ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di risorse\Math">
+      <UniqueIdentifier>{c1da03c8-08fe-41bc-bfaf-e215edaac0fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di risorse\Input">
+      <UniqueIdentifier>{878741dc-bb35-4e6c-8a9f-23003c3308a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di risorse\GameStates">
+      <UniqueIdentifier>{c1cfd890-3fd0-4c18-888e-4be0f6550f6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di risorse\EventManagement">
+      <UniqueIdentifier>{ccbaf082-f3be-499b-b2be-3b6f0e6b7170}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\GameStates">
+      <UniqueIdentifier>{529c1893-1bd6-4f6f-9889-d972179164a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\Input">
+      <UniqueIdentifier>{720c69d1-e9ab-4f8b-bc5e-ed7c05085e7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="File di intestazione\Math">
+      <UniqueIdentifier>{9a68a12e-933c-4f92-b598-eff3deb1e03b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Vector4.h">
+    <ClInclude Include="A.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="Camera.h">
+    <ClInclude Include="CameraMovementInputEvent.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="Event.h">
+    <ClInclude Include="CameraMovementInputWord.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="EventHandler.h">
+    <ClInclude Include="Combo_01_InputEvent.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="Combo_01_InputWord.h">
+      <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="EGameObject.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="FrameListener.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
+    <ClInclude Include="GameTime.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="Light.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
-    <ClInclude Include="Math.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
-    <ClInclude Include="Matrix3.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
-    <ClInclude Include="Matrix4.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
     <ClInclude Include="Mesh.h">
@@ -66,27 +96,78 @@
     <ClInclude Include="TransformNode.h">
       <Filter>File di intestazione</Filter>
     </ClInclude>
+    <ClInclude Include="EAllocationType.h">
+      <Filter>File di intestazione\MemoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="SegmentInformation.h">
+      <Filter>File di intestazione\MemoryManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="Event.h">
+      <Filter>File di intestazione\EventManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="EventHandler.h">
+      <Filter>File di intestazione\EventManagement</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>File di intestazione\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="CubeObjectTest.h">
+      <Filter>File di intestazione\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>File di intestazione\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="Object3D.h">
+      <Filter>File di intestazione\GameObjects</Filter>
+    </ClInclude>
     <ClInclude Include="Triangle.h">
-      <Filter>File di intestazione</Filter>
+      <Filter>File di intestazione\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Vector2.h">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="GamePlay_01.h">
+      <Filter>File di intestazione\GameStates</Filter>
     </ClInclude>
-    <ClInclude Include="Vector3.h">
-      <Filter>File di intestazione</Filter>
+    <ClInclude Include="IGameState.h">
+      <Filter>File di intestazione\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="InputEvent.h">
+      <Filter>File di intestazione\Input</Filter>
     </ClInclude>
     <ClInclude Include="InputManager.h">
-      <Filter>File di intestazione</Filter>
+      <Filter>File di intestazione\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="InputWord.h">
+      <Filter>File di intestazione\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="Math.h">
+      <Filter>File di intestazione\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix3.h">
+      <Filter>File di intestazione\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix4.h">
+      <Filter>File di intestazione\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>File di intestazione\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>File di intestazione\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4.h">
+      <Filter>File di intestazione\Math</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="A.cpp">
+      <Filter>File di risorse</Filter>
+    </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>File di risorse</Filter>
     </ClCompile>
-    <ClCompile Include="Event.cpp">
+    <ClCompile Include="CubeObjectTest.cpp">
       <Filter>File di risorse</Filter>
     </ClCompile>
-    <ClCompile Include="EventHandler.cpp">
+    <ClCompile Include="FrameListener.cpp">
       <Filter>File di risorse</Filter>
     </ClCompile>
     <ClCompile Include="Light.cpp">
@@ -95,16 +176,10 @@
     <ClCompile Include="main.cpp">
       <Filter>File di risorse</Filter>
     </ClCompile>
-    <ClCompile Include="Math.cpp">
-      <Filter>File di risorse</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrix3.cpp">
-      <Filter>File di risorse</Filter>
-    </ClCompile>
-    <ClCompile Include="Matrix4.cpp">
-      <Filter>File di risorse</Filter>
-    </ClCompile>
     <ClCompile Include="Mesh.cpp">
+      <Filter>File di risorse</Filter>
+    </ClCompile>
+    <ClCompile Include="Object3D.cpp">
       <Filter>File di risorse</Filter>
     </ClCompile>
     <ClCompile Include="Quaternion.cpp">
@@ -122,20 +197,38 @@
     <ClCompile Include="Triangle.cpp">
       <Filter>File di risorse</Filter>
     </ClCompile>
-    <ClCompile Include="Vector2.cpp">
-      <Filter>File di risorse</Filter>
+    <ClCompile Include="NewDelete.cpp">
+      <Filter>File di risorse\MemoryManagement</Filter>
     </ClCompile>
-    <ClCompile Include="Vector3.cpp">
-      <Filter>File di risorse</Filter>
+    <ClCompile Include="Event.cpp">
+      <Filter>File di risorse\EventManagement</Filter>
     </ClCompile>
-    <ClCompile Include="Vector4.cpp">
-      <Filter>File di risorse</Filter>
+    <ClCompile Include="EventHandler.cpp">
+      <Filter>File di risorse\EventManagement</Filter>
     </ClCompile>
-    <ClCompile Include="FrameListener.cpp">
-      <Filter>File di risorse</Filter>
+    <ClCompile Include="GamePlay_01.cpp">
+      <Filter>File di risorse\GameStates</Filter>
     </ClCompile>
     <ClCompile Include="InputManager.cpp">
-      <Filter>File di risorse</Filter>
+      <Filter>File di risorse\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="Math.cpp">
+      <Filter>File di risorse\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix3.cpp">
+      <Filter>File di risorse\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix4.cpp">
+      <Filter>File di risorse\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2.cpp">
+      <Filter>File di risorse\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3.cpp">
+      <Filter>File di risorse\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector4.cpp">
+      <Filter>File di risorse\Math</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

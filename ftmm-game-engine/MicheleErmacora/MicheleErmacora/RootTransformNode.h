@@ -19,6 +19,8 @@ class RootTransformNode : public TransformNode{
 
 	public:
 
+		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX RootTransformNode included")
+
 		//RootTransformNode(const std::string & stringName,float x,float y,float z);
 		static RootTransformNode * getInstance(const std::string & stringName,Vector3 initial_position = Vector3::ZERO);
 		~RootTransformNode(){delete this;}
