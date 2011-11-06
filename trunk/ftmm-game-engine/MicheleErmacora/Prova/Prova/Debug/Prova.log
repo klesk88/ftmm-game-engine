@@ -1,0 +1,29 @@
+﻿Compilazione avviata 06/11/2011 01:25:54.
+     1>Progetto "C:\Users\klesk\Documents\Visual Studio 2010\Projects\Prova\Prova\Prova.vcxproj" sul nodo 2 (destinazioni: build).
+     1>InitializeBuildStatus:
+         Creazione di "Debug\Prova.unsuccessfulbuild". È stato specificato "AlwaysCreate".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt NewDelete.cpp
+         NewDelete.cpp
+     1>c:\users\klesk\documents\visual studio 2010\projects\prova\prova\newdelete.cpp(38): warning C4800: 'BOOL': imposto valore booleano 'true' o 'false' (avviso di prestazioni)
+     1>c:\users\klesk\documents\visual studio 2010\projects\prova\prova\newdelete.cpp(67): warning C4800: 'BOOL': imposto valore booleano 'true' o 'false' (avviso di prestazioni)
+       ManifestResourceCompile:
+         Tutti gli output sono aggiornati.
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\klesk\Documents\Visual Studio 2010\Projects\Prova\Debug\Prova.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Prova.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Users\klesk\Documents\Visual Studio 2010\Projects\Prova\Debug\Prova.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\klesk\Documents\Visual Studio 2010\Projects\Prova\Debug\Prova.lib" /MACHINE:X86 Debug\Prova.exe.embed.manifest.res
+         Debug\main.obj
+         Debug\NewDelete.obj
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /out:"Debug\Prova.exe.embed.manifest" /manifest Debug\Prova.exe.intermediate.manifest
+         Tutti gli output sono aggiornati.
+       LinkEmbedManifest:
+         Tutti gli output sono aggiornati.
+         Prova.vcxproj -> C:\Users\klesk\Documents\Visual Studio 2010\Projects\Prova\Debug\Prova.exe
+       FinalizeBuildStatus:
+         Eliminazione del file "Debug\Prova.unsuccessfulbuild" in corso.
+         Aggiornamento timestamp di "Debug\Prova.lastbuildstate".
+     1>Compilazione progetto "C:\Users\klesk\Documents\Visual Studio 2010\Projects\Prova\Prova\Prova.vcxproj" (destinazioni: build) completata.
+
+Compilazione completata.
+
+Tempo trascorso 00:00:01.20

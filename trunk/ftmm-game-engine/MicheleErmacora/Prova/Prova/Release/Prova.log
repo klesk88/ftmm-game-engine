@@ -1,0 +1,24 @@
+﻿Compilazione avviata 05/11/2011 21:28:29.
+     1>Progetto "C:\Users\klesk\Documents\Visual Studio 2010\Projects\Prova\Prova\Prova.vcxproj" sul nodo 2 (destinazioni: build).
+     1>InitializeBuildStatus:
+         Creazione di "Release\Prova.unsuccessfulbuild". È stato specificato "AlwaysCreate".
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /Zi /nologo /W3 /WX- /O2 /Oi /Oy- /GL /D WIN32 /D NDEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm- /EHsc /MD /GS /Gy /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Release\\" /Fd"Release\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt main.cpp
+         main.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"c:\Users\klesk\Documents\Visual Studio 2010\Projects\Prova\Release\Prova.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Release\Prova.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"c:\Users\klesk\Documents\Visual Studio 2010\Projects\Prova\Release\Prova.pdb" /SUBSYSTEM:CONSOLE /OPT:REF /OPT:ICF /LTCG /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"c:\Users\klesk\Documents\Visual Studio 2010\Projects\Prova\Release\Prova.lib" /MACHINE:X86 Release\main.obj
+         Release\NewDelete.obj
+         Generazione codice in corso...
+     1>c:\users\klesk\documents\visual studio 2010\projects\prova\prova\main.cpp(22): warning C4700: utilizzata variabile locale 'b' non inizializzata
+         Generazione codice terminata
+         Prova.vcxproj -> c:\Users\klesk\Documents\Visual Studio 2010\Projects\Prova\Release\Prova.exe
+       Manifest:
+         C:\Program Files (x86)\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"c:\Users\klesk\Documents\Visual Studio 2010\Projects\Prova\Release\Prova.exe;#1" /manifest Release\Prova.exe.intermediate.manifest
+       FinalizeBuildStatus:
+         Eliminazione del file "Release\Prova.unsuccessfulbuild" in corso.
+         Aggiornamento timestamp di "Release\Prova.lastbuildstate".
+     1>Compilazione progetto "C:\Users\klesk\Documents\Visual Studio 2010\Projects\Prova\Prova\Prova.vcxproj" (destinazioni: build) completata.
+
+Compilazione completata.
+
+Tempo trascorso 00:00:01.04

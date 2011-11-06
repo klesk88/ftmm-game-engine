@@ -11,7 +11,7 @@ enum EAllocationType
 	NODES,
 };
 
-enum EBlockType{
+enum EIsAvailable{
 
 	FREE,
 	USED,
