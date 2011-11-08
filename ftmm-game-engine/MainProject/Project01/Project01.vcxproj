@@ -73,13 +73,14 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CubeObjectTest.cpp" />
-    <ClCompile Include="Object3D.cpp" />
     <ClCompile Include="A.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="FrameListener.cpp" />
+    <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="GamePlay_01.cpp" />
+    <ClCompile Include="GameStateManager.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />
@@ -90,6 +91,7 @@
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="RootTransformNode.cpp" />
     <ClCompile Include="SceneManager.cpp" />
+    <ClCompile Include="Root.cpp" />
     <ClCompile Include="TransformNode.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vector2.cpp" />
@@ -98,7 +100,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CubeObjectTest.h" />
-    <ClInclude Include="Object3D.h" />
+    <ClInclude Include="GameLoop.h" />
+    <ClInclude Include="GameStateManager.h" />
+    <ClInclude Include="IObject3D.h" />
     <ClInclude Include="A.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraMovementInputEvent.h" />
@@ -111,7 +115,7 @@
     <ClInclude Include="FrameListener.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GamePlay_01.h" />
-    <ClInclude Include="IGameState.h" />
+    <ClInclude Include="GameState.h" />
     <ClInclude Include="GameTime.h" />
     <ClInclude Include="InputEvent.h" />
     <ClInclude Include="InputManager.h" />
@@ -126,6 +130,7 @@
     <ClInclude Include="Quaternion.h" />
     <ClInclude Include="RootTransformNode.h" />
     <ClInclude Include="SceneManager.h" />
+    <ClInclude Include="Root.h" />
     <ClInclude Include="TransformNode.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vector2.h" />

@@ -10,6 +10,8 @@
 #ifndef InputManager_H
 #define InputManager_H
 
+#pragma once
+
 #include <vector>
 #include "InputWord.h"
 #include "CameraMovementInputWord.h"
@@ -28,8 +30,7 @@ public:
         QUIT        //handle_input() says the user wants to exit the program
     };
 
-	InputManager();
-	~InputManager(){};
+	static InputManager * getInstance();
 
 /*  General function called to interpret all user input. 
     Returns Input_Manager::NORMAL on normal loop returns
@@ -44,15 +45,17 @@ public:
 
 protected:
 
+	InputManager();
+
 	InputEvent* inputEvent;
-
-	bool mouse_button_currently_pressed;
-
+	//bool mouse_button_currently_pressed;
 	vector<InputWord*> input_words;
-
 	vector<Event*> input_events;
 
 private:
+
+	static InputManager * m_instance;
+	~InputManager();
 
     /*  SDL Event that contains the input device data from the last query  */
     SDL_Event _event;
