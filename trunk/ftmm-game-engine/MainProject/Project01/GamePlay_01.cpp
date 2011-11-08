@@ -1,35 +1,35 @@
-
 #include "GamePlay_01.h"
-#include "SceneManager.h"
+//#include "SceneManager.h"
 
-GamePlay_01 * GamePlay_01::p_instance = NULL;
-
-GamePlay_01::GamePlay_01()
-{
-	//newAgeCube = new CubeObjectTest("d", Vector3 (0.0,0.0,0.0), Quaternion.IDENTITY);
-}
-
+GamePlay_01 * GamePlay_01::m_instance = NULL;
 
 GamePlay_01 * GamePlay_01::getInstance()
 {
-	if(p_instance == NULL)
+	if(m_instance == NULL)
 	{
-		p_instance = new GamePlay_01();
+		m_instance = new GamePlay_01();
 	}
-	return p_instance;
+	return m_instance;
+}
+
+GamePlay_01::GamePlay_01()
+{
+	name = "GamePlay_01";
+	//newAgeCube = new CubeObjectTest("d", Vector3 (0.0,0.0,0.0), Quaternion.IDENTITY);
 }
 
 void GamePlay_01::init() 
 {
+	/*
 	//newAgeCube = new CubeObjectTest("cube01", );
 
-	/*
-	cam = createCamera("camera1");
-	node1 = getRootTransformNode()->createChild("node1"); 
+	SceneManager * sc_mn = SceneManager::getInstance();
+	cam = sc_mn->createCamera("camera1");
+	node1 = sc_mn->SceneManager::getRootTransformNode()->createChild("node1"); 
 	node2 = node1->createChild("node2");
 	node3 = node2->createChild ("node3",Vector3(0.2f,0.0f,0.0f));
 	node4 = node3->createChild("node4");
-	node5 = getRootTransformNode()->createChild("node5"); 
+	node5 = sc_mn->SceneManager::getRootTransformNode()->createChild("node5"); 
 	//node1->getOrientation();
 
 	cube = new Mesh(0.4,1.0,0.0,0.0);

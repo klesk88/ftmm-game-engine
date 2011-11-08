@@ -1,12 +1,16 @@
 #include "SceneManager.h"
+#include "Root.h"
 
 
-SceneManager::SceneManager(){
+SceneManager::SceneManager()
+{
 
-	//For FPS calculation
-	startclock = 0;
-	deltaclock = 0;
-	currentFPS = 0;
+	
+
+	//Root *mRoot = Systems::getInstance();
+	//std::cout << "listen: " << mRoot->get_current_GameState()->name() << std::endl;
+	//mRoot->gamePlay_01->loadStuff();
+
 
 
 	//FORT TESTING ONLY
@@ -72,87 +76,6 @@ void SceneManager::renderScene(){
 	}
 
 	SDL_GL_SwapBuffers( );
-}
-
-void SceneManager::callGameLoop(bool game_is_run,const int base_fps,const int low_fps){
-	
-	// for FPS counting
-	startclock = SDL_GetTicks();
-	
-	while(game_is_run)
-	{
-		game_is_run = gameLoop(base_fps,low_fps);
-
-	}
-}
-
-void SceneManager::createFrameListener(FrameListener* frame){
-
-	framelistener_list.push_back(frame);
-}
-
-void SceneManager::startEngine(bool game_is_run,const int base_fps,const int low_fps){
-
-	callGameLoop(game_is_run,base_fps,low_fps);
-}
-
-
-bool SceneManager::gameLoop(const int base_fps,const int low_fps){
-		const int TICKS_PER_SECOND = base_fps;
-		const int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
-		const int MAX_FRAMESKIP = low_fps;
-	    DWORD next_game_tick = SDL_GetTicks();
-		int loops;
-		bool game_is_run=true;
-		std::list<FrameListener*>::iterator i;
-		
-		inputManager_instance.handle_input();
-		
-		//event_list.clear();
-
-		// if input events have occured
-		if(inputManager_instance.get_input_events().empty() == false)
-		{
-			// get input events
-			vector<Event*> temp_vector = inputManager_instance.get_input_events();
-
-			for (vector<Event*>::iterator it = temp_vector.begin(); it != temp_vector.end(); ++it) 
-			{
-				//check whether its a CMIE
-				if(CameraMovementInputEvent * cME = dynamic_cast<CameraMovementInputEvent *>(*it)) 
-				{
-					Vector2 position = cME->get_current_position();
-					cout << position.x << " . " << position.y << endl;
-				}
-			}
-		}
-
-
-		   loops = 0;
-		   while( unsigned int(SDL_GetTicks() - next_game_tick) > SKIP_TICKS && loops < MAX_FRAMESKIP) {
-				
-			   for(i=framelistener_list.begin(); i!=framelistener_list.end();i++){
-				   if(  (*i)->frameStarted())
-					   game_is_run = (*i)->getEvents();		
-			   }
-			   next_game_tick += SKIP_TICKS;
-			   loops++;
-			}
-
-
-		   renderScene();
-
-		for(i=framelistener_list.begin(); i!=framelistener_list.end();i++){
-			(*i)->frameEnded();		
-		}
-
-
-		// actual fps calculation inside loop
-		deltaclock = SDL_GetTicks() - startclock;startclock = SDL_GetTicks();		
-		if ( deltaclock != 0 )	currentFPS = 1000 / deltaclock;  
-		cout<<"FPS: "<<currentFPS<<endl;
-
-		return game_is_run;
 }
 
 
@@ -273,12 +196,14 @@ int SceneManager::initializeEngine()
 
 
 		//sc_mng = SceneManager::getInstance();
-		gameState_01 = GamePlay_01::getInstance();
+		//gameState_01 = GamePlay_01::getInstance();
+		//gameState_01->loadStuff();
 		
 
 
 		//node1 = new RootTransformNode ("node1",0.0,0.0,0.0);
 	
+		
 		cam = createCamera("camera1");
 		node1 = getRootTransformNode()->createChild("node1"); 
 		node2 = node1->createChild("node2");

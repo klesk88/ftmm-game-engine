@@ -14,7 +14,6 @@
 #include "RootTransformNode.h"
 #include "Camera.h"
 #include "FrameListener.h"
-#include "InputManager.h"
 //----------------------
 #include "TransformNode.h"
 #include "RootTransformNode.h"
@@ -29,12 +28,8 @@
 #include "Vector2.h"
 #include <typeinfo.h>
 
-#include "GamePlay_01.h"
-
-
-
-
-
+//#include "GamePlay_01.h"
+class Root;
 
 #define SCREEN_WIDTH  640
 #define SCREEN_HEIGHT 480
@@ -45,10 +40,11 @@ class SceneManager
 
 	public:
 
+		//Root * m_Root;
 
 		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX SceneManager included")
 
-		GamePlay_01 * gameState_01;
+		//GamePlay_01 * gameState_01;
 
 		static SceneManager * getInstance ();
 		TransformNode * getRootTransformNode();
@@ -58,19 +54,7 @@ class SceneManager
 		//Texture function
 		int LoadGLTextures(char*, int);
 		GLuint getTexture(int);
-		/*	@Param base_fps: how many fps you want
-			@Param low_fps: minimum fps for having game logic at base fps speed
-		*/
-		void callGameLoop(bool,const int base_fps,const int low_fps);
-		void createFrameListener(FrameListener*);
-		/*
-			i set the game_is:run variable so i know if the game loop have to start or not.
-			after i call the method for call the game loop with the right parameters		
-		*/
-		void startEngine(bool,const int base_fps,const int low_fps);
-		std::list <FrameListener*> framelistener_list;
-
-
+	
 		//FT
 		/*Provisory init for the whole engine*/
 		int initializeEngine();
@@ -93,18 +77,14 @@ class SceneManager
 
 	private:
 
-		InputManager inputManager_instance;
-		bool gameLoop(const int base_fps,const int low_fps);
+	
 		static SceneManager * p_instance;
 		/*texture*/
 		static const int size = 1;
 		GLuint texture[size];
 
 
-		//For FPS calculation
-		Uint32 startclock;
-		Uint32 deltaclock;
-		Uint32 currentFPS;
+	
 
 
 		// ONLY FOR TESTING

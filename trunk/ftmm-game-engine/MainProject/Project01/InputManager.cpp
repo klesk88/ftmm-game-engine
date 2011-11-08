@@ -1,5 +1,7 @@
 #include "InputManager.h"
 
+
+
 InputManager::InputManager()
 {
 	/*
@@ -25,6 +27,18 @@ InputManager::InputManager()
 	cout << "type in IM of IW:" << typeid(cameraMotion).name() << endl;
 	
 }
+
+InputManager * InputManager::m_instance = NULL;
+
+InputManager * InputManager::getInstance()
+{
+	if(m_instance == NULL)
+	{
+		m_instance = new InputManager();
+	}
+	return m_instance;
+}
+
 
 
 // makes a coarse pre-selection on which InputWords to update, goes into the case which handles the current input and then iterates through 

@@ -3,6 +3,9 @@
  */
 #include <iostream>
 #include "SceneManager.h"
+#include "Root.h"
+
+class GameState;
 
 /* Define our booleans */
 #define TRUE  1
@@ -15,10 +18,20 @@ int main( int argc, char **argv )
 
 	try
 	{
-		SceneManager * msc = SceneManager::getInstance();
+		
+
+		Root * mRoot = Root::getInstance();
+		mRoot->init();
+
+
+		//cout << "listen: " << mRoot->currentGameState()->get_name() << endl;
+
 		//GameStateManager * gsm = GameStateManager::getInstance();
-		msc->initializeEngine();
-		msc->startEngine(true,60,10);
+
+		//SceneManager * msc = SceneManager::getInstance();
+		//SceneManager * msce = SceneManager::getInstance();
+		//msc->initializeEngine();
+		//msc->startEngine(true,60,10);
 
 
 		/* Should never get here */
