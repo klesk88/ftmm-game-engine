@@ -4,19 +4,13 @@
 
 SceneManager::SceneManager()
 {
-
-	
-
 	//Root *mRoot = Systems::getInstance();
 	//std::cout << "listen: " << mRoot->get_current_GameState()->name() << std::endl;
 	//mRoot->gamePlay_01->loadStuff();
 
-
-
 	//FORT TESTING ONLY
 	translate_ratio = 0.0;
 	pos = Vector2(0.0,0.0);
-
 
 	//game_is_run=false;//by default the game is run state is set to false so the game loop doesn't start until the user start it
 	root_ptr = RootTransformNode::getInstance("Root");
@@ -56,15 +50,6 @@ Camera * SceneManager::createCamera(const std::string  & stringName){
 void SceneManager::renderScene(){
 
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-
-	cam->setPosition(Vector3(0.0,0.0,-3.0));
-	node3->setPosition(Vector3(1.2,0.0,0.0));
-	node4->setPosition(Vector3(0.8,0.0,0.0));
-	node2->rotate(Quaternion(9000,0.0,1.0,0.0),MovableObject::TS_PARENT);
-	node3->rotate(Quaternion(8000,0.0,1.0,0.0),MovableObject::TS_PARENT);
-	node5->setPosition(Vector3(1.2,0.0,0.0));
-	node5->setOrientation(Quaternion(node4->getOrientation()));
-
 
 	std::list<Camera*>::iterator cam_it;
 
@@ -193,36 +178,6 @@ int SceneManager::initializeEngine()
 
 		/* Reset The View */
 		glLoadIdentity( );
-
-
-		//sc_mng = SceneManager::getInstance();
-		//gameState_01 = GamePlay_01::getInstance();
-		//gameState_01->loadStuff();
-		
-
-
-		//node1 = new RootTransformNode ("node1",0.0,0.0,0.0);
-	
-		
-		cam = createCamera("camera1");
-		node1 = getRootTransformNode()->createChild("node1"); 
-		node2 = node1->createChild("node2");
-		node3 = node2->createChild ("node3",Vector3(0.2f,0.0f,0.0f));
-		node4 = node3->createChild("node4");
-		node5 = getRootTransformNode()->createChild("node5"); 
-		//node1->getOrientation();
-
-		cube = new Mesh(0.4,1.0,0.0,0.0);
-		cube2 = new Mesh(0.3,0.0,0.0,1.0);
-		Mesh * cube3 = new Mesh(0.2,0.0,1.0,0.0);
-		Mesh * cube4 = new Mesh(0.3,0.5,0.0,0.5);
-
-		node2->attachObject(cube);
-		node3->attachObject(cube2);
-		node4->attachObject(cube3);
-		node5->attachObject(cube4);
-		node2->setOrientation(Quaternion(12,0.0,0.0,1.0));
-
 
 		/* Should never get here */
 		return( 0 );

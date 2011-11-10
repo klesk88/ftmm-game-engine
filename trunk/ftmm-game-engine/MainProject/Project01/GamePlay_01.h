@@ -13,7 +13,7 @@ using namespace std;
 class GamePlay_01 : public GameState
 {
 	private:
-		/*
+		
 		// ONLY FOR TESTING
 		TransformNode * node1 ;
 		TransformNode * node4 ;
@@ -28,9 +28,7 @@ class GamePlay_01 : public GameState
 		Vector2 pos;
 		int posx, posy;
 		//end
-		*/
-
-
+		
 
 		CubeObjectTest newAgeCube;
 		static GamePlay_01 * m_instance;
@@ -52,5 +50,7 @@ class GamePlay_01 : public GameState
 		void init();
 		
 		void loadStuff();
+
+		bool update();
 };
 #endif

@@ -44,13 +44,12 @@ class SceneManager
 
 		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX SceneManager included")
 
-		//GamePlay_01 * gameState_01;
-
 		static SceneManager * getInstance ();
 		TransformNode * getRootTransformNode();
 		Camera * createCamera(const std::string  & stringName);
 		void renderScene();
 		~SceneManager(){/*delete this;*/}
+
 		//Texture function
 		int LoadGLTextures(char*, int);
 		GLuint getTexture(int);
@@ -67,42 +66,21 @@ class SceneManager
 			exit( returnCode );
 		}
 
-
 	protected:
 
 		SceneManager();
 		TransformNode * root_ptr;
 		std::list <Camera*> camera_list;
-		
 
 	private:
 
-	
 		static SceneManager * p_instance;
 		/*texture*/
 		static const int size = 1;
 		GLuint texture[size];
 
-
-	
-
-
 		// ONLY FOR TESTING
-
-		TransformNode * node1 ;
-		TransformNode * node4 ;
-		TransformNode * node2 ;
-		TransformNode * node3 ;
-		TransformNode * node5 ;
-		SceneManager * sc_mng;
 		float translate_ratio;
-		GLfloat stam_arr[16];
-		Mesh * cube ;
-		Mesh * cube2;
-		Camera * cam;
 		Vector2 pos;
-		int posx, posy;
-
-
 };
 #endif
