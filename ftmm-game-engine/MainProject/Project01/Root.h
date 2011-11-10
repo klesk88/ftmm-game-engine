@@ -8,7 +8,7 @@
 #include "GameStateManager.h"
 #include "InputManager.h"
 #include "GameLoop.h"
-
+#include "RootTransformNode.h"
 
 class GameState;
 //#include "GameState.h"
@@ -25,11 +25,14 @@ public:
 	SceneManager* msc;
 	InputManager* mInputManager;
 	GameStateManager* mGameStateManager;
+	RootTransformNode* mRootTransformNode;
+
 	GameLoop*  mGameLoop;
 
 	void init() //;
 {
 	mInputManager = InputManager::getInstance();
+	mRootTransformNode = RootTransformNode::getInstance("Root");
 	msc = SceneManager::getInstance();
 	//get Instance to make sure a GameStateManager has been constructed
 	mGameStateManager = GameStateManager::getInstance();

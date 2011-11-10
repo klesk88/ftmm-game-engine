@@ -13,7 +13,8 @@ SceneManager::SceneManager()
 	pos = Vector2(0.0,0.0);
 
 	//game_is_run=false;//by default the game is run state is set to false so the game loop doesn't start until the user start it
-	root_ptr = RootTransformNode::getInstance("Root");
+	//root_ptr = RootTransformNode::getInstance("Root");
+	root_ptr = Root::getInstance()->mRootTransformNode;
 }
 
 
