@@ -15,16 +15,26 @@ using namespace::std;
 
 #pragma message ("XXXXXXXXXXXXXXXXXXXXXXX Why is Object3D not included here?")
 
-class CubeObjectTest : GameObject, IObject3D/*: public Object3D, public GameObject*/
+class CubeObjectTest : public GameObject//, IObject3D/*: public Object3D, public GameObject*/
 {
 
 //private:
 public:
 #pragma message ("XXXXXXXXXXXXXXXXXXXXXXX CubeObjectTest included")
 	CubeObjectTest();
-	CubeObjectTest(string name, Vector3 position, Quaternion orientation);
+	CubeObjectTest(string name, Vector3 position = Vector3::ZERO, Quaternion orientation = Quaternion::IDENTITY) : GameObject(name, position, orientation){};
 
-
+	void init();
+		/*
+	{
+		mMesh = new Mesh(0.4,1.0,0.0,0.0);
+		mTransformNode->attachObject(mMesh);
+		//cube = new Mesh(0.4,1.0,0.0,0.0);
+		//cube2 = new Mesh(0.3,0.0,0.0,1.0);
+		//cube3 = new Mesh(0.2,0.0,1.0,0.0);
+		//cube4 = new Mesh(0.3,0.5,0.0,0.5);
+	};
+	*/
 	void update(vector<Event*> events){};
 };
 

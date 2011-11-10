@@ -79,6 +79,7 @@
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="FrameListener.cpp" />
     <ClCompile Include="GameLoop.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GamePlay_01.cpp" />
     <ClCompile Include="GameStateManager.cpp" />
     <ClCompile Include="InputManager.cpp" />

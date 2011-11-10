@@ -22,12 +22,24 @@ GamePlay_01::GamePlay_01()
 void GamePlay_01::init() 
 {
 	
+	SceneManager * sc_mn = SceneManager::getInstance();
+	cam = sc_mn->createCamera("camera1");
+
 	//newAgeCube = new CubeObjectTest("cube01", );
 
 	Root * mRoot = Root::getInstance(); 
 
-	SceneManager * sc_mn = SceneManager::getInstance();
-	cam = sc_mn->createCamera("camera1");
+	cube_01 = new CubeObjectTest("node_1");
+	cube_02 = new CubeObjectTest("node_2");
+	cube_03 = new CubeObjectTest("node_3");
+	cube_04 = new CubeObjectTest("node_4");
+
+	cube_01->init();
+	cube_02->init();
+	cube_02->init();
+	cube_02->init();
+
+	/*
 	node1 = mRoot->mRootTransformNode->createChild("node1"); 
 	node2 = node1->createChild("node2");
 	node3 = node2->createChild ("node3",Vector3(0.2f,0.0f,0.0f));
@@ -45,7 +57,7 @@ void GamePlay_01::init()
 	node4->attachObject(cube3);
 	node5->attachObject(cube4);
 	node2->setOrientation(Quaternion(12,0.0,0.0,1.0));
-	
+	*/
 }
 
 void GamePlay_01::loadStuff()
@@ -65,12 +77,18 @@ bool GamePlay_01::update()
 {
 
 	cam->setPosition(Vector3(0.0,0.0,-3.0));
+	
+	/*
 	node3->setPosition(Vector3(1.2,0.0,0.0));
 	node4->setPosition(Vector3(0.8,0.0,0.0));
 	node2->rotate(Quaternion(9000,0.0,1.0,0.0),MovableObject::TS_PARENT);
 	node3->rotate(Quaternion(8000,0.0,1.0,0.0),MovableObject::TS_PARENT);
 	node5->setPosition(Vector3(1.2,0.0,0.0));
 	node5->setOrientation(Quaternion(node4->getOrientation()));
+	*/
+
+
+	cube_01->mTransformNode->rotate(Quaternion(9000,0.0,1.0,0.0),MovableObject::TS_PARENT);
 
 	return true;
 }

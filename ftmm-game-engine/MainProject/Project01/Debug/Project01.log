@@ -1,43 +1,21 @@
-﻿Build started 10-11-2011 19:31:14.
+﻿Build started 10-11-2011 21:03:47.
      1>Project "C:\Documents and Settings\tgei\Desktop\solutionsdf\ftmm-game-engine\MainProject\Project01\Project01.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
-         Creating "Debug\Project01.unsuccessfulbuild" because "AlwaysCreate" was specified.
+         Touching "Debug\Project01.unsuccessfulbuild".
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\Project01\SDL-1.2.14\include" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GamePlay_01.cpp
-         GamePlay_01.cpp
-         XXXXXXXXXXXXXXXXXXXXXXX Event included
-         XXXXXXXXXXXXXXXXXXXXXXX EventHandler included
-         XXXXXXXXXXXXXXXXXXXXXXX Quaternion included
-         XXXXXXXXXXXXXXXXXXXXXXX IGameState included
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\Project01\SDL-1.2.14\include" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt CubeObjectTest.cpp
+         CubeObjectTest.cpp
          XXXXXXXXXXXXXXXXXXXXXXX IObject3D included
-         XXXXXXXXXXXXXXXXXXXXXXX GameObject included
-         XXXXXXXXXXXXXXXXXXXXXXX Why is Object3D not included here?
-         XXXXXXXXXXXXXXXXXXXXXXX CubeObjectTest included
+         XXXXXXXXXXXXXXXXXXXXXXX Event included
+         XXXXXXXXXXXXXXXXXXXXXXX Quaternion included
          XXXXXXXXXXXXXXXXXXXXXXX Mesh included
          XXXXXXXXXXXXXXXXXXXXXXX Node included
          XXXXXXXXXXXXXXXXXXXXXXX MovableObject included
-         XXXXXXXXXXXXXXXXXXXXXXX Camera included
-         XXXXXXXXXXXXXXXXXXXXXXX InputEvent included
-         XXXXXXXXXXXXXXXXXXXXXXX InputWord included
-         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputEvent included
-         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputWord included
-     1>c:\documents and settings\tgei\desktop\solutionsdf\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\documents and settings\tgei\desktop\solutionsdf\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         XXXXXXXXXXXXXXXXXXXXXXX InputManager included
-         XXXXXXXXXXXXXXXXXXXXXXX FrameListener included
          XXXXXXXXXXXXXXXXXXXXXXX TransformNode included
-         XXXXXXXXXXXXXXXXXXXXXXX RootTransformNode included
-         XXXXXXXXXXXXXXXXXXXXXXX SceneManager included
-         XXXXXXXXXXXXXXXXXXXXXXX GamePlay_01 included
-         XXXXXXXXXXXXXXXXXXXXXXX GameStateManager included
-         XXXXXXXXXXXXXXXXXXXXXXX Root included
-     1>c:\documents and settings\tgei\desktop\solutionsdf\ftmm-game-engine\mainproject\project01\gameplay_01.cpp(38): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\solutionsdf\ftmm-game-engine\mainproject\project01\gameplay_01.cpp(39): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\solutionsdf\ftmm-game-engine\mainproject\project01\gameplay_01.cpp(40): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\solutionsdf\ftmm-game-engine\mainproject\project01\gameplay_01.cpp(41): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\solutionsdf\ftmm-game-engine\mainproject\project01\gameplay_01.cpp(68): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\solutionsdf\ftmm-game-engine\mainproject\project01\gameplay_01.cpp(69): warning C4305: 'argument' : truncation from 'double' to 'float'
-     1>c:\documents and settings\tgei\desktop\solutionsdf\ftmm-game-engine\mainproject\project01\gameplay_01.cpp(72): warning C4305: 'argument' : truncation from 'double' to 'float'
+         XXXXXXXXXXXXXXXXXXXXXXX GameObject included
+         XXXXXXXXXXXXXXXXXXXXXXX Why is Object3D not included here?
+         XXXXXXXXXXXXXXXXXXXXXXX CubeObjectTest included
+     1>c:\documents and settings\tgei\desktop\solutionsdf\ftmm-game-engine\mainproject\project01\cubeobjecttest.cpp(14): warning C4305: 'argument' : truncation from 'double' to 'float'
        Link:
          C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\tgei\Desktop\solutionsdf\ftmm-game-engine\MainProject\Debug\Project01.exe" /NOLOGO /LIBPATH:"..\Project01\SDL-1.2.14\lib" SDL.lib SDLmain.lib opengl32.lib glu32.lib sdl.lib sdlmain.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Project01.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\tgei\Desktop\solutionsdf\ftmm-game-engine\MainProject\Debug\Project01.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\tgei\Desktop\solutionsdf\ftmm-game-engine\MainProject\Debug\Project01.lib" /MACHINE:X86 Debug\CubeObjectTest.obj
          Debug\A.obj
@@ -46,6 +24,7 @@
          Debug\EventHandler.obj
          Debug\FrameListener.obj
          Debug\GameLoop.obj
+         Debug\GameObject.obj
          Debug\GamePlay_01.obj
          Debug\GameStateManager.obj
          Debug\InputManager.obj
@@ -75,4 +54,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:04.09
+Time Elapsed 00:00:03.67

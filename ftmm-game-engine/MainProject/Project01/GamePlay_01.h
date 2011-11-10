@@ -2,6 +2,7 @@
 #define __GamePlay_01_H__
 
 #include "GameState.h"
+#include "GameObject.h"
 #include "CubeObjectTest.h"
 #include <string>
 #include "SceneManager.h"
@@ -12,8 +13,9 @@ using namespace std;
 // You could also call this our first level
 class GamePlay_01 : public GameState
 {
-	private:
-		
+private:
+
+
 		// ONLY FOR TESTING
 		TransformNode * node1 ;
 		TransformNode * node4 ;
@@ -38,7 +40,14 @@ class GamePlay_01 : public GameState
 
 	protected:
 		GamePlay_01();
-	public:
+public:
+
+		
+		CubeObjectTest * cube_01;
+		CubeObjectTest * cube_02;
+		CubeObjectTest * cube_03;
+		CubeObjectTest * cube_04;
+
 		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX GamePlay_01 included")
 		
 		string get_name() //;

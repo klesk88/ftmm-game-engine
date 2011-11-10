@@ -49,6 +49,12 @@
     <Filter Include="Source Files\GameLoop">
       <UniqueIdentifier>{a052f90f-5174-4b3c-8bb3-5b92a83b67fe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Physics">
+      <UniqueIdentifier>{fc86e327-2fb5-4f78-9ab1-67141122abac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\GameObjects">
+      <UniqueIdentifier>{f5c86659-6ccc-4ac3-962a-3e69ac5d041f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -125,6 +131,9 @@
     </ClCompile>
     <ClCompile Include="GameLoop.cpp">
       <Filter>Source Files\GameLoop</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Source Files\GameObjects</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
