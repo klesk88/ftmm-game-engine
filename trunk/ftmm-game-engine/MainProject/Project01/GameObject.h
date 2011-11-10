@@ -4,19 +4,30 @@
 #include "event.h"
 #include <vector>
 #include <string>
+#include "Vector3.h"
+#include "Quaternion.h"
+#include "Mesh.h"
+#include "TransformNode.h"
+
 
 using namespace std;
 
 class GameObject
 {
 private:
+protected:
+	//Collidable * mCollidable
+public:
+#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX GameObject included")
+	TransformNode * mTransformNode;
+	Mesh * mMesh;
 	string name_this;
 
-public:
-
-#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX GameObject included")
+	GameObject();
 
 	// Specify exactly one transfrom node if you want to include this into the SceneGraph
+	GameObject(string name, Vector3 position = Vector3::ZERO, Quaternion orientation = Quaternion::IDENTITY);
+
 /*
 	GameObject(){};
 	GameObject(string name)
@@ -26,7 +37,13 @@ public:
 		// TransformNode tn = SceneManager::getInstance()->getRootTransformNode()->createChild("node6");
 	}
 */
-	virtual void update(vector<Event*> events) = 0;
+	/*virtual*/ 
+	void init()
+	{
+		string bla = bla;
+	};
+	virtual void update(vector<Event*> events){};
+
 };
 
 #endif
