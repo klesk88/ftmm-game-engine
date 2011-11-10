@@ -89,8 +89,6 @@ void Camera::rotate(const Quaternion& rotation_value, TransformSpace relativeTo)
             // Rotations are normally relative to local axes, transform up
 			qnorm.ToRotationMatrix(temp_mt3);
 			temp_mt4.fromMatrix3(temp_mt3);
-			temp_mt4[0][0] = -temp_mt4[0][0];
-			temp_mt4[2][2] = -temp_mt4[2][2];
 			global_transform = temp_mt4 * global_transform;
         
             break;
@@ -101,8 +99,6 @@ void Camera::rotate(const Quaternion& rotation_value, TransformSpace relativeTo)
 			
 			qnorm.ToRotationMatrix(temp_mt3);
 			temp_mt4.fromMatrix3(temp_mt3);
-			temp_mt4[0][0] = -temp_mt4[0][0];
-			temp_mt4[2][2] = -temp_mt4[2][2];
 			global_transform = global_transform * temp_mt4 ;
 			
             break;
@@ -112,8 +108,6 @@ void Camera::rotate(const Quaternion& rotation_value, TransformSpace relativeTo)
             // Note the order of the mult, i.e. q comes after
 			qnorm.ToRotationMatrix(temp_mt3);
 			temp_mt4.fromMatrix3(temp_mt3);
-			temp_mt4[0][0] = -temp_mt4[0][0];
-			temp_mt4[2][2] = -temp_mt4[2][2];
 			global_transform = global_transform * temp_mt4 ;
            
             break;

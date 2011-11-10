@@ -11,7 +11,8 @@
 #include <list>
 #include <string>
 #include "Mesh.h"
-#include "RootTransformNode.h"
+//#include "RootTransformNode.h"
+class RootTransformNode;
 #include "Camera.h"
 #include "FrameListener.h"
 //----------------------
