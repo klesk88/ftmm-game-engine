@@ -8,6 +8,7 @@
 #include "Quaternion.h"
 #include "Mesh.h"
 #include "TransformNode.h"
+#include "RigidBody.h"
 
 
 using namespace std;
@@ -19,8 +20,11 @@ protected:
 	//Collidable * mCollidable
 public:
 #pragma message ("XXXXXXXXXXXXXXXXXXXXXXX GameObject included")
+	
 	TransformNode * mTransformNode;
 	Mesh * mMesh;
+	RigidBody * mRigidBody;
+	
 	string name_this;
 
 	GameObject();

@@ -248,5 +248,14 @@
     <ClInclude Include="GameLoop.h">
       <Filter>Header Files\GameLoop</Filter>
     </ClInclude>
+    <ClInclude Include="RigidBody.h">
+      <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="GamePlay_02.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
 </Project>

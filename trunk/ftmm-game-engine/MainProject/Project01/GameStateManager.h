@@ -6,6 +6,7 @@
 using namespace std;
 
 class GamePlay_01;
+class GamePlay_02;
 class GameState;
 
 class GameStateManager
@@ -16,6 +17,7 @@ private:
 
 	vector<GameState*> gameStates;
 	GamePlay_01 * gamePlay_01;
+	GamePlay_02 * gamePlay_02;
 
 protected:
 	GameStateManager();
@@ -28,6 +30,7 @@ public:
 
 	bool init();
 	bool update();
+	bool transitToGameState();
 
 
 };

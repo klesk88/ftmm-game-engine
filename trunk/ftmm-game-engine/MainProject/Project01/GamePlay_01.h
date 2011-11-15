@@ -52,10 +52,12 @@ public:
 		string get_name();
 		
 		static GamePlay_01 * getInstance ();
-		void init();
 		
-		void loadStuff();
-
+		void init();
 		bool update();
+
+		void spawnGameObject(GameObject* game_obj, Vector3 position, Quaternion orientation){};
+		void spawnGameObject(EGameObject type, Vector3 position, Quaternion orientation){};
+
 };
 #endif
