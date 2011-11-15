@@ -29,8 +29,8 @@ public:
 	
 	
 	virtual void init() = 0;
-	virtual string get_name() //;
-	{ return name;}
+	virtual string get_name() =0;//;
+	//{ return name;}
 	
 	// virtual void destroy();
 

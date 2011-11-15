@@ -23,13 +23,7 @@ class Mesh
 
 		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX Mesh included")
 
-		Mesh(float size,float red_,float green_,float blue_)
-		{
-			size_p = size;
-			red = red_;
-			green = green_;
-			blue = blue_;
-		}
+		Mesh(float size,float red_,float green_,float blue_);
 		void drawCube ();
 };
 

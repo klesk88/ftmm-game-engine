@@ -27,3 +27,29 @@ GameState* Root::currentGameState()
 }
 */
 
+void Root::init() //;
+{
+	mInputManager = InputManager::getInstance();
+	mRootTransformNode = RootTransformNode::getInstance("Root");
+	msc = SceneManager::getInstance();
+	//get Instance to make sure a GameStateManager has been constructed
+	mGameStateManager = GameStateManager::getInstance();
+	mGameStateManager->init();
+	mGameLoop = new GameLoop();
+	
+	//cout << mGameStateManager->get_currentGameState()->get_name() << endl;
+
+	msc->initializeEngine();
+	mGameLoop->startEngine(true,60,10);
+}
+
+void Root::handleInput() //;
+{
+	//let the InputManager do its job
+	mInputManager->handle_input();
+}
+
+void Root::updateGameState()
+{
+	mGameStateManager->update();
+}

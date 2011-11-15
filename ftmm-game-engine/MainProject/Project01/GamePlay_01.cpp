@@ -92,3 +92,5 @@ bool GamePlay_01::update()
 
 	return true;
 }
+
+string GamePlay_01::get_name(){return name;}

@@ -13,7 +13,6 @@
 class GameState;
 //#include "GameState.h"
 
-
 /*Systems should only know the top level of all the sub systems*/
 class Root
 {
@@ -26,40 +25,22 @@ public:
 	InputManager* mInputManager;
 	GameStateManager* mGameStateManager;
 	RootTransformNode* mRootTransformNode;
-
 	GameLoop*  mGameLoop;
 
-	void init() //;
-{
-	mInputManager = InputManager::getInstance();
-	mRootTransformNode = RootTransformNode::getInstance("Root");
-	msc = SceneManager::getInstance();
-	//get Instance to make sure a GameStateManager has been constructed
-	mGameStateManager = GameStateManager::getInstance();
-	mGameStateManager->init();
-	mGameLoop = new GameLoop();
-	
-	
-	//cout << mGameStateManager->get_currentGameState()->get_name() << endl;
+	/*
+		- Initialize all the Singletons
+		- start the Engine
+	*/
+	void init();
 
-	msc->initializeEngine();
-	mGameLoop->startEngine(true,60,10);
-}
-	
-	void handleInput() //;
-	{
-		//let the InputManager do its job
-		mInputManager->handle_input();
-	}
+	/*Ask InputManager to do its job*/
+	void handleInput();
 
 	/*Returns current GameState.*/
 	//GameState* currentGameState();
 
-	void updateGameState() //;
-	{
-		mGameStateManager->update();
-	}
-
+	/*Update the GameState*/
+	void updateGameState();
 
 private:
 	static Root* p_instance;

@@ -38,11 +38,8 @@ public:
 	}
 */
 	/*virtual*/ 
-	void init()
-	{
-		string bla = bla;
-	};
-	virtual void update(vector<Event*> events){};
+	void init();
+	virtual void update(vector<Event*> events);
 
 };
 
