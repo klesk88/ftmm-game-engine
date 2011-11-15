@@ -102,6 +102,7 @@
   <ItemGroup>
     <ClInclude Include="CubeObjectTest.h" />
     <ClInclude Include="GameLoop.h" />
+    <ClInclude Include="GamePlay_02.h" />
     <ClInclude Include="GameStateManager.h" />
     <ClInclude Include="IObject3D.h" />
     <ClInclude Include="A.h" />
@@ -129,6 +130,7 @@
     <ClInclude Include="MovableObject.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Quaternion.h" />
+    <ClInclude Include="RigidBody.h" />
     <ClInclude Include="RootTransformNode.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Root.h" />
@@ -137,6 +139,9 @@
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Vector4.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
