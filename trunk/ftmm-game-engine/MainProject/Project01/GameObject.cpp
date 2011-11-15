@@ -10,3 +10,10 @@ GameObject::GameObject(string name, Vector3 position, Quaternion orientation)//;
 		name_this = name;
 		mTransformNode = mRoot->mRootTransformNode->createChild(name);
 	}
+
+void GameObject::init()	
+{
+	string bla = bla;
+}
+
+void GameObject::update(vector<Event*> events){};

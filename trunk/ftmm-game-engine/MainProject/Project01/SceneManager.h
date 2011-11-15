@@ -14,7 +14,7 @@
 //#include "RootTransformNode.h"
 class RootTransformNode;
 #include "Camera.h"
-#include "FrameListener.h"
+//#include "FrameListener.h"
 //----------------------
 #include "TransformNode.h"
 #include "RootTransformNode.h"
@@ -23,11 +23,11 @@ class RootTransformNode;
 #include <gl\glu.h>                            // Header File For The GLu32 Library
 #include <Windows.h>
 #include <wchar.h>
-#include "Vector4.h"
-#include "Vector3.h"
-#include "Matrix4.h"
+//#include "Vector4.h"
+//#include "Vector3.h"
+//#include "Matrix4.h"
 #include "Vector2.h"
-#include <typeinfo.h>
+//#include <typeinfo.h>
 
 //#include "GamePlay_01.h"
 class Root;
@@ -49,7 +49,7 @@ class SceneManager
 		TransformNode * getRootTransformNode();
 		Camera * createCamera(const std::string  & stringName);
 		void renderScene();
-		~SceneManager(){/*delete this;*/}
+		~SceneManager();//{/*delete this;*/}
 
 		//Texture function
 		int LoadGLTextures(char*, int);

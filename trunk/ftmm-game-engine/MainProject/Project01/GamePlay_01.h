@@ -31,7 +31,6 @@ private:
 		int posx, posy;
 		//end
 		
-
 		CubeObjectTest newAgeCube;
 		static GamePlay_01 * m_instance;
 		~GamePlay_01();
@@ -50,10 +49,7 @@ public:
 
 		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX GamePlay_01 included")
 		
-		string get_name() //;
-		{
-			return name;
-		}
+		string get_name();
 		
 		static GamePlay_01 * getInstance ();
 		void init();

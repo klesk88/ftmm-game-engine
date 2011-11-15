@@ -1,11 +1,124 @@
-﻿Build started 10-11-2011 21:03:47.
-     1>Project "C:\Documents and Settings\tgei\Desktop\solutionsdf\ftmm-game-engine\MainProject\Project01\Project01.vcxproj" on node 2 (build target(s)).
+﻿Build started 15-11-2011 17:12:58.
+     1>Project "C:\Documents and Settings\tgei\Desktop\hello\ftmm-game-engine\MainProject\Project01\Project01.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Touching "Debug\Project01.unsuccessfulbuild".
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\Project01\SDL-1.2.14\include" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt CubeObjectTest.cpp
-         CubeObjectTest.cpp
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\Project01\SDL-1.2.14\include" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GameLoop.cpp GameObject.cpp GamePlay_01.cpp GameStateManager.cpp Root.cpp SceneManager.cpp TransformNode.cpp main.cpp
+         main.cpp
+         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
+         XXXXXXXXXXXXXXXXXXXXXXX Node included
+         XXXXXXXXXXXXXXXXXXXXXXX Quaternion included
+         XXXXXXXXXXXXXXXXXXXXXXX MovableObject included
+         XXXXXXXXXXXXXXXXXXXXXXX Camera included
+         XXXXXXXXXXXXXXXXXXXXXXX TransformNode included
+         XXXXXXXXXXXXXXXXXXXXXXX RootTransformNode included
+         XXXXXXXXXXXXXXXXXXXXXXX SceneManager included
+         XXXXXXXXXXXXXXXXXXXXXXX GameStateManager included
+         XXXXXXXXXXXXXXXXXXXXXXX Event included
+         XXXXXXXXXXXXXXXXXXXXXXX InputEvent included
+         XXXXXXXXXXXXXXXXXXXXXXX InputWord included
+         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputEvent included
+         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputWord included
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         XXXXXXXXXXXXXXXXXXXXXXX InputManager included
+         XXXXXXXXXXXXXXXXXXXXXXX Root included
+         TransformNode.cpp
+         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
+         XXXXXXXXXXXXXXXXXXXXXXX Node included
+         XXXXXXXXXXXXXXXXXXXXXXX Quaternion included
+         XXXXXXXXXXXXXXXXXXXXXXX MovableObject included
+         XXXXXXXXXXXXXXXXXXXXXXX TransformNode included
+         XXXXXXXXXXXXXXXXXXXXXXX Camera included
+         XXXXXXXXXXXXXXXXXXXXXXX RootTransformNode included
+         XXXXXXXXXXXXXXXXXXXXXXX SceneManager included
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\transformnode.cpp(194): warning C4172: returning address of local variable or temporary
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\transformnode.cpp(199): warning C4172: returning address of local variable or temporary
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\transformnode.cpp(207): warning C4172: returning address of local variable or temporary
+         SceneManager.cpp
+         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
+         XXXXXXXXXXXXXXXXXXXXXXX Node included
+         XXXXXXXXXXXXXXXXXXXXXXX Quaternion included
+         XXXXXXXXXXXXXXXXXXXXXXX MovableObject included
+         XXXXXXXXXXXXXXXXXXXXXXX Camera included
+         XXXXXXXXXXXXXXXXXXXXXXX TransformNode included
+         XXXXXXXXXXXXXXXXXXXXXXX RootTransformNode included
+         XXXXXXXXXXXXXXXXXXXXXXX SceneManager included
+         XXXXXXXXXXXXXXXXXXXXXXX GameStateManager included
+         XXXXXXXXXXXXXXXXXXXXXXX Event included
+         XXXXXXXXXXXXXXXXXXXXXXX InputEvent included
+         XXXXXXXXXXXXXXXXXXXXXXX InputWord included
+         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputEvent included
+         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputWord included
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         XXXXXXXXXXXXXXXXXXXXXXX InputManager included
+         XXXXXXXXXXXXXXXXXXXXXXX Root included
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\scenemanager.cpp(80): warning C4101: 'event' : unreferenced local variable
+         Root.cpp
+         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
+         XXXXXXXXXXXXXXXXXXXXXXX Node included
+         XXXXXXXXXXXXXXXXXXXXXXX Quaternion included
+         XXXXXXXXXXXXXXXXXXXXXXX MovableObject included
+         XXXXXXXXXXXXXXXXXXXXXXX Camera included
+         XXXXXXXXXXXXXXXXXXXXXXX TransformNode included
+         XXXXXXXXXXXXXXXXXXXXXXX RootTransformNode included
+         XXXXXXXXXXXXXXXXXXXXXXX SceneManager included
+         XXXXXXXXXXXXXXXXXXXXXXX GameStateManager included
+         XXXXXXXXXXXXXXXXXXXXXXX Event included
+         XXXXXXXXXXXXXXXXXXXXXXX InputEvent included
+         XXXXXXXXXXXXXXXXXXXXXXX InputWord included
+         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputEvent included
+         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputWord included
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         XXXXXXXXXXXXXXXXXXXXXXX InputManager included
+         XXXXXXXXXXXXXXXXXXXXXXX Root included
+         GameStateManager.cpp
+         XXXXXXXXXXXXXXXXXXXXXXX GameStateManager included
+         XXXXXXXXXXXXXXXXXXXXXXX Event included
+         XXXXXXXXXXXXXXXXXXXXXXX EventHandler included
+         XXXXXXXXXXXXXXXXXXXXXXX Quaternion included
+         XXXXXXXXXXXXXXXXXXXXXXX IGameState included
+         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
+         XXXXXXXXXXXXXXXXXXXXXXX Node included
+         XXXXXXXXXXXXXXXXXXXXXXX MovableObject included
+         XXXXXXXXXXXXXXXXXXXXXXX TransformNode included
+         XXXXXXXXXXXXXXXXXXXXXXX GameObject included
          XXXXXXXXXXXXXXXXXXXXXXX IObject3D included
+         XXXXXXXXXXXXXXXXXXXXXXX Why is Object3D not included here?
+         XXXXXXXXXXXXXXXXXXXXXXX CubeObjectTest included
+         XXXXXXXXXXXXXXXXXXXXXXX Camera included
+         XXXXXXXXXXXXXXXXXXXXXXX RootTransformNode included
+         XXXXXXXXXXXXXXXXXXXXXXX SceneManager included
+         XXXXXXXXXXXXXXXXXXXXXXX GamePlay_01 included
+         GamePlay_01.cpp
+         XXXXXXXXXXXXXXXXXXXXXXX Event included
+         XXXXXXXXXXXXXXXXXXXXXXX EventHandler included
+         XXXXXXXXXXXXXXXXXXXXXXX Quaternion included
+         XXXXXXXXXXXXXXXXXXXXXXX IGameState included
+         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
+         XXXXXXXXXXXXXXXXXXXXXXX Node included
+         XXXXXXXXXXXXXXXXXXXXXXX MovableObject included
+         XXXXXXXXXXXXXXXXXXXXXXX TransformNode included
+         XXXXXXXXXXXXXXXXXXXXXXX GameObject included
+         XXXXXXXXXXXXXXXXXXXXXXX IObject3D included
+         XXXXXXXXXXXXXXXXXXXXXXX Why is Object3D not included here?
+         XXXXXXXXXXXXXXXXXXXXXXX CubeObjectTest included
+         XXXXXXXXXXXXXXXXXXXXXXX Camera included
+         XXXXXXXXXXXXXXXXXXXXXXX RootTransformNode included
+         XXXXXXXXXXXXXXXXXXXXXXX SceneManager included
+         XXXXXXXXXXXXXXXXXXXXXXX GamePlay_01 included
+         XXXXXXXXXXXXXXXXXXXXXXX GameStateManager included
+         XXXXXXXXXXXXXXXXXXXXXXX InputEvent included
+         XXXXXXXXXXXXXXXXXXXXXXX InputWord included
+         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputEvent included
+         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputWord included
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         XXXXXXXXXXXXXXXXXXXXXXX InputManager included
+         XXXXXXXXXXXXXXXXXXXXXXX Root included
+         GameObject.cpp
          XXXXXXXXXXXXXXXXXXXXXXX Event included
          XXXXXXXXXXXXXXXXXXXXXXX Quaternion included
          XXXXXXXXXXXXXXXXXXXXXXX Mesh included
@@ -13,11 +126,43 @@
          XXXXXXXXXXXXXXXXXXXXXXX MovableObject included
          XXXXXXXXXXXXXXXXXXXXXXX TransformNode included
          XXXXXXXXXXXXXXXXXXXXXXX GameObject included
-         XXXXXXXXXXXXXXXXXXXXXXX Why is Object3D not included here?
-         XXXXXXXXXXXXXXXXXXXXXXX CubeObjectTest included
-     1>c:\documents and settings\tgei\desktop\solutionsdf\ftmm-game-engine\mainproject\project01\cubeobjecttest.cpp(14): warning C4305: 'argument' : truncation from 'double' to 'float'
+         XXXXXXXXXXXXXXXXXXXXXXX Camera included
+         XXXXXXXXXXXXXXXXXXXXXXX RootTransformNode included
+         XXXXXXXXXXXXXXXXXXXXXXX SceneManager included
+         XXXXXXXXXXXXXXXXXXXXXXX GameStateManager included
+         XXXXXXXXXXXXXXXXXXXXXXX InputEvent included
+         XXXXXXXXXXXXXXXXXXXXXXX InputWord included
+         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputEvent included
+         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputWord included
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         XXXXXXXXXXXXXXXXXXXXXXX InputManager included
+         XXXXXXXXXXXXXXXXXXXXXXX Root included
+         GameLoop.cpp
+         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
+         XXXXXXXXXXXXXXXXXXXXXXX Node included
+         XXXXXXXXXXXXXXXXXXXXXXX Quaternion included
+         XXXXXXXXXXXXXXXXXXXXXXX MovableObject included
+         XXXXXXXXXXXXXXXXXXXXXXX Camera included
+         XXXXXXXXXXXXXXXXXXXXXXX TransformNode included
+         XXXXXXXXXXXXXXXXXXXXXXX RootTransformNode included
+         XXXXXXXXXXXXXXXXXXXXXXX SceneManager included
+         XXXXXXXXXXXXXXXXXXXXXXX GameStateManager included
+         XXXXXXXXXXXXXXXXXXXXXXX Event included
+         XXXXXXXXXXXXXXXXXXXXXXX InputEvent included
+         XXXXXXXXXXXXXXXXXXXXXXX InputWord included
+         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputEvent included
+         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputWord included
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+         XXXXXXXXXXXXXXXXXXXXXXX InputManager included
+         XXXXXXXXXXXXXXXXXXXXXXX Root included
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\gameloop.cpp(62): warning C4018: '>' : signed/unsigned mismatch
+         Generating Code...
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\scenemanager.cpp(191): warning C4715: 'SceneManager::initializeEngine' : not all control paths return a value
+     1>c:\documents and settings\tgei\desktop\hello\ftmm-game-engine\mainproject\project01\main.cpp(42): warning C4715: 'SDL_main' : not all control paths return a value
        Link:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\tgei\Desktop\solutionsdf\ftmm-game-engine\MainProject\Debug\Project01.exe" /NOLOGO /LIBPATH:"..\Project01\SDL-1.2.14\lib" SDL.lib SDLmain.lib opengl32.lib glu32.lib sdl.lib sdlmain.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Project01.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\tgei\Desktop\solutionsdf\ftmm-game-engine\MainProject\Debug\Project01.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\tgei\Desktop\solutionsdf\ftmm-game-engine\MainProject\Debug\Project01.lib" /MACHINE:X86 Debug\CubeObjectTest.obj
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\tgei\Desktop\hello\ftmm-game-engine\MainProject\Debug\Project01.exe" /NOLOGO /LIBPATH:"..\Project01\SDL-1.2.14\lib" SDL.lib SDLmain.lib opengl32.lib glu32.lib sdl.lib sdlmain.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Project01.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\tgei\Desktop\hello\ftmm-game-engine\MainProject\Debug\Project01.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\tgei\Desktop\hello\ftmm-game-engine\MainProject\Debug\Project01.lib" /MACHINE:X86 Debug\CubeObjectTest.obj
          Debug\A.obj
          Debug\Camera.obj
          Debug\Event.obj
@@ -43,15 +188,15 @@
          Debug\Vector2.obj
          Debug\Vector3.obj
          Debug\Vector4.obj
-         LINK : C:\Documents and Settings\tgei\Desktop\solutionsdf\ftmm-game-engine\MainProject\Debug\Project01.exe not found or not built by the last incremental link; performing full link
-         Project01.vcxproj -> C:\Documents and Settings\tgei\Desktop\solutionsdf\ftmm-game-engine\MainProject\Debug\Project01.exe
+         LINK : C:\Documents and Settings\tgei\Desktop\hello\ftmm-game-engine\MainProject\Debug\Project01.exe not found or not built by the last incremental link; performing full link
+         Project01.vcxproj -> C:\Documents and Settings\tgei\Desktop\hello\ftmm-game-engine\MainProject\Debug\Project01.exe
        Manifest:
-         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Documents and Settings\tgei\Desktop\solutionsdf\ftmm-game-engine\MainProject\Debug\Project01.exe;#1" /manifest Debug\Project01.exe.intermediate.manifest
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Documents and Settings\tgei\Desktop\hello\ftmm-game-engine\MainProject\Debug\Project01.exe;#1" /manifest Debug\Project01.exe.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Debug\Project01.unsuccessfulbuild".
          Touching "Debug\Project01.lastbuildstate".
-     1>Done Building Project "C:\Documents and Settings\tgei\Desktop\solutionsdf\ftmm-game-engine\MainProject\Project01\Project01.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Documents and Settings\tgei\Desktop\hello\ftmm-game-engine\MainProject\Project01\Project01.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:03.67
+Time Elapsed 00:00:07.99
