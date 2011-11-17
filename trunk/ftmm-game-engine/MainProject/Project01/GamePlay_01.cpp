@@ -67,7 +67,8 @@ void GamePlay_01::init()
 bool GamePlay_01::update()
 {
 
-	cam->setPosition(Vector3(0.0,0.0,-3.0));
+	cam->setPosition(Vector3(0.0,0.0,-50.0));
+	cam->rotate(Quaternion(900,1.0,0.0,0.0),MovableObject::TS_PARENT);
 	
 	/*
 	node3->setPosition(Vector3(1.2,0.0,0.0));
@@ -80,7 +81,7 @@ bool GamePlay_01::update()
 
 	
 
-	cube_01->mTransformNode->rotate(Quaternion(9000,0.0,1.0,0.0),MovableObject::TS_PARENT);
+	//cube_01->mTransformNode->rotate(Quaternion(9000,0.0,1.0,0.0),MovableObject::TS_PARENT);
 
 	return true;
 }

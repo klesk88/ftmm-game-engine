@@ -52,7 +52,7 @@ bool GameLoop::gameLoop(const int base_fps,const int low_fps){
 				if(CameraMovementInputEvent * cME = dynamic_cast<CameraMovementInputEvent *>(*it)) 
 				{
 					Vector2 position = cME->get_current_position();
-					cout << position.x << " . " << position.y << endl;
+					//cout << position.x << " . " << position.y << endl;
 				}
 			}
 		}

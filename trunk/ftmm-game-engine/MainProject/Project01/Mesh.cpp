@@ -6,10 +6,13 @@
 
 using namespace std;
 
+int Mesh::num_name = 0;
+
 //New Version
 Mesh::Mesh(std::string name)
 {
-	m_name = name;
+	m_name = num_name;
+	num_name +=1;
 	vertex_buffer_obj = NULL;
 	index_buffer = NULL;
 	m_num_indices = 0;
@@ -78,7 +81,7 @@ void Mesh::renderMesh()
 	glEnableVertexAttribArray(1);
 	glEnableVertexAttribArray(2);
 
-	cout << "start render" << endl;
+	//cout << "start render" << endl;
 	if(hasSubMesh())
 	{
 		std::map<std::string,Mesh *>::iterator iter;
@@ -90,9 +93,23 @@ void Mesh::renderMesh()
 			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)12);
 			glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)20);
 
+			glEnableClientState(GL_VERTEX_ARRAY);
+			int size = iter->second->m_vertices.size()*3;
+			iter->second->m_array_vertices = new GLfloat[size];
+			for(int i=0; i<iter->second->m_vertices.size();)
+			{
+				iter->second->m_array_vertices[i] = iter->second->m_vertices[i%3].m_pos.x;
+				iter->second->m_array_vertices[i+1] = iter->second->m_vertices[i%3].m_pos.y;
+				iter->second->m_array_vertices[i+2] = iter->second->m_vertices[i%3].m_pos.z;
+
+				i +=3;
+			}
+			glVertexPointer(3, GL_FLOAT, 0, (iter->second->m_array_vertices));
+
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, iter->second->index_buffer);
 			// draw
 			glDrawElements(GL_TRIANGLES,iter->second->m_num_indices,GL_UNSIGNED_INT,0);
+			glDisableClientState(GL_VERTEX_ARRAY);
 		}
 	}
 	else
@@ -103,8 +120,24 @@ void Mesh::renderMesh()
 			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)12);
 			glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)20);
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer);
+
+			//glColor3f(1.0f,0,0);
+			glEnableClientState(GL_VERTEX_ARRAY);
+
+			int size = m_vertices.size()*3;
+			m_array_vertices = new GLfloat[size];
+			for(int i=0; i<m_vertices.size();)
+			{
+				m_array_vertices[i] = m_vertices[i%3].m_pos.x;
+				m_array_vertices[i+1] = m_vertices[i%3].m_pos.y;
+				m_array_vertices[i+2] = m_vertices[i%3].m_pos.z;
+
+				i +=3;
+			}
+			glVertexPointer(3, GL_FLOAT, 0, &m_array_vertices);
 			// draw
 			glDrawElements(GL_TRIANGLES,m_num_indices,GL_UNSIGNED_INT,0);
+			glDisableClientState(GL_VERTEX_ARRAY);
 
 	}
 

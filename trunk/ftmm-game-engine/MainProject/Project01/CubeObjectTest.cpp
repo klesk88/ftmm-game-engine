@@ -14,7 +14,7 @@ void CubeObjectTest::init(int code)
 	switch(code)
 	{
 		case 1:
-			mMesh = ResourceManager::getInstance()->loadMesh("Data/cone.obj");
+			mMesh = ResourceManager::getInstance()->loadMesh("Data/car2.obj");
 			mTransformNode->attachObject(mMesh);
 			cout << "case 1" << endl;
 			break;
