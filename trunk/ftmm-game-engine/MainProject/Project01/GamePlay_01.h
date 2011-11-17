@@ -6,6 +6,9 @@
 #include "CubeObjectTest.h"
 #include <string>
 #include "SceneManager.h"
+//class SceneManager;
+//class Vector2;
+//class Camera;
 using namespace std;
 
 #pragma once
@@ -32,6 +35,7 @@ private:
 		//end
 		
 		CubeObjectTest newAgeCube;
+
 		static GamePlay_01 * m_instance;
 		~GamePlay_01();
 

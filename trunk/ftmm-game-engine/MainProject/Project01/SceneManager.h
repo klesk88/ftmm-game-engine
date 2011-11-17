@@ -19,8 +19,8 @@ class RootTransformNode;
 #include "TransformNode.h"
 #include "RootTransformNode.h"
 //#include "SceneManager.h"
-#include <gl\gl.h>                         // Header File For The OpenGL32 Library
-#include <gl\glu.h>                            // Header File For The GLu32 Library
+//#include <gl\gl.h>                         // Header File For The OpenGL32 Library
+//#include <gl\glu.h>                            // Header File For The GLu32 Library
 #include <Windows.h>
 #include <wchar.h>
 //#include "Vector4.h"
@@ -32,9 +32,7 @@ class RootTransformNode;
 //#include "GamePlay_01.h"
 class Root;
 
-#define SCREEN_WIDTH  640
-#define SCREEN_HEIGHT 480
-#define SCREEN_BPP     16
+
 
 class SceneManager
 {
@@ -52,20 +50,14 @@ class SceneManager
 		~SceneManager();//{/*delete this;*/}
 
 		//Texture function
-		int LoadGLTextures(char*, int);
-		GLuint getTexture(int);
+		//int LoadGLTextures(char*, int);
+		//GLuint getTexture(int);
 	
 		//FT
 		/*Provisory init for the whole engine*/
-		int initializeEngine();
-		void Quit( int returnCode )
-		{
-			/* clean up the window */
-			SDL_Quit( );
+		//int initializeEngine();
+		//void Quit( int returnCode );
 
-			/* and exit appropriately */
-			exit( returnCode );
-		}
 
 	protected:
 
@@ -77,8 +69,8 @@ class SceneManager
 
 		static SceneManager * p_instance;
 		/*texture*/
-		static const int size = 1;
-		GLuint texture[size];
+		//static const int size = 1;
+		//GLuint texture[size];
 
 		// ONLY FOR TESTING
 		float translate_ratio;

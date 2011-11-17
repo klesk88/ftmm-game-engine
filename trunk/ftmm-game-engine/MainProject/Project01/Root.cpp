@@ -29,6 +29,10 @@ GameState* Root::currentGameState()
 
 void Root::init() //;
 {
+	mResourceManager = ResourceManager::getInstance();
+	mRenderManager = RenderManager::getInstance();
+	mRenderManager->initializeRender();
+
 	mInputManager = InputManager::getInstance();
 	mRootTransformNode = RootTransformNode::getInstance("Root");
 	msc = SceneManager::getInstance();
@@ -37,9 +41,10 @@ void Root::init() //;
 	mGameStateManager->init();
 	mGameLoop = new GameLoop();
 	
+
 	//cout << mGameStateManager->get_currentGameState()->get_name() << endl;
 
-	msc->initializeEngine();
+	//msc->initializeEngine();
 	mGameLoop->startEngine(true,60,10);
 }
 

@@ -1,5 +1,5 @@
 #include "CubeObjectTest.h"
-
+#include "ResourceManager.h"
 CubeObjectTest::CubeObjectTest(){}
 
 /*
@@ -11,8 +11,23 @@ CubeObjectTest::CubeObjectTest(string name, Vector3 position, Quaternion orienta
 
 void CubeObjectTest::init()
 {
-	mMesh = new Mesh(0.4,1.0,0.0,0.0);
+	
+	cout << "entering cubeobjecttest init" << endl;
+	mMesh = ResourceManager::getInstance()->loadMesh("Data/cone.obj");
+	cout << "leaving cubeobjecttest loadMesh" << endl;
 	mTransformNode->attachObject(mMesh);
+	cout << "leaving cubeobjecttest init" << endl;
+	
+		cout << "entering cubeobjecttest init" << endl;
+	mMesh = ResourceManager::getInstance()->loadMesh("Data/cone.obj");
+	cout << "leaving cubeobjecttest loadMesh" << endl;
+	mTransformNode->attachObject(mMesh);
+	cout << "leaving cubeobjecttest init" << endl;
+	
+
+
+	//mMesh = new Mesh(0.4,1.0,0.0,0.0);
+	//mTransformNode->attachObject(mMesh);
 		//cube = new Mesh(0.4,1.0,0.0,0.0);
 		//cube2 = new Mesh(0.3,0.0,0.0,1.0);
 		//cube3 = new Mesh(0.2,0.0,1.0,0.0);

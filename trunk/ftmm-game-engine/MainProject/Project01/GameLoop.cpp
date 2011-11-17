@@ -84,7 +84,7 @@ bool GameLoop::gameLoop(const int base_fps,const int low_fps){
 		// actual fps calculation inside loop
 		deltaclock = SDL_GetTicks() - startclock;startclock = SDL_GetTicks();		
 		if ( deltaclock != 0 )	currentFPS = 1000 / deltaclock;  
-		cout<<"FPS: "<<currentFPS<<endl;
+		//cout<<"FPS: "<<currentFPS<<endl;
 
 		return game_is_run;
 }
