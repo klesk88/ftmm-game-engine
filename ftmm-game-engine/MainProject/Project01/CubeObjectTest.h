@@ -24,7 +24,7 @@ public:
 	CubeObjectTest();
 	CubeObjectTest(string name, Vector3 position = Vector3::ZERO, Quaternion orientation = Quaternion::IDENTITY) : GameObject(name, position, orientation){};
 
-	void init();
+	void init(int code);
 		/*
 	{
 		mMesh = new Mesh(0.4,1.0,0.0,0.0);

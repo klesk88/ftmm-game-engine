@@ -56,11 +56,11 @@ void Mesh::initBuffer()
 
 	glGenBuffers(1, &vertex_buffer_obj);
   	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_obj);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * m_vertices.size(), &m_vertices, GL_STATIC_DRAW);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * m_vertices.size(), &m_vertices[0], GL_STATIC_DRAW);
 
     glGenBuffers(1, &index_buffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * m_num_indices, &m_indices, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * m_num_indices, &m_indices[0], GL_STATIC_DRAW);
 }
 
 bool Mesh::hasSubMesh()
@@ -73,6 +73,11 @@ bool Mesh::hasSubMesh()
 
 void Mesh::renderMesh()
 {
+
+	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
+	glEnableVertexAttribArray(2);
+
 	cout << "start render" << endl;
 	if(hasSubMesh())
 	{
@@ -81,6 +86,11 @@ void Mesh::renderMesh()
 		{	
 			// bind VAO
 			glBindVertexArray(iter->second->vertex_buffer_obj);
+			glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)12);
+			glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)20);
+
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, iter->second->index_buffer);
 			// draw
 			glDrawElements(GL_TRIANGLES,iter->second->m_num_indices,GL_UNSIGNED_INT,0);
 		}
@@ -89,10 +99,19 @@ void Mesh::renderMesh()
 	{
 			// bind VAO
 			glBindVertexArray(vertex_buffer_obj);
+			glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
+			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)12);
+			glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)20);
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer);
 			// draw
 			glDrawElements(GL_TRIANGLES,m_num_indices,GL_UNSIGNED_INT,0);
 
 	}
+
+	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
+	glDisableVertexAttribArray(2);
+
 }
 
 
