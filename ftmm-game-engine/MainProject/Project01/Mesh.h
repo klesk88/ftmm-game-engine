@@ -65,6 +65,10 @@ class Mesh
 		//Vector3 * m_tangents;
 		std::vector<Vertex> m_vertices;
 		std::vector<unsigned int> m_indices;
+		GLfloat* m_array_vertices;
+
+		static int num_name;
+
 
 
 
