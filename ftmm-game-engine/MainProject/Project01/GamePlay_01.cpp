@@ -31,14 +31,16 @@ void GamePlay_01::init()
 	Root * mRoot = Root::getInstance(); 
 
 	cube_01 = new CubeObjectTest("node_1");
+	
 	cube_02 = new CubeObjectTest("node_2");
-	cube_03 = new CubeObjectTest("node_3");
-	cube_04 = new CubeObjectTest("node_4");
-
+	/*cube_03 = new CubeObjectTest("node_3");
+	cube_04 = new CubeObjectTest("node_4");*/
+	
 	cube_01->init();
+	/*
 	cube_02->init();
 	cube_02->init();
-	cube_02->init();
+	cube_02->init();*/
 
 	/*
 	node1 = mRoot->mRootTransformNode->createChild("node1"); 
@@ -75,6 +77,7 @@ bool GamePlay_01::update()
 	node5->setOrientation(Quaternion(node4->getOrientation()));
 	*/
 
+	
 
 	cube_01->mTransformNode->rotate(Quaternion(9000,0.0,1.0,0.0),MovableObject::TS_PARENT);
 

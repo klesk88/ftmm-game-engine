@@ -1,13 +1,103 @@
+#define NO_SDL_GLEXT
+#include <GL\glew.h>
 #include "Mesh.h"
-//#include "SceneManager.h"
 
-Mesh::Mesh(float size,float red_,float green_,float blue_)
+#include <iostream>
+
+using namespace std;
+
+//New Version
+Mesh::Mesh(std::string name)
 {
-	size_p = size;
-	red = red_;
-	green = green_;
-	blue = blue_;
+	m_name = name;
+	vertex_buffer_obj = NULL;
+	index_buffer = NULL;
+	m_num_indices = 0;
+
+	sub_mesh_tab.clear();
+
+	// m_anim_meshes;
+	//m_bitangents;
+	//m_bones;
+	//m_colors;
+	//face_array;
+	//m_material_index;
+	//m_num_anim_meshes;
+	//m_num_bones;
+	//m_num_faces;
+	//m_num_uv_components;
+	//m_num_vertices = 0;
+	//m_primitive_types;
+	//m_tangents;
+	m_vertices.clear();
+	m_indices.clear();
 }
+
+Mesh::~Mesh()
+{
+	if(vertex_buffer_obj != NULL)
+	{
+		glDeleteBuffers(1, &vertex_buffer_obj);
+	}
+	if(index_buffer != NULL)
+	{
+		glDeleteBuffers(1, &index_buffer);
+	}
+}
+
+void Mesh::addSubMesh(Mesh* sub_mesh)
+{
+	sub_mesh_tab.insert(std::pair<std::string, Mesh *>(sub_mesh->m_name, sub_mesh));
+}
+
+void Mesh::initBuffer()
+{
+	m_num_indices = m_indices.size();
+
+	glGenBuffers(1, &vertex_buffer_obj);
+  	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_obj);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vertex) * m_vertices.size(), &m_vertices, GL_STATIC_DRAW);
+
+    glGenBuffers(1, &index_buffer);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * m_num_indices, &m_indices, GL_STATIC_DRAW);
+}
+
+bool Mesh::hasSubMesh()
+{
+	if(sub_mesh_tab.empty())
+		return false;
+	else
+		return true;
+}
+
+void Mesh::renderMesh()
+{
+	cout << "start render" << endl;
+	if(hasSubMesh())
+	{
+		std::map<std::string,Mesh *>::iterator iter;
+		for(iter = sub_mesh_tab.begin(); iter!=sub_mesh_tab.end(); ++iter)
+		{	
+			// bind VAO
+			glBindVertexArray(iter->second->vertex_buffer_obj);
+			// draw
+			glDrawElements(GL_TRIANGLES,iter->second->m_num_indices,GL_UNSIGNED_INT,0);
+		}
+	}
+	else
+	{
+			// bind VAO
+			glBindVertexArray(vertex_buffer_obj);
+			// draw
+			glDrawElements(GL_TRIANGLES,m_num_indices,GL_UNSIGNED_INT,0);
+
+	}
+}
+
+
+//old Version
+//constructor temporily in header file
 
 void Mesh::drawCube(){
 
@@ -27,7 +117,7 @@ void Mesh::drawCube(){
 	
 	glColor3f(red,green,blue);
 	
-	/* FRONT FACE */
+	//FRONT FACE 
 	n1 = v3 - v2;
 	n2 = v1 - v2;
 	vN1 = n1.crossProduct(n2);
@@ -38,7 +128,7 @@ void Mesh::drawCube(){
 	glVertex3f(v3.x,v3.y,v3.z);
 	glVertex3f(v4.x,v4.y,v4.z);
 
-	/* LEFT FACE */
+	//LEFT FACE
 	n1 = v6 - v5;
 	n2 = v2 - v5;
 	vN2 = n1.crossProduct(n2);
@@ -50,7 +140,7 @@ void Mesh::drawCube(){
 	glVertex3f(v6.x,v6.y,v6.z);
 	glVertex3f(v3.x,v3.y,v3.z);
 
-	/* BACK FACE */
+	// BACK FACE
 	n1 = v7 - v5;
 	n2 = v6 - v5;
 	vN3 = n1.crossProduct(n2);
@@ -61,7 +151,7 @@ void Mesh::drawCube(){
 	glVertex3f(v6.x,v6.y,v6.z);
 	glVertex3f(v8.x,v8.y,v8.z);
 
-	/* RIGHT FACE */
+	// RIGHT FACE
 	n1 = v4 - v1;
 	n2 = v7 - v1;
 	vN4 = n1.crossProduct(n2);
@@ -72,7 +162,7 @@ void Mesh::drawCube(){
 	glVertex3f(v4.x,v4.y,v4.z);
 	glVertex3f(v8.x,v8.y,v8.z);
 
-	/* TOP FACE */
+	// TOP FACE
 	n1 = v1 - v2;
 	n2 = v5 - v2;
 	vN5 = n1.crossProduct(n2);
@@ -83,7 +173,7 @@ void Mesh::drawCube(){
 	glVertex3f(v5.x,v5.y,v5.z);
 	glVertex3f(v7.x,v7.y,v7.z);
 
-	/* BOTTOM FACE */
+	// BOTTOM FACE
 	n1 = v6 - v3;
 	n2 = v4 - v3;
 	vN6 = n1.crossProduct(n2);

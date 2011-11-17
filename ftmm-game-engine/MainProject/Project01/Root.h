@@ -4,11 +4,12 @@
 
 
 #include "SceneManager.h"
-
 #include "GameStateManager.h"
 #include "InputManager.h"
 #include "GameLoop.h"
 #include "RootTransformNode.h"
+#include "RenderManager.h"
+#include "ResourceManager.h"
 
 class GameState;
 //#include "GameState.h"
@@ -25,7 +26,9 @@ public:
 	InputManager* mInputManager;
 	GameStateManager* mGameStateManager;
 	RootTransformNode* mRootTransformNode;
+	RenderManager* mRenderManager;
 	GameLoop*  mGameLoop;
+	ResourceManager * mResourceManager;
 
 	/*
 		- Initialize all the Singletons

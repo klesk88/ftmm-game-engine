@@ -70,7 +70,8 @@ void TransformNode::updateNode(){
 		std::list<Mesh*>::iterator it;
 		for (it = attached_obj.begin(); it!= attached_obj.end(); ++it){
 	
-			(**it).drawCube();
+			(**it).renderMesh();
+			//(**it).drawCube();
 			
 	
 		}
