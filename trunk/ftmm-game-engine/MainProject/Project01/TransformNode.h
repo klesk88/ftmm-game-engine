@@ -22,6 +22,8 @@ class TransformNode : public MovableObject{
 
 	public:
 
+		int testing_coder;
+
 		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX TransformNode included")
 
 		//Method to create a child of a TransformNode.

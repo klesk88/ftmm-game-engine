@@ -1,69 +1,12 @@
-﻿Build started 17-11-2011 15:25:24.
+﻿Build started 17-11-2011 15:47:34.
      1>Project "C:\Documents and Settings\tgei\Desktop\hellohi\ftmm-game-engine\MainProject\Project01\Project01.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Project01.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\Project01\glew-1.7.0\include" /I"..\Project01\assimp--2.0.863-sdk\include" /I"..\Project01\SDL-1.2.14\include" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MD /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GamePlay_01.cpp
-         GamePlay_01.cpp
-         XXXXXXXXXXXXXXXXXXXXXXX Event included
-         XXXXXXXXXXXXXXXXXXXXXXX EventHandler included
-         XXXXXXXXXXXXXXXXXXXXXXX Quaternion included
-         XXXXXXXXXXXXXXXXXXXXXXX IGameState included
-         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
-         XXXXXXXXXXXXXXXXXXXXXXX Node included
-         XXXXXXXXXXXXXXXXXXXXXXX MovableObject included
-         XXXXXXXXXXXXXXXXXXXXXXX TransformNode included
-         XXXXXXXXXXXXXXXXXXXXXXX GameObject included
-         XXXXXXXXXXXXXXXXXXXXXXX IObject3D included
-         XXXXXXXXXXXXXXXXXXXXXXX Why is Object3D not included here?
-         XXXXXXXXXXXXXXXXXXXXXXX CubeObjectTest included
-         XXXXXXXXXXXXXXXXXXXXXXX Camera included
-         XXXXXXXXXXXXXXXXXXXXXXX RootTransformNode included
-         XXXXXXXXXXXXXXXXXXXXXXX SceneManager included
-         XXXXXXXXXXXXXXXXXXXXXXX GamePlay_01 included
-         XXXXXXXXXXXXXXXXXXXXXXX GameStateManager included
-         XXXXXXXXXXXXXXXXXXXXXXX InputEvent included
-         XXXXXXXXXXXXXXXXXXXXXXX InputWord included
-         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputEvent included
-         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputWord included
-     1>c:\documents and settings\tgei\desktop\hellohi\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\documents and settings\tgei\desktop\hellohi\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(34): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         XXXXXXXXXXXXXXXXXXXXXXX InputManager included
-         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
-         XXXXXXXXXXXXXXXXXXXXXXX Root included
+         All outputs are up-to-date.
        Link:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\tgei\Desktop\hellohi\ftmm-game-engine\MainProject\Debug\Project01.exe" /NOLOGO /LIBPATH:"..\Project01\glew-1.7.0\lib" /LIBPATH:"..\Project01\assimp--2.0.863-sdk\lib\assimp_debug-dll_win32" /LIBPATH:"..\Project01\SDL-1.2.14\lib" SDL.lib SDLmain.lib opengl32.lib glu32.lib sdl.lib sdlmain.lib glew32s.lib glew32mxs.lib glew32mx.lib glew32.lib assimp.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Project01.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\tgei\Desktop\hellohi\ftmm-game-engine\MainProject\Debug\Project01.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\tgei\Desktop\hellohi\ftmm-game-engine\MainProject\Debug\Project01.lib" /MACHINE:X86 Debug\CubeObjectTest.obj
-         Debug\A.obj
-         Debug\Camera.obj
-         Debug\Event.obj
-         Debug\EventHandler.obj
-         Debug\FrameListener.obj
-         Debug\GameLoop.obj
-         Debug\GameObject.obj
-         Debug\GamePlay_01.obj
-         Debug\GameStateManager.obj
-         Debug\InputManager.obj
-         Debug\Light.obj
-         Debug\main.obj
-         Debug\Math.obj
-         Debug\Matrix3.obj
-         Debug\Matrix4.obj
-         Debug\Mesh.obj
-         Debug\Quaternion.obj
-         Debug\RenderManager.obj
-         Debug\ResourceManager.obj
-         Debug\RootTransformNode.obj
-         Debug\SceneManager.obj
-         Debug\Root.obj
-         Debug\TransformNode.obj
-         Debug\Triangle.obj
-         Debug\Vector2.obj
-         Debug\Vector3.obj
-         Debug\Vector4.obj
-         LINK : C:\Documents and Settings\tgei\Desktop\hellohi\ftmm-game-engine\MainProject\Debug\Project01.exe not found or not built by the last incremental link; performing full link
+         All outputs are up-to-date.
          Project01.vcxproj -> C:\Documents and Settings\tgei\Desktop\hellohi\ftmm-game-engine\MainProject\Debug\Project01.exe
-       Manifest:
-         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Documents and Settings\tgei\Desktop\hellohi\ftmm-game-engine\MainProject\Debug\Project01.exe;#1" /manifest Debug\Project01.exe.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Debug\Project01.unsuccessfulbuild".
          Touching "Debug\Project01.lastbuildstate".
@@ -71,4 +14,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:03.14
+Time Elapsed 00:00:00.21

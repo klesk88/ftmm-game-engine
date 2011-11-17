@@ -36,7 +36,8 @@ void GamePlay_01::init()
 	/*cube_03 = new CubeObjectTest("node_3");
 	cube_04 = new CubeObjectTest("node_4");*/
 	
-	cube_01->init();
+	cube_01->init(1);
+	//cube_02->init(2);
 	/*
 	cube_02->init();
 	cube_02->init();

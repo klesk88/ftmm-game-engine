@@ -9,23 +9,21 @@ CubeObjectTest::CubeObjectTest(string name, Vector3 position, Quaternion orienta
 }
 */
 
-void CubeObjectTest::init()
+void CubeObjectTest::init(int code)
 {
-	
-	cout << "entering cubeobjecttest init" << endl;
-	mMesh = ResourceManager::getInstance()->loadMesh("Data/cone.obj");
-	cout << "leaving cubeobjecttest loadMesh" << endl;
-	mTransformNode->attachObject(mMesh);
-	cout << "leaving cubeobjecttest init" << endl;
-	
-		cout << "entering cubeobjecttest init" << endl;
-	mMesh = ResourceManager::getInstance()->loadMesh("Data/cone.obj");
-	cout << "leaving cubeobjecttest loadMesh" << endl;
-	mTransformNode->attachObject(mMesh);
-	cout << "leaving cubeobjecttest init" << endl;
-	
-
-
+	switch(code)
+	{
+		case 1:
+			mMesh = ResourceManager::getInstance()->loadMesh("Data/cone.obj");
+			mTransformNode->attachObject(mMesh);
+			cout << "case 1" << endl;
+			break;
+		case 2:
+			mMesh = new Mesh(0.4,1.0,0.0,0.0);
+			mTransformNode->attachObject(mMesh);
+			cout << "case 2" << endl;
+			break;
+	}
 	//mMesh = new Mesh(0.4,1.0,0.0,0.0);
 	//mTransformNode->attachObject(mMesh);
 		//cube = new Mesh(0.4,1.0,0.0,0.0);

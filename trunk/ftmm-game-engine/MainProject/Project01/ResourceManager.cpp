@@ -30,9 +30,6 @@ Mesh* ResourceManager::loadMesh(const std::string& mesh_file)
 
 	if((iter) == mesh_tab.cend())
 	{
-		//non c'è la mesh
-		//carica mesh da file
-
 		if (!Import3DFromFile(mesh_file))
 		{	//error
 			return false;
