@@ -8,85 +8,88 @@ class FourDirectionsMovement_InputWord: public InputWord
 {
 
 private:	
-	bool north;
-	bool east;
-	bool south;
-	bool west;
+	//bool north;
+	//bool east;
+	//bool south;
+	//bool west;
+	
+	float x_velocity;
+	float y_velocity;
 
 public:
 	FourDirectionsMovement_InputWord(int count_gameStates) : InputWord(count_gameStates)
 	{
-		north = false;
-		east = false;
-		south = false;
-		west = false;
+		//north = false;
+		//east = false;
+		//south = false;
+		//west = false;
+		x_velocity = 0;
+		y_velocity = 0;
+
 	}
 
 	InputEvent* update(SDL_Event _event)
 	{
 		//cout << "update entered" << endl;
+		//north = false;
+		//east = false;
+		//south = false;
+		//west = false;
+
 
 		FourDirectionsMovement_InputEvent* fourDirectionalMovementEvent = new FourDirectionsMovement_InputEvent();
 		event_current = _event;
 
-		 switch(_event.type)
+		switch(_event.type)
 		{
 			case SDL_KEYDOWN:
 
-				//NORTH
-				if(_event.key.keysym.sym == SDLK_w)
+				switch (_event.key.keysym.sym)
 				{
-					north = true;
-					fourDirectionalMovementEvent->set_north(true);
-					cout << "www" << endl;
-				} 
-				else 
-				{
-					north = false;
-					fourDirectionalMovementEvent->set_north(false);
+					//north
+					case SDLK_w:
+						y_velocity = -1;
+						break;
+					//east
+					case SDLK_d:
+						x_velocity = 1;
+						break;
+					//south
+					case SDLK_s:
+						y_velocity = 1;
+						break;
+					//west
+					case SDLK_a:
+						x_velocity = -1;
+						break;
+					default:
+						break;
 				}
-				
-				//EAST
-				if(_event.key.keysym.sym == SDLK_d)
-				{
-					east = true;
-					fourDirectionalMovementEvent->set_east(true);
-					cout << "ddd" << endl;
-				}
-				else 
-				{
-					east = false;
-					fourDirectionalMovementEvent->set_east(false);
-				}
-				
-				//SOUTH
-				if(_event.key.keysym.sym == SDLK_s)
-				{
-					south = true;
-					fourDirectionalMovementEvent->set_south(true);
-					cout << "sss" << endl;
-				}
-				else 
-				{
-					south = false;
-					fourDirectionalMovementEvent->set_south(false);
-				}
-				
-				//WEST
-				if(_event.key.keysym.sym == SDLK_a)
-				{
-					west = true;
-					fourDirectionalMovementEvent->set_west(true);
-					cout << "aaa" << endl;
-				}
-				else 
-				{
-					west  = false;
-					fourDirectionalMovementEvent->set_west (false);
-				}
+				break;
 
-				fourDirectionalMovementEvent->set_eventHasOccured(true);
+            case SDL_KEYUP:
+                switch(_event.key.keysym.sym){
 
+					case SDLK_w:
+						if( y_velocity < 0 )
+						y_velocity = 0;
+						break;
+					case SDLK_d:
+						if( x_velocity > 0 )
+						x_velocity = 0;
+						break;
+                    case SDLK_s:
+                        if( y_velocity > 0 )
+						y_velocity = 0;
+                        break;
+					case SDLK_a:
+						if( x_velocity < 0 )
+						x_velocity = 0;
+						break;
+
+                    default:
+                        break;
+                }
 				break;
 		 
 			default:
@@ -95,6 +98,10 @@ public:
 
 				break;
 		}
+
+		fourDirectionalMovementEvent->set_x_velocity(x_velocity);
+		fourDirectionalMovementEvent->set_y_velocity(y_velocity);
+		fourDirectionalMovementEvent->set_eventHasOccured(true);
 
 		 //cout << "type in MMIW:" << typeid(cameraMovementEvent).name() << endl;
 		 return fourDirectionalMovementEvent;

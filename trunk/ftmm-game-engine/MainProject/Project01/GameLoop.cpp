@@ -40,23 +40,23 @@ bool GameLoop::gameLoop(const int base_fps,const int low_fps){
 		
 		//event_list.clear();
 
+		// get input events
+		vector<Event*> input_events  = Root::getInstance()->mInputManager->get_input_events();
+
 		// if input events have occured
 		if(Root::getInstance()->mInputManager->get_input_events().empty() == false)
 		{
-			// get input events
-			vector<Event*> input_events  = Root::getInstance()->mInputManager->get_input_events();
-			Root::getInstance()->updateGameState(input_events);
-
 			for (vector<Event*>::iterator it = input_events.begin(); it != input_events .end(); ++it) 
 			{
 				//check whether its a CMIE
 				if(CameraMovementInputEvent * cME = dynamic_cast<CameraMovementInputEvent *>(*it)) 
 				{
 					Vector2 position = cME->get_current_position();
-					cout << "in GAMELOOP" << position.x << " . " << position.y << endl;
+					//cout << "in GAMELOOP" << position.x << " . " << position.y << endl;
 				}
 			}
 		}
+		Root::getInstance()->updateGameState(input_events);
 		
 
 		   loops = 0;
