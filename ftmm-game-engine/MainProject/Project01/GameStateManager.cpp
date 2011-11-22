@@ -30,9 +30,10 @@ bool GameStateManager::init()
 	return true;
 }
 
-bool GameStateManager::update()
+bool GameStateManager::update(vector<Event*> events)
 {
+	cout << "in gamestatemanager update" << endl;
 	//gameStates.back()...
-	gamePlay_01->update();
+	gamePlay_01->update(events);
 	return 0;
 }

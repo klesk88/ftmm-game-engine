@@ -58,7 +58,7 @@ public:
 		static GamePlay_01 * getInstance ();
 		
 		void init();
-		bool update();
+		bool update(vector<Event*> events);
 
 		void spawnGameObject(GameObject* game_obj, Vector3 position, Quaternion orientation){};
 		void spawnGameObject(EGameObject type, Vector3 position, Quaternion orientation){};

@@ -79,12 +79,16 @@ class Matrix3
         void FromEulerAnglesZXY (const Radian& fYAngle, const Radian& fPAngle, const Radian& fRAngle);
         void FromEulerAnglesZYX (const Radian& fYAngle, const Radian& fPAngle, const Radian& fRAngle);
 
+		Vector3 getColumn(int i);
+
 		static const float EPSILON ;
 		static const Matrix3 ZERO;
 		static const Matrix3 IDENTITY;
 		static const float ms_fSvdEpsilon;
 		static const unsigned int ms_iSvdMaxIterations ;
 		
+		
+
 		//Matrix4 toMatrix4 () const;
 
 };

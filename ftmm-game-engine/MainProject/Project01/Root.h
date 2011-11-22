@@ -12,6 +12,7 @@
 #include "ResourceManager.h"
 
 class GameState;
+class Event;
 //#include "GameState.h"
 
 /*Systems should only know the top level of all the sub systems*/
@@ -43,7 +44,7 @@ public:
 	//GameState* currentGameState();
 
 	/*Update the GameState*/
-	void updateGameState();
+	void updateGameState(vector<Event*> events);
 
 private:
 	static Root* p_instance;

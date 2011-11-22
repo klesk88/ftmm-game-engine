@@ -198,3 +198,11 @@ void Camera::setScale(const Vector3& scale_value){
 
 	//global_transform.setScale(scale_value);
 }
+
+Matrix3 Camera::getLocalAxes(){
+
+	Matrix3 return_matrix;
+	this->global_transform.extract3x3Matrix(return_matrix);
+	return return_matrix;
+
+}

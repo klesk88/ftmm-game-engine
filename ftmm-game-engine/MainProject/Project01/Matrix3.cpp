@@ -722,7 +722,30 @@ float Matrix3::Determinant () const
     }
 
 	
-	
+Vector3 Matrix3::getColumn(int i)
+{
+	Vector3 returnVector;
+	if (i == 0)
+	{
+		returnVector[0] = m[0][0];
+		returnVector[1] = m[0][1];
+		returnVector[2] = m[0][2];
+	}
+	else if (i == 1)
+	{
+		returnVector[0] = m[1][0];
+		returnVector[1] = m[1][1];
+		returnVector[2] = m[1][2];
+	}
+	else if (i == 2)
+	{
+		returnVector[0] = m[2][0];
+		returnVector[1] = m[2][1];
+		returnVector[2] = m[2][2];
+	}
+
+	return  returnVector;
+}
 	
 
 	const float Matrix3::EPSILON = 1e-06;

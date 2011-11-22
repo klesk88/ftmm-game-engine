@@ -34,7 +34,7 @@ public:
 	// virtual void pause();
 	// virtual void resume();
 
-	virtual bool update() = 0;
+	virtual bool update(vector<Event*> events) = 0;
 	// virtual void handleEvents() ;
 
 	/* For optimization use EGameObject instead of GameObject*/
