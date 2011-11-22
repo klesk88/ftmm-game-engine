@@ -121,7 +121,7 @@ void Mesh::renderMesh()
 			glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)20);
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer);
 
-			//glColor3f(1.0f,0,0);
+			glColor3f(1.0f,0,0);
 			glEnableClientState(GL_VERTEX_ARRAY);
 
 			int size = m_vertices.size()*3;

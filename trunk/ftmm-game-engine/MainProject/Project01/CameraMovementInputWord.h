@@ -15,7 +15,7 @@ public:
 
 	InputEvent* update(SDL_Event _event)
 	{
-		cout << "update entered" << endl;
+		//cout << "update entered" << endl;
 
 		Vector2 position_cur;
 		int x;

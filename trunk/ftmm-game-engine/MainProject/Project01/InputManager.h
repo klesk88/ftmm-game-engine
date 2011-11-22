@@ -15,6 +15,7 @@
 #include <vector>
 #include "InputWord.h"
 #include "CameraMovementInputWord.h"
+#include "FourDirectionsMovement_InputWord.h"
 
 using namespace std;
 

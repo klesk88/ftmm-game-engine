@@ -3,6 +3,8 @@
 #pragma once
 
 #include <vector>
+class Event;
+
 using namespace std;
 
 class GamePlay_01;
@@ -29,7 +31,7 @@ public:
 	GameState* get_currentGameState();
 
 	bool init();
-	bool update();
+	bool update(vector<Event*> events);
 	bool transitToGameState();
 
 

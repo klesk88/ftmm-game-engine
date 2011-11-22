@@ -41,6 +41,7 @@ class Camera : public MovableObject{
 		void setOrientation(const Quaternion & orientation_value);
 		void scale(const Vector3& scale_value);
 		void setScale(const Vector3& scale_value);
+		Matrix3 getLocalAxes();
 		
 
 

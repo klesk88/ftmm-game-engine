@@ -103,6 +103,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CubeObjectTest.h" />
+    <ClInclude Include="FourDirectionsMovement_InputEvent.h" />
+    <ClInclude Include="FourDirectionsMovement_InputWord.h" />
     <ClInclude Include="GameLoop.h" />
     <ClInclude Include="GamePlay_02.h" />
     <ClInclude Include="GameStateManager.h" />

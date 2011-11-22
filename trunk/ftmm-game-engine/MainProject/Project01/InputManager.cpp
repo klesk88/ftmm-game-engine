@@ -25,6 +25,11 @@ InputManager::InputManager()
 	cameraMotion->set_listen_to_MouseMovement(true);
 	input_words.push_back(cameraMotion);
 	cout << "type in IM of IW:" << typeid(cameraMotion).name() << endl;
+
+	FourDirectionsMovement_InputWord* fourDirectionalMovement = new FourDirectionsMovement_InputWord(0);
+	fourDirectionalMovement->set_listen_to_KeyState(true);
+	input_words.push_back(fourDirectionalMovement);
+	cout << "type in IM of IW:" << typeid(fourDirectionalMovement).name() << endl;
 	
 }
 
@@ -61,7 +66,7 @@ InputManager::SIGNAL InputManager::handle_input()
 
             //User has pressed a keyboard key - single stroke
             case SDL_KEYDOWN:
-			/*
+			
 				cout << "in key down" << endl;
 
 				for (vector<InputWord*>::iterator it = input_words.begin(); it!=input_words.end(); ++it) 
@@ -86,7 +91,8 @@ InputManager::SIGNAL InputManager::handle_input()
 							}
 					}
 				}
-				*/
+
+
                 break;
 
 			//User has pressed a keyboard key - single stroke

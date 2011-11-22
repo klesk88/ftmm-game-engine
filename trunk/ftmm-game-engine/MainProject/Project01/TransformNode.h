@@ -98,6 +98,7 @@ class TransformNode : public MovableObject{
 		Matrix4 getParentTransform() ;
 		void convertMatrixToFloat();
 		void convertFloatToMatrix();
+		Matrix3 getLocalAxes();
 };
 
 #endif

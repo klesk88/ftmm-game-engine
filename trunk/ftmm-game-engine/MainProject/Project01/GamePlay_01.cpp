@@ -31,12 +31,12 @@ void GamePlay_01::init()
 	Root * mRoot = Root::getInstance(); 
 
 	cube_01 = new CubeObjectTest("node_1");
-	
 	cube_02 = new CubeObjectTest("node_2");
 	/*cube_03 = new CubeObjectTest("node_3");
 	cube_04 = new CubeObjectTest("node_4");*/
 	
 	cube_01->init(1);
+	cube_02->init(2);
 	//cube_02->init(2);
 	/*
 	cube_02->init();
@@ -64,12 +64,93 @@ void GamePlay_01::init()
 	*/
 }
 
-bool GamePlay_01::update()
+bool GamePlay_01::update(vector<Event*> events)
 {
+	Matrix3 * mt3 = new Matrix3;
+	*mt3 = cam->getLocalAxes();
+	cout << "in gameplay update" << endl;
 
-	cam->setPosition(Vector3(0.0,0.0,-50.0));
-	cam->rotate(Quaternion(900,1.0,0.0,0.0),MovableObject::TS_PARENT);
+	for (vector<Event*>::iterator it = events.begin(); it != events.end(); ++it) 
+			{
+				cout << "in gameplay update: for" << endl;
+				//check whether its a CMIE
+				if(CameraMovementInputEvent * cME = dynamic_cast<CameraMovementInputEvent *>(*it)) 
+				{
+					Vector2 position = cME->get_current_position();
+					cout << position.x << " . " << position.y << endl;
+				}
+
+				if(FourDirectionsMovement_InputEvent * fDM = dynamic_cast<FourDirectionsMovement_InputEvent *>(*it)) 
+				{
+					int speed = 2;
+					bool north = fDM->get_north();
+					bool east = fDM->get_east();
+					bool south = fDM->get_south();
+					bool west = fDM->get_west();
+					
+					if (west)
+					{
+						cam->translate((mt3->getColumn(0) * speed),MovableObject::TransformSpace::TS_WORLD);
+						cout << "west" << endl;
+					}
+					if (east)
+					{
+						cam->translate((mt3->getColumn(0) * -speed),MovableObject::TransformSpace::TS_WORLD);
+						cout << "east" << endl;
+					}
+
+					if (north)
+					{
+						cam->translate((mt3->getColumn(2) * speed),MovableObject::TransformSpace::TS_WORLD);
+						cout << "north" << endl;
+					}
+					if (south)
+					{
+						cam->translate((mt3->getColumn(2) * -speed),MovableObject::TransformSpace::TS_WORLD);
+						cout << "south" << endl;
+					}
+
+					//cout << position.x << " . " << position.y << endl;
+				}
+
+
+			}
+	/*
+	xrot_zero = currentFramePositionx - lastFramePositionx;
+	yrot_zero = currentFramePositiony - lastFramePositiony;
+	xrot += xrot_zero;
+	yrot += yrot_zero;
+	//cam->setPosition(Vector3(0.0,0.0,-3.0));
+	Quaternion q1;Quaternion q2;Quaternion final_rot;
+	q1 = (Quaternion(xrot * 900,0.0,1.0,0.0);
+	q2 = (Quaternion(yrot * 900,1.0,0.0,0.0);
+	final_rot = q1 * q2;
+	cam->setOrientation(final_rot,MovableObject::TransformSpace::TS_LOCAL);
+	if (input == w){
 	
+		cam->translate(cam->getLocalAxes(2) * speed);
+	
+	}
+
+	if (input == s){
+	
+		cam->translate(-cam->getLocalAxes(2) * speed);
+	
+	}
+
+	if (input == a){
+	
+		cam->translate(cam->getLocalAxes(0) * speed);
+	
+	}
+
+	if (input == d){
+	
+		cam->translate(-cam->getLocalAxes(0) * speed);
+	
+	}
+
+	//cam->rotate(Quaternion(900,1.0,0.0,0.0),MovableObject::TS_PARENT);
 	/*
 	node3->setPosition(Vector3(1.2,0.0,0.0));
 	node4->setPosition(Vector3(0.8,0.0,0.0));
@@ -78,11 +159,7 @@ bool GamePlay_01::update()
 	node5->setPosition(Vector3(1.2,0.0,0.0));
 	node5->setOrientation(Quaternion(node4->getOrientation()));
 	*/
-
-	
-
 	//cube_01->mTransformNode->rotate(Quaternion(9000,0.0,1.0,0.0),MovableObject::TS_PARENT);
-
 	return true;
 }
 

@@ -54,7 +54,7 @@ void Root::handleInput() //;
 	mInputManager->handle_input();
 }
 
-void Root::updateGameState()
+void Root::updateGameState(vector<Event*> events)
 {
-	mGameStateManager->update();
+	mGameStateManager->update(events);
 }

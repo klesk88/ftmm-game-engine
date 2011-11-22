@@ -71,7 +71,7 @@ void TransformNode::updateNode(){
 		for (it = attached_obj.begin(); it!= attached_obj.end(); ++it){
 	
 			(**it).renderMesh();
-			//(**it).drawCube();
+			(**it).drawCube();
 			
 	
 		}
@@ -422,5 +422,14 @@ void TransformNode::convertFloatToMatrix(){
 	global_transform[3][2] = arr2[11];
 	global_transform[3][3] = arr2[15];
 
+
+}
+
+Matrix3 TransformNode::getLocalAxes(){
+
+	
+	Matrix3 return_matrix;
+	this->global_transform.extract3x3Matrix(return_matrix);
+	return return_matrix;
 
 }
