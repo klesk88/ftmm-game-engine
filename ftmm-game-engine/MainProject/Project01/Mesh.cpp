@@ -77,6 +77,7 @@ bool Mesh::hasSubMesh()
 void Mesh::renderMesh()
 {
 
+
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 	glEnableVertexAttribArray(2);
@@ -84,19 +85,26 @@ void Mesh::renderMesh()
 	//cout << "start render" << endl;
 	if(hasSubMesh())
 	{
+		
+
 		std::map<std::string,Mesh *>::iterator iter;
 		for(iter = sub_mesh_tab.begin(); iter!=sub_mesh_tab.end(); ++iter)
 		{	
+			
 			// bind VAO
+			glPushMatrix();
+			glEnableClientState(GL_VERTEX_ARRAY);
+
 			glBindVertexArray(iter->second->vertex_buffer_obj);
 			glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
 			glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)12);
 			glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)20);
+			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, iter->second->index_buffer);
 
-			glEnableClientState(GL_VERTEX_ARRAY);
 			int size = iter->second->m_vertices.size()*3;
 			iter->second->m_array_vertices = new GLfloat[size];
-			for(int i=0; i<iter->second->m_vertices.size();)
+
+			for(int i=0; i<(iter->second->m_vertices.size());)
 			{
 				iter->second->m_array_vertices[i] = iter->second->m_vertices[i%3].m_pos.x;
 				iter->second->m_array_vertices[i+1] = iter->second->m_vertices[i%3].m_pos.y;
@@ -106,11 +114,14 @@ void Mesh::renderMesh()
 			}
 			glVertexPointer(3, GL_FLOAT, 0, (iter->second->m_array_vertices));
 
-			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, iter->second->index_buffer);
 			// draw
 			glDrawElements(GL_TRIANGLES,iter->second->m_num_indices,GL_UNSIGNED_INT,0);
+
 			glDisableClientState(GL_VERTEX_ARRAY);
+			glPopMatrix();
+			
 		}
+		
 	}
 	else
 	{

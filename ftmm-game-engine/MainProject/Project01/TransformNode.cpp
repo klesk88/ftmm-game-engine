@@ -68,7 +68,8 @@ void TransformNode::updateNode(){
 	if(attached_obj.size() != 0) { 
 		
 		std::list<Mesh*>::iterator it;
-		for (it = attached_obj.begin(); it!= attached_obj.end(); ++it){
+		for (it = attached_obj.begin(); it!= attached_obj.end(); ++it)
+		{
 	
 			(**it).renderMesh();
 			(**it).drawCube();

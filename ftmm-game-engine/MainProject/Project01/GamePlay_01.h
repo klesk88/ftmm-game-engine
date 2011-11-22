@@ -18,6 +18,18 @@ class GamePlay_01 : public GameState
 {
 private:
 
+		//Camera testing
+		float speed;
+		float x_vel;
+		float y_vel;
+		float xrot;
+		float yrot;
+		float xrot_zero;
+		float currentFramePositionx;
+		float lastFramePositionx;
+		float yrot_zero;
+		float currentFramePositiony;
+		float lastFramePositiony;
 
 		// ONLY FOR TESTING
 		TransformNode * node1 ;

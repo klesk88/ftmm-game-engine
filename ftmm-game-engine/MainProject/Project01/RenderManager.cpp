@@ -99,7 +99,7 @@ int RenderManager::initializeRender()
 		glShadeModel( GL_SMOOTH );
 
 		/* Set the background Color*/
-		glClearColor( 1.0f, 1.0f, 1.0f, 0.0f );
+		glClearColor( .0f, .0f, .0f, 0.0f );
 
 		/* Depth buffer setup */
 		glClearDepth( 17.0f );
@@ -134,7 +134,7 @@ int RenderManager::initializeRender()
 		glLoadIdentity( );
 
 		/* Set our perspective */
-		gluPerspective( 45.0f, ratio, 0.1f, 100.0f );
+		gluPerspective( 45.0f, ratio, 0.1f, 10000.0f );
 
 		/* Make sure we're chaning the model view and not the projection */
 		glMatrixMode( GL_MODELVIEW );

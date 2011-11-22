@@ -67,7 +67,7 @@ InputManager::SIGNAL InputManager::handle_input()
             //User has pressed a keyboard key - single stroke
             case SDL_KEYDOWN:
 			
-				cout << "in key down" << endl;
+				//cout << "in key down" << endl;
 
 				for (vector<InputWord*>::iterator it = input_words.begin(); it!=input_words.end(); ++it) 
 				{
@@ -97,8 +97,9 @@ InputManager::SIGNAL InputManager::handle_input()
 
 			//User has pressed a keyboard key - single stroke
             case SDL_KEYUP:
-			/*
-				cout << "in key up" << endl;
+			
+				
+				//cout << "in key up" << endl;
 
 				for (vector<InputWord*>::iterator it = input_words.begin(); it!=input_words.end(); ++it) 
 				{
@@ -112,7 +113,7 @@ InputManager::SIGNAL InputManager::handle_input()
 							}
 					}
 				}
-				*/
+				
                 break;
 				
             //User has moved the mouse
@@ -212,7 +213,6 @@ InputManager::SIGNAL InputManager::handle_input()
             default: 
                 break;
 		}
-
-		return InputManager::NORMAL;
 	}
+	return InputManager::NORMAL;
 }
