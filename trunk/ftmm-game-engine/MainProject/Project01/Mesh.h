@@ -33,20 +33,21 @@ class Mesh
 	//New version
 	public:
 		void renderMesh();
+		bool hasSubMesh();
+		std::map<std::string, Mesh *> sub_mesh_tab;
 
 	private:
 		Mesh(std::string name);
 		~Mesh();
 		void addSubMesh(Mesh* sub_mesh);
 		void initBuffer();
-		bool hasSubMesh();
 
 		//Only Contenitor variables
-		std::map<std::string, Mesh *> sub_mesh_tab;
 
 		//SubMesh variables
 		GLuint vertex_buffer_obj;
 		GLuint index_buffer;
+		GLuint VAO;
         unsigned int m_num_indices;
 
 		//aiAnimMesh ** m_anim_meshes;

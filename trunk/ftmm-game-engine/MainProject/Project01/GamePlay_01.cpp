@@ -43,14 +43,14 @@ void GamePlay_01::init()
 	Root * mRoot = Root::getInstance(); 
 
 	cube_01 = new CubeObjectTest("node_1");
-	cube_02 = new CubeObjectTest("node_2");
+	//cube_02 = new CubeObjectTest("node_2");
 	/*cube_03 = new CubeObjectTest("node_3");
 	cube_04 = new CubeObjectTest("node_4");*/
 	
 	cube_01->init(1);
-	cube_02->init(1);
+	//cube_02->init(1);
 
-	cube_02->mTransformNode->setPosition(Vector3(1.2,0.0,0.0));
+	//cube_02->mTransformNode->setPosition(Vector3(10.0,0.0,0.0));
 
 	//cube_02->init(2);
 	/*

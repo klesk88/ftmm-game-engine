@@ -44,15 +44,32 @@ std::string TransformNode::getName(){
 
 
 
-void TransformNode::attachObject(Mesh * mesh_ptr){
+void TransformNode::attachObject(Mesh * mesh_ptr)
+{
 
 	//mesh_attached = mesh_ptr;
 	Mesh * mesh_attached = mesh_ptr;
 	attached_obj.push_back(mesh_attached);
 
+	if(mesh_attached->hasSubMesh())
+	{
+		int i=0;
+		std::map<std::string, Mesh*>::iterator iter;
+		for(iter = mesh_attached->sub_mesh_tab.begin();  iter != mesh_attached->sub_mesh_tab.end(); ++iter)
+		{
+			std::ostringstream oss;
+			oss << i;
+			std:: string name = node_name + "_" + oss.str();
+			i++;
+			TransformNode * child = createChild(name, Vector3(0,0,0));
+			child->attachObject(iter->second);
+		}
+	}
+
 }
 
-void TransformNode::updateNode(){
+void TransformNode::updateNode()
+{
 
 	//translate_ratio = 0.3;
 	
@@ -72,7 +89,7 @@ void TransformNode::updateNode(){
 		{
 	
 			(**it).renderMesh();
-			(**it).drawCube();
+			//(**it).drawCube();
 			
 	
 		}
