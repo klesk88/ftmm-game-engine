@@ -16,6 +16,7 @@
 #include "Node.h"
 #include "MovableObject.h"
 #include "Matrix3.h"
+#include <sstream>
 
 
 class TransformNode : public MovableObject{
