@@ -1,0 +1,20 @@
+﻿Compilazione avviata 25/11/2011 01:08:13.
+     1>Progetto "C:\Users\klesk\Desktop\Prova1\Prova\Prova.vcxproj" sul nodo 2 (destinazioni: build).
+     1>InitializeBuildStatus:
+         Creazione di "Debug\Prova.unsuccessfulbuild". È stato specificato "AlwaysCreate".
+       ClCompile:
+         Tutti gli output sono aggiornati.
+       ManifestResourceCompile:
+         Tutti gli output sono aggiornati.
+       Link:
+         Tutti gli output sono aggiornati.
+       Manifest:
+         Tutti gli output sono aggiornati.
+       FinalizeBuildStatus:
+         Eliminazione del file "Debug\Prova.unsuccessfulbuild" in corso.
+         Aggiornamento timestamp di "Debug\Prova.lastbuildstate".
+     1>Compilazione progetto "C:\Users\klesk\Desktop\Prova1\Prova\Prova.vcxproj" (destinazioni: build) completata.
+
+Compilazione completata.
+
+Tempo trascorso 00:00:00.27
