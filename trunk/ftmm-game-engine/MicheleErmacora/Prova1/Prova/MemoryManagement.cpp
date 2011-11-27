@@ -82,13 +82,51 @@ inline void* operator new (size_t size){
 		first_free_segment->object_start_position = reserved_memory->actual_committed;
 		first_free_segment->previous_segment = nullptr;
 		first_free_segment->next_segment = nullptr;
-		first_free_segment->segment_start_position = reserved_memory->actual_committed;
+		
 		reserved_memory->top_committed = (HANDLE)((unsigned long)reserved_memory->top_committed + page_size); 
 		reserved_memory->actual_committed = (HANDLE)((unsigned long)reserved_memory->actual_committed + size_segment_information ); 
 	}
 
 	size_to_allocate = size+size_segment_information;//size + size_segment_information;
+	/*
+	pair<map<unsigned long,SegmentInformation*>::iterator,map<unsigned long,SegmentInformation*>::iterator> j;
+	//map<unsigned long,SegmentInformation*>::iterator j;
 	
+	if(free_memory_heap.size()!=0){
+	
+		j=free_memory_heap.equal_range(size);
+		//int a=j.first->first;
+		if((j.first) != free_memory_heap.end()){
+			SegmentInformation* temp= (j.first->second);
+
+			if(temp->dimension >=size)
+			{
+				temp->is_available = USED;
+				temp->dimension = size;
+				temp->allocation_type = inf;
+				result = temp->object_start_position;
+				//delete the element from the free heap
+				free_memory_heap.erase(j.first);	
+		
+			}
+		}if(j.second!= free_memory_heap.end()){
+		
+			SegmentInformation* temp= (j.second->second);
+			temp->is_available = USED;
+			temp->dimension = size;
+			temp->allocation_type = inf;
+			result = temp->object_start_position;
+			//delete the element from the free heap
+			free_memory_heap.erase(j.second);	
+		}
+		
+	}
+
+		
+	if(result){
+		return result;
+	}
+	*/
 	if(first_free_segment->next_segment!=nullptr){
 		
 		SegmentInformation* search = first_free_segment->next_segment;
@@ -103,7 +141,6 @@ inline void* operator new (size_t size){
 				//update the pointers
 				//if i´m not pointing the first free segment
 				search->previous_segment->next_segment = search->next_segment;
-				search->next_segment->previous_segment = (SegmentInformation*)search->previous_segment->segment_start_position;
 				return result;
 			}
 			search = search->next_segment;
@@ -117,7 +154,6 @@ inline void* operator new (size_t size){
 		segment->dimension = size;
 		segment->is_available = USED;
 		segment->object_start_position = (HANDLE)((unsigned long)reserved_memory->actual_committed + size_segment_information);
-		segment->segment_start_position = reserved_memory->actual_committed;
 		result = segment->object_start_position;
 		reserved_memory->actual_committed = (HANDLE)((unsigned long)reserved_memory->actual_committed + size_to_allocate ); 
 		return result;
@@ -125,7 +161,13 @@ inline void* operator new (size_t size){
 		//i have enough space in the region but not commited only reserved
 		if(((unsigned long)reserved_memory->top_reserved - (unsigned long)reserved_memory->top_committed)>=size_to_allocate){
 			size_t size_commited=0;
-			
+				/*;
+			if(size_to_allocate<page_size){
+				size_to_commit=page_size;
+			}else{
+				size_to_commit = size_to_allocate;
+			}
+			*/
 			//i check what is the major size between the object to allocate and the page_size: if the object to allocate is more big,
 			//i have to see how many times it stays in the pagesize because the virtaul allocate can allocate only for the pagesize
 			int j = (size_to_allocate / page_size);//for don´t divide per 0
@@ -158,7 +200,6 @@ inline void* operator new (size_t size){
 				segment->dimension = size;
 				segment->is_available = USED;
 				segment->object_start_position = (HANDLE)((unsigned long)reserved_memory->actual_committed + size_segment_information);
-				segment->segment_start_position = reserved_memory->actual_committed;
 				result = segment->object_start_position;
 				reserved_memory->actual_committed = (HANDLE)((unsigned long)reserved_memory->actual_committed + size_to_allocate ); 
 			
@@ -183,7 +224,6 @@ inline void* operator new (size_t size){
 				segment->dimension = size;
 				segment->is_available = USED;
 				segment->object_start_position = (HANDLE)((unsigned long)reserved_memory->actual_committed + size_segment_information);
-				segment->segment_start_position = reserved_memory->actual_committed;
 				result = segment->object_start_position;
 			reserved_memory->actual_committed = (HANDLE)((unsigned long)reserved_memory->actual_committed + size_to_allocate);
 			reserved_memory->top_committed = (HANDLE)((unsigned long)reserved_memory->top_committed + page_size); 
@@ -271,17 +311,30 @@ inline void operator delete(void* obj){
 
 		segment->previous_segment = first_free_segment;
 		first_free_segment->next_segment = segment;
-
+		previous_free_segment = segment;
 		
 	}else{
 		segment->previous_segment = previous_free_segment;
 		previous_free_segment->next_segment = segment;
-		
 	}
 	
 	segment->allocation_type = NO_ASSIGNED;
 	segment->is_available = FREE;
 	segment->next_segment = nullptr;
-	previous_free_segment=segment;
 	
+	/*
+	for(j=free_segments->free_memory_heap.begin(); j<free_segments->free_memory_heap.end(); j--){
+	
+		if(segment->object_start_position>(*j)->object_start_position{
+			set=true;
+			break;
+		}
+	}
+
+
+	if(set)
+		free_segments->free_memory_heap.insert(segment,j);
+	*/
+	//insert the element in the free heap; the key is its dimension
+	//free_memory_heap.insert(pair<unsigned long,SegmentInformation*>(segment->dimension,segment));
 }

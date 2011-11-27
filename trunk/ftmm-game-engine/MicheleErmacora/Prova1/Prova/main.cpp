@@ -1,6 +1,5 @@
 #include<iostream>
 #include <time.h>
-#include <vector>
 using namespace std;
 
 
@@ -22,9 +21,7 @@ int main(int argc, char* argv[])
   time ( &rawtime );
   timeinfo = localtime ( &rawtime );
 
-  vector<string> SS;
-	 
-   SS.push_back("The number is 10");
+
 	std::cout<< asctime (timeinfo)<<'\n';
 	Complex* array[1000];
 	for (int i = 0;i  <  5000; i++) {
