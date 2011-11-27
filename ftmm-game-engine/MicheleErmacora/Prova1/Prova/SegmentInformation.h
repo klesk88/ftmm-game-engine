@@ -16,7 +16,6 @@ typedef struct _SegmentInformation{
 	//dimension of the segment
 	unsigned long dimension;
 	HANDLE object_start_position;
-	HANDLE segment_start_position;
 
 }SegmentInformation;
 
