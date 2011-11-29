@@ -115,30 +115,47 @@ Mesh* ResourceManager::convertAIMeshToMesh(aiMesh* ai_mesh)
 	mesh_rtn->m_tangents = new Vector3[mesh_rtn->m_num_vertices];
 	for (unsigned int i = 0 ; i < ai_mesh->mNumVertices ; i++) 
 	{
-		//Vector
-        const aiVector3D* pPos      = &(ai_mesh->mVertices[i]);
-		mesh_rtn->m_vertices[i].x = pPos->x;
-		mesh_rtn->m_vertices[i].y = pPos->y;
-		mesh_rtn->m_vertices[i].z = pPos->z;
+		if(ai_mesh->HasPositions())
+		{
+			//Vector
+			const aiVector3D* pPos      = &(ai_mesh->mVertices[i]);
+			mesh_rtn->m_vertices[i].x = pPos->x;
+			mesh_rtn->m_vertices[i].y = pPos->y;
+			mesh_rtn->m_vertices[i].z = pPos->z;
+		}
 		
-		//Normal
-		const aiVector3D* pNor      = &(ai_mesh->mNormals[i]);
-		mesh_rtn->m_normals[i].x = pNor->x;
-		mesh_rtn->m_normals[i].y = pNor->y;
-		mesh_rtn->m_normals[i].z = pNor->z;
+		if(ai_mesh->HasNormals())
+		{
+			//Normals
+			const aiVector3D* pNor      = &(ai_mesh->mNormals[i]);
+			mesh_rtn->m_normals[i].x = pNor->x;
+			mesh_rtn->m_normals[i].y = pNor->y;
+			mesh_rtn->m_normals[i].z = pNor->z;
+		}
 
-		//Bitangent - Binormal
-		const aiVector3D* pBin      = &(ai_mesh->mBitangents[i]);
-		mesh_rtn->m_binormals[i].x = pBin->x;
-		mesh_rtn->m_binormals[i].y = pBin->y;
-		mesh_rtn->m_binormals[i].z = pBin->z;
+		if(ai_mesh->HasTangentsAndBitangents())
+		{
+			//Bitangent - Binormal
+			const aiVector3D* pBin      = &(ai_mesh->mBitangents[i]);
+			mesh_rtn->m_binormals[i].x = pBin->x;
+			mesh_rtn->m_binormals[i].y = pBin->y;
+			mesh_rtn->m_binormals[i].z = pBin->z;
 
-		//Tangent
-		const aiVector3D* pTan      = &(ai_mesh->mTangents[i]);
-		mesh_rtn->m_tangents[i].x = pTan->x;
-		mesh_rtn->m_tangents[i].y = pTan->y;
-		mesh_rtn->m_tangents[i].z = pTan->z;
-
+			//Tangent
+			const aiVector3D* pTan      = &(ai_mesh->mTangents[i]);
+			mesh_rtn->m_tangents[i].x = pTan->x;
+			mesh_rtn->m_tangents[i].y = pTan->y;
+			mesh_rtn->m_tangents[i].z = pTan->z;
+		}
+		
+		if(ai_mesh->HasTextureCoords(i))
+		{
+			//Texture Coordinates
+			const aiVector3D* pTex		= (ai_mesh->mTextureCoords[i]);
+			mesh_rtn->m_texture_coord[i].x = pTex->x;
+			mesh_rtn->m_texture_coord[i].y = pTex->y;
+			mesh_rtn->m_texture_coord[i].z = pTex->z;
+		}
 	}
 
 	//Index
@@ -146,14 +163,18 @@ Mesh* ResourceManager::convertAIMeshToMesh(aiMesh* ai_mesh)
 	mesh_rtn->m_num_faces = ai_mesh->mNumFaces;
 	mesh_rtn->m_indices = new unsigned int[mesh_rtn->m_num_indices];
 	int k=0;
-	for (unsigned int i = 0 ; i < ai_mesh->mNumFaces ; i++) 
+	if(ai_mesh->HasFaces())
 	{
-		const aiFace& Face = ai_mesh->mFaces[i];
-		mesh_rtn->m_indices[k] = Face.mIndices[0];
-		mesh_rtn->m_indices[k+1] = Face.mIndices[1];
-		mesh_rtn->m_indices[k+2] = Face.mIndices[2];
-		k+=3;
+		for (unsigned int i = 0 ; i < ai_mesh->mNumFaces ; i++) 
+		{
+			const aiFace& Face = ai_mesh->mFaces[i];
+			mesh_rtn->m_indices[k] = Face.mIndices[0];
+			mesh_rtn->m_indices[k+1] = Face.mIndices[1];
+			mesh_rtn->m_indices[k+2] = Face.mIndices[2];
+			k+=3;
+		}
 	}
+
 
 	mesh_rtn->initBuffer();
 
@@ -162,43 +183,73 @@ Mesh* ResourceManager::convertAIMeshToMesh(aiMesh* ai_mesh)
 
 void ResourceManager::convertAIMeshToContenitorMesh(Mesh* mesh, aiMesh* ai_mesh)
 {
-		//mesh->m_anim_meshes...
-	//mesh->m_bitangents = new Vector3(ai_mesh->mBitangents->x,ai_mesh->mBitangents->y,ai_mesh->mBitangents->z);
-	//mesh->m_bones....
-	//mesh->m_colors...
-	//mesh->face_array....
-	//mesh->m_material_index;
-	//mesh->m_num_anim_meshes;
-	//mesh->m_num_bones;
-//	mesh->m_num_faces;
-	//mesh->m_num_uv_components;
-//	mesh->m_num_vertices;
-	//mesh->m_primitive_types;
-	//mesh->m_tangents;
-
-/*	const aiVector3D Zero3D(0.0f, 0.0f, 0.0f);
-
-    for (unsigned int i = 0 ; i < ai_mesh->mNumVertices ; i++) 
+	mesh->m_num_vertices = ai_mesh->mNumVertices;
+	mesh->m_vertices = new Vector3[mesh->m_num_vertices];
+	mesh->m_normals = new Vector3[mesh->m_num_vertices];
+	mesh->m_binormals = new Vector3[mesh->m_num_vertices];
+	mesh->m_tangents = new Vector3[mesh->m_num_vertices];
+	for (unsigned int i = 0 ; i < ai_mesh->mNumVertices ; i++) 
 	{
-        const aiVector3D* pPos      = &(ai_mesh->mVertices[i]);
-        const aiVector3D* pNormal   = &(ai_mesh->mNormals[i]);
-        const aiVector3D* pTexCoord = ai_mesh->HasTextureCoords(0) ? &(ai_mesh->mTextureCoords[0][i]) : &Zero3D;
+		
+		if(ai_mesh->HasPositions())
+		{
+			//Vertices
+			const aiVector3D* pPos      = &(ai_mesh->mVertices[i]);
+			mesh->m_vertices[i].x = pPos->x;
+			mesh->m_vertices[i].y = pPos->y;
+			mesh->m_vertices[i].z = pPos->z;
+		}
+		
+		if(ai_mesh->HasNormals())
+		{
+			//Normal
+			const aiVector3D* pNor      = &(ai_mesh->mNormals[i]);
+			mesh->m_normals[i].x = pNor->x;
+			mesh->m_normals[i].y = pNor->y;
+			mesh->m_normals[i].z = pNor->z;
+		}
 
-		Vertex v(Vector3(pPos->x, pPos->y, pPos->z),
-					 Vector2(pTexCoord->x, pTexCoord->y),
-					 Vector3(pNormal->x, pNormal->y, pNormal->z));
+		if(ai_mesh->HasTangentsAndBitangents())
+		{
+			//Bitangent - Binormal
+			const aiVector3D* pBin      = &(ai_mesh->mBitangents[i]);
+			mesh->m_binormals[i].x = pBin->x;
+			mesh->m_binormals[i].y = pBin->y;
+			mesh->m_binormals[i].z = pBin->z;
 
-		mesh->m_vertices.push_back(v);
-    }
+			//Tangent
+			const aiVector3D* pTan      = &(ai_mesh->mTangents[i]);
+			mesh->m_tangents[i].x = pTan->x;
+			mesh->m_tangents[i].y = pTan->y;
+			mesh->m_tangents[i].z = pTan->z;
+		}
+		
+		if(ai_mesh->HasTextureCoords(i))
+		{
+			//Texture Coordinates
+			const aiVector3D* pTex		= (ai_mesh->mTextureCoords[i]);
+			mesh->m_texture_coord[i].x = pTex->x;
+			mesh->m_texture_coord[i].y = pTex->y;
+			mesh->m_texture_coord[i].z = pTex->z;
+		}
+	}
 
-	for (unsigned int i = 0 ; i < ai_mesh->mNumFaces ; i++) 
+	//Index
+	mesh->m_num_indices = ai_mesh->mNumFaces*3;
+	mesh->m_num_faces = ai_mesh->mNumFaces;
+	mesh->m_indices = new unsigned int[mesh->m_num_indices];
+	int k=0;
+	if(ai_mesh->HasFaces())
 	{
-		const aiFace& Face = ai_mesh->mFaces[i];
-		assert(Face.mNumIndices == 3);
-		mesh->m_indices.push_back(Face.mIndices[0]);
-		mesh->m_indices.push_back(Face.mIndices[1]);
-		mesh->m_indices.push_back(Face.mIndices[2]);
-    }
+		for (unsigned int i = 0 ; i < ai_mesh->mNumFaces ; i++) 
+		{
+			const aiFace& Face = ai_mesh->mFaces[i];
+			mesh->m_indices[k] = Face.mIndices[0];
+			mesh->m_indices[k+1] = Face.mIndices[1];
+			mesh->m_indices[k+2] = Face.mIndices[2];
+			k+=3;
+		}
+	}
 
-	mesh->initBuffer();*/
+	mesh->initBuffer();
 }
