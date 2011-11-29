@@ -21,7 +21,13 @@ class Mesh
 		void renderMesh();
 		void renderMeshDirect();
 		bool hasSubMesh();
+		Vector3* getVertices();
+		Vector3* getNormals();
+		Vector3* getTangents();
+		Vector3* getBinormals();
+
 		std::map<std::string, Mesh *> sub_mesh_tab;
+
 
 	private:
 		Mesh(std::string name);
@@ -37,6 +43,7 @@ class Mesh
 		GLuint normal_buffer;
 		GLuint binormal_buffer;
 		GLuint tangent_buffer;
+		GLuint texture_coord_buffer;
 
 		GLuint tangents_attrib_array;
 		GLuint binormals_attrib_array;
@@ -46,10 +53,11 @@ class Mesh
 		unsigned int m_num_vertices;
 		unsigned int m_num_indices;
 		Vector3 * m_tangents;
-		Vector3* m_vertices;
+		Vector3 * m_vertices;
 		unsigned int* m_indices;
-		Vector3* m_normals;
+		Vector3 * m_normals;
 		Vector3 * m_binormals;
+		Vector3 * m_texture_coord;
 
 		static int num_name;
 

@@ -20,6 +20,7 @@ Mesh::Mesh(std::string name)
 	normal_buffer = NULL;
 	binormal_buffer = NULL;
 	tangent_buffer = NULL;
+	texture_coord_buffer = NULL;
 
 	m_num_faces = 0;
 	m_num_vertices = 0;
@@ -49,6 +50,10 @@ Mesh::~Mesh()
 	if(tangent_buffer != NULL)
 	{
 		glDeleteBuffers(1, &tangent_buffer);
+	}
+	if(texture_coord_buffer != NULL)
+	{
+		glDeleteBuffers(1, &texture_coord_buffer);
 	}
 }
 
@@ -81,6 +86,10 @@ void Mesh::initBuffer()
 	glGenBuffers(1, &tangent_buffer);
 	glBindBuffer(GL_ARRAY_BUFFER, tangent_buffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3) * m_num_vertices, &m_tangents[0], GL_STATIC_DRAW);
+
+	glGenBuffers(1, &texture_coord_buffer);
+	glBindBuffer(GL_ARRAY_BUFFER, texture_coord_buffer);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3) * m_num_vertices, &m_texture_coord[0], GL_STATIC_DRAW);
 }
 
 bool Mesh::hasSubMesh()
@@ -112,6 +121,9 @@ void Mesh::renderMesh()
 	//Tangents
 	glBindBuffer(GL_ARRAY_BUFFER, tangent_buffer);
 	glVertexAttribPointer(tangents_attrib_array, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+	//Texture Coords
+	glBindBuffer(GL_ARRAY_BUFFER, texture_coord_buffer);
+	glTexCoordPointer(3, GL_FLOAT, 0, NULL);
 	
 	//Draw
     glPushMatrix();
@@ -144,6 +156,26 @@ void Mesh::renderMeshDirect()
 
 	glEnd();
 	glPopMatrix();
+}
+
+Vector3* Mesh::getVertices()
+{
+	return m_vertices;
+}
+
+Vector3* Mesh::getNormals()
+{
+	return m_normals;
+}
+
+Vector3* Mesh::getBinormals()
+{
+	return m_binormals;
+}
+
+Vector3* Mesh::getTangents()
+{
+	return m_tangents;
 }
 
 
