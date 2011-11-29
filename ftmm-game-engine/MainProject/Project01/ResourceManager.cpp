@@ -94,6 +94,8 @@ bool ResourceManager::Import3DFromFile(const std::string& pFile)
 	// Now we can access the file's contents.
 	printf("Import of scene %s succeeded.",pFile.c_str());
 
+	//importNameSubMesh(pFile);
+
 	// We're done. Everything will be cleaned up by the importer destructor
 	return true;
 }
@@ -105,43 +107,53 @@ Mesh* ResourceManager::convertAIMeshToMesh(aiMesh* ai_mesh)
 		temp_name += ai_mesh->mName.data[i];
 
 	Mesh* mesh_rtn = new Mesh(temp_name);
-	//mesh_rtn->m_anim_meshes...
-	//mesh_rtn->m_bitangents = new Vector3(ai_mesh->mBitangents->x,ai_mesh->mBitangents->y,ai_mesh->mBitangents->z);
-	//mesh_rtn->m_bones....
-	//mesh_rtn->m_colors...
-	//mesh_rtn->face_array....
-	//mesh_rtn->m_material_index;
-	//mesh_rtn->m_num_anim_meshes;
-	//mesh_rtn->m_num_bones;
-//	mesh_rtn->m_num_faces;
-	//mesh_rtn->m_num_uv_components;
-//	mesh_rtn->m_num_vertices;
-	//mesh_rtn->m_primitive_types;
-	//mesh_rtn->m_tangents;
 
-	const aiVector3D Zero3D(0.0f, 0.0f, 0.0f);
-
-    for (unsigned int i = 0 ; i < ai_mesh->mNumVertices ; i++) 
+	mesh_rtn->m_num_vertices = ai_mesh->mNumVertices;
+	mesh_rtn->m_vertices = new Vector3[mesh_rtn->m_num_vertices];
+	mesh_rtn->m_normals = new Vector3[mesh_rtn->m_num_vertices];
+	mesh_rtn->m_binormals = new Vector3[mesh_rtn->m_num_vertices];
+	mesh_rtn->m_tangents = new Vector3[mesh_rtn->m_num_vertices];
+	for (unsigned int i = 0 ; i < ai_mesh->mNumVertices ; i++) 
 	{
+		//Vector
         const aiVector3D* pPos      = &(ai_mesh->mVertices[i]);
-        const aiVector3D* pNormal   = &(ai_mesh->mNormals[i]);
-        const aiVector3D* pTexCoord = ai_mesh->HasTextureCoords(0) ? &(ai_mesh->mTextureCoords[0][i]) : &Zero3D;
+		mesh_rtn->m_vertices[i].x = pPos->x;
+		mesh_rtn->m_vertices[i].y = pPos->y;
+		mesh_rtn->m_vertices[i].z = pPos->z;
+		
+		//Normal
+		const aiVector3D* pNor      = &(ai_mesh->mNormals[i]);
+		mesh_rtn->m_normals[i].x = pNor->x;
+		mesh_rtn->m_normals[i].y = pNor->y;
+		mesh_rtn->m_normals[i].z = pNor->z;
 
-		Vertex v(Vector3(pPos->x, pPos->y, pPos->z),
-					 Vector2(pTexCoord->x, pTexCoord->y),
-					 Vector3(pNormal->x, pNormal->y, pNormal->z));
+		//Bitangent - Binormal
+		const aiVector3D* pBin      = &(ai_mesh->mBitangents[i]);
+		mesh_rtn->m_binormals[i].x = pBin->x;
+		mesh_rtn->m_binormals[i].y = pBin->y;
+		mesh_rtn->m_binormals[i].z = pBin->z;
 
-		mesh_rtn->m_vertices.push_back(v);
-    }
+		//Tangent
+		const aiVector3D* pTan      = &(ai_mesh->mTangents[i]);
+		mesh_rtn->m_tangents[i].x = pTan->x;
+		mesh_rtn->m_tangents[i].y = pTan->y;
+		mesh_rtn->m_tangents[i].z = pTan->z;
 
+	}
+
+	//Index
+	mesh_rtn->m_num_indices = ai_mesh->mNumFaces*3;
+	mesh_rtn->m_num_faces = ai_mesh->mNumFaces;
+	mesh_rtn->m_indices = new unsigned int[mesh_rtn->m_num_indices];
+	int k=0;
 	for (unsigned int i = 0 ; i < ai_mesh->mNumFaces ; i++) 
 	{
 		const aiFace& Face = ai_mesh->mFaces[i];
-		assert(Face.mNumIndices == 3);
-		mesh_rtn->m_indices.push_back(Face.mIndices[0]);
-		mesh_rtn->m_indices.push_back(Face.mIndices[1]);
-		mesh_rtn->m_indices.push_back(Face.mIndices[2]);
-    }
+		mesh_rtn->m_indices[k] = Face.mIndices[0];
+		mesh_rtn->m_indices[k+1] = Face.mIndices[1];
+		mesh_rtn->m_indices[k+2] = Face.mIndices[2];
+		k+=3;
+	}
 
 	mesh_rtn->initBuffer();
 
@@ -164,7 +176,7 @@ void ResourceManager::convertAIMeshToContenitorMesh(Mesh* mesh, aiMesh* ai_mesh)
 	//mesh->m_primitive_types;
 	//mesh->m_tangents;
 
-	const aiVector3D Zero3D(0.0f, 0.0f, 0.0f);
+/*	const aiVector3D Zero3D(0.0f, 0.0f, 0.0f);
 
     for (unsigned int i = 0 ; i < ai_mesh->mNumVertices ; i++) 
 	{
@@ -188,5 +200,5 @@ void ResourceManager::convertAIMeshToContenitorMesh(Mesh* mesh, aiMesh* ai_mesh)
 		mesh->m_indices.push_back(Face.mIndices[2]);
     }
 
-	mesh->initBuffer();
+	mesh->initBuffer();*/
 }
