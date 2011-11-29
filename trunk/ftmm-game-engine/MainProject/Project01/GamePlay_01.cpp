@@ -49,7 +49,7 @@ void GamePlay_01::init()
 	
 	cube_01->init(1);
 	//cube_02->init(1);
-
+	cam->setPosition(Vector3(0.0f,0.0f,-15.0f));
 	//cube_02->mTransformNode->setPosition(Vector3(10.0,0.0,0.0));
 
 	//cube_02->init(2);

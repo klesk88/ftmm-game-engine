@@ -28,6 +28,7 @@ class ResourceManager
 			bool Import3DFromFile(const std::string& pFile);
 			Mesh* convertAIMeshToMesh(aiMesh* ai_mesh);
 			void convertAIMeshToContenitorMesh(Mesh* mesh,aiMesh* ai_mesh);
+			std::string * importNameSubMesh(const std::string& pFile);
 
 		//variables
 			static ResourceManager * p_instance;

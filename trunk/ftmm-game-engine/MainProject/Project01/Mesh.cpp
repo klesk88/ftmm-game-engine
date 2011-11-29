@@ -11,40 +11,44 @@ int Mesh::num_name = 0;
 //New Version
 Mesh::Mesh(std::string name)
 {
+	//m_name = name;
 	m_name = num_name;
 	num_name +=1;
-	vertex_buffer_obj = NULL;
+
+	vector_buffer_obj = NULL;
 	index_buffer = NULL;
+	normal_buffer = NULL;
+	binormal_buffer = NULL;
+	tangent_buffer = NULL;
+
+	m_num_faces = 0;
+	m_num_vertices = 0;
 	m_num_indices = 0;
 
 	sub_mesh_tab.clear();
-
-	// m_anim_meshes;
-	//m_bitangents;
-	//m_bones;
-	//m_colors;
-	//face_array;
-	//m_material_index;
-	//m_num_anim_meshes;
-	//m_num_bones;
-	//m_num_faces;
-	//m_num_uv_components;
-	//m_num_vertices = 0;
-	//m_primitive_types;
-	//m_tangents;
-	m_vertices.clear();
-	m_indices.clear();
 }
 
 Mesh::~Mesh()
 {
-	if(vertex_buffer_obj != NULL)
+	if(vector_buffer_obj != NULL)
 	{
-		glDeleteBuffers(1, &vertex_buffer_obj);
+		glDeleteBuffers(1, &vector_buffer_obj);
 	}
 	if(index_buffer != NULL)
 	{
 		glDeleteBuffers(1, &index_buffer);
+	}
+	if(normal_buffer != NULL)
+	{
+		glDeleteBuffers(1, &normal_buffer);
+	}
+	if(binormal_buffer != NULL)
+	{
+		glDeleteBuffers(1, &binormal_buffer);
+	}
+	if(tangent_buffer != NULL)
+	{
+		glDeleteBuffers(1, &tangent_buffer);
 	}
 }
 
@@ -55,31 +59,28 @@ void Mesh::addSubMesh(Mesh* sub_mesh)
 
 void Mesh::initBuffer()
 {
-	m_num_indices = m_indices.size();
-
-	Vector3 * prova;
-	prova = new Vector3[3];
-	prova[0] = Vector3(-1.0,-1.0,0.0);
-	prova[1] = Vector3(1.0,-1.0,0.0);
-	prova[2] = Vector3(0.0,1.0,0.0);
-
-	unsigned int * indices;
-	indices = new unsigned int[3];
-	indices[0] = 1;
-	indices[1] = 2;
-	indices[3] = 3;
-
-	glGenVertexArrays(1,&VAO);
-	glBindVertexArray(VAO);
+	//glGenVertexArrays(1,&VAO);
+	//glBindVertexArray(VAO);
  
-	glGenBuffers(1, &vertex_buffer_obj);
-  	glBindBuffer(GL_ARRAY_BUFFER, vertex_buffer_obj);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3) * 3, &prova, GL_STATIC_DRAW);
+	glGenBuffers(1, &vector_buffer_obj);
+  	glBindBuffer(GL_ARRAY_BUFFER, vector_buffer_obj);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3) * m_num_vertices, &m_vertices[0], GL_STATIC_DRAW);
 
     glGenBuffers(1, &index_buffer);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer);
-    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * 3, &indices, GL_STATIC_DRAW);
+	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(unsigned int) * m_num_indices, &m_indices[0], GL_STATIC_DRAW);
 
+	glGenBuffers(1, &normal_buffer);
+  	glBindBuffer(GL_ARRAY_BUFFER, normal_buffer);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3) * m_num_vertices, &m_normals[0], GL_STATIC_DRAW);
+
+	glGenBuffers(1, &binormal_buffer);
+  	glBindBuffer(GL_ARRAY_BUFFER, binormal_buffer);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3) * m_num_vertices, &m_binormals[0], GL_STATIC_DRAW);
+
+	glGenBuffers(1, &tangent_buffer);
+	glBindBuffer(GL_ARRAY_BUFFER, tangent_buffer);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3) * m_num_vertices, &m_tangents[0], GL_STATIC_DRAW);
 }
 
 bool Mesh::hasSubMesh()
@@ -92,58 +93,57 @@ bool Mesh::hasSubMesh()
 
 void Mesh::renderMesh()
 {
-	/*
-	glEnableClientState(GL_VERTEX_ARRAY);
-	glBindVertexArray(VAO);
-	glDrawElements(GL_TRIANGLES,3,GL_UNSIGNED_INT,0);
-	glDisableClientState(GL_VERTEX_ARRAY);*/
+    glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_NORMAL_ARRAY);
+	glEnableVertexAttribArray(tangents_attrib_array);
+	glEnableVertexAttribArray(binormals_attrib_array);
 
-	//Test Draw Line
+	//Vertices
+	glBindBuffer(GL_ARRAY_BUFFER, vector_buffer_obj);
+    glVertexPointer(3, GL_FLOAT, 0, 0);
+	//Indices
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer);
+	//Normals
+    glBindBuffer(GL_ARRAY_BUFFER, normal_buffer);
+	glNormalPointer(GL_FLOAT, 0, 0);
+	//Binormals
+	glBindBuffer(GL_ARRAY_BUFFER, binormal_buffer);
+	glVertexAttribPointer(binormals_attrib_array, 3, GL_FLOAT, GL_FALSE, 0, NULL);
+	//Tangents
+	glBindBuffer(GL_ARRAY_BUFFER, tangent_buffer);
+	glVertexAttribPointer(tangents_attrib_array, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	
+	//Draw
+    glPushMatrix();
+	glColor3f(153.0f,0.0f,102.0f);
+    glDrawElements(GL_TRIANGLES, m_num_indices, GL_UNSIGNED_INT, 0);
+    glPopMatrix();
+
+	//Free Buffer
+    glBindBuffer(GL_ARRAY_BUFFER, 0);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
+
+    glDisableClientState(GL_VERTEX_ARRAY);
+    glDisableClientState(GL_NORMAL_ARRAY);
+	glDisableVertexAttribArray(tangents_attrib_array);
+	glDisableVertexAttribArray(binormals_attrib_array);
+
+}
+
+void Mesh::renderMeshDirect()
+{
+	//Draw Line
+	glPushMatrix();
 	glBegin(GL_TRIANGLES);
 	glColor3f(1.0f,1.0f,0);
 	for(int i=0; i<m_num_indices; i++)
 	{
-		int index = m_indices.at(i);
-		glVertex3f(m_vertices[index].m_pos.x,m_vertices[index].m_pos.y,m_vertices[index].m_pos.z);
+		int index = m_indices[i];
+		glVertex3f(m_vertices[index].x,m_vertices[index].y,m_vertices[index].z);
 	}
 
 	glEnd();
-	//Old Version
-	/*
-	glEnableVertexAttribArray(0);
-	glEnableVertexAttribArray(1);
-	glEnableVertexAttribArray(2);
-
-	// bind VAO
-	glBindVertexArray(vertex_buffer_obj);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), 0);
-	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)12);
-	glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (const GLvoid*)20);
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, index_buffer);
-
-	glColor3f(1.0f,0,0);
-	glEnableClientState(GL_VERTEX_ARRAY);
-
-	int size = m_vertices.size()*3;
-	m_array_vertices = new GLfloat[size];
-	for(int i=0; i<m_vertices.size();)
-	{
-		m_array_vertices[i] = m_vertices[i%3].m_pos.x;
-		m_array_vertices[i+1] = m_vertices[i%3].m_pos.y;
-		m_array_vertices[i+2] = m_vertices[i%3].m_pos.z;
-
-		i +=3;
-	}
-	glVertexPointer(3, GL_FLOAT, 0, &m_array_vertices);
-	// draw
-	glDrawArrays(GL_TRIANGLES,m_num_indices,GL_UNSIGNED_INT);
-	glDisableClientState(GL_VERTEX_ARRAY);
-
-	glDisableVertexAttribArray(0);
-	glDisableVertexAttribArray(1);
-	glDisableVertexAttribArray(2);*/
-
+	glPopMatrix();
 }
 
 
