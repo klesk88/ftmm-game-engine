@@ -55,6 +55,9 @@
     <Filter Include="Source Files\GameObjects">
       <UniqueIdentifier>{f5c86659-6ccc-4ac3-962a-3e69ac5d041f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Physics">
+      <UniqueIdentifier>{7b3849e8-b78c-4e51-973a-d95cd1c7b81a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -140,6 +143,9 @@
     </ClCompile>
     <ClCompile Include="CubeObjectTest.cpp">
       <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="Collidable.cpp">
+      <Filter>Source Files\Physics</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -271,6 +277,9 @@
     </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Collidable.h">
+      <Filter>Header Files\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

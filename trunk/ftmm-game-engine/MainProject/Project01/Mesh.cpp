@@ -87,9 +87,9 @@ void Mesh::initBuffer()
 	glBindBuffer(GL_ARRAY_BUFFER, tangent_buffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3) * m_num_vertices, &m_tangents[0], GL_STATIC_DRAW);
 
-	glGenBuffers(1, &texture_coord_buffer);
-	glBindBuffer(GL_ARRAY_BUFFER, texture_coord_buffer);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3) * m_num_vertices, &m_texture_coord[0], GL_STATIC_DRAW);
+	//glGenBuffers(1, &texture_coord_buffer);
+	//glBindBuffer(GL_ARRAY_BUFFER, texture_coord_buffer);
+	//glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3) * m_num_vertices, &m_texture_coord[0], GL_STATIC_DRAW);
 }
 
 bool Mesh::hasSubMesh()
@@ -122,8 +122,8 @@ void Mesh::renderMesh()
 	glBindBuffer(GL_ARRAY_BUFFER, tangent_buffer);
 	glVertexAttribPointer(tangents_attrib_array, 3, GL_FLOAT, GL_FALSE, 0, NULL);
 	//Texture Coords
-	glBindBuffer(GL_ARRAY_BUFFER, texture_coord_buffer);
-	glTexCoordPointer(3, GL_FLOAT, 0, NULL);
+	//glBindBuffer(GL_ARRAY_BUFFER, texture_coord_buffer);
+	//glTexCoordPointer(3, GL_FLOAT, 0, NULL);
 	
 	//Draw
     glPushMatrix();
@@ -176,6 +176,11 @@ Vector3* Mesh::getBinormals()
 Vector3* Mesh::getTangents()
 {
 	return m_tangents;
+}
+
+unsigned int Mesh::getNumVertices()
+{
+	return m_num_vertices;
 }
 
 

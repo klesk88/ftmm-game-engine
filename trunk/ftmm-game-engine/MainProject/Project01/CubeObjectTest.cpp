@@ -16,12 +16,11 @@ void CubeObjectTest::init(int code)
 		case 1:
 			mMesh = ResourceManager::getInstance()->loadMesh("Data/car.obj");
 			mTransformNode->attachObject(mMesh);
-			cout << "case 1" << endl;
+			collidable = new Collidable(this);
 			break;
 		case 2:
 			mMesh = new Mesh(0.4,1.0,0.0,0.0);
 			mTransformNode->attachObject(mMesh);
-			cout << "case 2" << endl;
 			break;
 	}
 	//mMesh = new Mesh(0.4,1.0,0.0,0.0);

@@ -114,6 +114,7 @@ bool GamePlay_01::update(vector<Event*> events)
 		cam->translate((mt3->getColumn(2) * y_vel * speed),MovableObject::TransformSpace::TS_WORLD);
 	}
 
+	cube_01->mTransformNode->rotate(Quaternion(9000,0.0,0.0,1.0), MovableObject::TransformSpace::TS_LOCAL);
 
 	/*
 	xrot_zero = currentFramePositionx - lastFramePositionx;

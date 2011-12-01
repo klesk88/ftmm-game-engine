@@ -1,5 +1,6 @@
 #include "TransformNode.h"
 #include "SceneManager.h"
+#include "GamePlay_01.h"
 
 TransformNode::TransformNode(const std::string & stringName, Vector3 initial_position ){
 
@@ -49,7 +50,6 @@ void TransformNode::attachObject(Mesh * mesh_ptr)
 
 	//mesh_attached = mesh_ptr;
 	Mesh * mesh_attached = mesh_ptr;
-	attached_obj.push_back(mesh_attached);
 
 	if(mesh_attached->hasSubMesh())
 	{
@@ -65,6 +65,11 @@ void TransformNode::attachObject(Mesh * mesh_ptr)
 			child->attachObject(iter->second);
 		}
 	}
+	else
+	{
+		attached_obj.push_back(mesh_attached);
+	}
+
 
 }
 
@@ -91,6 +96,7 @@ void TransformNode::updateNode()
 			(**it).renderMesh();
 			//(**it).drawCube();
 			
+			//GamePlay_01::getInstance()->cube_01->collidable->drawBoundingBox();
 	
 		}
 	}
