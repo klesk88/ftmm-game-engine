@@ -22,6 +22,11 @@ private:
 	Uint32 startclock;
 	Uint32 deltaclock;
 	Uint32 currentFPS;
+	int TICKS_PER_SECOND;
+	int SKIP_TICKS;
+	int MAX_FRAMESKIP;
+	DWORD next_game_tick;
+
 
 public:
 
