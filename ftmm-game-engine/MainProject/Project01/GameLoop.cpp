@@ -7,6 +7,12 @@ void GameLoop::callGameLoop(bool game_is_run,const int base_fps,const int low_fp
 	// for FPS counting
 	startclock = SDL_GetTicks();
 	
+	TICKS_PER_SECOND = base_fps;
+	SKIP_TICKS = 1000 / TICKS_PER_SECOND;
+	MAX_FRAMESKIP = low_fps;
+	next_game_tick = SDL_GetTicks();
+
+
 	while(game_is_run)
 	{
 		game_is_run = gameLoop(base_fps,low_fps);
@@ -27,16 +33,21 @@ void GameLoop::startEngine(bool game_is_run,const int base_fps,const int low_fps
 
 
 bool GameLoop::gameLoop(const int base_fps,const int low_fps){
-		const int TICKS_PER_SECOND = base_fps;
-		const int SKIP_TICKS = 1000 / TICKS_PER_SECOND;
-		const int MAX_FRAMESKIP = low_fps;
-	    DWORD next_game_tick = SDL_GetTicks();
+
 		int loops;
 		bool game_is_run=true;
 		std::list<FrameListener*>::iterator i;
 		
 		
-		Root::getInstance()->handleInput();
+	
+		
+
+		   loops = 0;
+		   while( unsigned int(SDL_GetTicks() - next_game_tick) > SKIP_TICKS && loops < MAX_FRAMESKIP) 
+		   {
+
+
+			   	Root::getInstance()->handleInput();
 		
 		//event_list.clear();
 
@@ -57,11 +68,6 @@ bool GameLoop::gameLoop(const int base_fps,const int low_fps){
 			}
 		}
 		Root::getInstance()->updateGameState(input_events);
-		
-
-		   loops = 0;
-		   while( unsigned int(SDL_GetTicks() - next_game_tick) > SKIP_TICKS && loops < MAX_FRAMESKIP) 
-		   {
 			/*
 			   for(i=framelistener_list.begin(); i!=framelistener_list.end();i++){
 				   if(  (*i)->frameStarted())

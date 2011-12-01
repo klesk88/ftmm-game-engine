@@ -96,7 +96,7 @@ void TransformNode::updateNode()
 			(**it).renderMesh();
 			//(**it).drawCube();
 			
-			//GamePlay_01::getInstance()->cube_01->collidable->drawBoundingBox();
+			GamePlay_01::getInstance()->cube_01->collidable->drawBoundingBox();
 	
 		}
 	}
