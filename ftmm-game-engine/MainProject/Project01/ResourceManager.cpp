@@ -148,14 +148,14 @@ Mesh* ResourceManager::convertAIMeshToMesh(aiMesh* ai_mesh)
 			mesh_rtn->m_tangents[i].z = pTan->z;
 		}
 		
-		if(ai_mesh->HasTextureCoords(i))
-		{
-			//Texture Coordinates
-			const aiVector3D* pTex		= (ai_mesh->mTextureCoords[i]);
-			mesh_rtn->m_texture_coord[i].x = pTex->x;
-			mesh_rtn->m_texture_coord[i].y = pTex->y;
-			mesh_rtn->m_texture_coord[i].z = pTex->z;
-		}
+		//if(ai_mesh->HasTextureCoords(i))
+		//{
+		//	//Texture Coordinates
+		//	const aiVector3D* pTex		= (ai_mesh->mTextureCoords[i]);
+		//	mesh_rtn->m_texture_coord[i].x = pTex->x;
+		//	mesh_rtn->m_texture_coord[i].y = pTex->y;
+		//	mesh_rtn->m_texture_coord[i].z = pTex->z;
+		//}
 	}
 
 	//Index

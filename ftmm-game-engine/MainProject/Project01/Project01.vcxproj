@@ -72,6 +72,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Collidable.cpp" />
     <ClCompile Include="CubeObjectTest.cpp" />
     <ClCompile Include="A.cpp" />
     <ClCompile Include="Camera.cpp" />
@@ -102,6 +103,7 @@
     <ClCompile Include="Vector4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Collidable.h" />
     <ClInclude Include="CubeObjectTest.h" />
     <ClInclude Include="FourDirectionsMovement_InputEvent.h" />
     <ClInclude Include="FourDirectionsMovement_InputWord.h" />
