@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include "InputEvent.h"
 
+
 using namespace std;
 
 #ifndef InputWord_H
@@ -11,26 +12,35 @@ using namespace std;
 
 class InputWord
 {
+private:
+	int last_update_in_loop_nr;
+
 protected:
 
 	SDL_Event event_current;
 
 	// Is this Input Event true?
 	bool event_is_true;
-	// Use this e.g. to return how much a mouse has been moved
-	float value_of_event;
 
+	//basic input types
 	bool listen_to_KeyStroke; 
 	bool listen_to_KeyState;
 	bool listen_to_MouseSingleClick;
 	bool listen_to_MouseButtonPressed;
 	bool listen_to_MouseMovement;
-
+	//keypress combination
+	//bool has_keypress_combination;
+	
 	// In which game states is this input event supposed to be true
 	bool true_in_gameStates; //This should be an array of the same size as gameState enum, so that the enum_value refers to the position
 							// in the array...
 	// Set to true if this Input handling should occur in every game state
 	bool true_in_all_gameStates; //this speeds up gameState truth queries and can make it easier to manage input words
+
+	//This can be used to construct combos that require key presses in the same logic update
+	//(as opposed to combos that require specific/game-loop independent timing, that would
+	// use game time)
+	bool first_call_this_update();
 
 public:
 	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX InputWord included")
@@ -50,6 +60,8 @@ public:
 		listen_to_MouseSingleClick=false;
 		listen_to_MouseButtonPressed=false;
 		listen_to_MouseMovement=false;
+		//has_keypress_combination=false;
+		last_update_in_loop_nr = 0;
 	}
 
 	bool get_listen_to_KeyStroke() {return listen_to_KeyStroke;} //These are for InputManager to understand which instances to update
@@ -57,12 +69,14 @@ public:
 	bool get_listen_to_MouseSingleClick() {return listen_to_MouseSingleClick;}
 	bool get_listen_to_MouseButtonPressed() {return listen_to_MouseButtonPressed;}
 	bool get_listen_to_MouseMovement() {return listen_to_MouseMovement;}
+	//bool get_has_keypress_combination(){return has_keypress_combination;}
 
 	void set_listen_to_KeyStroke(bool value) {listen_to_KeyStroke = value;}
 	void set_listen_to_KeyState(bool value) {listen_to_KeyState = value;}
 	void set_listen_to_MouseSingleClick(bool value) {listen_to_MouseSingleClick = value;}
 	void set_listen_to_MouseButtonPressed(bool value) {listen_to_MouseButtonPressed = value;}
 	void set_listen_to_MouseMovement(bool value) {listen_to_MouseMovement = value;}
+	//void set_has_keypress_combination(bool value) {has_keypress_combination = value;}
 
 	//---------------------------------------------------------------------------
 	// Game state management

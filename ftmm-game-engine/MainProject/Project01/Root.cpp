@@ -29,6 +29,9 @@ GameState* Root::currentGameState()
 
 void Root::init() //;
 {
+	//And first, there was time (what else?)
+	mGameTime = GameTime::getInstance();
+
 	mResourceManager = ResourceManager::getInstance();
 	mRenderManager = RenderManager::getInstance();
 	mRenderManager->initializeRender();

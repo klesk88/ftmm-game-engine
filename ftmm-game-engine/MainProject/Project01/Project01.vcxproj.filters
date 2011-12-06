@@ -147,6 +147,15 @@
     <ClCompile Include="Collidable.cpp">
       <Filter>Source Files\Physics</Filter>
     </ClCompile>
+    <ClCompile Include="GamePlay_02.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="GameTime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="InputWord.cpp">
+      <Filter>Source Files\Input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TransformNode.h">
@@ -227,9 +236,6 @@
     <ClInclude Include="GamePlay_01.h">
       <Filter>Header Files\GameStates</Filter>
     </ClInclude>
-    <ClInclude Include="EGameObject.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
@@ -280,6 +286,15 @@
     </ClInclude>
     <ClInclude Include="Collidable.h">
       <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="EGameObject.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineControls_InputWord.h">
+      <Filter>Header Files\Input\InputWords &amp; Events</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineControls_InputEvent.h">
+      <Filter>Header Files\Input\InputWords &amp; Events</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

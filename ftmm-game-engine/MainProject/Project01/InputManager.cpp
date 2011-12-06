@@ -1,36 +1,21 @@
 #include "InputManager.h"
 
 
-
+//Here the user of the engine has to configure his input mappings
 InputManager::InputManager()
 {
-	/*
-	InputWord mouse_mover(0);
-	mouse_mover.set_listen_to_MouseMovement(true);
-	input_words.push_back(mouse_mover);
-
-	InputWord mouse_clicker(0);
-	mouse_clicker.set_listen_to_MouseButtonPressed(true);
-	input_words.push_back(mouse_clicker);
-
-	InputWord key_clicker(0);
-	key_clicker.set_listen_to_KeyStroke(true);
-	input_words.push_back(key_clicker);
-
-	InputWord key_presser(0);
-	key_presser.set_listen_to_KeyState(true);
-	input_words.push_back(key_presser);
-	*/
 	CameraMovementInputWord* cameraMotion = new CameraMovementInputWord(0);
 	cameraMotion->set_listen_to_MouseMovement(true);
 	input_words.push_back(cameraMotion);
-	cout << "type in IM of IW:" << typeid(cameraMotion).name() << endl;
 
 	FourDirectionsMovement_InputWord* fourDirectionalMovement = new FourDirectionsMovement_InputWord(0);
 	fourDirectionalMovement->set_listen_to_KeyState(true);
 	input_words.push_back(fourDirectionalMovement);
-	cout << "type in IM of IW:" << typeid(fourDirectionalMovement).name() << endl;
-	
+
+	EngineControls_InputWord* engineControls = new EngineControls_InputWord(0);
+	engineControls->set_listen_to_KeyState(true);
+	//engineControls->set_has_keypress_combination(true);
+	input_words.push_back(engineControls);
 }
 
 InputManager * InputManager::m_instance = NULL;
@@ -43,8 +28,6 @@ InputManager * InputManager::getInstance()
 	}
 	return m_instance;
 }
-
-
 
 // makes a coarse pre-selection on which InputWords to update, goes into the case which handles the current input and then iterates through 
 // the vector containing the Input word (bot operations have O(n)). This is faster than updating every vector (already O(n) for calling).
