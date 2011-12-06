@@ -1,12 +1,16 @@
 #ifndef __GameTime_h__
 #define __GameTime_h__
-
+#pragma once
 
 class GameTime
 {
 public:
-	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX GameTime included")
+	static GameTime * getInstance();
 
+	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX GameTime included")
+	/*
+
+	IDEAS FROM XNA
 
 	// The amount of elapsed game time since the last update.
 	// public TimeSpan ElapsedGameTime { get; set; }
@@ -17,6 +21,22 @@ public:
 
 	// The amount of game time since the start of the game.
 	Uint32 TotalGameTime();
+	*/
+
+
+	// a counter for the number of game logic updates since the game started
+	int get_totalUpdatesSinceStart();
+	void increase_totalUpdatesSinceStart();
+	
+private:
+	int totalUpdatesSinceStart;
+
+	static GameTime* p_instance;
+	~GameTime();
+
+protected:
+	GameTime();
+
 };
 
 #endif

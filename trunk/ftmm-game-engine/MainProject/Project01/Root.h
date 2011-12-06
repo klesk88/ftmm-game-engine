@@ -2,7 +2,6 @@
 #define __Root_H__
 #pragma once
 
-
 #include "SceneManager.h"
 #include "GameStateManager.h"
 #include "InputManager.h"
@@ -10,6 +9,7 @@
 #include "RootTransformNode.h"
 #include "RenderManager.h"
 #include "ResourceManager.h"
+#include "GameTime.h"
 
 class GameState;
 class Event;
@@ -30,6 +30,7 @@ public:
 	RenderManager* mRenderManager;
 	GameLoop*  mGameLoop;
 	ResourceManager * mResourceManager;
+	GameTime * mGameTime;
 
 	/*
 		- Initialize all the Singletons

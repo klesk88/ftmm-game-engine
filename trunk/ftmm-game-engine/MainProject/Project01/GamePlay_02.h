@@ -6,15 +6,30 @@
 #include "CubeObjectTest.h"
 #include <string>
 #include "SceneManager.h"
+//class SceneManager;
+//class Vector2;
+//class Camera;
 using namespace std;
 
 #pragma once
 
-//DEMO FOR GAME STATE TRANSITION
+// You could also call this our first level
 class GamePlay_02 : public GameState
 {
 private:
 
+		//Camera testing
+		float speed;
+		float x_vel;
+		float y_vel;
+		float xrot;
+		float yrot;
+		float xrot_zero;
+		float currentFramePositionx;
+		float lastFramePositionx;
+		float yrot_zero;
+		float currentFramePositiony;
+		float lastFramePositiony;
 
 		// ONLY FOR TESTING
 		TransformNode * node1 ;
@@ -32,6 +47,7 @@ private:
 		//end
 		
 		CubeObjectTest newAgeCube;
+
 		static GamePlay_02 * m_instance;
 		~GamePlay_02();
 
@@ -47,15 +63,17 @@ public:
 		CubeObjectTest * cube_03;
 		CubeObjectTest * cube_04;
 
-		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX GamePlay_01 included")
+		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX GamePlay_02 included")
 		
 		string get_name();
 		
 		static GamePlay_02 * getInstance ();
-		void init();
 		
-		void loadStuff();
+		void init();
+		bool update(vector<Event*> events);
 
-		bool update();
+		void spawnGameObject(GameObject* game_obj, Vector3 position, Quaternion orientation){};
+		void spawnGameObject(EGameObject type, Vector3 position, Quaternion orientation){};
+
 };
 #endif
