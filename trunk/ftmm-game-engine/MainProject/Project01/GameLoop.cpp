@@ -58,9 +58,9 @@ bool GameLoop::gameLoop(const int base_fps,const int low_fps)
 			for (vector<Event*>::iterator it = input_events.begin(); it != input_events .end(); ++it) 
 			{
 				//check whether its a CMIE
-				if(CameraMovementInputEvent * cME = dynamic_cast<CameraMovementInputEvent *>(*it)) 
+				if(EngineControls_InputEvent * eC_IE = dynamic_cast<EngineControls_InputEvent *>(*it)) 
 				{
-					Vector2 position = cME->get_current_position();
+					Root::getInstance()->mGameStateManager->transitToGameState(eC_IE->get_gameStateRequest());
 				}
 			}
 		}

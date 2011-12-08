@@ -107,6 +107,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Collidable.h" />
+    <ClInclude Include="ConfigurationEnums.h" />
     <ClInclude Include="CubeObjectTest.h" />
     <ClInclude Include="EngineControls_InputEvent.h" />
     <ClInclude Include="EngineControls_InputWord.h" />

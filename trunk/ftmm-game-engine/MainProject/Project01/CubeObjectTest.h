@@ -11,7 +11,6 @@
 #include "Quaternion.h"
 #include "Vector3.h"
 #include <string>
-#include "Collidable.h"
 using namespace::std;
 
 #pragma message ("XXXXXXXXXXXXXXXXXXXXXXX Why is Object3D not included here?")
@@ -26,7 +25,7 @@ public:
 	CubeObjectTest(string name, Vector3 position = Vector3::ZERO, Quaternion orientation = Quaternion::IDENTITY) : GameObject(name, position, orientation){};
 
 	void init(int code);
-	Collidable* collidable;
+	void destroy();
 
 		/*
 	{

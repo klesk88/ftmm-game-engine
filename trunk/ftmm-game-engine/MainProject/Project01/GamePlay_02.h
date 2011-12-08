@@ -70,6 +70,7 @@ public:
 		static GamePlay_02 * getInstance ();
 		
 		void init();
+		void destroy();
 		bool update(vector<Event*> events);
 
 		void spawnGameObject(GameObject* game_obj, Vector3 position, Quaternion orientation){};

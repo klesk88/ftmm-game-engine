@@ -30,6 +30,9 @@ class TransformNode : public MovableObject{
 		//Method to create a child of a TransformNode.
 		TransformNode * createChild(const std::string & stringName, Vector3 initial_position = Vector3::ZERO);
 		
+		//Method to delete child of a transform node
+		void deleteChild (TransformNode * child_ptr);
+
 		//Method to get the name of this TransformNode
 		std::string getName();
 		
@@ -91,7 +94,7 @@ class TransformNode : public MovableObject{
 		void matchNames ( std::string matching_name);
 		void setParent(TransformNode * parent);
 		TransformNode * parent_ptr;
-		void deleteChild (TransformNode * child_ptr);
+		
 		void insertChildInList(TransformNode * new_child);
 		Matrix4 global_transform;
 		GLfloat arr[16];

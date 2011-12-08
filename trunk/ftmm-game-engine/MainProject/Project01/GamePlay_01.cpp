@@ -79,6 +79,12 @@ void GamePlay_01::init()
 	*/
 }
 
+void GamePlay_01::destroy()
+{
+	SceneManager::getInstance()->destroyCamera("camera1");
+	cube_01->destroy();
+} 
+
 bool GamePlay_01::update(vector<Event*> events)
 {
 	Matrix3 * mt3 = new Matrix3;
