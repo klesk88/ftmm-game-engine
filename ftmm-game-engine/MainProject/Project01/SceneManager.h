@@ -46,6 +46,9 @@ class SceneManager
 		static SceneManager * getInstance ();
 		TransformNode * getRootTransformNode();
 		Camera * createCamera(const std::string  & stringName);
+
+		void destroyCamera(const std::string  & stringName);
+		
 		void renderScene();
 		~SceneManager();//{/*delete this;*/}
 

@@ -296,6 +296,9 @@
     <ClInclude Include="EngineControls_InputEvent.h">
       <Filter>Header Files\Input\InputWords &amp; Events</Filter>
     </ClInclude>
+    <ClInclude Include="ConfigurationEnums.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />

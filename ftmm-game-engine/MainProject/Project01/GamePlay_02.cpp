@@ -24,7 +24,7 @@ void GamePlay_02::init()
 {
 	
 	//SceneManager * sc_mn = SceneManager::getInstance();
-	cam = newCamera("camera1");//SceneManager::getInstance()->createCamera("camera1");
+	cam = newCamera("camera2");//SceneManager::getInstance()->createCamera("camera1");
 
 	x_vel = 0;
 	y_vel = 0;
@@ -47,7 +47,7 @@ void GamePlay_02::init()
 	/*cube_03 = new CubeObjectTest("node_3");
 	cube_04 = new CubeObjectTest("node_4");*/
 	
-	cube_01->init(1);
+	cube_01->init(2);
 	//cube_02->init(1);
 	cam->setPosition(Vector3(0.0f,0.0f,-15.0f));
 	//cube_02->mTransformNode->setPosition(Vector3(10.0,0.0,0.0));
@@ -77,6 +77,11 @@ void GamePlay_02::init()
 	node5->attachObject(cube4);
 	node2->setOrientation(Quaternion(12,0.0,0.0,1.0));
 	*/
+}
+void GamePlay_02::destroy()
+{
+	SceneManager::getInstance()->destroyCamera("camera2");
+	cube_01->destroy();
 }
 
 bool GamePlay_02::update(vector<Event*> events)

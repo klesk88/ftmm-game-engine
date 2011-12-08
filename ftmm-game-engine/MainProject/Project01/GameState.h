@@ -29,7 +29,7 @@ public:
 	virtual string get_name() =0;//;
 	//{ return name;}
 	
-	// virtual void destroy();
+	virtual void destroy() = 0;
 
 	// virtual void pause();
 	// virtual void resume();

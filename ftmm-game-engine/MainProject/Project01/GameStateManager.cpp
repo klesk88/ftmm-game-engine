@@ -6,7 +6,6 @@ GameStateManager * GameStateManager::p_instance = NULL;
 
 GameStateManager::GameStateManager()
 {
-
 }
 
 GameStateManager * GameStateManager::getInstance()
@@ -33,6 +32,8 @@ bool GameStateManager::init()
 	//gamePlay_02->init();
 	gameStates.push_back(gamePlay_02);
 
+	currentGameState = gameStates[0];
+
 	return true;
 }
 
@@ -40,12 +41,16 @@ bool GameStateManager::update(vector<Event*> events)
 {
 	//cout << "in gamestatemanager update" << endl;
 	//gameStates.back()...
-	gamePlay_01->update(events);
+	currentGameState->update(events);
 	
 	return 0;
 }
 
 bool GameStateManager::transitToGameState(EGameState state)
 {
+	cout << "GS " << state <<endl;
+	currentGameState->destroy();
+	currentGameState = gameStates[state];
+	currentGameState->init();
 	return true;
 }

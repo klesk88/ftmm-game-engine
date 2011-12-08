@@ -1,5 +1,7 @@
 #include "CubeObjectTest.h"
 #include "ResourceManager.h"
+#include "Collidable.h"
+
 CubeObjectTest::CubeObjectTest(){}
 
 /*
@@ -16,9 +18,10 @@ void CubeObjectTest::init(int code)
 		case 1:
 			mMesh = ResourceManager::getInstance()->loadMesh("Data/car.obj");
 			mTransformNode->attachObject(mMesh);
-			collidable = new Collidable(this);
+			mCollidable = new Collidable(this);
 			break;
 		case 2:
+			//mMesh = ResourceManager::getInstance()->loadMesh("Data/.obj");
 			mMesh = new Mesh(0.4,1.0,0.0,0.0);
 			mTransformNode->attachObject(mMesh);
 			break;
@@ -29,4 +32,11 @@ void CubeObjectTest::init(int code)
 		//cube2 = new Mesh(0.3,0.0,0.0,1.0);
 		//cube3 = new Mesh(0.2,0.0,1.0,0.0);
 		//cube4 = new Mesh(0.3,0.5,0.0,0.5);
-	};
+};
+
+void CubeObjectTest::destroy()
+{
+	TransformNode * parent = mTransformNode->getParent();
+	parent->deleteChild(mTransformNode);
+	delete mCollidable;
+}

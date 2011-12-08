@@ -3,12 +3,14 @@
 
 #include "InputWord.h"
 #include "EngineControls_InputEvent.h"
+#include "ConfigurationEnums.h"
 
 class EngineControls_InputWord: public InputWord
 {
 
 private:	
 	int gotoGameState;
+	EGameState gameState;
 
 	bool keypress_combination01_key01;
 	bool keypress_combination01_key02;
@@ -30,7 +32,7 @@ public:
 
 	InputEvent* update(SDL_Event _event)
 	{
-		EngineControls_InputEvent* engineControlsMovementEvent = new EngineControls_InputEvent();
+		EngineControls_InputEvent* engineControlsEvent = new EngineControls_InputEvent();
 		event_current = _event;
 
 		switch(_event.type)
@@ -91,18 +93,36 @@ public:
 
 		if (keypress_combination01_key01)
 		{
-			if(keypress_combination01_key02) gotoGameState = 1;
-			if(keypress_combination01_key03) gotoGameState = 2;
-			if(keypress_combination01_key02) gotoGameState = 3;
+			if(keypress_combination01_key02) 
+			{
+				gameState = (EGameState)0;		
+				engineControlsEvent->set_gamestateRequest(gameState);
+				engineControlsEvent->set_eventHasOccured(true);
+			}
+			if(keypress_combination01_key03) 
+			{
+				gameState = (EGameState)1;
+				engineControlsEvent->set_gamestateRequest(gameState);
+				engineControlsEvent->set_eventHasOccured(true);
+			}
+			if(keypress_combination01_key04)
+			{
+				gameState = (EGameState)2;
+				engineControlsEvent->set_gamestateRequest(gameState);
+				engineControlsEvent->set_eventHasOccured(true);
+			}
+			if(keypress_combination01_key05)
+			{
+				gameState = (EGameState)3;
+				engineControlsEvent->set_gamestateRequest(gameState);
+				engineControlsEvent->set_eventHasOccured(true);
+			}
 		}
 
+		//gameState = (EGameState) gotoGameState;
+		//cout << "GAME STATE: " << gotoGameState << endl;
 
-		cout << "GAME STATE: " << gotoGameState << endl;
-		engineControlsMovementEvent->set_eventHasOccured(true);
-
-		 //cout << "type in MMIW:" << typeid(cameraMovementEvent).name() << endl;
-		 return engineControlsMovementEvent;
-		//throw an MouseMovement event that has velocity, position, etc.
+		 return engineControlsEvent;
 	}
 };
 

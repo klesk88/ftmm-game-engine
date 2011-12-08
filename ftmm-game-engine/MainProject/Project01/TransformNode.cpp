@@ -1,6 +1,7 @@
 #include "TransformNode.h"
 #include "SceneManager.h"
 #include "GamePlay_01.h"
+#include "Collidable.h" //TODO: remove!
 
 TransformNode::TransformNode(const std::string & stringName, Vector3 initial_position ){
 
@@ -96,7 +97,7 @@ void TransformNode::updateNode()
 			(**it).renderMesh();
 			//(**it).drawCube();
 			
-			GamePlay_01::getInstance()->cube_01->collidable->drawBoundingBox();
+			GamePlay_01::getInstance()->cube_01->mCollidable->drawBoundingBox(); //TODO:remove!
 	
 		}
 	}

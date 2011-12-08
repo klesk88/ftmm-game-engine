@@ -2,6 +2,7 @@
 #include "Root.h"
 
 
+
 SceneManager::SceneManager()
 {
 	//Root *mRoot = Systems::getInstance();
@@ -43,9 +44,26 @@ Camera * SceneManager::createCamera(const std::string  & stringName){
 
 	Camera * cam = new Camera (stringName);
 	camera_list.push_back(cam);
+	cout << "length after construction" << camera_list.size() << endl;
 
 	return cam;
 
+}
+
+void SceneManager::destroyCamera(const std::string  & stringName){
+
+	Camera * destroyCam;
+
+	for (std::list<Camera*>::iterator it = camera_list.begin(); it != camera_list.end(); ++it) 
+	{
+		if((*it)->getName() == stringName)
+		{
+			destroyCam = (*it);
+		}
+	}
+	cout << "length before destroy" << camera_list.size() << endl;
+	camera_list.remove(destroyCam);
+	cout << "length after destroy" << camera_list.size() << endl;
 }
 
 void SceneManager::renderScene(){

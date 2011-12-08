@@ -10,6 +10,8 @@
 #include "TransformNode.h"
 #include "RigidBody.h"
 
+class Collidable;
+
 
 using namespace std;
 
@@ -24,6 +26,7 @@ public:
 	TransformNode * mTransformNode;
 	Mesh * mMesh;
 	RigidBody * mRigidBody;
+	Collidable* mCollidable;
 	
 	string name_this;
 
@@ -43,6 +46,7 @@ public:
 */
 	/*virtual*/ 
 	void init();
+	virtual void destroy() = 0;
 	virtual void update(vector<Event*> events);
 
 };
