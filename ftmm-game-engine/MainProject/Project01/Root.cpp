@@ -1,7 +1,7 @@
 #include "Root.h"
 
 Root * Root::p_instance = NULL;
-
+MemoryManagement* Root::memory = nullptr;
 Root::Root()
 {
 	// !
@@ -27,11 +27,18 @@ GameState* Root::currentGameState()
 }
 */
 
+void * operator new(size_t size,EAllocationType type){
+
+	MemoryManagement::inf = type;
+	return MemoryManagement::operator new(size);
+
+}
+
 void Root::init() //;
 {
 	//And first, there was time (what else?)
 	mGameTime = GameTime::getInstance();
-
+	//mGameTime = new (EAllocationType::PHYSICS) GameTime::getInstance();
 	mResourceManager = ResourceManager::getInstance();
 	mRenderManager = RenderManager::getInstance();
 	mRenderManager->initializeRender();
@@ -42,7 +49,7 @@ void Root::init() //;
 	//get Instance to make sure a GameStateManager has been constructed
 	mGameStateManager = GameStateManager::getInstance();
 	mGameStateManager->init();
-	mGameLoop = new GameLoop();
+	mGameLoop = new (EAllocationType::GAME_LOOP) GameLoop();
 	
 
 	//cout << mGameStateManager->get_currentGameState()->get_name() << endl;

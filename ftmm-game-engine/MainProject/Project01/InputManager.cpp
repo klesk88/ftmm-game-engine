@@ -22,6 +22,7 @@ InputManager * InputManager::m_instance = NULL;
 
 InputManager * InputManager::getInstance()
 {
+
 	if(m_instance == NULL)
 	{
 		m_instance = new InputManager();
