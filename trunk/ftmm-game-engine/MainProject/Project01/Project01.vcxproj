@@ -48,7 +48,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
       <AdditionalIncludeDirectories>..\Project01\glew-1.7.0\include;..\Project01\assimp--2.0.863-sdk\include;..\Project01\SDL-1.2.14\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
@@ -92,6 +92,7 @@
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Matrix3.cpp" />
     <ClCompile Include="Matrix4.cpp" />
+    <ClCompile Include="MemoryManagement.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="Quaternion.cpp" />
     <ClCompile Include="RenderManager.cpp" />
@@ -109,6 +110,8 @@
     <ClInclude Include="Collidable.h" />
     <ClInclude Include="ConfigurationEnums.h" />
     <ClInclude Include="CubeObjectTest.h" />
+    <ClInclude Include="EAllocationType.h" />
+    <ClInclude Include="EIsAvailable.h" />
     <ClInclude Include="EngineControls_InputEvent.h" />
     <ClInclude Include="EngineControls_InputWord.h" />
     <ClInclude Include="FourDirectionsMovement_InputEvent.h" />
@@ -138,16 +141,19 @@
     <ClInclude Include="Math.h" />
     <ClInclude Include="Matrix3.h" />
     <ClInclude Include="Matrix4.h" />
+    <ClInclude Include="MemoryManagement.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MovableObject.h" />
     <ClInclude Include="Node.h" />
     <ClInclude Include="Quaternion.h" />
+    <ClInclude Include="RegionInformation.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="RigidBody.h" />
     <ClInclude Include="RootTransformNode.h" />
     <ClInclude Include="SceneManager.h" />
     <ClInclude Include="Root.h" />
+    <ClInclude Include="SegmentInformation.h" />
     <ClInclude Include="TransformNode.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vector2.h" />

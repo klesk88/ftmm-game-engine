@@ -2,6 +2,7 @@
 #define __Root_H__
 #pragma once
 
+#include "MemoryManagement.h"
 #include "SceneManager.h"
 #include "GameStateManager.h"
 #include "InputManager.h"
@@ -31,6 +32,7 @@ public:
 	GameLoop*  mGameLoop;
 	ResourceManager * mResourceManager;
 	GameTime * mGameTime;
+	static MemoryManagement* memory;
 
 	/*
 		- Initialize all the Singletons
@@ -48,6 +50,7 @@ public:
 	void updateGameState(vector<Event*> events);
 
 private:
+	
 	static Root* p_instance;
 	~Root();
 protected:
