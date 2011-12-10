@@ -3,7 +3,6 @@
 #include <windows.h>
 #include "EIsAvailable.h"
 
-
 typedef struct _SegmentInformation{
 	
 	//information about the next position of the segment

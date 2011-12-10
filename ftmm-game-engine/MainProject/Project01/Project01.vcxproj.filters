@@ -302,9 +302,6 @@
     <ClInclude Include="ConfigurationEnums.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SegmentInformation.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="EAllocationType.h">
       <Filter>Header Files\MemoryManager</Filter>
     </ClInclude>
@@ -315,6 +312,9 @@
       <Filter>Header Files\MemoryManager</Filter>
     </ClInclude>
     <ClInclude Include="RegionInformation.h">
+      <Filter>Header Files\MemoryManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SegmentInformation.h">
       <Filter>Header Files\MemoryManager</Filter>
     </ClInclude>
   </ItemGroup>
