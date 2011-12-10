@@ -8,11 +8,12 @@
 #include <stdio.h>//imprt for overwrite the new operator
 #include <stdlib.h> //for exit the program
 
+//declarations of variables
 static long page_size=0;
 static long  region_size=0;
 static unsigned long  size_segment_information=sizeof(SegmentInformation);
 
-
+//declarations of functions
 static inline void* operator new (size_t size,EAllocationType inf);
 static SegmentInformation*  createSegment(RegionInformation** reserved_memory,EAllocationType inf,size_t size);
 static long  initializePageSize();
@@ -20,6 +21,8 @@ static long initializeRegionSize();
 static bool  getMemoryFromSystem(RegionInformation** region,size_t size,HANDLE base_reserved);
 static bool  reserveMemory(RegionInformation** region, unsigned long size_to_reserve);
 static inline void  operator delete(void* obj);
+
+//code for the functions
 
 static inline void* operator new (size_t size,EAllocationType inf){
 	
@@ -215,7 +218,6 @@ static inline void* operator new (size_t size,EAllocationType inf){
 	result = segment->object_start_position;
 	return result;
 }
-
 
 static SegmentInformation*  createSegment(RegionInformation** reserved_memory,EAllocationType inf,size_t size){
 
