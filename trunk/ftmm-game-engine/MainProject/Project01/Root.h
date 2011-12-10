@@ -32,7 +32,7 @@ public:
 	GameLoop*  mGameLoop;
 	ResourceManager * mResourceManager;
 	GameTime * mGameTime;
-	static MemoryManagement* memory;
+	
 
 	/*
 		- Initialize all the Singletons

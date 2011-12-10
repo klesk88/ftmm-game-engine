@@ -1,7 +1,7 @@
 #include "Root.h"
 
 Root * Root::p_instance = NULL;
-MemoryManagement* Root::memory = nullptr;
+
 Root::Root()
 {
 	// !
@@ -27,12 +27,7 @@ GameState* Root::currentGameState()
 }
 */
 
-void * operator new(size_t size,EAllocationType type){
 
-	MemoryManagement::inf = type;
-	return MemoryManagement::operator new(size);
-
-}
 
 void Root::init() //;
 {
