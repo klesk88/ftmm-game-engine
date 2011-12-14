@@ -20,7 +20,7 @@ static long  initializePageSize();
 static long initializeRegionSize();
 static bool  getMemoryFromSystem(RegionInformation** region,size_t size,HANDLE base_reserved);
 static bool  reserveMemory(RegionInformation** region, unsigned long size_to_reserve);
-static inline void  operator delete(void* obj);
+static inline void  operator delete(void* obj, EAllocationType inf);
 
 //code for the functions
 
@@ -342,7 +342,7 @@ static bool  reserveMemory(RegionInformation** region, unsigned long size_to_res
 	return true;
 }
 
-static inline void  operator delete(void* obj){
+static inline void  operator delete(void* obj, EAllocationType inf){
 	HANDLE t = (HANDLE)((unsigned long)obj - sizeof(SegmentInformation));
 	SegmentInformation* segment= (SegmentInformation*)((unsigned long)obj - sizeof(SegmentInformation));
 	//static SegmentInformation* previous_free_segment(nullptr);
