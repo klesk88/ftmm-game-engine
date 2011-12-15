@@ -81,6 +81,10 @@ class TransformNode : public MovableObject
 		
 		~TransformNode(){delete this;}
 
+		//moved this here, tilman 15.12.2011
+		Matrix3 getLocalAxes();
+
+
 	protected:
 
 		/*Constructor. TransformNodes’s constructor needs a string that 
@@ -110,7 +114,7 @@ class TransformNode : public MovableObject
 		Matrix4 getParentTransform() ;
 		void convertMatrixToFloat();
 		void convertFloatToMatrix();
-		Matrix3 getLocalAxes();
+		
 
 	//private:
 	

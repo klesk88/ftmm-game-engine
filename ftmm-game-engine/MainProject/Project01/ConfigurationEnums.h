@@ -4,7 +4,8 @@
 enum EGameState
 {
 	GAMEPLAY_01 = 0,
-	GAMEPLAY_02
+	GAMEPLAY_02,
+	GAMEPLAY_03
 };
 
 #endif

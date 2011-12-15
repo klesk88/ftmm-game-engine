@@ -17,6 +17,7 @@
 #include "CameraMovementInputWord.h"
 #include "FourDirectionsMovement_InputWord.h"
 #include "EngineControls_InputWord.h"
+#include "CarMovement_InputWord.h"
 
 using namespace std;
 

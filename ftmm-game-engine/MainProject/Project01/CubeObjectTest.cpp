@@ -45,5 +45,5 @@ void CubeObjectTest::destroy()
 {
 	TransformNode * parent = mTransformNode->getParent();
 	parent->deleteChild(mTransformNode);
-	delete mCollidable;
+	//delete mCollidable;
 }
