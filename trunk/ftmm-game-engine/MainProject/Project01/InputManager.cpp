@@ -16,6 +16,10 @@ InputManager::InputManager()
 	engineControls->set_listen_to_KeyState(true);
 	//engineControls->set_has_keypress_combination(true);
 	input_words.push_back(engineControls);
+
+	CarMovement_InputWord* carMove = new CarMovement_InputWord(0);
+	carMove->set_listen_to_KeyState(true);
+	input_words.push_back(carMove);
 }
 
 InputManager * InputManager::m_instance = NULL;

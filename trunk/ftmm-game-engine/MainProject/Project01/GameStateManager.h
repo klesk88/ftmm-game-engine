@@ -10,6 +10,7 @@ using namespace std;
 
 class GamePlay_01;
 class GamePlay_02;
+class GamePlay_03;
 class GameState;
 
 class GameStateManager
@@ -34,6 +35,7 @@ private:
 	vector<GameState*> gameStates;
 	GamePlay_01 * gamePlay_01;
 	GamePlay_02 * gamePlay_02;
+	GamePlay_03 * gamePlay_03;
 	GameState * currentGameState;
 };
 

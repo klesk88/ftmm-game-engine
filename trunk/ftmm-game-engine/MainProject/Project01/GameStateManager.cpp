@@ -1,6 +1,7 @@
 #include "GameStateManager.h"
 #include "GamePlay_01.h"
 #include "GamePlay_02.h"
+#include "GamePlay_03.h"
 
 GameStateManager * GameStateManager::p_instance = NULL;
 
@@ -19,7 +20,7 @@ GameStateManager * GameStateManager::getInstance()
 
 GameState* GameStateManager::get_currentGameState()
 {
-	return gamePlay_01;//gameStates.back();
+	return currentGameState;
 }
 
 bool GameStateManager::init()
@@ -31,6 +32,10 @@ bool GameStateManager::init()
 	gamePlay_02 = GamePlay_02::getInstance();
 	//gamePlay_02->init();
 	gameStates.push_back(gamePlay_02);
+
+	gamePlay_03 = GamePlay_03::getInstance();
+	//gamePlay_02->init();
+	gameStates.push_back(gamePlay_03);
 
 	currentGameState = gameStates[0];
 
@@ -48,7 +53,7 @@ bool GameStateManager::update(vector<Event*> events)
 
 bool GameStateManager::transitToGameState(EGameState state)
 {
-	cout << "GS " << state <<endl;
+	//cout << "GS " << state <<endl;
 	currentGameState->destroy();
 	currentGameState = gameStates[state];
 	currentGameState->init();
