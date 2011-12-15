@@ -1,6 +1,6 @@
 #include "CubeObjectTest.h"
 #include "ResourceManager.h"
-#include "Collidable.h"
+#include "PhysicsManager.h"
 
 CubeObjectTest::CubeObjectTest(){}
 
@@ -19,11 +19,18 @@ void CubeObjectTest::init(int code)
 			mMesh = ResourceManager::getInstance()->loadMesh("Data/car.obj");
 			mTransformNode->attachObject(mMesh);
 			mCollidable = new Collidable(this);
+			PhysicsManager::getInstance()->attachCollidable(mCollidable);
 			break;
 		case 2:
 			//mMesh = ResourceManager::getInstance()->loadMesh("Data/.obj");
 			mMesh = new Mesh(0.4,1.0,0.0,0.0);
 			mTransformNode->attachObject(mMesh);
+			break;
+		case 3:
+			mMesh = ResourceManager::getInstance()->loadMesh("Data/SphereAndCube.obj");
+			mTransformNode->attachObject(mMesh);
+			mCollidable = new Collidable(this);
+			PhysicsManager::getInstance()->attachCollidable(mCollidable);
 			break;
 	}
 	//mMesh = new Mesh(0.4,1.0,0.0,0.0);
