@@ -61,6 +61,12 @@
     <Filter Include="Header Files\MemoryManager">
       <UniqueIdentifier>{4c5cf4f8-89d0-49d7-931b-0cecc3a7fefa}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\AI">
+      <UniqueIdentifier>{3b31fdee-cbbe-4396-980f-1e015cee7815}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\AI">
+      <UniqueIdentifier>{17997d67-a358-4189-a1d4-a52ef881a612}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -161,6 +167,15 @@
     </ClCompile>
     <ClCompile Include="PhysicsManager.cpp">
       <Filter>Source Files\Physics</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCar.cpp">
+      <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="GamePlay_03.cpp">
+      <Filter>Source Files\GameStates</Filter>
+    </ClCompile>
+    <ClCompile Include="AI_GameModel.cpp">
+      <Filter>Source Files\AI</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -322,6 +337,27 @@
     </ClInclude>
     <ClInclude Include="PhysicsManager.h">
       <Filter>Header Files\Physics</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCar.h">
+      <Filter>Header Files\GameObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="GamePlay_03.h">
+      <Filter>Header Files\GameStates</Filter>
+    </ClInclude>
+    <ClInclude Include="CarMovement_InputWord.h">
+      <Filter>Header Files\Input\InputWords &amp; Events</Filter>
+    </ClInclude>
+    <ClInclude Include="CarMovement_InputEvent.h">
+      <Filter>Header Files\Input\InputWords &amp; Events</Filter>
+    </ClInclude>
+    <ClInclude Include="AI_GameModel.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI_AgentModel.h">
+      <Filter>Header Files\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="AI_Behaviour_SimpleAvoidCar.h">
+      <Filter>Header Files\AI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
