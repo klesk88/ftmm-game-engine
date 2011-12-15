@@ -17,9 +17,12 @@
 #include "MovableObject.h"
 #include "Matrix3.h"
 #include <sstream>
+class Collidable;
 
 
-class TransformNode : public MovableObject{
+class TransformNode : public MovableObject
+{
+	friend class PhysicsManager;
 
 	public:
 
@@ -44,6 +47,8 @@ class TransformNode : public MovableObject{
 		
 		//This method provides a pointer of a list of pointers of all object attached to the node
 		std::list<Mesh*> * getAttachedObjectPtr();
+
+		std::list<Collidable*> * getAttachedCollidablePtr();
 		
 		/*This method returns a pointer to the parent of the TransformNode. Noticed that the parent of the
 		Root is the same Root*/
@@ -61,6 +66,8 @@ class TransformNode : public MovableObject{
 		const Quaternion & getOrientation()  ;
 		const Vector3 & getScale() ;
 		const Vector3 & getPosition() ;
+		//Get the matrix of all transformation for physics
+		const Matrix4 & getMatrixTransform();
 		void translate (const Vector3& translation_value, TransformSpace relativeTo);
 		void setPosition(const Vector3& position_value);
 		void rotate(const Vector3& axis, const Radian& angle, TransformSpace relativeTo);
@@ -90,6 +97,7 @@ class TransformNode : public MovableObject{
 		std::string node_name;
 		//Mesh * mesh_attached;
 		std::list<Mesh*> attached_obj;
+		std::list<Collidable*> attached_collidable;
 		//float translate_ratio;
 		void matchNames ( std::string matching_name);
 		void setParent(TransformNode * parent);
@@ -103,6 +111,10 @@ class TransformNode : public MovableObject{
 		void convertMatrixToFloat();
 		void convertFloatToMatrix();
 		Matrix3 getLocalAxes();
+
+	//private:
+	
+		void attachCollidable(Collidable * coll_ptr);
 };
 
 #endif

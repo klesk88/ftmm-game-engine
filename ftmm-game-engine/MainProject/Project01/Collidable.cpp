@@ -1,10 +1,12 @@
 #include "Collidable.h"
+#include <iostream>
 
 Collidable::Collidable(GameObject* object_attached)
 {
 	m_object_attached = object_attached;
 	//m_transform_node = m_object_attached->mTransformNode;
 	m_bounding_box = new Vector3[8];
+	m_bounding_box_trans = new Vector3[8];
 	setOrientedBoundingBox();
 }
 
@@ -102,44 +104,103 @@ void Collidable::setOrientedBoundingBox()
 
 void Collidable::drawBoundingBox()
 {
+	setTransformationAtOBB();
+	//stampMatrix();
+
 	glBegin(GL_LINES);
 	glColor3f(1.0,0.0,0.0);
 
-	glVertex3f(m_bounding_box[0].x,m_bounding_box[0].y,m_bounding_box[0].z);
-	glVertex3f(m_bounding_box[1].x,m_bounding_box[1].y,m_bounding_box[1].z);
+	glVertex3f(m_bounding_box_trans[0].x,m_bounding_box_trans[0].y,m_bounding_box_trans[0].z);
+	glVertex3f(m_bounding_box_trans[1].x,m_bounding_box_trans[1].y,m_bounding_box_trans[1].z);
 
-	glVertex3f(m_bounding_box[1].x,m_bounding_box[1].y,m_bounding_box[1].z);
-	glVertex3f(m_bounding_box[2].x,m_bounding_box[2].y,m_bounding_box[2].z);
+	glVertex3f(m_bounding_box_trans[1].x,m_bounding_box_trans[1].y,m_bounding_box_trans[1].z);
+	glVertex3f(m_bounding_box_trans[2].x,m_bounding_box_trans[2].y,m_bounding_box_trans[2].z);
 
-	glVertex3f(m_bounding_box[2].x,m_bounding_box[2].y,m_bounding_box[2].z);
-	glVertex3f(m_bounding_box[3].x,m_bounding_box[3].y,m_bounding_box[3].z);
+	glVertex3f(m_bounding_box_trans[2].x,m_bounding_box_trans[2].y,m_bounding_box_trans[2].z);
+	glVertex3f(m_bounding_box_trans[3].x,m_bounding_box_trans[3].y,m_bounding_box_trans[3].z);
 
-	glVertex3f(m_bounding_box[3].x,m_bounding_box[3].y,m_bounding_box[3].z);
-	glVertex3f(m_bounding_box[0].x,m_bounding_box[0].y,m_bounding_box[0].z);
+	glVertex3f(m_bounding_box_trans[3].x,m_bounding_box_trans[3].y,m_bounding_box_trans[3].z);
+	glVertex3f(m_bounding_box_trans[0].x,m_bounding_box_trans[0].y,m_bounding_box_trans[0].z);
 
-	glVertex3f(m_bounding_box[4].x,m_bounding_box[4].y,m_bounding_box[4].z);
-	glVertex3f(m_bounding_box[5].x,m_bounding_box[5].y,m_bounding_box[5].z);
+	glVertex3f(m_bounding_box_trans[4].x,m_bounding_box_trans[4].y,m_bounding_box_trans[4].z);
+	glVertex3f(m_bounding_box_trans[5].x,m_bounding_box_trans[5].y,m_bounding_box_trans[5].z);
 
-	glVertex3f(m_bounding_box[5].x,m_bounding_box[5].y,m_bounding_box[5].z);
-	glVertex3f(m_bounding_box[6].x,m_bounding_box[6].y,m_bounding_box[6].z);
+	glVertex3f(m_bounding_box_trans[5].x,m_bounding_box_trans[5].y,m_bounding_box_trans[5].z);
+	glVertex3f(m_bounding_box_trans[6].x,m_bounding_box_trans[6].y,m_bounding_box_trans[6].z);
 
-	glVertex3f(m_bounding_box[6].x,m_bounding_box[6].y,m_bounding_box[6].z);
-	glVertex3f(m_bounding_box[7].x,m_bounding_box[7].y,m_bounding_box[7].z);
+	glVertex3f(m_bounding_box_trans[6].x,m_bounding_box_trans[6].y,m_bounding_box_trans[6].z);
+	glVertex3f(m_bounding_box_trans[7].x,m_bounding_box_trans[7].y,m_bounding_box_trans[7].z);
 
-	glVertex3f(m_bounding_box[7].x,m_bounding_box[7].y,m_bounding_box[7].z);
-	glVertex3f(m_bounding_box[4].x,m_bounding_box[4].y,m_bounding_box[4].z);
+	glVertex3f(m_bounding_box_trans[7].x,m_bounding_box_trans[7].y,m_bounding_box_trans[7].z);
+	glVertex3f(m_bounding_box_trans[4].x,m_bounding_box_trans[4].y,m_bounding_box_trans[4].z);
 
-	glVertex3f(m_bounding_box[0].x,m_bounding_box[0].y,m_bounding_box[0].z);
-	glVertex3f(m_bounding_box[4].x,m_bounding_box[4].y,m_bounding_box[4].z);
+	glVertex3f(m_bounding_box_trans[0].x,m_bounding_box_trans[0].y,m_bounding_box_trans[0].z);
+	glVertex3f(m_bounding_box_trans[4].x,m_bounding_box_trans[4].y,m_bounding_box_trans[4].z);
 
-	glVertex3f(m_bounding_box[1].x,m_bounding_box[1].y,m_bounding_box[1].z);
-	glVertex3f(m_bounding_box[5].x,m_bounding_box[5].y,m_bounding_box[5].z);
+	glVertex3f(m_bounding_box_trans[1].x,m_bounding_box_trans[1].y,m_bounding_box_trans[1].z);
+	glVertex3f(m_bounding_box_trans[5].x,m_bounding_box_trans[5].y,m_bounding_box_trans[5].z);
 
-	glVertex3f(m_bounding_box[2].x,m_bounding_box[2].y,m_bounding_box[2].z);
-	glVertex3f(m_bounding_box[6].x,m_bounding_box[6].y,m_bounding_box[6].z);
+	glVertex3f(m_bounding_box_trans[2].x,m_bounding_box_trans[2].y,m_bounding_box_trans[2].z);
+	glVertex3f(m_bounding_box_trans[6].x,m_bounding_box_trans[6].y,m_bounding_box_trans[6].z);
 
-	glVertex3f(m_bounding_box[3].x,m_bounding_box[3].y,m_bounding_box[3].z);
-	glVertex3f(m_bounding_box[7].x,m_bounding_box[7].y,m_bounding_box[7].z);
+	glVertex3f(m_bounding_box_trans[3].x,m_bounding_box_trans[3].y,m_bounding_box_trans[3].z);
+	glVertex3f(m_bounding_box_trans[7].x,m_bounding_box_trans[7].y,m_bounding_box_trans[7].z);
 
 	glEnd();
+}
+
+void Collidable::getBoundingBoxPoint(int index)
+{
+
+	std::cout<< m_bounding_box_trans[0].x << "     "<<m_bounding_box_trans[0].y <<"     "<< m_bounding_box_trans[0].z << endl;
+	std::cout<< m_bounding_box_trans[1].x << "     "<<m_bounding_box_trans[1].y <<"     "<< m_bounding_box_trans[1].z << endl;
+	std::cout<< m_bounding_box_trans[2].x << "     "<<m_bounding_box_trans[2].y <<"     "<< m_bounding_box_trans[2].z << endl;
+	std::cout<< m_bounding_box_trans[3].x << "     "<<m_bounding_box_trans[3].y <<"     "<< m_bounding_box_trans[3].z << endl;
+	std::cout<< m_bounding_box_trans[4].x << "     "<<m_bounding_box_trans[4].y <<"     "<< m_bounding_box_trans[4].z << endl;
+	std::cout<< m_bounding_box_trans[5].x << "     "<<m_bounding_box_trans[5].y <<"     "<< m_bounding_box_trans[5].z << endl;
+	std::cout<< m_bounding_box_trans[6].x << "     "<<m_bounding_box_trans[6].y <<"     "<< m_bounding_box_trans[6].z << endl;
+	std::cout<< m_bounding_box_trans[7].x << "     "<<m_bounding_box_trans[7].y <<"     "<< m_bounding_box_trans[7].z << endl;
+}
+
+void Collidable::setTransformationAtOBB()
+{
+	tranform_matrix = m_object_attached->mTransformNode->getMatrixTransform();
+
+	for(int i=0; i < 8; i++)
+	{
+		//take original position
+		m_bounding_box_trans[i] = m_bounding_box[i];
+		//aplly scale
+		m_bounding_box_trans[i] = m_bounding_box_trans[i] * tranform_matrix.getScale();
+		//apply rotation
+		//Quaternion quat_rot = tranform_matrix.extractQuaternion();
+		//Matrix3 mat_rot;
+		//quat_rot.ToRotationMatrix(mat_rot);
+		Vector4 pos_temp = Vector4(m_bounding_box_trans[i].x,m_bounding_box_trans[i].y,m_bounding_box_trans[i].z,1);
+		pos_temp = tranform_matrix * pos_temp;
+		//std::cout<< "vector4:"<< i <<"    "<< pos_temp.x << "     "<<pos_temp.y <<"     "<< pos_temp.z << pos_temp.w<<"    " << endl;
+		m_bounding_box_trans[i] = pos_temp.xyz();
+		//m_bounding_box_trans[i] = mat_rot * m_bounding_box_trans[i];
+
+		//apply translation
+		m_bounding_box_trans[i] = m_bounding_box_trans[i] + tranform_matrix.getTrans();
+	}
+}
+
+void Collidable::stampMatrix(){
+
+	for (int i=0;i<4;i++){
+
+		std::cout << tranform_matrix[i][0];
+		std::cout << ",";
+		std::cout << tranform_matrix[i][1];
+		std::cout << ",";
+		std::cout << tranform_matrix[i][2];
+		std::cout << ",";
+		std::cout << tranform_matrix[i][3];
+		std::cout << "  " << std::endl;
+		
+	}
+	std::cout<<"     " <<std::endl;
+
 }

@@ -1,7 +1,7 @@
 #include "TransformNode.h"
 #include "SceneManager.h"
 #include "GamePlay_01.h"
-#include "Collidable.h" //TODO: remove!
+#include "Collidable.h"
 
 TransformNode::TransformNode(const std::string & stringName, Vector3 initial_position ){
 
@@ -74,6 +74,12 @@ void TransformNode::attachObject(Mesh * mesh_ptr)
 
 }
 
+void TransformNode::attachCollidable(Collidable * coll_ptr)
+{
+	Collidable * collidable_attached = coll_ptr;
+	attached_collidable.push_back(collidable_attached);
+}
+
 void TransformNode::updateNode()
 {
 
@@ -96,9 +102,16 @@ void TransformNode::updateNode()
 	
 			(**it).renderMesh();
 			//(**it).drawCube();
-			
-			GamePlay_01::getInstance()->cube_01->mCollidable->drawBoundingBox(); //TODO:remove!
-	
+		}
+	}
+
+	if(attached_collidable.size() != 0)
+	{
+		std::list<Collidable*>::iterator it;
+		for (it = attached_collidable.begin(); it!= attached_collidable.end(); ++it)
+		{
+			(**it).drawBoundingBox();
+			//(**it).getBoundingBoxPoint(1);
 		}
 	}
 
@@ -123,6 +136,11 @@ std::list<Mesh*> * TransformNode::getAttachedObjectPtr(){
 
 	return &attached_obj;
 
+}
+
+std::list<Collidable*> * TransformNode::getAttachedCollidablePtr()
+{
+	return &attached_collidable;
 }
 
 void TransformNode::setParent(TransformNode * parent){
@@ -231,6 +249,11 @@ const Vector3 & TransformNode::getPosition() {
 	//global_transform
 	
 	return this->getParentTransform().getTrans();
+}
+
+const Matrix4 & TransformNode::getMatrixTransform()
+{
+	return this->getParentTransform();
 }
 
 void TransformNode::translate (const Vector3& translation_value, TransformSpace relativeTo){

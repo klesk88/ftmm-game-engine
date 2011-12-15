@@ -48,7 +48,7 @@ void GamePlay_01::init()
 	cube_04 = new CubeObjectTest("node_4");*/
 	
 	cube_01->init(1);
-	//cube_02->init(1);
+	//cube_02->init(3);
 	cam->setPosition(Vector3(0.0f,0.0f,-15.0f));
 	//cube_02->mTransformNode->setPosition(Vector3(10.0,0.0,0.0));
 
@@ -121,6 +121,8 @@ bool GamePlay_01::update(vector<Event*> events)
 	}
 
 	cube_01->mTransformNode->rotate(Quaternion(9000,0.0,0.0,1.0), MovableObject::TransformSpace::TS_LOCAL);
+	//cube_01->mTransformNode->scale(Vector3(0.001,0.001,0.001));
+	//cube_01->mTransformNode->translate(Vector3(0.001,0.001,0.001),MovableObject::TransformSpace::TS_LOCAL);
 
 	/*
 	xrot_zero = currentFramePositionx - lastFramePositionx;
