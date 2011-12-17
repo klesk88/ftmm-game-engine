@@ -3,6 +3,7 @@
 #pragma once
 
 #include <vector>
+#include <sys/types.h>
 #include "ConfigurationEnums.h"
 
 class Event;

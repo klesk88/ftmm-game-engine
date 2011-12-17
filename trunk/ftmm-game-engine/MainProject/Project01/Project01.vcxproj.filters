@@ -186,6 +186,9 @@
     <ClCompile Include="textfile.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GJK.cpp">
+      <Filter>Source Files\Physics</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TransformNode.h">
@@ -376,6 +379,9 @@
     </ClInclude>
     <ClInclude Include="textfile.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GJK.h">
+      <Filter>Header Files\Physics</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

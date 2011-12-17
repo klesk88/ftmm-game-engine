@@ -4,6 +4,7 @@
 #include "GameState.h"
 #include "GameObject.h"
 #include "PlayerCar.h"
+#include "CubeObjectTest.h"
 #include <string>
 #include "SceneManager.h"
 //class SceneManager;
@@ -48,6 +49,7 @@ private:
 
 		//level assets
 		PlayerCar * playerCar;
+		CubeObjectTest * car;
 
 		static GamePlay_03 * m_instance;
 		~GamePlay_03();

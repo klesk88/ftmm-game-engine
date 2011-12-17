@@ -163,6 +163,28 @@ bool Vector3::isZeroLength(void) const
 	return (sqlen < (1e-06 * 1e-06));
 }
 
+Vector3 Vector3::negative() const
+{
+	return Vector3( -x, -y, -z);
+}
+
+Vector3 Vector3::normaliseTo() const
+{
+	float fLength = sqrt( x * x + y * y + z * z );
+	Vector3 normalized;
+
+	// Will also work for zero-sized vectors, but will change nothing
+	if ( fLength > 1e-08 )
+	{
+		float fInvLength = 1.0f / fLength;
+		normalized.x = x * fInvLength;
+		normalized.y = y * fInvLength;
+		normalized.z = z * fInvLength;
+	}
+
+	return normalized;
+}
+
 
 	const Vector3 Vector3::ZERO( 0, 0, 0 );
     const Vector3 Vector3::UNIT_X( 1, 0, 0 );

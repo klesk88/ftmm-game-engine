@@ -11,6 +11,7 @@
 #include "Quaternion.h"
 #include "Vector3.h"
 #include <string>
+//#include "ResourceManager.h"
 using namespace::std;
 
 #pragma message ("XXXXXXXXXXXXXXXXXXXXXXX Why is Object3D not included here?")
@@ -23,6 +24,7 @@ public:
 #pragma message ("XXXXXXXXXXXXXXXXXXXXXXX CubeObjectTest included")
 	CubeObjectTest();
 	CubeObjectTest(string name, Vector3 position = Vector3::ZERO, Quaternion orientation = Quaternion::IDENTITY) : GameObject(name, position, orientation){};
+	~CubeObjectTest();
 
 	void init(int code);
 	void destroy();

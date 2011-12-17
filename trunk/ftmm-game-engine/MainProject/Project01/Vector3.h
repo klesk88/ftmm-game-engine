@@ -120,6 +120,9 @@ class Vector3
 				2. InOGRE but not here: returns the previous length of the vector.	*/
 		void normalise();
 
+		/// Retrurns a new vector normalized from the vector that call  this
+		Vector3 normaliseTo() const;
+
 		/** Calculates the cross-product of 2 vectors, i.e. the vector that
 			lies perpendicular to them both.
 			@remarks
@@ -148,6 +151,9 @@ class Vector3
 
 		/** Returns true if this vector is zero length. */
 		bool isZeroLength(void) const;
+
+		/** Returns the vector with inverted sign */
+		Vector3 negative() const;
 };
 
 #endif

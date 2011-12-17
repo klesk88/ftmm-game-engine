@@ -1,6 +1,4 @@
 #include "PlayerCar.h"
-#include "ResourceManager.h"
-#include "Collidable.h"
 #include "CarMovement_InputEvent.h"
 
 
@@ -13,20 +11,28 @@ CubeObjectTest::CubeObjectTest(string name, Vector3 position, Quaternion orienta
 }
 */
 
+PlayerCar::~PlayerCar()
+{
+	TransformNode * parent = mTransformNode->getParent();
+	parent->deleteChild(mTransformNode);
+	delete mCollidable;
+}
+
 void PlayerCar::init()
 {
 	speed = 0.02;
 	mMesh = ResourceManager::getInstance()->loadMesh("Data/car.obj");
 	mTransformNode->attachObject(mMesh);
 	mCollidable = new Collidable(this);
+	PhysicsManager::getInstance()->attachCollidable(mCollidable);
 }
 
-void PlayerCar::destroy()
-{
-	TransformNode * parent = mTransformNode->getParent();
-	parent->deleteChild(mTransformNode);
-	//delete mCollidable;
-}
+//void PlayerCar::destroy()
+//{
+//	TransformNode * parent = mTransformNode->getParent();
+//	parent->deleteChild(mTransformNode);
+//	delete mCollidable;
+//}
 
 void PlayerCar::update()
 {

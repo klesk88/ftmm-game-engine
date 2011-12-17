@@ -101,6 +101,7 @@ class TransformNode : public MovableObject
 		std::string node_name;
 		//Mesh * mesh_attached;
 		std::list<Mesh*> attached_obj;
+		//Only for physics
 		std::list<Collidable*> attached_collidable;
 		//float translate_ratio;
 		void matchNames ( std::string matching_name);

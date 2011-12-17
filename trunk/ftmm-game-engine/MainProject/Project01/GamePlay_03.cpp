@@ -42,15 +42,27 @@ void GamePlay_03::init()
 	playerCar = new PlayerCar("pCar_01");
 	playerCar ->init();
 
+	car = new CubeObjectTest("pCar_02");
+	car ->init(1);
+
+	car->mTransformNode->setPosition(Vector3(20.0,0.0,0.0));
+
 }
+//GamePlay_03::~GamePlay_03()
+//{
+//	SceneManager::getInstance()->destroyCamera("camera2");
+//	delete playerCar;
+//}
+
 void GamePlay_03::destroy()
 {
 	SceneManager::getInstance()->destroyCamera("camera2");
-	playerCar->destroy();
+	delete playerCar;
 }
 
 bool GamePlay_03::update(vector<Event*> events)
 {
+	//cout << "GP" << endl;
 	Matrix3 * mt3 = new Matrix3;
 	*mt3 = cam->getLocalAxes();
 	
