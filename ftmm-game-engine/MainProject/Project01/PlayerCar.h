@@ -20,7 +20,8 @@ public:
 #pragma message ("XXXXXXXXXXXXXXXXXXXXXXX PlayerCarincluded")
 	PlayerCar();
 	PlayerCar(string name, Vector3 position = Vector3::ZERO, Quaternion orientation = Quaternion::IDENTITY) : GameObject(name, position, orientation){};
-
+	~PlayerCar();
+	
 	void init();
 	void destroy();
 	

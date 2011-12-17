@@ -1,13 +1,20 @@
 #include "Collidable.h"
 #include <iostream>
+#include"GameObject.h"
+
+const int Collidable::bounding_box_dimension = 8;
 
 Collidable::Collidable(GameObject* object_attached)
 {
 	m_object_attached = object_attached;
-	//m_transform_node = m_object_attached->mTransformNode;
 	m_bounding_box = new Vector3[8];
 	m_bounding_box_trans = new Vector3[8];
 	setOrientedBoundingBox();
+}
+
+Collidable::~Collidable()
+{
+	PhysicsManager::getInstance()->removeCollidable(this);
 }
 
 void Collidable::raise (int n_value)
@@ -104,8 +111,9 @@ void Collidable::setOrientedBoundingBox()
 
 void Collidable::drawBoundingBox()
 {
-	setTransformationAtOBB();
 	//stampMatrix();
+
+	//cout<<"paufydhjic"<<endl;
 
 	glBegin(GL_LINES);
 	glColor3f(1.0,0.0,0.0);
@@ -149,7 +157,7 @@ void Collidable::drawBoundingBox()
 	glEnd();
 }
 
-void Collidable::getBoundingBoxPoint(int index)
+void Collidable::printBoundingBoxPoint()
 {
 
 	std::cout<< m_bounding_box_trans[0].x << "     "<<m_bounding_box_trans[0].y <<"     "<< m_bounding_box_trans[0].z << endl;
@@ -166,24 +174,20 @@ void Collidable::setTransformationAtOBB()
 {
 	tranform_matrix = m_object_attached->mTransformNode->getMatrixTransform();
 
-	for(int i=0; i < 8; i++)
+	for(int i=0; i < bounding_box_dimension; i++)
 	{
 		//take original position
 		m_bounding_box_trans[i] = m_bounding_box[i];
 		//aplly scale
 		m_bounding_box_trans[i] = m_bounding_box_trans[i] * tranform_matrix.getScale();
 		//apply rotation
-		//Quaternion quat_rot = tranform_matrix.extractQuaternion();
-		//Matrix3 mat_rot;
-		//quat_rot.ToRotationMatrix(mat_rot);
 		Vector4 pos_temp = Vector4(m_bounding_box_trans[i].x,m_bounding_box_trans[i].y,m_bounding_box_trans[i].z,1);
 		pos_temp = tranform_matrix * pos_temp;
 		//std::cout<< "vector4:"<< i <<"    "<< pos_temp.x << "     "<<pos_temp.y <<"     "<< pos_temp.z << pos_temp.w<<"    " << endl;
 		m_bounding_box_trans[i] = pos_temp.xyz();
-		//m_bounding_box_trans[i] = mat_rot * m_bounding_box_trans[i];
 
 		//apply translation
-		m_bounding_box_trans[i] = m_bounding_box_trans[i] + tranform_matrix.getTrans();
+		//m_bounding_box_trans[i] = m_bounding_box_trans[i] + tranform_matrix.getTrans();
 	}
 }
 
@@ -203,4 +207,9 @@ void Collidable::stampMatrix(){
 	}
 	std::cout<<"     " <<std::endl;
 
+}
+
+Vector3 Collidable::getBoundingBox(int index)
+{
+	return m_bounding_box_trans[index];
 }

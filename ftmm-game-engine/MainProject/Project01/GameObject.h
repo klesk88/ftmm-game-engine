@@ -6,12 +6,14 @@
 #include <string>
 #include "Vector3.h"
 #include "Quaternion.h"
+#include "ResourceManager.h"
 #include "Mesh.h"
-#include "TransformNode.h"
-#include "RigidBody.h"
+//#include "TransformNode.h"
 #include "Material.h"
 
-class Collidable;
+#include "PhysicsManager.h"
+
+//class Collidable;
 
 
 using namespace std;
@@ -47,7 +49,7 @@ public:
 */
 	/*virtual*/ 
 	void init();
-	virtual void destroy() = 0;
+	//virtual void destroy() = 0;
 	virtual void update(vector<Event*> events);
 
 };

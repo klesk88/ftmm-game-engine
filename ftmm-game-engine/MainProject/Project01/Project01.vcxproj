@@ -87,6 +87,7 @@
     <ClCompile Include="GamePlay_03.cpp" />
     <ClCompile Include="GameStateManager.cpp" />
     <ClCompile Include="GameTime.cpp" />
+    <ClCompile Include="GJK.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="InputWord.cpp" />
     <ClCompile Include="Light.cpp" />
@@ -131,6 +132,7 @@
     <ClInclude Include="GamePlay_02.h" />
     <ClInclude Include="GamePlay_03.h" />
     <ClInclude Include="GameStateManager.h" />
+    <ClInclude Include="GJK.h" />
     <ClInclude Include="IObject3D.h" />
     <ClInclude Include="A.h" />
     <ClInclude Include="Camera.h" />

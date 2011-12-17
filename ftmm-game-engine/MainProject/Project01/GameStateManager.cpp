@@ -55,6 +55,7 @@ bool GameStateManager::transitToGameState(EGameState state)
 {
 	//cout << "GS " << state <<endl;
 	currentGameState->destroy();
+	//delete  dynamic_cast<(typeid (currentGameState))> (currentGameState);
 	currentGameState = gameStates[state];
 	currentGameState->init();
 	return true;

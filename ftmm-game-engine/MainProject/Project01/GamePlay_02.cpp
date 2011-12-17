@@ -78,10 +78,15 @@ void GamePlay_02::init()
 	node2->setOrientation(Quaternion(12,0.0,0.0,1.0));
 	*/
 }
+//GamePlay_02::~GamePlay_02()
+//{
+//	SceneManager::getInstance()->destroyCamera("camera2");
+//	delete cube_01;
+//}
 void GamePlay_02::destroy()
 {
 	SceneManager::getInstance()->destroyCamera("camera2");
-	cube_01->destroy();
+	delete cube_01;
 }
 
 bool GamePlay_02::update(vector<Event*> events)

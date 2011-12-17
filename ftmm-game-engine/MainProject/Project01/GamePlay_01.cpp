@@ -70,7 +70,7 @@ void GamePlay_01::init()
 	//cube_02->init(3);
 	cam->setPosition(Vector3(0.0f,0.0f,-15.0f));
 	
-	cube_01->mMesh->setMaterial(mat_01);
+	//cube_01->mMesh->setMaterial(mat_01);
 
 	mat_01->setDiffiuseColour(0.0,1.0,0.0);
 	
@@ -103,11 +103,17 @@ void GamePlay_01::init()
 	*/
 }
 
+//GamePlay_01::~GamePlay_01()
+//{
+//	SceneManager::getInstance()->destroyCamera("camera1");
+//	delete cube_01;
+//} 
+
 void GamePlay_01::destroy()
 {
 	SceneManager::getInstance()->destroyCamera("camera1");
-	cube_01->destroy();
-} 
+	delete cube_01;
+}
 
 bool GamePlay_01::update(vector<Event*> events)
 {
@@ -154,8 +160,9 @@ bool GamePlay_01::update(vector<Event*> events)
 	}
 
 	cube_01->mTransformNode->rotate(Quaternion(9000,0.0,0.0,-1.0), MovableObject::TransformSpace::TS_LOCAL);
+
 	//cube_01->mTransformNode->scale(Vector3(0.001,0.001,0.001));
-	//cube_01->mTransformNode->translate(Vector3(0.001,0.001,0.001),MovableObject::TransformSpace::TS_LOCAL);
+	cube_01->mTransformNode->translate(Vector3(0.01,0.01,0.01),MovableObject::TransformSpace::TS_LOCAL);
 
 
 	xrot_zero = (currentFramePositionx -512) - (lastFramePositionx);

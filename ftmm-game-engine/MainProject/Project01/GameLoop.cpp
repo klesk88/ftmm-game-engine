@@ -1,5 +1,6 @@
 #include "GameLoop.h"
 #include "Root.h"
+#include "PhysicsManager.h"
 
 void GameLoop::callGameLoop(bool game_is_run,const int base_fps,const int low_fps){
 	
@@ -66,6 +67,8 @@ bool GameLoop::gameLoop(const int base_fps,const int low_fps)
 				//cout<< "input" <<endl;
 			}
 		}
+
+		PhysicsManager::getInstance()->collisionDetector();
 
 		Root::getInstance()->updateGameState(input_events);
 		

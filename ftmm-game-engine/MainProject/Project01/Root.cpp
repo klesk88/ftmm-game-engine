@@ -34,7 +34,7 @@ void Root::init() //;
 	//And first, there was time (what else?)
 	mGameTime = GameTime::getInstance();
 	//mGameTime = new (EAllocationType::PHYSICS) GameTime::getInstance();
-	mResourceManager = ResourceManager::getInstance();
+	//mResourceManager = ResourceManager::getInstance();
 	mRenderManager = RenderManager::getInstance();
 	mRenderManager->initializeRender();
 

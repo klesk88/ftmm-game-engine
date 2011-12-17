@@ -1,6 +1,6 @@
 #include "CubeObjectTest.h"
-#include "ResourceManager.h"
-#include "PhysicsManager.h"
+
+//#include "PhysicsManager.h"
 
 CubeObjectTest::CubeObjectTest(){}
 
@@ -10,6 +10,13 @@ CubeObjectTest::CubeObjectTest(string name, Vector3 position, Quaternion orienta
 
 }
 */
+
+CubeObjectTest::~CubeObjectTest()
+{
+	TransformNode * parent = mTransformNode->getParent();
+	parent->deleteChild(mTransformNode);
+	delete mCollidable;
+}
 
 void CubeObjectTest::init(int code)
 {
@@ -23,7 +30,8 @@ void CubeObjectTest::init(int code)
 			break;
 		case 2:
 			//mMesh = ResourceManager::getInstance()->loadMesh("Data/.obj");
-			mMesh = new Mesh(0.4,1.0,0.0,0.0);
+			mMesh = new Mesh(0.4f,1.0f,0.0f,0.0f);
+			mCollidable = new Collidable(this);
 			mTransformNode->attachObject(mMesh);
 			break;
 		case 3:
@@ -41,9 +49,9 @@ void CubeObjectTest::init(int code)
 		//cube4 = new Mesh(0.3,0.5,0.0,0.5);
 };
 
-void CubeObjectTest::destroy()
-{
-	TransformNode * parent = mTransformNode->getParent();
-	parent->deleteChild(mTransformNode);
-	//delete mCollidable;
-}
+//void CubeObjectTest::destroy()
+//{
+//	TransformNode * parent = mTransformNode->getParent();
+//	parent->deleteChild(mTransformNode);
+//	delete mCollidable;
+//}

@@ -9,7 +9,7 @@
 #include "GameLoop.h"
 #include "RootTransformNode.h"
 #include "RenderManager.h"
-#include "ResourceManager.h"
+//#include "ResourceManager.h"
 #include "GameTime.h"
 
 class GameState;
@@ -30,7 +30,7 @@ public:
 	RootTransformNode* mRootTransformNode;
 	RenderManager* mRenderManager;
 	GameLoop*  mGameLoop;
-	ResourceManager * mResourceManager;
+	//ResourceManager * mResourceManager;
 	GameTime * mGameTime;
 	
 
