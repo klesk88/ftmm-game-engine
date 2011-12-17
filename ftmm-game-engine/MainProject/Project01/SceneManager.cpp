@@ -16,6 +16,8 @@ SceneManager::SceneManager()
 	//game_is_run=false;//by default the game is run state is set to false so the game loop doesn't start until the user start it
 	//root_ptr = RootTransformNode::getInstance("Root");
 	root_ptr = Root::getInstance()->mRootTransformNode;
+	//scene_lights = new Light[8];
+	number_scene_lights = 0;
 }
 
 
@@ -50,6 +52,69 @@ Camera * SceneManager::createCamera(const std::string  & stringName){
 
 }
 
+Light * SceneManager::createLight(const std::string  & name, Light::LightTypes type){
+
+	Light * l = new Light (name,type);
+
+	switch (number_scene_lights)
+	{
+
+	case (0):
+		glEnable(GL_LIGHT0);
+		l->setNumberGlLight(GL_LIGHT0);
+		break;
+	case (1):
+		glEnable(GL_LIGHT1);
+		l->setNumberGlLight(GL_LIGHT1);
+		break;
+	case (2):
+		glEnable(GL_LIGHT2);
+		l->setNumberGlLight(GL_LIGHT2);
+		break;
+	case (3):
+		glEnable(GL_LIGHT3);
+		l->setNumberGlLight(GL_LIGHT3);
+		break;
+	case (4):
+		glEnable(GL_LIGHT4);
+		l->setNumberGlLight(GL_LIGHT4);
+		break;
+	case (5):
+		glEnable(GL_LIGHT5);
+		l->setNumberGlLight(GL_LIGHT5);
+		break;
+	case (6):
+		glEnable(GL_LIGHT6);
+		l->setNumberGlLight(GL_LIGHT6);
+		break;
+	case (7):
+		glEnable(GL_LIGHT7);
+		l->setNumberGlLight(GL_LIGHT7);
+		break;
+	//default :
+		//l = nullptr;
+			//throw exception
+	}
+
+//	int i = 0x4007;
+	//scene_lights[number_scene_lights] = *l;
+	scene_lights.push_back(l);
+	number_scene_lights ++;
+	
+	return l;
+}
+
+std::list <Light*> SceneManager::getSceneLights(){
+
+	return scene_lights;
+
+}
+
+int SceneManager::getLightsNumber(){
+
+	return number_scene_lights;
+}
+
 void SceneManager::destroyCamera(const std::string  & stringName){
 
 	Camera * destroyCam;
@@ -69,17 +134,30 @@ void SceneManager::destroyCamera(const std::string  & stringName){
 void SceneManager::renderScene(){
 
 	glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-
+	
 	std::list<Camera*>::iterator cam_it;
+	std::list<Light*>::iterator light_it;
 
 	for ( cam_it = camera_list.begin(); cam_it != camera_list.end(); ++cam_it){
 	
 		(**cam_it).updateCamera();
+
+		for ( light_it = scene_lights.begin(); light_it != scene_lights.end(); ++light_it){
+		
+			(**light_it).updadeLight();
+			
+		}
+
 		this->getRootTransformNode()->updateNode();
 
+		
+		
 	}
-
+	
 	SDL_GL_SwapBuffers();
+
+	
+	
 }
 
 

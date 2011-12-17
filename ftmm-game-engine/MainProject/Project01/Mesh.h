@@ -10,6 +10,7 @@
 #include <string>
 #include <map>
 #include <vector>
+#include "Material.h"
 
 
 class Mesh
@@ -29,12 +30,17 @@ class Mesh
 
 		std::map<std::string, Mesh *> sub_mesh_tab;
 
+		void setMaterial(Material * mat);
+		Material * getMaterial(void);
+
 
 	private:
 		Mesh(std::string name);
 		~Mesh();
 		void addSubMesh(Mesh* sub_mesh);
 		void initBuffer();
+		Material * m_material;
+		
 
 		//Only Contenitor variables
 

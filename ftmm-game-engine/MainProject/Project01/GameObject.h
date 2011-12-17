@@ -9,6 +9,7 @@
 #include "Mesh.h"
 #include "TransformNode.h"
 #include "RigidBody.h"
+#include "Material.h"
 
 class Collidable;
 

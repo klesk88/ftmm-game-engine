@@ -27,6 +27,7 @@ class RootTransformNode;
 //#include "Vector3.h"
 //#include "Matrix4.h"
 #include "Vector2.h"
+#include "Light.h"
 //#include <typeinfo.h>
 
 //#include "GamePlay_01.h"
@@ -50,6 +51,14 @@ class SceneManager
 		void destroyCamera(const std::string  & stringName);
 		
 		void renderScene();
+
+		Light * createLight(const std::string  & name, Light::LightTypes type);
+
+
+		std::list <Light*> getSceneLights();
+
+		int getLightsNumber(void);
+
 		~SceneManager();//{/*delete this;*/}
 
 		//Texture function
@@ -67,6 +76,9 @@ class SceneManager
 		SceneManager();
 		TransformNode * root_ptr;
 		std::list <Camera*> camera_list;
+		//Light  scene_lights[8] ;
+		std::list <Light*> scene_lights;
+		int number_scene_lights;
 
 	private:
 
