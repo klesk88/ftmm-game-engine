@@ -27,6 +27,8 @@ Mesh::Mesh(std::string name)
 	m_num_indices = 0;
 
 	sub_mesh_tab.clear();
+
+	m_material = NULL;
 }
 
 Mesh::~Mesh()
@@ -139,7 +141,11 @@ void Mesh::renderMesh()
     glDisableClientState(GL_NORMAL_ARRAY);
 	glDisableVertexAttribArray(tangents_attrib_array);
 	glDisableVertexAttribArray(binormals_attrib_array);
-
+	
+	/*if (m_material != NULL){
+	std::cout << "shader enabled" << std::endl;
+	}*/
+	
 }
 
 void Mesh::renderMeshDirect()
@@ -181,6 +187,32 @@ Vector3* Mesh::getTangents()
 unsigned int Mesh::getNumVertices()
 {
 	return m_num_vertices;
+}
+
+void Mesh::setMaterial( Material * mat){
+
+	m_material = mat;
+	if(hasSubMesh()){
+	
+		std::map<std::string, Mesh *>::iterator iter;
+		for (iter = sub_mesh_tab.begin(); iter!= sub_mesh_tab.end(); ++iter){
+		
+			iter->second->setMaterial(m_material);
+		
+		}
+	
+	}
+
+
+	if (m_material != NULL){
+	//std::cout << "shader enabled" << std::endl;
+	}
+	
+}
+
+Material * Mesh::getMaterial(){
+
+	return m_material;
 }
 
 
@@ -301,3 +333,4 @@ void Mesh::drawCube(){
 	glEnd();*/
 
 }
+

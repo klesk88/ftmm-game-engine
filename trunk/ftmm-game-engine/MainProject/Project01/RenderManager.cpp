@@ -108,7 +108,7 @@ int RenderManager::initializeRender()
 		glEnable( GL_DEPTH_TEST );
 
 		/* Enables Light */
-		//glEnable( GL_LIGHTING);
+		glEnable( GL_LIGHTING);
 		
 
 		/*Enable gouraud shading */
@@ -143,11 +143,11 @@ int RenderManager::initializeRender()
 		glLoadIdentity( );
 
 		glewInit();
-		if(glewIsSupported("GL_VERSION_3_3"))
-			cout << "Ready for OpenGL 3.3 \n" << endl;
+		if(glewIsSupported("GL_VERSION_3_2"))
+			cout << "Ready for OpenGL 3.2 \n" << endl;
 		else
 		{
-			cout << "OpenGL 3.3 not supported \n" << endl;
+			cout << "OpenGL 3.2 not supported \n" << endl;
 			//exit(1);
 		}
 

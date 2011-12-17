@@ -8,8 +8,8 @@
 #include <gl\glu.h>                            // Header File For The GLu32 Library
 //#include "GL\glew.h"
 
-#define SCREEN_WIDTH  640
-#define SCREEN_HEIGHT 480
+#define SCREEN_WIDTH  800
+#define SCREEN_HEIGHT 600
 #define SCREEN_BPP     16
 
 using namespace std;

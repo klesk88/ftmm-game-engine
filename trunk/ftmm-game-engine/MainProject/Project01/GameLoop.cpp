@@ -62,16 +62,18 @@ bool GameLoop::gameLoop(const int base_fps,const int low_fps)
 				{
 					Root::getInstance()->mGameStateManager->transitToGameState(eC_IE->get_gameStateRequest());
 				}
+
+				//cout<< "input" <<endl;
 			}
 		}
 
 		Root::getInstance()->updateGameState(input_events);
-
+		
 		//loop specific updates
 		next_game_tick += SKIP_TICKS;
 		loops++;
 	}
-
+	//cout << "renderrrrrrrrrrrrr" << endl;
 	Root::getInstance()->msc->renderScene();
 
 	// actual fps calculation inside loop

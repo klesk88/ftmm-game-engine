@@ -119,6 +119,8 @@ class TransformNode : public MovableObject
 	//private:
 	
 		void attachCollidable(Collidable * coll_ptr);
+
+		//Material * mat02;
 };
 
 #endif

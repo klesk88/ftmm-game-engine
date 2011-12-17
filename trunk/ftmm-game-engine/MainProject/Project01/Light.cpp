@@ -1,23 +1,37 @@
 #include "Light.h"
 
+
+
+
 Light::Light(const std::string  & name, LightTypes type)
-	{
+{
 		light_name = name;
 		m_light_type = type;
-		m_position = Vector3::ZERO;
-		m_direction = Vector3::UNIT_Z;
-		m_diffuse = Vector3::ZERO;
-		m_specular = Vector3::UNIT_SCALE;
-		m_range = 100000;
-		m_attenuation_const = 1.0;
-		m_attenuation_linear = 0.0;
-		m_attenuation_quad = 0.0;
-		m_spot_inner = 40.0f;
-		m_spot_outer = 30.0f;
-		m_spot_falloff = 1.0;
-		m_power_scale = 0.0;
-		m_visible = FALSE;
-	}
+		m_position[0] = 0.0;
+		m_position[1] = 0.0;
+		m_position[2] = 0.0;
+		m_position[3] = 1.0;
+		m_direction[0] = 0.0;
+		m_direction[1] = 0.0;
+		m_direction[2] = -1.0;
+		m_diffuse[0] = 0.8;
+		m_diffuse[1] = 0.8;
+		m_diffuse[2] = 0.8;
+		m_diffuse[3] = 1.0;
+		m_specular[0] = 0.8;
+		m_specular[1] = 0.8;
+		m_specular[2] = 0.8;
+		m_specular[3] = 1.0;
+		m_ambient[0] = 0.1;
+		m_ambient[1] = 0.1;
+		m_ambient[2] = 0.1;
+		m_ambient[3] = 1.0;
+		m_attenuation[0] = 8.0;
+		m_spot_inner[0] = 25.0f;
+		m_spot_outer[0] = 36.0f;
+	
+		
+}
 
 
 Light::~Light()
@@ -26,262 +40,148 @@ Light::~Light()
 }
 
 void Light::setType(LightTypes type)
-    {
+{
         m_light_type = type;
-    }
+}
 
 Light::LightTypes Light::getType(void) const
-    {
+{
         return m_light_type;
-    }
+}
 
-void Light::setPosition(float x, float y, float z)
-    {
-        m_position.x = x;
-        m_position.y = y;
-        m_position.z = z;
-    }
 
-void Light::setPosition(const Vector3& vec)
-    {
-        m_position = vec;
-    }
 
-const Vector3& Light::getPosition(void) const
-    {
-        return m_position;
-    }
+void Light::setPosition( Vector3& vec)
+{
+	m_position[0] = vec.x;
+	m_position[1] = vec.y;
+	m_position[2] = vec.z;
+	//std::cout << m_position[2] << std::endl;
+	
+	//glLightfv(this->number_gl_light, GL_POSITION, m_position);
 
-void Light::setDirection(float x, float y, float z)
-    {
-        m_direction.x = x;
-        m_direction.y = y;
-        m_direction.z = z;
-    }
+}
+
+Vector3& Light::getPosition(void) 
+{
+	return Vector3(m_position[0],m_position[1],m_position[2]);
+		
+}
+
+
 
 void Light::setDirection(const Vector3& vec)
-    {
-        m_direction = vec;
-    }
+{
+     
+	m_direction[0] = vec.x;
+	m_direction[1] = vec.y;
+	m_direction[2] = vec.z;
+	//glLightfv(this->number_gl_light, GL_SPOT_DIRECTION, m_direction);
+}
 
 const Vector3& Light::getDirection(void) const
-    {
-        return m_direction;
-    }
+{
+        return Vector3(m_direction[0],m_direction[1],m_direction[2]);
+}
 
 void Light::setDiffuseColour(float red, float green, float blue)
-    {
-        m_diffuse.x = red;
-        m_diffuse.y = blue;
-        m_diffuse.z = green;
-    }
+{
+        m_diffuse[0] = red;
+        m_diffuse[1] = green;
+        m_diffuse[2] = blue;
+		glLightfv(this->number_gl_light, GL_DIFFUSE, m_diffuse);
+}
 
 void Light::setSpecularColour(float red, float green, float blue)
-    {
-        m_specular.x = red;
-        m_specular.y = blue;
-        m_specular.z = green;
-    }
-
-void Light::setAttenuation(float range, float constant, float linear, float quadratic)
-    {
-        m_range = range;
-        m_attenuation_const = constant;
-        m_attenuation_linear = linear;
-        m_attenuation_quad = quadratic;
-    }
-float Light::getAttenuationRange(void) const
-    {
-        return m_range;
-    }
-
-float Light::getAttenuationConstant(void) const
-    {
-        return m_attenuation_const;
-    }
-
-float Light::getAttenuationLinear(void) const
-    {
-        return m_attenuation_linear;
-    }
-
-float Light::getAttenuationQuadric(void) const
-    {
-        return m_attenuation_quad;
-    }
-
-void _calcTempSquareDist(const Vector3& worldPos);
-
-void Light::setSpotlightRange(const Radian& innerAngle, const Radian& outerAngle, float falloff)
-    {
-
-        if (m_light_type != LT_SPOTLIGHT)
-		{
-			m_spot_inner =innerAngle;
-			m_spot_outer = outerAngle;
-			m_spot_falloff = falloff;
-		}
-    }
-
-void Light::setSpotlightInnerAngle(const Radian& val)
-	{
-		m_spot_inner = val;
-	}
-
-void Light::setSpotlightOuterAngle(const Radian& val)
-	{
-		m_spot_outer = val;
-	}
-
-void Light::setSpotlightFalloff(float val)
-	{
-		m_spot_falloff = val;
-	}
-
-const Radian& Light::getSpotlightInnerAngle(void) const
-    {
-        return m_spot_inner;
-    }
-
-const Radian& Light::getSpotlightOuterAngle(void) const
-    {
-        return m_spot_outer;
-    }
-
-float Light::getSpotlightFalloff(void) const
-    {
-        return m_spot_falloff;
-    }
-
-void Light::setPowerScale(float power)
-	{
-		m_power_scale = power;
-	}
-
-float Light::getPowerScale(void) const
-	{
-		return m_power_scale;
-	}
-
-void Light::drawLight()
 {
+        m_specular[0] = red;
+        m_specular[1] = green;
+        m_specular[2] = blue;
+		glLightfv(this->number_gl_light, GL_SPECULAR, m_specular);
+}
+
+void Light::setAmbientColour(float red, float green, float blue)
+{
+
+	m_ambient[0] = red;
+	m_ambient[1] = green;
+	m_ambient[2] = blue;
+	glLightfv(this->number_gl_light, GL_AMBIENT, m_ambient);
+
+}
+
+void Light::setAttenuation(float quadratic)
+{
+
+        m_attenuation[0] = quadratic;
+		glLightfv(this->number_gl_light,GL_QUADRATIC_ATTENUATION,m_attenuation);
+}
+
+
+
+float Light::getAttenuation(void)
+    
+{
+     return m_attenuation[0];
+}
+
+
+
+
+void Light::setSpotlightInnerAngle(float val)
+{
+		m_spot_inner[0] = val;
+		glLightfv(this->number_gl_light,GL_SPOT_CUTOFF, m_spot_inner);
+}
+
+void Light::setSpotlightOuterAngle(float val)
+	{
+		m_spot_outer[0] = val;
+	}
+
+
+
+float Light::getSpotlightInnerAngle(void) 
+{
+        return m_spot_inner[0];
+}
+
+float Light::getSpotlightOuterAngle(void)
+{
+        return m_spot_outer[0];
+}
+
+void Light::setNumberGlLight(GLenum gl_light){
+
+	number_gl_light = gl_light;
+
+	glLightfv(this->number_gl_light, GL_POSITION, m_position);
+	glLightfv(this->number_gl_light, GL_SPOT_DIRECTION, m_direction);
+	glLightfv(this->number_gl_light, GL_DIFFUSE, m_diffuse);
+	glLightfv(this->number_gl_light, GL_SPECULAR, m_specular);
+	glLightfv(this->number_gl_light, GL_AMBIENT, m_ambient);
+	glLightfv(this->number_gl_light,GL_QUADRATIC_ATTENUATION,m_attenuation);
+	glLightfv(this->number_gl_light,GL_SPOT_CUTOFF, m_spot_inner);
+
+}
+
+void Light::updadeLight(){
+
+	//float temp_pos[] = {0.0,0.0,8.0,1.0};
+	//float temp_dir[] = {0.0,0.0,-1.0};
+	//std::cout << m_position[2] << std::endl;
+	
 	glPushMatrix();
-	glBegin(GL_TRIANGLES);
-
-		glColor3f(1.0f,0.0f,0.0f);          // Red
-		glVertex3f( 0.0f, 0.05f, 0.0f);          // Top Of Triangle (Front)
-		glColor3f(0.0f,1.0f,0.0f);          // Green
-		glVertex3f(-0.05f,-0.05f, 0.0f);          // Left Of Triangle (Front)
-		glColor3f(0.0f,0.0f,1.0f);          // Blue
-		glVertex3f( 0.05f,-0.05f, 0.0f);          // Right Of Triangle (Front)
-
-		
-		glColor3f(1.0f,0.0f,0.0f);          // Red
-		glVertex3f( 0.0f, 0.05f, 0.0f);          // Top Of Triangle (Right)
-		glColor3f(0.0f,0.0f,1.0f);          // Blue
-		glVertex3f( 0.05f,-0.05f, 0.05f);          // Left Of Triangle (Right)
-		glColor3f(0.0f,1.0f,0.0f);          // Green
-		glVertex3f( 0.05f,-0.05f, -0.05f);         // Right Of Triangle (Right)
-
-		glColor3f(1.0f,0.0f,0.0f);          // Red
-		glVertex3f( 0.0f, 0.05f, 0.0f);          // Top Of Triangle (Back)
-		glColor3f(0.0f,1.0f,0.0f);          // Green
-		glVertex3f( 0.05f,-0.05f, -0.05f);         // Left Of Triangle (Back)
-		glColor3f(0.0f,0.0f,1.0f);          // Blue
-		glVertex3f(-0.05f,-0.05f, -0.05f);         // Right Of Triangle (Back)
-
-		glColor3f(1.0f,0.0f,0.0f);          // Red
-		glVertex3f( 0.0f, 0.05f, 0.0f);          // Top Of Triangle (Left)
-		glColor3f(0.0f,0.0f,1.0f);          // Blue
-		glVertex3f(-0.05f,-0.05f,-0.05f);          // Left Of Triangle (Left)
-		glColor3f(0.0f,1.0f,0.0f);          // Green
-		glVertex3f(-0.05f,-0.05f, 0.05f);          // Right Of Triangle (Left)
-		
-	glEnd();
+	glLightfv(GL_LIGHT0, GL_POSITION, m_position /*temp_pos*/);
 	glPopMatrix();
+	glPushMatrix();
+	glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION,m_direction /*temp_dir*/);
+	glPopMatrix();
+
 }
 
-void Light::update(void) const
-{
+std::string Light::getName(){
 
-}
 
-void Light::setVisible()
-{
-	m_visible = TRUE;
-}
-
-void Light::translate(const Vector3& translation_value)
-{
-	m_position.x += translation_value.x;
-	m_position.y += translation_value.y;
-	m_position.z += translation_value.z;
-}
-
-void Light::rotate(const Vector3& axis, const Radian& angle)
-{
-	Matrix3 mat_rot = Matrix3::IDENTITY;
-
-	mat_rot[0][0] = pow(axis.x,2) + (1 - pow(axis.x,2))* Math::Cos(angle);
-	mat_rot[0][1] = (1 - Math::Cos(angle)) * axis.x * axis.y - Math::Sin(angle) * axis.z;
-	mat_rot[0][2] = (1 - Math::Cos(angle)) * axis.x * axis.z + Math::Sin(angle) * axis.y;
-	mat_rot[1][0] = (1 - Math::Cos(angle)) * axis.y * axis.x + Math::Sin(angle) * axis.z;
-	mat_rot[1][1] = pow(axis.y,2) + (1 - pow(axis.y,2))* Math::Cos(angle);
-	mat_rot[1][2] = (1 - Math::Cos(angle)) * axis.y * axis.z - Math::Sin(angle) * axis.x;
-	mat_rot[2][0] = (1 - Math::Cos(angle)) * axis.z * axis.x - Math::Sin(angle) * axis.y;
-	mat_rot[2][1] = (1 - Math::Cos(angle)) * axis.z * axis.y + Math::Sin(angle) * axis.x;
-	mat_rot[2][2] = pow(axis.z,2) + (1 - pow(axis.z,2))* Math::Cos(angle);
-
-	m_direction = mat_rot * m_direction;
-}
-
-void Light::roll(const Radian& angle)
-{
-	Matrix3 mat_rot = Matrix3::IDENTITY;
-
-	mat_rot[0][0] = 1;
-	mat_rot[0][1] = 0;
-	mat_rot[0][2] = 0;
-	mat_rot[1][0] = 0;
-	mat_rot[1][1] = Math::Cos(angle);
-	mat_rot[1][2] = - Math::Sin(angle);
-	mat_rot[2][0] = 0;
-	mat_rot[2][1] = Math::Sin(angle);
-	mat_rot[2][2] = Math::Cos(angle);
-
-	m_direction = mat_rot * m_direction;
-}
-
-void Light::pitch(const Radian& angle)
-{
-	Matrix3 mat_rot = Matrix3::IDENTITY;
-
-	mat_rot[0][0] = Math::Cos(angle);
-	mat_rot[0][1] = 0;
-	mat_rot[0][2] = Math::Sin(angle);
-	mat_rot[1][0] = 0;
-	mat_rot[1][1] = 1;
-	mat_rot[1][2] = 0;
-	mat_rot[2][0] = - Math::Sin(angle);
-	mat_rot[2][1] = 0;
-	mat_rot[2][2] = Math::Cos(angle);
-
-	m_direction = mat_rot * m_direction;
-}
-
-void Light::yaw(const Radian& angle)
-{
-	Matrix3 mat_rot = Matrix3::IDENTITY;
-
-	mat_rot[0][0] = Math::Cos(angle);
-	mat_rot[0][1] = - Math::Sin(angle);
-	mat_rot[0][2] = 0;
-	mat_rot[1][0] = Math::Sin(angle);
-	mat_rot[1][1] = Math::Cos(angle);
-	mat_rot[1][2] = 0;
-	mat_rot[2][0] = 0;
-	mat_rot[2][1] = 1;
-	mat_rot[2][2] = 0;
-
-	m_direction = mat_rot * m_direction;
+	return light_name;
 }

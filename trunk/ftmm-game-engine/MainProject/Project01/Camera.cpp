@@ -147,7 +147,7 @@ void Camera::setOrientation(const Quaternion & orientation_value){
 	//temp_mt4[2][2] = -temp_mt4[2][2];
 	//temp_mt4.setScale(global_transform.getScale());
 	temp_mt4.setTrans(global_transform.getTrans());
-	global_transform = temp_mt4;
+	global_transform =  temp_mt4  ;
 
 
 }
@@ -183,6 +183,8 @@ void Camera::updateCamera(){
 	glLoadIdentity();
 	this->convertMatrixToFloat();
 	glMultMatrixf(arr);
+	//glMatrixMode(GL_MODELVIEW);
+    //glLoadMatrixf(arr);
 	//glGetFloatv(GL_MODELVIEW_MATRIX,arr2);
 
 }

@@ -6,6 +6,9 @@
 #include "CubeObjectTest.h"
 #include <string>
 #include "SceneManager.h"
+#include "MaterialManager.h"
+#include "Light.h"
+#include "Material.h"
 //class SceneManager;
 //class Vector2;
 //class Camera;
@@ -44,6 +47,8 @@ private:
 		Camera * cam;
 		Vector2 pos;
 		int posx, posy;
+
+		MaterialManager * mat_manager;
 		//end
 		
 		CubeObjectTest newAgeCube;
@@ -52,6 +57,9 @@ private:
 		~GamePlay_01();
 
 		string name;
+
+		Light * light1;
+		Material * mat_01;
 
 	protected:
 		GamePlay_01();

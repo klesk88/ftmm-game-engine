@@ -1,9 +1,15 @@
 #include "GamePlay_01.h"
 #include "Root.h"
+//#include "Light.h"
+//#include "Material.h"
 //#include "SceneManager.h"
 #define newCamera(x) SceneManager::getInstance()->createCamera(x)
 
 GamePlay_01 * GamePlay_01::m_instance = NULL;
+
+int cycle = 0;
+//float l_position[] = {0.0,0.0,-15.0};
+//float l_direction[] ={0.0,0.0,-1.0};
 
 GamePlay_01 * GamePlay_01::getInstance()
 {
@@ -16,7 +22,18 @@ GamePlay_01 * GamePlay_01::getInstance()
 
 GamePlay_01::GamePlay_01()
 {
+	
 	name = "GamePlay_01";
+	mat_manager = MaterialManager::getInstance();
+	mat_manager->enableDefaultMaterial();
+	//mat_01 = new Material("material_01");
+	cube_01 = new CubeObjectTest("node_1");
+	light1 = SceneManager::getInstance()->createLight("light01",Light::LightTypes::LT_SPOTLIGHT);
+	light1->setPosition(Vector3(0.0,0.0,8.0));
+	light1->setDirection(Vector3(0.0,0.0,-1.0));
+	mat_01 = new Material ("mat_01");
+	
+	
 	//newAgeCube = new CubeObjectTest("d", Vector3 (0.0,0.0,0.0), Quaternion.IDENTITY);
 }
 
@@ -26,6 +43,8 @@ void GamePlay_01::init()
 	//SceneManager * sc_mn = SceneManager::getInstance();
 	cam = newCamera("camera1");//SceneManager::getInstance()->createCamera("camera1");
 
+	
+	
 	x_vel = 0;
 	y_vel = 0;
 	speed = 1;
@@ -42,7 +61,7 @@ void GamePlay_01::init()
 
 	Root * mRoot = Root::getInstance(); 
 
-	cube_01 = new CubeObjectTest("node_1");
+	
 	//cube_02 = new CubeObjectTest("node_2");
 	/*cube_03 = new CubeObjectTest("node_3");
 	cube_04 = new CubeObjectTest("node_4");*/
@@ -50,6 +69,11 @@ void GamePlay_01::init()
 	cube_01->init(1);
 	//cube_02->init(3);
 	cam->setPosition(Vector3(0.0f,0.0f,-15.0f));
+	
+	cube_01->mMesh->setMaterial(mat_01);
+
+	mat_01->setDiffiuseColour(0.0,1.0,0.0);
+	
 	//cube_02->mTransformNode->setPosition(Vector3(10.0,0.0,0.0));
 
 	//cube_02->init(2);
@@ -87,6 +111,14 @@ void GamePlay_01::destroy()
 
 bool GamePlay_01::update(vector<Event*> events)
 {
+	/*glPushMatrix();
+	glLightfv(GL_LIGHT0, GL_POSITION, l_position);
+	glPopMatrix();
+	glPushMatrix();
+	glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, l_direction);
+	glPopMatrix();*/
+	//light1->setPosition(Vector3(0.0,0.0,15.0));
+	//cout << light1->getPosition().z << endl;
 	Matrix3 * mt3 = new Matrix3;
 	*mt3 = cam->getLocalAxes();
 	
@@ -111,44 +143,42 @@ bool GamePlay_01::update(vector<Event*> events)
 
 	if (x_vel != 0)
 	{
-		cam->translate((mt3->getColumn(0) * x_vel * speed),MovableObject::TransformSpace::TS_WORLD);
-		
+		//cam->translate((mt3->getColumn(0) * x_vel * speed),MovableObject::TransformSpace::TS_WORLD);
+		cam->translate( Vector3(1.0,0.0,0.0)*(x_vel * speed),MovableObject::TransformSpace::TS_WORLD);
 	}
 
 	if (y_vel != 0)
 	{
-		cam->translate((mt3->getColumn(2) * y_vel * speed),MovableObject::TransformSpace::TS_WORLD);
+		//cam->translate((mt3->getColumn(2) * y_vel * speed),MovableObject::TransformSpace::TS_WORLD);
+		cam->translate(Vector3(0.0,0.0,1.0)*(y_vel * speed),MovableObject::TransformSpace::TS_WORLD);
 	}
 
-	cube_01->mTransformNode->rotate(Quaternion(9000,0.0,0.0,1.0), MovableObject::TransformSpace::TS_LOCAL);
+	cube_01->mTransformNode->rotate(Quaternion(9000,0.0,0.0,-1.0), MovableObject::TransformSpace::TS_LOCAL);
 	//cube_01->mTransformNode->scale(Vector3(0.001,0.001,0.001));
 	//cube_01->mTransformNode->translate(Vector3(0.001,0.001,0.001),MovableObject::TransformSpace::TS_LOCAL);
 
-	/*
-	xrot_zero = currentFramePositionx - lastFramePositionx;
-	yrot_zero = currentFramePositiony - lastFramePositiony;
-	lastFramePositionx = currentFramePositionx;
-	lastFramePositiony = currentFramePositiony;
+
+	xrot_zero = (currentFramePositionx -512) - (lastFramePositionx);
+	yrot_zero = (currentFramePositiony -384) - (lastFramePositiony);
+	lastFramePositionx = currentFramePositionx -512;
+	lastFramePositiony = currentFramePositiony -384;
 	xrot += xrot_zero;
 	yrot += yrot_zero;
-	cout << "xrot = "  ;
-	cout << xrot << endl;
-	if(xrot_zero != 0){
 	
-		xrot_zero /= xrot_zero;
-		cam->rotate(Quaternion(100*xrot_zero,0.0,1.0,0.0), MovableObject::TransformSpace::TS_LOCAL);
-	}
-	if(yrot_zero != 0){
-	
-		yrot_zero /= yrot_zero;
-	}
-	//cam->setPosition(Vector3(0.0,0.0,-3.0));
-	Quaternion q1;Quaternion q2;Quaternion final_rot;
-	q1 = (Quaternion(xrot - 900 ,0.0,1.0,0.0));
-	q2 = (Quaternion(yrot -  900,1.0,0.0,0.0));
-	final_rot = q1 * q2;
-	//cam->setOrientation(final_rot /*, MovableObject::TransformSpace::TS_LOCAL);
-	//cam->rotate(Quaternion(100*xrot_zero,0.0,1.0,0.0), MovableObject::TransformSpace::TS_LOCAL);
+	//Quaternion q1;Quaternion q2;Quaternion final_rot = cam->getOrientation();
+	//q1 = (Quaternion(900/-xrot,0.0,1.0,0.0)); /*q1.FromAngleAxis(Radian((Radian::fromDegrees( 0.5 * xrot))),Vector3(0.0,1.0,0.0));*/
+	//q2 = (Quaternion(900/-yrot,1.0,0.0,0.0));  /*q2.FromAngleAxis(Radian((Radian::fromDegrees( 0.5 * yrot ))),Vector3(1.0,0.0,0.0));*/
+	//q1.normalise();
+	//q2.normalise();
+	//final_rot = q1 * q2;
+	//final_rot.normalise();
+	Quaternion qtr1;Quaternion qtr2;Quaternion qtr3;
+	qtr1 = Quaternion(Radian(xrot_zero /600),Vector3(0.0,1.0,0.0));
+	qtr2 = Quaternion(Radian(yrot_zero /600),Vector3(1.0,0.0,0.0));
+	qtr3 = (qtr1 * qtr2);
+	qtr3.normalise();
+	cam->rotate(qtr3,MovableObject::TransformSpace::TS_PARENT);
+	//cam->setOrientation(qtr3);
 
 
 	

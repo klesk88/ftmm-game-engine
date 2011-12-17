@@ -25,6 +25,9 @@ TransformNode::TransformNode(const std::string & stringName, Vector3 initial_pos
 	arr[14] =0 ;
 	arr[15] =1 ;
 
+	//mat02 = new Material("material02");
+	//mat02->setDiffiuseColour(0.0,1.0,0.0);
+
 }
 
 TransformNode * TransformNode::createChild(const std::string & stringName, Vector3 initial_position ){
@@ -100,7 +103,16 @@ void TransformNode::updateNode()
 		for (it = attached_obj.begin(); it!= attached_obj.end(); ++it)
 		{
 	
+			if((**it).getMaterial() != NULL){
+				(**it).getMaterial()->enableMaterial();
+				//std::cout << "shader enableddddddddddddd" << std::endl;
+				} //mat02->enableMaterial();
+			
 			(**it).renderMesh();
+			//mat02->disableMaterial();
+			if((**it).getMaterial() != NULL){
+				(**it).getMaterial()->disableMaterial();
+			}
 			//(**it).drawCube();
 		}
 	}
