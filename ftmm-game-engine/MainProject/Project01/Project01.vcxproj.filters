@@ -422,5 +422,28 @@
     <None Include="spotlight.vert">
       <Filter>Resource Files</Filter>
     </None>
+    <None Include="texture.raw">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="texture2.raw">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="Data\car2.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="Data\cone.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="Data\cubecube.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="Data\cubo.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
+    <Object Include="Data\SphereAndCube.obj">
+      <Filter>Resource Files</Filter>
+    </Object>
   </ItemGroup>
 </Project>
