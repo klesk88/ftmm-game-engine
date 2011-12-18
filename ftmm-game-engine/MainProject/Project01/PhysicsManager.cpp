@@ -38,11 +38,13 @@ TransformNode* PhysicsManager::getPhysicTransformNode()
 	return m_transform_node;
 }
 
-void PhysicsManager::collisionDetector()
+std::list<GameObject*> PhysicsManager::collisionDetector()
 {
 	std::list<Collidable*>::iterator iter;
 	std::list<Collidable*>::iterator iter2;
 	std::list<Collidable*>* coll_list = m_transform_node->getAttachedCollidablePtr();
+
+	std::list<GameObject*> object_collided;
 	//for(iter=coll_list->begin(); iter != coll_list->end(); iter++)
 	//{
 	//	(*iter)->setTransformationAtOBB();
@@ -69,6 +71,8 @@ void PhysicsManager::collisionDetector()
 			//Control if there is some collision
 			if(m_gjk->bodiesIntersect((*iter),(*iter2)))
 			{
+				object_collided.push_back((*iter)->getGameObject());
+				object_collided.push_back((*iter2)->getGameObject());
 				if(!collision)
 				{
 					std::cout << "collision" << std::endl;
@@ -85,4 +89,7 @@ void PhysicsManager::collisionDetector()
 			}
 		}
 	}
+
+
+	return object_collided;
 }

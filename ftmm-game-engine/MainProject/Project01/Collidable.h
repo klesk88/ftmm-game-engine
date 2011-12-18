@@ -18,6 +18,7 @@ class Collidable
 		void setTransformationAtOBB();
 		Vector3 getBoundingBox(int index);
 		static const int bounding_box_dimension;
+		GameObject* getGameObject();
 
 	private:
 		__event void MyEvent(int n_value);

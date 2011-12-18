@@ -216,3 +216,8 @@ Vector3 Collidable::getBoundingBox(int index)
 {
 	return m_bounding_box_trans[index];
 }
+
+GameObject* Collidable::getGameObject()
+{
+	return m_object_attached;
+}
