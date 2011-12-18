@@ -5,12 +5,12 @@
 
 Texture2D::Texture2D()
 {
-
+	texture = NULL;
 }
 
 Texture2D::~Texture2D()
 {
-
+	texture = NULL;
 }
 
 GLuint Texture2D::loadTexture( const char * filename, int width, int height )

@@ -36,7 +36,7 @@ void GamePlay_01::init()
 	
 	mat_manager = MaterialManager::getInstance();
 	mat_manager->enableDefaultMaterial();
-	//mat_01 = new Material("material_01");
+	mat_01 = new Material("material_01");
 	cube_01 = new CubeObjectTest("node_1");
 	light1 = SceneManager::getInstance()->createLight("light01",Light::LightTypes::LT_SPOTLIGHT);
 	light1->setPosition(Vector3(0.0,0.0,8.0));

@@ -19,6 +19,11 @@ GJK::GJK()
 	//simplex = new Vector3[4];
 }
 
+GJK::~GJK()
+{
+	simplex.clear();
+}
+
 //Return element in position index from simplex List
 Vector3 GJK::getListAt( int index)
 {

@@ -26,20 +26,18 @@ void CubeObjectTest::init(int code)
 		case 1:
 			mMesh = ResourceManager::getInstance()->loadMesh("Data/car.obj");
 			mTransformNode->attachObject(mMesh);
-			mCollidable = new (EAllocationType::PHYSICS)  Collidable(this);
-			PhysicsManager::getInstance()->attachCollidable(mCollidable);
+			mCollidable = PhysicsManager::getInstance()->attachCollidable(this);
 			break;
 		case 2:
 			//mMesh = ResourceManager::getInstance()->loadMesh("Data/.obj");
 			mMesh = new Mesh(0.4f,1.0f,0.0f,0.0f);
-			mCollidable = new (EAllocationType::PHYSICS)  Collidable(this);
+		//	mCollidable = new (EAllocationType::PHYSICS)  Collidable(this);
 			mTransformNode->attachObject(mMesh);
 			break;
 		case 3:
 			mMesh = ResourceManager::getInstance()->loadMesh("Data/SphereAndCube.obj");
 			mTransformNode->attachObject(mMesh);
-			mCollidable = new (EAllocationType::PHYSICS)  Collidable(this);
-			PhysicsManager::getInstance()->attachCollidable(mCollidable);
+			mCollidable = PhysicsManager::getInstance()->attachCollidable(this);
 			break;
 	}
 	//mMesh = new Mesh(0.4,1.0,0.0,0.0);

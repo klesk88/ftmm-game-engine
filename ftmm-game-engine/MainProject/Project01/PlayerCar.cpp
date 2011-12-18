@@ -24,8 +24,7 @@ void PlayerCar::init()
 	speed = 0.02;
 	mMesh = ResourceManager::getInstance()->loadMesh("Data/car.obj");
 	mTransformNode->attachObject(mMesh);
-	mCollidable = new (EAllocationType::PHYSICS)  Collidable(this);
-	PhysicsManager::getInstance()->attachCollidable(mCollidable);
+	mCollidable = PhysicsManager::getInstance()->attachCollidable(this);
 }
 
 //void PlayerCar::destroy()

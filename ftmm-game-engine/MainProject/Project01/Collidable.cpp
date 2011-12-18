@@ -1,5 +1,4 @@
 #include "Collidable.h"
-#include <iostream>
 #include"GameObject.h"
 
 const int Collidable::bounding_box_dimension = 8;
@@ -7,14 +6,18 @@ const int Collidable::bounding_box_dimension = 8;
 Collidable::Collidable(GameObject* object_attached)
 {
 	m_object_attached = object_attached;
-	m_bounding_box = new Vector3[8];
-	m_bounding_box_trans = new Vector3[8];
+	m_bounding_box = new (EAllocationType::PHYSICS) Vector3[8];
+	m_bounding_box_trans = new (EAllocationType::PHYSICS) Vector3[8];
 	setOrientedBoundingBox();
 }
 
 Collidable::~Collidable()
 {
 	PhysicsManager::getInstance()->removeCollidable(this);
+	m_bounding_box = nullptr;
+	m_bounding_box_trans = nullptr;
+	m_object_attached = nullptr;
+	//delete m_bounding_box;
 }
 
 void Collidable::raise (int n_value)
@@ -179,7 +182,7 @@ void Collidable::setTransformationAtOBB()
 		//take original position
 		m_bounding_box_trans[i] = m_bounding_box[i];
 		//aplly scale
-		m_bounding_box_trans[i] = m_bounding_box_trans[i] * tranform_matrix.getScale();
+		//m_bounding_box_trans[i] = m_bounding_box_trans[i] * tranform_matrix.getScale();
 		//apply rotation
 		Vector4 pos_temp = Vector4(m_bounding_box_trans[i].x,m_bounding_box_trans[i].y,m_bounding_box_trans[i].z,1);
 		pos_temp = tranform_matrix * pos_temp;
