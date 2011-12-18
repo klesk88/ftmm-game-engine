@@ -1,4 +1,5 @@
 #include "GamePlay_01.h"
+#include "GameObject.h"
 #include "Root.h"
 //#include "Light.h"
 //#include "Material.h"

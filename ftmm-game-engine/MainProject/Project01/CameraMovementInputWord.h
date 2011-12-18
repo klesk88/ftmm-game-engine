@@ -8,14 +8,12 @@
 class CameraMovementInputWord: public InputWord
 {
 
-		//velocity...
 public:
 	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputWord included")
 	CameraMovementInputWord(int count_gameStates) : InputWord(count_gameStates){}
 
 	InputEvent* update(SDL_Event _event)
 	{
-		//cout << "update entered" << endl;
 
 		Vector2 position_cur;
 		int x;
@@ -44,7 +42,6 @@ public:
 				break;
 		}
 
-		 //cout << "type in MMIW:" << typeid(cameraMovementEvent).name() << endl;
 		 return cameraMovementEvent;
 		//throw an MouseMovement event that has velocity, position, etc.
 	}

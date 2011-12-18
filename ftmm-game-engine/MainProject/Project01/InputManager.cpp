@@ -14,7 +14,6 @@ InputManager::InputManager()
 
 	EngineControls_InputWord* engineControls = new EngineControls_InputWord(0);
 	engineControls->set_listen_to_KeyState(true);
-	//engineControls->set_has_keypress_combination(true);
 	input_words.push_back(engineControls);
 
 	CarMovement_InputWord* carMove = new CarMovement_InputWord(0);
@@ -54,15 +53,12 @@ InputManager::SIGNAL InputManager::handle_input()
 
             //User has pressed a keyboard key - single stroke
             case SDL_KEYDOWN:
-			
-				//cout << "in key down" << endl;
 
 				for (vector<InputWord*>::iterator it = input_words.begin(); it!=input_words.end(); ++it) 
 				{
 					if((*it)->get_listen_to_KeyStroke() == true)
 					{
 						inputEvent = (*it)->update(_event);
-						//cout << "bla bla bla" << endl;
 						if(inputEvent->get_eventHasOccured() == true)
 							{
 								input_events.push_back(inputEvent);
@@ -72,7 +68,6 @@ InputManager::SIGNAL InputManager::handle_input()
 					if((*it)->get_listen_to_KeyState() == true)
 					{
 						inputEvent = (*it)->update(_event);
-						//cout << "bla bla bla" << endl;
 						if(inputEvent->get_eventHasOccured() == true)
 							{
 								input_events.push_back(inputEvent);
@@ -86,7 +81,6 @@ InputManager::SIGNAL InputManager::handle_input()
 			//User has pressed a keyboard key - single stroke
             case SDL_KEYUP:
 			
-				
 				//cout << "in key up" << endl;
 
 				for (vector<InputWord*>::iterator it = input_words.begin(); it!=input_words.end(); ++it) 
@@ -100,8 +94,7 @@ InputManager::SIGNAL InputManager::handle_input()
 								input_events.push_back(inputEvent);
 							}
 					}
-				}
-				
+				}	
                 break;
 				
             //User has moved the mouse

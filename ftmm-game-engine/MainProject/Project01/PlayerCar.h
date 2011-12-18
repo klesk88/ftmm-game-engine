@@ -25,7 +25,7 @@ public:
 	void init();
 	void destroy();
 	
-	// as in this example the level preselects events, 
+	// as in this example the level preselects events and calls handleInput, 
 	// there is also an update method that is called without arguments
 	void update();
 	

@@ -118,10 +118,6 @@ public:
 				engineControlsEvent->set_eventHasOccured(true);
 			}
 		}
-
-		//gameState = (EGameState) gotoGameState;
-		//cout << "GAME STATE: " << gotoGameState << endl;
-
 		 return engineControlsEvent;
 	}
 };
