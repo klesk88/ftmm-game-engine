@@ -27,6 +27,7 @@ private:
 public:
 	bool bodiesIntersect(Collidable * shape1, Collidable * shape2);
 	GJK();
+	~GJK();
 	static GJK* getInstance();
 };
 
