@@ -1,6 +1,7 @@
 #include "AICar.h"
 #include "GameObject.h"
 #include "AI_Manager.h"
+#include "AI_GameModel.h"
 
 AICar::AICar(){}
 
@@ -24,5 +25,27 @@ void AICar::init(int code)
 	mMesh = ResourceManager::getInstance()->loadMesh("Data/car.obj");
 	mTransformNode->attachObject(mMesh);
 	mCollidable = PhysicsManager::getInstance()->attachCollidable(this);
-	mAgent = AI_Manager::getInstance()->get_AIAgent(1);
-};
+	mAgent = AI_Manager::getInstance()->get_AIAgent(name_this);
+	collided = false;
+	collide_with = nullptr;
+}
+
+void AICar::onAI()
+{
+	if(collide_with != nullptr)
+	{
+		//We inform the knowledge base of the game about the collision.
+		AI_GameModel::getInstance()->set_collision_with(name_this, collide_with->name_this);
+	}
+	else
+	{
+		AI_GameModel::getInstance()->set_NOcollision(name_this);
+	}
+
+	cout << mAgent->move_backwards << endl;
+	if(mAgent->move_backwards)
+	{
+		mTransformNode->setPosition(Vector3(-20.0,0.0,0.0));
+	}
+
+}

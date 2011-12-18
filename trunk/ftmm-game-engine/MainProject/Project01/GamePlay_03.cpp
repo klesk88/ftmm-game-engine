@@ -43,8 +43,11 @@ void GamePlay_03::init()
 	playerCar = new PlayerCar("pCar_01");
 	playerCar ->init();
 
-	car = new CubeObjectTest("pCar_02");
+	car = new AICar("cCar_01");
 	car ->init(1);
+
+	/*car2 = new AICar("cCar_02");
+	car2 ->init(2);*/
 
 	car->mTransformNode->setPosition(Vector3(20.0,0.0,0.0));
 
@@ -101,6 +104,7 @@ bool GamePlay_03::update(vector<Event*> events)
 		cam->translate((mt3->getColumn(2) * y_vel * speed),MovableObject::TransformSpace::TS_WORLD);
 	}
 
+	car->onAI();
 	playerCar->update();
 
 	return true;

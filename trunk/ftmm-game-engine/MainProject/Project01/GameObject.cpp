@@ -9,6 +9,7 @@ GameObject::GameObject(string name, Vector3 position, Quaternion orientation)//;
 		Root * mRoot = Root::getInstance(); 
 		name_this = name;
 		mTransformNode = mRoot->mRootTransformNode->createChild(name);
+		collided = false;
 	}
 
 void GameObject::init()	

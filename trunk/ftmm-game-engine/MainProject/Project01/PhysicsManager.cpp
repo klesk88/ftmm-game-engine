@@ -1,4 +1,6 @@
 #include "PhysicsManager.h"
+#include "GameObject.h"
+
 
 PhysicsManager* PhysicsManager::m_instance = nullptr;
 
@@ -42,13 +44,12 @@ TransformNode* PhysicsManager::getPhysicTransformNode()
 	return m_transform_node;
 }
 
-std::list<GameObject*> PhysicsManager::collisionDetector()
+void PhysicsManager::collisionDetector()
 {
 	std::list<Collidable*>::iterator iter;
 	std::list<Collidable*>::iterator iter2;
 	std::list<Collidable*>* coll_list = m_transform_node->getAttachedCollidablePtr();
 
-	std::list<GameObject*> object_collided;
 	//for(iter=coll_list->begin(); iter != coll_list->end(); iter++)
 	//{
 	//	(*iter)->setTransformationAtOBB();
@@ -75,8 +76,11 @@ std::list<GameObject*> PhysicsManager::collisionDetector()
 			//Control if there is some collision
 			if(m_gjk->bodiesIntersect((*iter),(*iter2)))
 			{
-				object_collided.push_back((*iter)->getGameObject());
-				object_collided.push_back((*iter2)->getGameObject());
+				(*iter)->getGameObject()->collided = true;
+				(*iter)->getGameObject()->collide_with = (*iter2)->getGameObject();
+				(*iter2)->getGameObject()->collided = true;
+				(*iter2)->getGameObject()->collide_with = (*iter)->getGameObject();
+
 				if(!collision)
 				{
 					std::cout << "collision" << std::endl;
@@ -85,6 +89,10 @@ std::list<GameObject*> PhysicsManager::collisionDetector()
 			}
 			else
 			{
+				(*iter)->getGameObject()->collided = false;
+				(*iter)->getGameObject()->collide_with = nullptr;
+				(*iter2)->getGameObject()->collided = false;
+				(*iter2)->getGameObject()->collide_with = nullptr;
 				if(collision)
 				{
 					std::cout << "NOT   collision" << std::endl;
@@ -93,7 +101,4 @@ std::list<GameObject*> PhysicsManager::collisionDetector()
 			}
 		}
 	}
-
-
-	return object_collided;
 }

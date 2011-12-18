@@ -1,10 +1,16 @@
 #include "AI_GameModel.h"
 #define NULL 0
-
+#include <iostream>
+using namespace::std;
 
 AI_GameModel * AI_GameModel::p_instance = NULL;
 
-AI_GameModel::AI_GameModel(){}
+AI_GameModel::AI_GameModel()
+{
+	collision_player_car01 = false;
+	collision_player_car02 = false;
+	collision_car02_car01 = false;
+}
 
 AI_GameModel * getInstance();
 	
@@ -17,7 +23,30 @@ AI_GameModel * AI_GameModel::getInstance()
 	return p_instance;
 }
 
+void AI_GameModel::set_collision_with(const string & name_sender, const string & name_collision)
+{
+	if(name_sender == "cCar_01" && name_collision == "pCar_01")
+	{collision_player_car01=true;}
+	else if(name_sender == "cCar_02" && name_collision == "pCar_01")
+	{collision_player_car02=true;}
+	else if(name_sender == "cCar_01" && name_collision == "cCar_02")
+	{collision_car02_car01=true;}
+}
 
+void AI_GameModel::set_NOcollision(const string & name_sender)
+{
+	if(name_sender == "cCar_01")
+	{collision_player_car01=false;
+	collision_car02_car01=false;}
+	else if(name_sender == "cCar_02")
+	{collision_player_car02=false;
+	collision_car02_car01=false;}
+	else if(name_sender == "pCar_01")
+	{collision_player_car02=false;
+	collision_player_car02=false;}
+}
+
+/*
 void AI_GameModel::set_carMeshWidth(int w){carMeshWidth = w;}
 
 void AI_GameModel::set_playerInfo(int x, int y, int velo)
@@ -66,5 +95,5 @@ bool AI_GameModel::get_playerOnSameLane(int id)
 	if (lane_dif < carMeshWidth) return true;
 	else return false;
 }
-
+*/
 

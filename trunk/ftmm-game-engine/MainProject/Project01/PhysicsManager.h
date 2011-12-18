@@ -20,7 +20,7 @@ class PhysicsManager
 		static PhysicsManager * getInstance ();
 		Collidable* attachCollidable(GameObject* game_obj);
 		TransformNode* getPhysicTransformNode();
-		std::list<GameObject*> collisionDetector();
+		void collisionDetector();
 		void removeCollidable(Collidable * coll_ptr);
 
 		void init();
