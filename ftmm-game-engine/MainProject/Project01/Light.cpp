@@ -27,8 +27,8 @@ Light::Light(const std::string  & name, LightTypes type)
 		m_ambient[2] = 0.1;
 		m_ambient[3] = 1.0;
 		m_attenuation[0] = 8.0;
-		m_spot_inner[0] = 25.0f;
-		m_spot_outer[0] = 36.0f;
+		m_spot_inner[0] = 0.8f;
+		m_spot_outer[0] = 0.8f;
 	
 		
 }
