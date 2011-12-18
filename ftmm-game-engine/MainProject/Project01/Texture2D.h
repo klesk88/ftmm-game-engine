@@ -20,7 +20,7 @@ class Texture2D
 	private:
 		Texture2D();
 
-		GLuint texture;
+		GLuint m_texture;
 		int m_width;
 		int m_height;
 

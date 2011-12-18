@@ -6,8 +6,11 @@ varying vec4 ambient[2];
 varying vec4 specular[2];
 varying vec3 normal;
 varying vec3 lightDir[2];
+varying vec3 lightDir2[2];
 varying vec3 halfVector[2];
 varying float dist[2];
+varying float type;
+uniform float type_uniform;
 
 uniform int number_lights_uniform;
 varying int number_lights;
@@ -17,7 +20,9 @@ void main()
 	vec4 ecPos;
 	vec3 aux;
 	number_lights = 0; //number_lights_uniform;
+	type = type_uniform;
 	int s = number_lights + 1;
+	gl_TexCoord[0] = gl_MultiTexCoord0;
 
 	/* first transform the normal into eye space and normalize the result */
 	normal = normalize(gl_NormalMatrix * gl_Normal);
@@ -28,6 +33,9 @@ void main()
 		
 		aux = vec3(gl_LightSource[i].position-ecPos);
 		lightDir[i] = normalize(aux);
+		lightDir2[i] = normalize(gl_LightSource[0].spotDirection );
+		
+		
 	
 		/* compute the distance to the light source to a varying variable*/
 		dist[i] = length(aux);

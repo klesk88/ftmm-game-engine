@@ -8,6 +8,7 @@
 #include "MaterialManager.h"
 #include "Light.h"
 #include "Material.h"
+#include "Texture2D.h"
 //class SceneManager;
 //class Vector2;
 //class Camera;
@@ -64,6 +65,7 @@ private:
 		Light * light1;
 		Light * light2;
 		Material * mat_01;
+		Texture2D * tex2d;
 
 	protected:
 		GamePlay_01();
