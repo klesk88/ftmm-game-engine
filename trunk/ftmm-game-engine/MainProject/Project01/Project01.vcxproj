@@ -192,6 +192,15 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="spotlight.frag" />
     <None Include="spotlight.vert" />
+    <None Include="texture.raw" />
+    <None Include="texture2.raw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="Data\car2.obj" />
+    <Object Include="Data\cone.obj" />
+    <Object Include="Data\cubecube.obj" />
+    <Object Include="Data\cubo.obj" />
+    <Object Include="Data\SphereAndCube.obj" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
