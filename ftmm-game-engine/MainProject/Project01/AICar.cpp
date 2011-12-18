@@ -1,5 +1,6 @@
 #include "AICar.h"
 #include "GameObject.h"
+#include "AI_Manager.h"
 
 AICar::AICar(){}
 
@@ -23,4 +24,5 @@ void AICar::init(int code)
 	mMesh = ResourceManager::getInstance()->loadMesh("Data/car.obj");
 	mTransformNode->attachObject(mMesh);
 	mCollidable = PhysicsManager::getInstance()->attachCollidable(this);
+	mAgent = AI_Manager::getInstance()->get_AIAgent(1);
 };

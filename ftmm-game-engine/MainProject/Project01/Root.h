@@ -12,6 +12,7 @@
 #include "AI_Manager.h"
 //#include "ResourceManager.h"
 #include "GameTime.h"
+#include "PhysicsManager.h"
 
 class GameState;
 class Event;
@@ -34,6 +35,7 @@ public:
 	AI_Manager * mAIManager;
 	//ResourceManager * mResourceManager;
 	GameTime * mGameTime;
+	PhysicsManager * mPhysicsManager;
 	
 
 	/*

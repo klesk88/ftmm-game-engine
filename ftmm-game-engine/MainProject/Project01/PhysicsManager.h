@@ -23,6 +23,8 @@ class PhysicsManager
 		std::list<GameObject*> collisionDetector();
 		void removeCollidable(Collidable * coll_ptr);
 
+		void init();
+
 	private:
 		PhysicsManager();
 		static PhysicsManager * m_instance;

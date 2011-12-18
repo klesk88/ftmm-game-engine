@@ -44,6 +44,9 @@ void Root::init() //;
 	//get Instance to make sure a GameStateManager has been constructed
 
 	mAIManager = AI_Manager::getInstance();
+	mPhysicsManager = PhysicsManager::getInstance();
+	mPhysicsManager->init();
+
 	mGameStateManager = GameStateManager::getInstance();
 	mGameStateManager->init();
 	
