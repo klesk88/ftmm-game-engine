@@ -86,6 +86,8 @@ bool GameLoop::gameLoop()
 
 		Root::getInstance()->updateGameState(input_events);
 		
+		Root::getInstance()->mAIManager->updateAgents();
+
 		//loop specific updates
 		next_game_tick += SKIP_TICKS;
 		loops++;

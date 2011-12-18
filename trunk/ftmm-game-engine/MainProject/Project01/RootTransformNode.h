@@ -5,7 +5,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <iostream>
+
 #include "SDL.h"
 #include "SDL_opengl.h"
 #include <list>
