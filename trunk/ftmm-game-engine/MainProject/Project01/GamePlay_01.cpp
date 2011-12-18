@@ -25,6 +25,15 @@ GamePlay_01::GamePlay_01()
 {
 	
 	name = "GamePlay_01";
+	
+	
+	
+	//newAgeCube = new CubeObjectTest("d", Vector3 (0.0,0.0,0.0), Quaternion.IDENTITY);
+}
+
+void GamePlay_01::init() 
+{
+	
 	mat_manager = MaterialManager::getInstance();
 	mat_manager->enableDefaultMaterial();
 	//mat_01 = new Material("material_01");
@@ -38,14 +47,7 @@ GamePlay_01::GamePlay_01()
 	//light2->setDirection(Vector3(0.0,0.0,-1.0));
 	//light2->setDiffuseColour(0.8,0.0,0.0);
 	mat_01 = new Material ("mat_01");
-	
-	
-	//newAgeCube = new CubeObjectTest("d", Vector3 (0.0,0.0,0.0), Quaternion.IDENTITY);
-}
 
-void GamePlay_01::init() 
-{
-	
 	//SceneManager * sc_mn = SceneManager::getInstance();
 	cam = newCamera("camera1");//SceneManager::getInstance()->createCamera("camera1");
 

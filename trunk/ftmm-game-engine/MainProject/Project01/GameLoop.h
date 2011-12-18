@@ -17,7 +17,7 @@ class GameLoop
 {
 private:
 	vector<Event*> input_events;
-	bool gameLoop(const int base_fps,const int low_fps);
+	bool gameLoop();
 	//For FPS calculation
 	Uint32 startclock;
 	Uint32 deltaclock;
@@ -26,14 +26,16 @@ private:
 	int SKIP_TICKS;
 	int MAX_FRAMESKIP;
 	DWORD next_game_tick;
-
-
+	static GameLoop* game_loop;
+	void callGameLoop(bool,const int base_fps,const int low_fps);
 public:
 
 	/*	@Param base_fps: how many fps you want
 		@Param low_fps: minimum fps for having game logic at base fps speed
 	*/
-	void callGameLoop(bool,const int base_fps,const int low_fps);
+	static GameLoop* getInstance();
+	
+	
 	void createFrameListener(FrameListener*);
 	/*
 		i set the game_is:run variable so i know if the game loop have to start or not.

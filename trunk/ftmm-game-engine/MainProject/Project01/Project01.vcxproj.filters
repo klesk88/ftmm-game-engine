@@ -67,6 +67,9 @@
     <Filter Include="Source Files\AI">
       <UniqueIdentifier>{17997d67-a358-4189-a1d4-a52ef881a612}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\MemoryManager">
+      <UniqueIdentifier>{3c8d6b43-08ce-4b26-9841-6a3192528138}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -122,9 +125,6 @@
     </ClCompile>
     <ClCompile Include="EventHandler.cpp">
       <Filter>Source Files\EventManagement</Filter>
-    </ClCompile>
-    <ClCompile Include="A.cpp">
-      <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GamePlay_01.cpp">
       <Filter>Source Files\GameStates</Filter>
@@ -191,6 +191,12 @@
     </ClCompile>
     <ClCompile Include="Texture2D.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="MemoryManagement.cpp">
+      <Filter>Source Files\MemoryManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Defragmentation.cpp">
+      <Filter>Source Files\MemoryManager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -261,9 +267,6 @@
       <Filter>Header Files\EventManagement</Filter>
     </ClInclude>
     <ClInclude Include="FrameListener.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="A.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameTime.h">
@@ -388,6 +391,12 @@
     </ClInclude>
     <ClInclude Include="Texture2D.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Defragmentation.h">
+      <Filter>Header Files\MemoryManager</Filter>
+    </ClInclude>
+    <ClInclude Include="MemoryManager.h">
+      <Filter>Header Files\MemoryManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

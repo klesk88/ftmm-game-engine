@@ -44,7 +44,7 @@ void Root::init() //;
 	//get Instance to make sure a GameStateManager has been constructed
 	mGameStateManager = GameStateManager::getInstance();
 	mGameStateManager->init();
-	mGameLoop = new (EAllocationType::GAME_LOOP) GameLoop();
+	mGameLoop = GameLoop::getInstance();
 	
 
 	//cout << mGameStateManager->get_currentGameState()->get_name() << endl;

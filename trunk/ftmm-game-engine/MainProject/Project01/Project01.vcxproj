@@ -75,8 +75,8 @@
     <ClCompile Include="AI_GameModel.cpp" />
     <ClCompile Include="Collidable.cpp" />
     <ClCompile Include="CubeObjectTest.cpp" />
-    <ClCompile Include="A.cpp" />
     <ClCompile Include="Camera.cpp" />
+    <ClCompile Include="Defragmentation.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventHandler.cpp" />
     <ClCompile Include="FrameListener.cpp" />
@@ -97,6 +97,7 @@
     <ClCompile Include="Math.cpp" />
     <ClCompile Include="Matrix3.cpp" />
     <ClCompile Include="Matrix4.cpp" />
+    <ClCompile Include="MemoryManagement.cpp" />
     <ClCompile Include="Mesh.cpp" />
     <ClCompile Include="PhysicsManager.cpp" />
     <ClCompile Include="PlayerCar.cpp" />
@@ -123,6 +124,7 @@
     <ClInclude Include="Collidable.h" />
     <ClInclude Include="ConfigurationEnums.h" />
     <ClInclude Include="CubeObjectTest.h" />
+    <ClInclude Include="Defragmentation.h" />
     <ClInclude Include="EAllocationType.h" />
     <ClInclude Include="EIsAvailable.h" />
     <ClInclude Include="EngineControls_InputEvent.h" />
@@ -135,7 +137,6 @@
     <ClInclude Include="GameStateManager.h" />
     <ClInclude Include="GJK.h" />
     <ClInclude Include="IObject3D.h" />
-    <ClInclude Include="A.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraMovementInputEvent.h" />
     <ClInclude Include="CameraMovementInputWord.h" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Matrix3.h" />
     <ClInclude Include="Matrix4.h" />
     <ClInclude Include="MemoryManagement.h" />
+    <ClInclude Include="MemoryManager.h" />
     <ClInclude Include="Mesh.h" />
     <ClInclude Include="MovableObject.h" />
     <ClInclude Include="Node.h" />

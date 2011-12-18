@@ -15,7 +15,8 @@ PlayerCar::~PlayerCar()
 {
 	TransformNode * parent = mTransformNode->getParent();
 	parent->deleteChild(mTransformNode);
-	delete mCollidable;
+	mCollidable->~Collidable();
+	MemoryManagement::operator delete (mCollidable,EAllocationType::NO_ASSIGNED) ;
 }
 
 void PlayerCar::init()
@@ -23,7 +24,7 @@ void PlayerCar::init()
 	speed = 0.02;
 	mMesh = ResourceManager::getInstance()->loadMesh("Data/car.obj");
 	mTransformNode->attachObject(mMesh);
-	mCollidable = new Collidable(this);
+	mCollidable = new (EAllocationType::PHYSICS)  Collidable(this);
 	PhysicsManager::getInstance()->attachCollidable(mCollidable);
 }
 
