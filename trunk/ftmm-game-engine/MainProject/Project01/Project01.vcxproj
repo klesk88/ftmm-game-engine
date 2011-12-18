@@ -107,6 +107,7 @@
     <ClCompile Include="SceneManager.cpp" />
     <ClCompile Include="Root.cpp" />
     <ClCompile Include="textfile.cpp" />
+    <ClCompile Include="Texture2D.cpp" />
     <ClCompile Include="TransformNode.cpp" />
     <ClCompile Include="Triangle.cpp" />
     <ClCompile Include="Vector2.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="Root.h" />
     <ClInclude Include="SegmentInformation.h" />
     <ClInclude Include="textfile.h" />
+    <ClInclude Include="Texture2D.h" />
     <ClInclude Include="TransformNode.h" />
     <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vector2.h" />
