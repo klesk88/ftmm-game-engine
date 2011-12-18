@@ -2,6 +2,7 @@
 #define __ResourceManager_H__
 
 #include "Mesh.h"
+#include "Texture2D.h"
 // assimp include files. These three are usually needed.
 #include <assimp.hpp>	
 #include <aiPostProcess.h>
@@ -19,6 +20,7 @@ class ResourceManager
 		//functions
 			static ResourceManager * getInstance();
 			Mesh* loadMesh(const std::string& mesh_file);
+			Texture2D* loadTexture( const char * filename, int width, int height );
 			void init();
 		//variables
 		
@@ -37,6 +39,7 @@ class ResourceManager
 			// the global Assimp scene object
 			const aiScene* scene;
 			std::map<std::string, Mesh * > mesh_tab;
+			std::map<const char * , Texture2D *> texture_tab;
 
 };
 

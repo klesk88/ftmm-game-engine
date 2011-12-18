@@ -253,3 +253,30 @@ void ResourceManager::convertAIMeshToContenitorMesh(Mesh* mesh, aiMesh* ai_mesh)
 
 	mesh->initBuffer();
 }
+
+Texture2D* ResourceManager::loadTexture( const char * filename, int width, int height )
+{
+	std::map<const char * , Texture2D *>::iterator iter;
+	iter = texture_tab.find(filename);
+
+	if((iter) == texture_tab.cend())
+	{
+		Texture2D* text = new Texture2D();
+		text->texture = text->loadTexture(filename,width, height);
+		if(text->texture == 0)
+		{
+			//error
+			printf("ERROR:Import of Texture %s failed.",filename);
+		}
+		else
+		{
+			// Imported correctly
+			printf("Import of Texture %s succeeded.",filename);
+			texture_tab.insert(std::pair<const char *,Texture2D *>(filename,text));
+		}
+	}
+	else
+	{
+		return iter->second;
+	}
+}
