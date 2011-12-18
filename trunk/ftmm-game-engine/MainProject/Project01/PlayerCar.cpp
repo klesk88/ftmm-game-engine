@@ -22,7 +22,7 @@ PlayerCar::~PlayerCar()
 void PlayerCar::init()
 {
 	speed = 0.02;
-	mMesh = ResourceManager::getInstance()->loadMesh("Data/car.obj");
+	mMesh = ResourceManager::getInstance()->loadMesh("Data/car2.obj");
 	mTransformNode->attachObject(mMesh);
 	mCollidable = PhysicsManager::getInstance()->attachCollidable(this);
 }

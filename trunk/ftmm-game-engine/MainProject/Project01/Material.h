@@ -10,6 +10,7 @@
 #include <iostream>
 #include <sstream>
 #include "Light.h"
+#include "Texture2D.h"
 //#include "Root.h"
 //#include "MovableObject.h"
 //#include "TransformNode.h"
@@ -36,6 +37,8 @@ public:
 
 	void disableMaterial(void);
 
+	void setTexture2D(Texture2D * tex);
+
 
 protected:
 
@@ -47,6 +50,7 @@ protected:
 	float m_lights_outer_anagles[8];
 	int m_numbers_lights;
 	GLuint m_program;
+	GLuint m_texture;
 	
 
 

@@ -24,7 +24,7 @@ void CubeObjectTest::init(int code)
 	switch(code)
 	{
 		case 1:
-			mMesh = ResourceManager::getInstance()->loadMesh("Data/car.obj");
+			mMesh = ResourceManager::getInstance()->loadMesh("Data/car2.obj");
 			mTransformNode->attachObject(mMesh);
 			mCollidable = PhysicsManager::getInstance()->attachCollidable(this);
 			break;

@@ -6,7 +6,7 @@
 
 Material::Material(const std::string name){
 
-	
+	material_name = name;
 	m_diffuse[0] = 1.0;
 	m_diffuse[1] = 0.0;
 	m_diffuse[2] = 0.0;
@@ -22,6 +22,7 @@ Material::Material(const std::string name){
 	m_shine[0] = 110.0;
 	m_program = MaterialManager::getInstance()->getDefaultMaterialProgram();
 	m_numbers_lights = 0;
+	m_texture = NULL;
 	
 	/*m_lights_outer_anagles[0] = 36;
 	m_lights_outer_anagles[1] = 36;
@@ -69,10 +70,16 @@ void Material::setSpecularColour(float red, float green, float blue){
 
 }
 
+void Material::setTexture2D( Texture2D * tex){
+	
+	m_texture = tex->getTexture();
+
+}
+
 void Material::enableMaterial(){
 
 	glUseProgram(m_program);
-
+	float type;
 
 	m_numbers_lights = SceneManager::getInstance()->getLightsNumber();
 	std::list <Light*> sc_lt = SceneManager::getInstance()->getSceneLights();
@@ -81,7 +88,12 @@ void Material::enableMaterial(){
 	for (sc_lt_it = sc_lt.begin(); sc_lt_it != sc_lt.end(); ++sc_lt_it){
 	
 		m_lights_outer_anagles[i] = (**sc_lt_it).getSpotlightOuterAngle();
+		if (i == 0){
+			
+			type = (**sc_lt_it).getType();
 		
+		}
+
 		i++;
 	
 	}
@@ -106,8 +118,16 @@ void Material::enableMaterial(){
 	GLint val6 = glGetUniformLocation(m_program, "number_lights_uniform");
 	int s = m_numbers_lights -1;
 	glUniform1f(val6,s);
+
+	glActiveTexture(GL_TEXTURE0);
+	GLint val7 = glGetUniformLocation(m_program, "tex");
+	glUniform1i(val7,0);
+	glBindTexture(GL_TEXTURE_2D,m_texture);
 	//SceneManager::getInstance()->getSceneLights(lt);
 	//int i = lt[0].getType();
+	//std::cout<<type<<std::endl;
+	GLint val8 = glGetUniformLocation(m_program, "type_uniform");
+	glUniform1f(val8,type);
 
 }
 

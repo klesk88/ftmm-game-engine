@@ -54,6 +54,7 @@ class Mesh
 
 		GLuint tangents_attrib_array;
 		GLuint binormals_attrib_array;
+		GLuint texture_coord_attrib_array;
 
 		std::string m_name;
 		unsigned int m_num_faces;
@@ -64,7 +65,7 @@ class Mesh
 		unsigned int* m_indices;
 		Vector3 * m_normals;
 		Vector3 * m_binormals;
-		Vector3 * m_texture_coord;
+		float * m_texture_coord;
 
 		static int num_name;
 

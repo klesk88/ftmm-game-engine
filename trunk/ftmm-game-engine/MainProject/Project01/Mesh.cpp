@@ -89,9 +89,10 @@ void Mesh::initBuffer()
 	glBindBuffer(GL_ARRAY_BUFFER, tangent_buffer);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3) * m_num_vertices, &m_tangents[0], GL_STATIC_DRAW);
 
-	//glGenBuffers(1, &texture_coord_buffer);
-	//glBindBuffer(GL_ARRAY_BUFFER, texture_coord_buffer);
-	//glBufferData(GL_ARRAY_BUFFER, sizeof(Vector3) * m_num_vertices, &m_texture_coord[0], GL_STATIC_DRAW);
+	glGenBuffers(1, &texture_coord_buffer);
+	glBindBuffer(GL_ARRAY_BUFFER, texture_coord_buffer);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(float)* 2 * m_num_vertices, m_texture_coord, GL_STATIC_DRAW);
+
 }
 
 bool Mesh::hasSubMesh()
@@ -104,10 +105,13 @@ bool Mesh::hasSubMesh()
 
 void Mesh::renderMesh()
 {
+
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_NORMAL_ARRAY);
+	glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 	glEnableVertexAttribArray(tangents_attrib_array);
 	glEnableVertexAttribArray(binormals_attrib_array);
+	glEnableVertexAttribArray(texture_coord_attrib_array);
 
 	//Vertices
 	glBindBuffer(GL_ARRAY_BUFFER, vector_buffer_obj);
@@ -123,15 +127,17 @@ void Mesh::renderMesh()
 	//Tangents
 	glBindBuffer(GL_ARRAY_BUFFER, tangent_buffer);
 	glVertexAttribPointer(tangents_attrib_array, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-	//Texture Coords
-	//glBindBuffer(GL_ARRAY_BUFFER, texture_coord_buffer);
-	//glTexCoordPointer(3, GL_FLOAT, 0, NULL);
+
+	glBindBuffer(GL_ARRAY_BUFFER, texture_coord_buffer);
+	glTexCoordPointer(2, GL_FLOAT, 0, 0);
 	
 	//Draw
-    glPushMatrix();
-	glColor3f(153.0f,0.0f,102.0f);
+	    glPushMatrix();
+	//Texture Coords
+	//glBindTexture(GL_TEXTURE_2D,m_material->m_texture);
+	//glColor3f(153.0f,0.0f,102.0f);
     glDrawElements(GL_TRIANGLES, m_num_indices, GL_UNSIGNED_INT, 0);
-    glPopMatrix();
+	    glPopMatrix();
 
 	//Free Buffer
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -139,8 +145,10 @@ void Mesh::renderMesh()
 
     glDisableClientState(GL_VERTEX_ARRAY);
     glDisableClientState(GL_NORMAL_ARRAY);
+	glDisableClientState(GL_TEXTURE_COORD_ARRAY);
 	glDisableVertexAttribArray(tangents_attrib_array);
 	glDisableVertexAttribArray(binormals_attrib_array);
+	glDisableVertexAttribArray(texture_coord_attrib_array);
 	
 	/*if (m_material != NULL){
 	std::cout << "shader enabled" << std::endl;

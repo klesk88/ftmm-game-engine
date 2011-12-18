@@ -82,7 +82,7 @@ bool ResourceManager::Import3DFromFile(const std::string& pFile)
 		return false;
 	}
 
-	scene = importer.ReadFile( pFile, aiProcessPreset_TargetRealtime_Quality |aiProcess_Triangulate | aiProcess_GenSmoothNormals);
+	scene = importer.ReadFile( pFile, aiProcessPreset_TargetRealtime_Quality |aiProcess_Triangulate | aiProcess_GenSmoothNormals /*|aiProcess_GenUVCoords*/);
 
 	// If the import failed, report it
 	if( !scene)
@@ -113,6 +113,7 @@ Mesh* ResourceManager::convertAIMeshToMesh(aiMesh* ai_mesh)
 	mesh_rtn->m_normals = new Vector3[mesh_rtn->m_num_vertices];
 	mesh_rtn->m_binormals = new Vector3[mesh_rtn->m_num_vertices];
 	mesh_rtn->m_tangents = new Vector3[mesh_rtn->m_num_vertices];
+	mesh_rtn->m_texture_coord = new float[(mesh_rtn->m_num_vertices)*2];
 	for (unsigned int i = 0 ; i < ai_mesh->mNumVertices ; i++) 
 	{
 		if(ai_mesh->HasPositions())
@@ -148,14 +149,16 @@ Mesh* ResourceManager::convertAIMeshToMesh(aiMesh* ai_mesh)
 			mesh_rtn->m_tangents[i].z = pTan->z;
 		}
 		
-		//if(ai_mesh->HasTextureCoords(i))
-		//{
-		//	//Texture Coordinates
-		//	const aiVector3D* pTex		= (ai_mesh->mTextureCoords[i]);
-		//	mesh_rtn->m_texture_coord[i].x = pTex->x;
-		//	mesh_rtn->m_texture_coord[i].y = pTex->y;
-		//	mesh_rtn->m_texture_coord[i].z = pTex->z;
-		//}
+		if(ai_mesh->HasTextureCoords(i))
+		{
+			//Texture Coordinates
+			//const aiVector3D* pTex		= (ai_mesh->mTextureCoords[i]);
+			/*mesh_rtn->m_texture_coord[i].x = ai_mesh->mTextureCoords[0][i].x;
+			mesh_rtn->m_texture_coord[i].y = ai_mesh->mTextureCoords[0][i].y;*/
+			//mesh_rtn->m_texture_coord[i].z = pTex->z;
+			mesh_rtn->m_texture_coord[i*2] = ai_mesh->mTextureCoords[0][i].x;
+			mesh_rtn->m_texture_coord[i*2+1] = ai_mesh->mTextureCoords[0][i].y;
+		}
 	}
 
 	//Index
@@ -188,6 +191,7 @@ void ResourceManager::convertAIMeshToContenitorMesh(Mesh* mesh, aiMesh* ai_mesh)
 	mesh->m_normals = new Vector3[mesh->m_num_vertices];
 	mesh->m_binormals = new Vector3[mesh->m_num_vertices];
 	mesh->m_tangents = new Vector3[mesh->m_num_vertices];
+	mesh->m_texture_coord = new float[mesh->m_num_vertices];
 	for (unsigned int i = 0 ; i < ai_mesh->mNumVertices ; i++) 
 	{
 		
@@ -227,10 +231,12 @@ void ResourceManager::convertAIMeshToContenitorMesh(Mesh* mesh, aiMesh* ai_mesh)
 		if(ai_mesh->HasTextureCoords(i))
 		{
 			//Texture Coordinates
-			const aiVector3D* pTex		= (ai_mesh->mTextureCoords[i]);
-			mesh->m_texture_coord[i].x = pTex->x;
-			mesh->m_texture_coord[i].y = pTex->y;
-			mesh->m_texture_coord[i].z = pTex->z;
+			//const aiVector3D* pTex		= (ai_mesh->mTextureCoords[i]);
+			//mesh->m_texture_coord[i].x = ai_mesh->mTextureCoords[0][i].x;
+			//mesh->m_texture_coord[i].y = ai_mesh->mTextureCoords[0][i].y;
+			//mesh->m_texture_coord[i].z = pTex->z;
+			mesh->m_texture_coord[i*2] = ai_mesh->mTextureCoords[0][i].x;
+			mesh->m_texture_coord[i*2+1] = ai_mesh->mTextureCoords[0][i].y;
 		}
 	}
 
@@ -262,8 +268,8 @@ Texture2D* ResourceManager::loadTexture( const char * filename, int width, int h
 	if((iter) == texture_tab.cend())
 	{
 		Texture2D* text = new Texture2D();
-		text->texture = text->loadTexture(filename,width, height);
-		if(text->texture == 0)
+		text->m_texture = text->loadTexture(filename,width, height);
+		if(text->m_texture == 0)
 		{
 			//error
 			printf("ERROR:Import of Texture %s failed.",filename);
@@ -273,6 +279,7 @@ Texture2D* ResourceManager::loadTexture( const char * filename, int width, int h
 			// Imported correctly
 			printf("Import of Texture %s succeeded.",filename);
 			texture_tab.insert(std::pair<const char *,Texture2D *>(filename,text));
+			return text;
 		}
 	}
 	else
