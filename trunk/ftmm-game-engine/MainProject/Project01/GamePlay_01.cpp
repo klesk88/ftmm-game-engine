@@ -31,6 +31,11 @@ GamePlay_01::GamePlay_01()
 	light1 = SceneManager::getInstance()->createLight("light01",Light::LightTypes::LT_SPOTLIGHT);
 	light1->setPosition(Vector3(0.0,0.0,8.0));
 	light1->setDirection(Vector3(0.0,0.0,-1.0));
+	//light1->setDiffuseColour(0.8,0.8,0.8);
+	//light2 = SceneManager::getInstance()->createLight("light02",Light::LightTypes::LT_SPOTLIGHT);
+	//light2->setPosition(Vector3(0.0,0.0,8.0));
+	//light2->setDirection(Vector3(0.0,0.0,-1.0));
+	//light2->setDiffuseColour(0.8,0.0,0.0);
 	mat_01 = new Material ("mat_01");
 	
 	
@@ -73,7 +78,7 @@ void GamePlay_01::init()
 	//cube_01->mMesh->setMaterial(mat_01);
 
 	mat_01->setDiffiuseColour(0.0,1.0,0.0);
-	
+	mat_01->setShineValue(110);
 	//cube_02->mTransformNode->setPosition(Vector3(10.0,0.0,0.0));
 
 	//cube_02->init(2);
@@ -124,7 +129,9 @@ bool GamePlay_01::update(vector<Event*> events)
 	glLightfv(GL_LIGHT0, GL_SPOT_DIRECTION, l_direction);
 	glPopMatrix();*/
 	//light1->setPosition(Vector3(0.0,0.0,15.0));
-	//cout << light1->getPosition().z << endl;
+	
+	//cout << light1->getSpotlightOuterAngle() << endl;
+	
 	Matrix3 * mt3 = new Matrix3;
 	*mt3 = cam->getLocalAxes();
 	
@@ -143,6 +150,20 @@ bool GamePlay_01::update(vector<Event*> events)
 		{
 			x_vel = fDM->get_x_velocity();
 			y_vel = fDM->get_y_velocity();
+		}
+		if(CarMovement_InputEvent * cM = dynamic_cast<CarMovement_InputEvent *>(*it))
+		{
+			x_vel_li = cM->get_x_velocity();
+			y_vel_li = cM->get_y_velocity();
+			
+			if(x_vel_li != 0){
+			light1->setPosition(Vector3(0.0,light1->getPosition().y,light1->getPosition().z+(0.3* x_vel_li)));
+			}
+			if(y_vel_li != 0  ){
+				
+			light1->setPosition(Vector3(0.0,light1->getPosition().y+(0.3* -y_vel_li),light1->getPosition().z));
+			}
+			cout << light1->getPosition().z << endl;
 		}
 	}
 
@@ -164,7 +185,7 @@ bool GamePlay_01::update(vector<Event*> events)
 	//cube_01->mTransformNode->scale(Vector3(0.001,0.001,0.001));
 	cube_01->mTransformNode->translate(Vector3(0.01,0.01,0.01),MovableObject::TransformSpace::TS_LOCAL);
 
-
+	//light1->setPosition(Vector3(0.0,0.0,light1->getPosition().z+0.1));
 	xrot_zero = (currentFramePositionx -512) - (lastFramePositionx);
 	yrot_zero = (currentFramePositiony -384) - (lastFramePositiony);
 	lastFramePositionx = currentFramePositionx -512;

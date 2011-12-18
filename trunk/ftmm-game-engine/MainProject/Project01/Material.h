@@ -44,6 +44,8 @@ protected:
 	float m_specular[4];
 	float m_ambient[4];
 	float m_shine[1];
+	float m_lights_outer_anagles[8];
+	int m_numbers_lights;
 	GLuint m_program;
 	
 

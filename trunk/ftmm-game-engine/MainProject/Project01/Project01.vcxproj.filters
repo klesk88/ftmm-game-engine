@@ -386,5 +386,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="ClassDiagram1.cd" />
+    <None Include="spotlight.frag">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="spotlight.vert">
+      <Filter>Resource Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -25,6 +25,8 @@ private:
 		float speed;
 		float x_vel;
 		float y_vel;
+		float x_vel_li;
+		float y_vel_li;
 		float xrot;
 		float yrot;
 		float xrot_zero;
@@ -59,6 +61,7 @@ private:
 		string name;
 
 		Light * light1;
+		Light * light2;
 		Material * mat_01;
 
 	protected:
