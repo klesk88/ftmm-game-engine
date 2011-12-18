@@ -42,10 +42,14 @@ void Root::init() //;
 	mRootTransformNode = RootTransformNode::getInstance("Root");
 	msc = SceneManager::getInstance();
 	//get Instance to make sure a GameStateManager has been constructed
+
+	mAIManager = AI_Manager::getInstance();
 	mGameStateManager = GameStateManager::getInstance();
 	mGameStateManager->init();
+	
 	mGameLoop = GameLoop::getInstance();
 	
+
 
 	//cout << mGameStateManager->get_currentGameState()->get_name() << endl;
 
