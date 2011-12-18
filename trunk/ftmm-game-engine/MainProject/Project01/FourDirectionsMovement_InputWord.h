@@ -7,22 +7,13 @@
 class FourDirectionsMovement_InputWord: public InputWord
 {
 
-private:	
-	//bool north;
-	//bool east;
-	//bool south;
-	//bool west;
-	
+private:
 	float x_velocity;
 	float y_velocity;
 
 public:
 	FourDirectionsMovement_InputWord(int count_gameStates) : InputWord(count_gameStates)
 	{
-		//north = false;
-		//east = false;
-		//south = false;
-		//west = false;
 		x_velocity = 0;
 		y_velocity = 0;
 
@@ -30,13 +21,6 @@ public:
 
 	InputEvent* update(SDL_Event _event)
 	{
-		//cout << "update entered" << endl;
-		//north = false;
-		//east = false;
-		//south = false;
-		//west = false;
-
-
 		FourDirectionsMovement_InputEvent* fourDirectionalMovementEvent = new FourDirectionsMovement_InputEvent();
 		event_current = _event;
 
@@ -103,9 +87,7 @@ public:
 		fourDirectionalMovementEvent->set_y_velocity(y_velocity);
 		fourDirectionalMovementEvent->set_eventHasOccured(true);
 
-		 //cout << "type in MMIW:" << typeid(cameraMovementEvent).name() << endl;
 		 return fourDirectionalMovementEvent;
-		//throw an MouseMovement event that has velocity, position, etc.
 	}
 };
 

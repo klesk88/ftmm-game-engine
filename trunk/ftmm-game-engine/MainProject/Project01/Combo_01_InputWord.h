@@ -26,9 +26,7 @@ public:
 				break;
 		}
 
-		 //cout << "type in MMIW:" << typeid(cameraMovementEvent).name() << endl;
 		 return cameraMovementEvent;
-		//throw an MouseMovement event that has velocity, position, etc.
 	}
 };
 #endif

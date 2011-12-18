@@ -2,7 +2,6 @@
 #define __GamePlay_01_H__
 
 #include "GameState.h"
-#include "GameObject.h"
 #include "CubeObjectTest.h"
 #include <string>
 #include "SceneManager.h"
@@ -12,6 +11,8 @@
 //class SceneManager;
 //class Vector2;
 //class Camera;
+class GameObject;
+
 using namespace std;
 
 #pragma once
