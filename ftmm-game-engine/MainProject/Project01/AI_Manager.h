@@ -20,8 +20,8 @@ protected:
 	AI_Manager();
 public:
 
-	void updateAgents(){};
-	AI_Agent* get_AIAgent(int id);
+	void updateAgents();
+	AI_Agent* get_AIAgent(const string & name);
 
 	static AI_Manager * getInstance();
 	~AI_Manager();

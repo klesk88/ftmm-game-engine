@@ -27,8 +27,6 @@ GameState* Root::currentGameState()
 }
 */
 
-
-
 void Root::init() //;
 {
 	//And first, there was time (what else?)
@@ -44,6 +42,7 @@ void Root::init() //;
 	//get Instance to make sure a GameStateManager has been constructed
 
 	mAIManager = AI_Manager::getInstance();
+	mAIGameModel = AI_GameModel::getInstance();
 	mPhysicsManager = PhysicsManager::getInstance();
 	mPhysicsManager->init();
 

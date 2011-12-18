@@ -1,6 +1,7 @@
 #ifndef AI_Agent_H
 #define AI_Agent_H
 
+#include<string>
 class AI_AgentModel;
 
 using namespace::std;
@@ -8,9 +9,17 @@ using namespace::std;
 class AI_Agent
 {
 private:
+	
 	AI_AgentModel * m_AgentModel;
 public:
-	AI_Agent(){};
+	string name_t;
+	bool move_backwards;
+
+	AI_Agent(const string & name)
+	{
+		name_t = name;
+		move_backwards = false;
+	}
 };
 
 #endif

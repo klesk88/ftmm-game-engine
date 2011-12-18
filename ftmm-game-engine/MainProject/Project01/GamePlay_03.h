@@ -3,6 +3,7 @@
 
 #include "GameState.h"
 #include "PlayerCar.h"
+#include "AICar.h"
 #include "CubeObjectTest.h"
 #include <string>
 #include "SceneManager.h"
@@ -10,6 +11,7 @@
 //class Vector2;
 //class Camera;
 class GameObject;
+
 
 using namespace std;
 
@@ -50,7 +52,8 @@ private:
 
 		//level assets
 		PlayerCar * playerCar;
-		CubeObjectTest * car;
+		AICar* car;
+		AICar* car2;
 
 		static GamePlay_03 * m_instance;
 		~GamePlay_03();

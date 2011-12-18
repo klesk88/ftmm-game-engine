@@ -32,6 +32,8 @@ public:
 	RigidBody * mRigidBody;
 	Collidable* mCollidable;
 	AI_Agent* mAgent;
+	bool collided;
+	GameObject* collide_with;
 	
 	string name_this;
 

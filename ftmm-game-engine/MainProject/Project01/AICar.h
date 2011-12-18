@@ -20,6 +20,7 @@ public:
 	void init(int code);
 	void destroy();
 	void update(vector<Event*> events){};
+	void onAI();
 };
 
 #endif
