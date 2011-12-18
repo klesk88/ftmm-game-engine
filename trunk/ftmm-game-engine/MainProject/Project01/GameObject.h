@@ -15,7 +15,7 @@
 #include "PhysicsManager.h"
 
 //class Collidable;
-
+class AI_Agent;
 
 using namespace std;
 
@@ -31,6 +31,7 @@ public:
 	Mesh * mMesh;
 	RigidBody * mRigidBody;
 	Collidable* mCollidable;
+	AI_Agent* mAgent;
 	
 	string name_this;
 

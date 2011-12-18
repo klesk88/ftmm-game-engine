@@ -72,6 +72,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AICar.cpp" />
     <ClCompile Include="AI_GameModel.cpp" />
     <ClCompile Include="AI_Manager.cpp" />
     <ClCompile Include="Collidable.cpp" />
@@ -117,6 +118,7 @@
     <ClCompile Include="Vector4.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AICar.h" />
     <ClInclude Include="AI_Agent.h" />
     <ClInclude Include="AI_AgentModel.h" />
     <ClInclude Include="AI_Behaviour_SimpleAvoidCar.h" />

@@ -4,6 +4,10 @@ PhysicsManager* PhysicsManager::m_instance = nullptr;
 
 PhysicsManager::PhysicsManager()
 {
+}
+
+void PhysicsManager::init()
+{
 	SceneManager * sc_mn = SceneManager::getInstance();
 	m_transform_node =  sc_mn->getRootTransformNode()->createChild("PhysicsNode", Vector3::ZERO);
 	m_gjk = GJK::getInstance();

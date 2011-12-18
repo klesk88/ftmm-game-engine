@@ -5,7 +5,6 @@
 #include "Quaternion.h"
 #include "Vector3.h"
 #include <string>
-
 class GameObject;
 
 using namespace::std;
