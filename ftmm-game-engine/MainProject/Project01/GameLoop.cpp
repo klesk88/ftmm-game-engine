@@ -2,6 +2,20 @@
 #include "Root.h"
 #include "PhysicsManager.h"
 
+GameLoop* GameLoop::game_loop(nullptr);
+
+GameLoop* GameLoop::getInstance(){
+
+if(game_loop == NULL)
+	{
+		game_loop = new GameLoop();
+	}
+	return game_loop;
+}
+
+
+
+
 void GameLoop::callGameLoop(bool game_is_run,const int base_fps,const int low_fps){
 	
 	// for FPS counting
@@ -14,7 +28,7 @@ void GameLoop::callGameLoop(bool game_is_run,const int base_fps,const int low_fp
 
 	while(game_is_run)
 	{
-		game_is_run = gameLoop(base_fps,low_fps);
+		game_is_run = gameLoop();
 
 	}
 }
@@ -31,7 +45,7 @@ void GameLoop::startEngine(bool game_is_run,const int base_fps,const int low_fps
 }
 
 
-bool GameLoop::gameLoop(const int base_fps,const int low_fps)
+bool GameLoop::gameLoop()
 {
 	int loops;
 	bool game_is_run=true;

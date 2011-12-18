@@ -57,8 +57,9 @@ void GamePlay_03::init()
 
 void GamePlay_03::destroy()
 {
-	SceneManager::getInstance()->destroyCamera("camera2");
+	SceneManager::getInstance()->destroyCamera("camera3");
 	delete playerCar;
+	delete car;
 }
 
 bool GamePlay_03::update(vector<Event*> events)

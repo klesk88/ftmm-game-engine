@@ -1,40 +1,46 @@
 #include "MemoryManagement.h"
 
+
+MemoryManagement* MemoryManagement::m_memory(nullptr);
 long MemoryManagement::page_size=0;
 long  MemoryManagement::region_size=0;
 unsigned long  MemoryManagement::size_segment_information=sizeof(SegmentInformation);
-MemoryManagement* MemoryManagement::memory=nullptr;
-EAllocationType MemoryManagement::inf = EAllocationType::NO_ASSIGNED;
+Uint32 MemoryManagement::average_time_new(1);
+Uint32 MemoryManagement::average_time_delete(1);
+RegionInformation* MemoryManagement::reserved_memory(nullptr);
+Defragmentation* MemoryManagement::defrag(nullptr);
 
-MemoryManagement::MemoryManagement()
-{
 
+MemoryManagement::MemoryManagement(){
+
+	defrag = Defragmentation::getInstance();
 }
 
-MemoryManagement * MemoryManagement::getInstance()
-{
-	if(memory == nullptr)
+MemoryManagement* MemoryManagement::getInstance(){
+
+	if(m_memory == NULL)
 	{
-		memory = new MemoryManagement();
+		m_memory = new (EAllocationType::MEMORYMANAGEMENT) MemoryManagement();
 	}
-	return memory;
+	return m_memory;
 }
 
-
-void* MemoryManagement::n_new (size_t size){
+inline void* MemoryManagement::operator new (size_t size,EAllocationType inf){
 	
 	//const int inf = EAllocationType::NO_ASSIGNED;
 	SegmentInformation* segment(nullptr);
-	static RegionInformation* reserved_memory(nullptr);
 	//static unsigned long free_structure_dimension = sizeof(FreeSegmentStructure);
-	
+	//EAllocationType inf = EAllocationType::NO_ASSIGNED;
 	HANDLE memory_position(nullptr);
 	HANDLE result(nullptr);
 	size_t size_to_allocate=0;
 	size_t size_commited=0;
 	static bool to_be_initialized=true;
 	bool enter=false;
+	Uint32 temporary_time = 0;
 	
+	
+	temporary_time = SDL_GetTicks();
 	if(to_be_initialized){
 	
 		region_size=initializeRegionSize();
@@ -46,18 +52,16 @@ void* MemoryManagement::n_new (size_t size){
 		if(!reserveMemory(&reserved_memory,region_size))
 			exit(1); 
 		
-		//initializeFreeHeap();
-		
-		//free_memory_heap.insert(pair<unsigned long,SegmentInformation*>(0,segment));
-		//free_memory_heap.clear();
 		result=VirtualAlloc (reserved_memory->top_committed, (page_size),MEM_COMMIT, PAGE_READWRITE);
 		if(!result){
 			_tprintf(TEXT("Failed to commit the object in the heap with LastError %d.\n"), GetLastError());
 			exit(1); 
 		}
 		to_be_initialized=false;
+		
 	}
-
+	defrag->region_to_defrag = reserved_memory;
+	ResumeThread(defrag->h_thread[0]);
 	size_to_allocate = size+size_segment_information;//size + size_segment_information;
 	RegionInformation* check = reserved_memory;
 	while(check->previous_region!=nullptr){
@@ -145,6 +149,16 @@ void* MemoryManagement::n_new (size_t size){
 		
 			region_size_to_allocate = region_size;
 		}
+		//create a free segment if there is (enough) left space inside the region
+		if(((long)reserved_memory->top_reserved - (long)reserved_memory->actual_committed)>=size_segment_information){
+		
+			SegmentInformation* segment_free = createSegment(&reserved_memory,EAllocationType::NO_ASSIGNED,((long)reserved_memory->top_reserved - (long)reserved_memory->actual_committed)-size_segment_information);
+			segment_free->is_available=FREE;
+		
+			reserved_memory->last_free_segment = segment_free;
+		}
+
+
 		reserveMemory(&reserved_memory,region_size_to_allocate);
 		result=VirtualAlloc (reserved_memory->actual_committed, (page_size),MEM_COMMIT, PAGE_READWRITE);
 		if(!result){
@@ -213,12 +227,14 @@ void* MemoryManagement::n_new (size_t size){
 		//or i have to create a new region
 	reserved_memory->count_of_objects += 1;
 	result = segment->object_start_position;
+	//average_time_new = (average_time_new + temporary_time)/2;
+	temporary_time = SDL_GetTicks() - temporary_time;
+	if(average_time_new < temporary_time){
+		average_time_new = 10;//temporary_time;
+	}
+	WaitForMultipleObjects(1,defrag->h_thread,true,INFINITE);
+	SuspendThread(defrag->h_thread[0]);
 	return result;
-}
-
-void* MemoryManagement::operator new(size_t size){
-
-	return n_new(size);
 }
 
 SegmentInformation*  MemoryManagement::createSegment(RegionInformation** reserved_memory,EAllocationType inf,size_t size){
@@ -279,12 +295,12 @@ bool  MemoryManagement::getMemoryFromSystem(RegionInformation** region,size_t si
 	return true;
 }
 
-bool  MemoryManagement::reserveMemory(RegionInformation** region, unsigned long size_to_reserve){
+bool MemoryManagement::reserveMemory(RegionInformation** region, unsigned long size_to_reserve){
 	bool found=false;
 	MEMORY_BASIC_INFORMATION memory_info;
 	void *base_reserved(nullptr);
 	SYSTEM_INFO systemInfo;
-    GetSystemInfo(&systemInfo);
+	GetSystemInfo(&systemInfo);
 	static bool c = true;
 	
 	memory_info.BaseAddress = (* region)->top_reserved;
@@ -296,24 +312,24 @@ bool  MemoryManagement::reserveMemory(RegionInformation** region, unsigned long 
 
 	 GlobalMemoryStatusEx (&statex);
 	  _tprintf (TEXT("There is  %*ld percent of memory in use.\n"),
-            WIDTH, statex.dwMemoryLoad);
+			WIDTH, statex.dwMemoryLoad);
   _tprintf (TEXT("There are %*I64d total Kbytes of physical memory.\n"),
-            WIDTH, statex.ullTotalPhys/DIV);
+			WIDTH, statex.ullTotalPhys/DIV);
   _tprintf (TEXT("There are %*I64d free Kbytes of physical memory.\n"),
-            WIDTH, statex.ullAvailPhys/DIV);
+			WIDTH, statex.ullAvailPhys/DIV);
   _tprintf (TEXT("There are %*I64d total Kbytes of paging file.\n"),
-            WIDTH, statex.ullTotalPageFile/DIV);
+			WIDTH, statex.ullTotalPageFile/DIV);
   _tprintf (TEXT("There are %*I64d free Kbytes of paging file.\n"),
-            WIDTH, statex.ullAvailPageFile/DIV);
+			WIDTH, statex.ullAvailPageFile/DIV);
   _tprintf (TEXT("There are %*I64d total Kbytes of virtual memory.\n"),
-            WIDTH, statex.ullTotalVirtual/DIV);
+			WIDTH, statex.ullTotalVirtual/DIV);
   _tprintf (TEXT("There are %*I64d free Kbytes of virtual memory.\n"),
-            WIDTH, statex.ullAvailVirtual/DIV);
+			WIDTH, statex.ullAvailVirtual/DIV);
 
   // Show the amount of extended memory available.
 
   _tprintf (TEXT("There are %*I64d free Kbytes of extended memory.\n"),
-            WIDTH, statex.ullAvailExtendedVirtual/DIV);
+			WIDTH, statex.ullAvailExtendedVirtual/DIV);
 			*/
 	while (VirtualQuery (memory_info.BaseAddress, &memory_info, sizeof (MEMORY_BASIC_INFORMATION))) {
 	// Region is free, well aligned and big enough: we are done 
@@ -344,87 +360,124 @@ bool  MemoryManagement::reserveMemory(RegionInformation** region, unsigned long 
 	return true;
 }
 
-void  MemoryManagement::operator delete(void* obj){
+inline void  MemoryManagement::operator delete(void* obj,EAllocationType inf){
 	HANDLE t = (HANDLE)((unsigned long)obj - sizeof(SegmentInformation));
 	SegmentInformation* segment= (SegmentInformation*)((unsigned long)obj - sizeof(SegmentInformation));
 	//static SegmentInformation* previous_free_segment(nullptr);
 	RegionInformation* region = (RegionInformation*)(segment->region_position);
 	//Fills a block of memory with zeros.
 	//ZeroMemory(segment->object_start_position,(segment->dimension-1));
-	((RegionInformation*)(segment->region_position))->count_of_objects -=1;
+	Uint32 time_temp=0;
 
+
+	((RegionInformation*)(segment->region_position))->count_of_objects -=1;
+	//h_thread[0] = CreateThread(NULL,0,defragmentation,region,0,thread);
+	if(region->previous_region->reserve_size!=0){
+		defrag->region_to_defrag = region->previous_region;
+		ResumeThread(defrag->h_thread[0]);
+	}else if(region->next_region!=nullptr){
+		defrag->region_to_defrag = region->next_region;
+		ResumeThread(defrag->h_thread[0]);
+	}
+	time_temp = SDL_GetTicks();
 	
 	if(((RegionInformation*)(segment->region_position))->last_free_segment == nullptr){
 
 		segment->previous_segment = nullptr;		
 	}else{
+		segment->previous_segment = ((RegionInformation*)(segment->region_position))->last_free_segment;
+		((RegionInformation*)(segment->region_position))->last_free_segment->next_segment = segment;
+	}
+	
 		
 		//if i deallocate an entire region or there aren´t any objects left in the actual region
 		if(segment->dimension >= region_size || ((RegionInformation*)(segment->region_position))->count_of_objects == 0){
 			//i have to find the poistion of the segemnt containing the inforamtion for this region and delete it from the free structure
-						
+			if(((RegionInformation*)(segment->region_position))->previous_region !=nullptr){
+				((RegionInformation*)(segment->region_position))->previous_region->next_region = ((RegionInformation*)(segment->region_position))->next_region;
+			}
+			if(((RegionInformation*)(segment->region_position))->next_region !=nullptr){
+				((RegionInformation*)(segment->region_position))->next_region->previous_region=((RegionInformation*)(segment->region_position))->previous_region;
+			}
+			if(((RegionInformation*)(segment->region_position)) == reserved_memory){
+				if(((RegionInformation*)(segment->region_position))->previous_region !=nullptr){
+					reserved_memory = ((RegionInformation*)(segment->region_position))->previous_region;
+				}	
+			}
 			//ZeroMemory(segment->region_position,sizeof(RegionInformation)-1);
 			VirtualFree(((RegionInformation*)(segment->region_position))->region_start_position,region_size,MEM_RELEASE);
 			VirtualFree(((RegionInformation*)(segment->region_position)),sizeof(RegionInformation),MEM_RELEASE);	
+
+			if(defrag->h_thread[0]!=nullptr){
+				WaitForMultipleObjects(1,defrag->h_thread,true,INFINITE);
+				SuspendThread(defrag->h_thread[0]);
+			}
+
 			return;
 		}
 		//check if there is a segment contiguous with this
-		SegmentInformation* temp = ((RegionInformation*)(segment->region_position))->last_free_segment;
-		while(temp->previous_segment!= nullptr){
-			//if the actual segment is in frontof an other free segment
-			if (((long)temp->object_start_position + temp->dimension) - ((long) segment->segment_start_position)==0){
-				if(temp->is_available != FREE){
-					break;
-				}
-				//update the dimension of the free segment
-				temp->dimension += segment->dimension + size_segment_information;
-				//ZeroMemory(segment, sizeof(SegmentInformation)-1);
+		if(((RegionInformation*)(segment->region_position))->last_free_segment!=nullptr){
+			SegmentInformation* temp = ((RegionInformation*)(segment->region_position))->last_free_segment;
+			while(temp->previous_segment!= nullptr){
+				//if the actual segment is in frontof an other free segment
+				if (((long)temp->object_start_position + temp->dimension) - ((long) segment->segment_start_position)==0){
+					if(temp->is_available != FREE){
+						break;
+					}
+					//update the dimension of the free segment
+					temp->dimension += segment->dimension + size_segment_information;
+					//ZeroMemory(segment, sizeof(SegmentInformation)-1);
 				
-				if(((RegionInformation*)(segment->region_position))->maximum_free_dimension < temp->dimension){
+					if(((RegionInformation*)(segment->region_position))->maximum_free_dimension < temp->dimension){
 	
-					((RegionInformation*)(segment->region_position))->maximum_free_dimension = temp->dimension;
-				}
-
-				segment = nullptr;
-				return;
-			}
-			//if the actual segment is behind another free segment
-			if(((long)temp->segment_start_position) - ((long) segment->object_start_position + segment->dimension)==0){
-				if(temp->is_available != FREE){
-					break;
-				}
-				segment->dimension += temp->dimension + size_segment_information;
-				segment->is_available = FREE;
-				segment->previous_segment = temp->previous_segment;
-				//if is the block point by the free structure
-				if(temp->next_segment == nullptr){
+						((RegionInformation*)(segment->region_position))->maximum_free_dimension = temp->dimension;
+					}
+					segment = nullptr;
 				
-					((RegionInformation*)(segment->region_position))->last_free_segment = segment;
+					if(defrag->h_thread[0]!=nullptr){
+						WaitForMultipleObjects(1,defrag->h_thread,true,INFINITE);
+						SuspendThread(defrag->h_thread[0]);
+					}
+					return;
 				}
-				segment->next_segment = temp->next_segment;
-				segment->allocation_type = EAllocationType::NO_ASSIGNED;
-				temp->previous_segment->next_segment = segment;
+				//if the actual segment is behind another free segment
+				if(((long)temp->segment_start_position) - ((long) segment->object_start_position + segment->dimension)==0){
+					if(temp->is_available != FREE){
+						break;
+					}
+					segment->dimension += temp->dimension + size_segment_information;
+					segment->is_available = FREE;
+					segment->previous_segment = temp->previous_segment;
+					//if is the block point by the free structure
+					if(temp->next_segment == nullptr){
+				
+						((RegionInformation*)(segment->region_position))->last_free_segment = segment;
+					}
+					segment->next_segment = temp->next_segment;
+					segment->allocation_type = inf;
+					temp->previous_segment->next_segment = segment;
 			
-				if(((RegionInformation*)(segment->region_position))->maximum_free_dimension < segment->dimension){
+					if(((RegionInformation*)(segment->region_position))->maximum_free_dimension < segment->dimension){
 	
-					((RegionInformation*)(segment->region_position))->maximum_free_dimension = segment->dimension;
-				}
+						((RegionInformation*)(segment->region_position))->maximum_free_dimension = segment->dimension;
+					}
 
-				temp = nullptr;
-				return;
+					temp = nullptr;
+
+					if(defrag->h_thread[0]!=nullptr){
+						WaitForMultipleObjects(1,defrag->h_thread,true,INFINITE);
+						SuspendThread(defrag->h_thread[0]);
+					}
+
+					return;
 			
+				}
+				temp = temp->previous_segment;
 			}
-			temp = temp->previous_segment;
 		}
 		// if i'm not in the first allcoation for the free segment
-		
-		segment->previous_segment = ((RegionInformation*)(segment->region_position))->last_free_segment;
-		((RegionInformation*)(segment->region_position))->last_free_segment->next_segment = segment;
-		
-		
-	}
-	
-	segment->allocation_type = EAllocationType::NO_ASSIGNED;
+
+	segment->allocation_type = inf;
 	segment->is_available = FREE;
 	segment->next_segment = nullptr;
 	((RegionInformation*)(segment->region_position))->last_free_segment = segment;
@@ -432,4 +485,17 @@ void  MemoryManagement::operator delete(void* obj){
 	
 		((RegionInformation*)(segment->region_position))->maximum_free_dimension = segment->dimension;
 	}
+	Uint32 debug = SDL_GetTicks();
+	time_temp = SDL_GetTicks() - time_temp;
+	if(average_time_delete > time_temp){
+		average_time_delete =10; //time_temp;
+	}
+	if(defrag->h_thread[0]!=nullptr){
+		WaitForMultipleObjects(1,defrag->h_thread,true,INFINITE);
+		SuspendThread(defrag->h_thread[0]);
+		
+	}
+	//VirtualFree(segment->object_start_position,segment->dimension,MEM_RELEASE);
+	//average_time_delete = (average_time_delete + time_temp)/2;
 }
+

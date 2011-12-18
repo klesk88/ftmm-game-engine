@@ -11,6 +11,7 @@ enum EAllocationType
 		NODES,
 		GAME_LOOP,
 		INPUT_MANAGER,
+		MEMORYMANAGEMENT,
 };
 
 

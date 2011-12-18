@@ -1,93 +1,9 @@
-﻿Build started 18-12-2011 18:01:45.
-     1>Project "C:\Documents and Settings\tgei\Desktop\sdfghhjohjo\ftmm-game-engine\MainProject\Project01\Project01.vcxproj" on node 2 (build target(s)).
+﻿Build started 18-12-2011 21:21:35.
+     1>Project "C:\Documents and Settings\merm\Desktop\aserrdfgstdgy\Project01\Project01.vcxproj" on node 2 (build target(s)).
      1>InitializeBuildStatus:
          Creating "Debug\Project01.unsuccessfulbuild" because "AlwaysCreate" was specified.
        ClCompile:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\Project01\glew-1.7.0\include" /I"..\Project01\assimp--2.0.863-sdk\include" /I"..\Project01\SDL-1.2.14\include" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GamePlay_01.cpp GamePlay_02.cpp GamePlay_03.cpp GameStateManager.cpp TransformNode.cpp
-         GamePlay_03.cpp
-         XXXXXXXXXXXXXXXXXXXXXXX Event included
-         XXXXXXXXXXXXXXXXXXXXXXX EventHandler included
-         XXXXXXXXXXXXXXXXXXXXXXX Quaternion included
-         XXXXXXXXXXXXXXXXXXXXXXX IGameState included
-         XXXXXXXXXXXXXXXXXXXXXXX IObject3D included
-         XXXXXXXXXXXXXXXXXXXXXXX Light included
-         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
-         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
-         XXXXXXXXXXXXXXXXXXXXXXX Node included
-         XXXXXXXXXXXXXXXXXXXXXXX MovableObject included
-         XXXXXXXXXXXXXXXXXXXXXXX TransformNode included
-         XXXXXXXXXXXXXXXXXXXXXXX Camera included
-         XXXXXXXXXXXXXXXXXXXXXXX RootTransformNode included
-         XXXXXXXXXXXXXXXXXXXXXXX SceneManager included
-         XXXXXXXXXXXXXXXXXXXXXXX GameObject included
-         XXXXXXXXXXXXXXXXXXXXXXX PlayerCarincluded
-         XXXXXXXXXXXXXXXXXXXXXXX Why is Object3D not included here?
-         XXXXXXXXXXXXXXXXXXXXXXX CubeObjectTest included
-         XXXXXXXXXXXXXXXXXXXXXXX GamePlay_03 included
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\regioninformation.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(69): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(134): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(137): warning C4018: '>' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(187): warning C4018: '>' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(361): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(381): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(403): warning C4482: nonstandard extension used: enum 'EAllocationType' used in qualified name
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(406): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(425): warning C4482: nonstandard extension used: enum 'EAllocationType' used in qualified name
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(429): warning C4018: '<' : signed/unsigned mismatch
-         XXXXXXXXXXXXXXXXXXXXXXX InputEvent included
-         XXXXXXXXXXXXXXXXXXXXXXX InputWord included
-         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputEvent included
-         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputWord included
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(32): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(32): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         XXXXXXXXXXXXXXXXXXXXXXX InputManager included
-         XXXXXXXXXXXXXXXXXXXXXXX GameTime included
-         XXXXXXXXXXXXXXXXXXXXXXX Root included
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\gameplay_03.cpp(95): warning C4482: nonstandard extension used: enum 'MovableObject::TransformSpace' used in qualified name
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\gameplay_03.cpp(100): warning C4482: nonstandard extension used: enum 'MovableObject::TransformSpace' used in qualified name
-         GamePlay_02.cpp
-         XXXXXXXXXXXXXXXXXXXXXXX Event included
-         XXXXXXXXXXXXXXXXXXXXXXX EventHandler included
-         XXXXXXXXXXXXXXXXXXXXXXX Quaternion included
-         XXXXXXXXXXXXXXXXXXXXXXX IGameState included
-         XXXXXXXXXXXXXXXXXXXXXXX IObject3D included
-         XXXXXXXXXXXXXXXXXXXXXXX Light included
-         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
-         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
-         XXXXXXXXXXXXXXXXXXXXXXX Node included
-         XXXXXXXXXXXXXXXXXXXXXXX MovableObject included
-         XXXXXXXXXXXXXXXXXXXXXXX TransformNode included
-         XXXXXXXXXXXXXXXXXXXXXXX Camera included
-         XXXXXXXXXXXXXXXXXXXXXXX RootTransformNode included
-         XXXXXXXXXXXXXXXXXXXXXXX SceneManager included
-         XXXXXXXXXXXXXXXXXXXXXXX GameObject included
-         XXXXXXXXXXXXXXXXXXXXXXX Why is Object3D not included here?
-         XXXXXXXXXXXXXXXXXXXXXXX CubeObjectTest included
-         XXXXXXXXXXXXXXXXXXXXXXX GamePlay_02 included
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\regioninformation.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(69): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(134): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(137): warning C4018: '>' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(187): warning C4018: '>' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(361): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(381): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(403): warning C4482: nonstandard extension used: enum 'EAllocationType' used in qualified name
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(406): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(425): warning C4482: nonstandard extension used: enum 'EAllocationType' used in qualified name
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(429): warning C4018: '<' : signed/unsigned mismatch
-         XXXXXXXXXXXXXXXXXXXXXXX InputEvent included
-         XXXXXXXXXXXXXXXXXXXXXXX InputWord included
-         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputEvent included
-         XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputWord included
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(32): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(32): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-         XXXXXXXXXXXXXXXXXXXXXXX InputManager included
-         XXXXXXXXXXXXXXXXXXXXXXX GameTime included
-         XXXXXXXXXXXXXXXXXXXXXXX Root included
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\gameplay_02.cpp(90): warning C4482: nonstandard extension used: enum 'MovableObject::TransformSpace' used in qualified name
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\gameplay_02.cpp(96): warning C4482: nonstandard extension used: enum 'MovableObject::TransformSpace' used in qualified name
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\gameplay_02.cpp(99): warning C4482: nonstandard extension used: enum 'MovableObject::TransformSpace' used in qualified name
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /I"..\Project01\glew-1.7.0\include" /I"..\Project01\assimp--2.0.863-sdk\include" /I"..\Project01\SDL-1.2.14\include" /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt GamePlay_01.cpp
          GamePlay_01.cpp
          XXXXXXXXXXXXXXXXXXXXXXX Event included
          XXXXXXXXXXXXXXXXXXXXXXX EventHandler included
@@ -97,6 +13,7 @@
          XXXXXXXXXXXXXXXXXXXXXXX Light included
          XXXXXXXXXXXXXXXXXXXXXXX Mesh included
          XXXXXXXXXXXXXXXXXXXXXXX Mesh included
+     1>c:\documents and settings\merm\desktop\aserrdfgstdgy\project01\regioninformation.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
          XXXXXXXXXXXXXXXXXXXXXXX Node included
          XXXXXXXXXXXXXXXXXXXXXXX MovableObject included
          XXXXXXXXXXXXXXXXXXXXXXX TransformNode included
@@ -107,86 +24,29 @@
          XXXXXXXXXXXXXXXXXXXXXXX Why is Object3D not included here?
          XXXXXXXXXXXXXXXXXXXXXXX CubeObjectTest included
          XXXXXXXXXXXXXXXXXXXXXXX GamePlay_01 included
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\regioninformation.h(3): warning C4067: unexpected tokens following preprocessor directive - expected a newline
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(69): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(134): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(137): warning C4018: '>' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(187): warning C4018: '>' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(361): warning C4018: '>=' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(381): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(403): warning C4482: nonstandard extension used: enum 'EAllocationType' used in qualified name
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(406): warning C4018: '<' : signed/unsigned mismatch
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(425): warning C4482: nonstandard extension used: enum 'EAllocationType' used in qualified name
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\memorymanagement.h(429): warning C4018: '<' : signed/unsigned mismatch
          XXXXXXXXXXXXXXXXXXXXXXX InputEvent included
          XXXXXXXXXXXXXXXXXXXXXXX InputWord included
          XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputEvent included
          XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputWord included
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(32): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\cameramovementinputword.h(32): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\documents and settings\merm\desktop\aserrdfgstdgy\project01\cameramovementinputword.h(32): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\documents and settings\merm\desktop\aserrdfgstdgy\project01\cameramovementinputword.h(32): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
          XXXXXXXXXXXXXXXXXXXXXXX InputManager included
          XXXXXXXXXXXXXXXXXXXXXXX GameTime included
          XXXXXXXXXXXXXXXXXXXXXXX Root included
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\gameplay_01.cpp(32): warning C4482: nonstandard extension used: enum 'Light::LightTypes' used in qualified name
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\gameplay_01.cpp(161): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\gameplay_01.cpp(165): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\gameplay_01.cpp(175): warning C4482: nonstandard extension used: enum 'MovableObject::TransformSpace' used in qualified name
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\gameplay_01.cpp(181): warning C4482: nonstandard extension used: enum 'MovableObject::TransformSpace' used in qualified name
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\gameplay_01.cpp(209): warning C4482: nonstandard extension used: enum 'MovableObject::TransformSpace' used in qualified name
-         Generating Code...
-         Compiling...
-         TransformNode.cpp
-         XXXXXXXXXXXXXXXXXXXXXXX Light included
-         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
-         XXXXXXXXXXXXXXXXXXXXXXX Node included
-         XXXXXXXXXXXXXXXXXXXXXXX Quaternion included
-         XXXXXXXXXXXXXXXXXXXXXXX MovableObject included
-         XXXXXXXXXXXXXXXXXXXXXXX TransformNode included
-         XXXXXXXXXXXXXXXXXXXXXXX Camera included
-         XXXXXXXXXXXXXXXXXXXXXXX RootTransformNode included
-         XXXXXXXXXXXXXXXXXXXXXXX SceneManager included
-         XXXXXXXXXXXXXXXXXXXXXXX Event included
-         XXXXXXXXXXXXXXXXXXXXXXX EventHandler included
-         XXXXXXXXXXXXXXXXXXXXXXX IGameState included
-         XXXXXXXXXXXXXXXXXXXXXXX IObject3D included
-         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
-         XXXXXXXXXXXXXXXXXXXXXXX GameObject included
-         XXXXXXXXXXXXXXXXXXXXXXX Why is Object3D not included here?
-         XXXXXXXXXXXXXXXXXXXXXXX CubeObjectTest included
-         XXXXXXXXXXXXXXXXXXXXXXX GamePlay_01 included
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\transformnode.cpp(250): warning C4172: returning address of local variable or temporary
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\transformnode.cpp(255): warning C4172: returning address of local variable or temporary
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\transformnode.cpp(263): warning C4172: returning address of local variable or temporary
-     1>c:\documents and settings\tgei\desktop\sdfghhjohjo\ftmm-game-engine\mainproject\project01\transformnode.cpp(268): warning C4172: returning address of local variable or temporary
-         GameStateManager.cpp
-         XXXXXXXXXXXXXXXXXXXXXXX Event included
-         XXXXXXXXXXXXXXXXXXXXXXX EventHandler included
-         XXXXXXXXXXXXXXXXXXXXXXX Quaternion included
-         XXXXXXXXXXXXXXXXXXXXXXX IGameState included
-         XXXXXXXXXXXXXXXXXXXXXXX IObject3D included
-         XXXXXXXXXXXXXXXXXXXXXXX Light included
-         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
-         XXXXXXXXXXXXXXXXXXXXXXX Mesh included
-         XXXXXXXXXXXXXXXXXXXXXXX Node included
-         XXXXXXXXXXXXXXXXXXXXXXX MovableObject included
-         XXXXXXXXXXXXXXXXXXXXXXX TransformNode included
-         XXXXXXXXXXXXXXXXXXXXXXX Camera included
-         XXXXXXXXXXXXXXXXXXXXXXX RootTransformNode included
-         XXXXXXXXXXXXXXXXXXXXXXX SceneManager included
-         XXXXXXXXXXXXXXXXXXXXXXX GameObject included
-         XXXXXXXXXXXXXXXXXXXXXXX Why is Object3D not included here?
-         XXXXXXXXXXXXXXXXXXXXXXX CubeObjectTest included
-         XXXXXXXXXXXXXXXXXXXXXXX GamePlay_01 included
-         XXXXXXXXXXXXXXXXXXXXXXX GamePlay_02 included
-         XXXXXXXXXXXXXXXXXXXXXXX PlayerCarincluded
-         XXXXXXXXXXXXXXXXXXXXXXX GamePlay_03 included
-         Generating Code...
+     1>c:\documents and settings\merm\desktop\aserrdfgstdgy\project01\gameplay_01.cpp(41): warning C4482: nonstandard extension used: enum 'Light::LightTypes' used in qualified name
+     1>c:\documents and settings\merm\desktop\aserrdfgstdgy\project01\gameplay_01.cpp(163): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\documents and settings\merm\desktop\aserrdfgstdgy\project01\gameplay_01.cpp(167): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\documents and settings\merm\desktop\aserrdfgstdgy\project01\gameplay_01.cpp(177): warning C4482: nonstandard extension used: enum 'MovableObject::TransformSpace' used in qualified name
+     1>c:\documents and settings\merm\desktop\aserrdfgstdgy\project01\gameplay_01.cpp(183): warning C4482: nonstandard extension used: enum 'MovableObject::TransformSpace' used in qualified name
+     1>c:\documents and settings\merm\desktop\aserrdfgstdgy\project01\gameplay_01.cpp(211): warning C4482: nonstandard extension used: enum 'MovableObject::TransformSpace' used in qualified name
+     1>c:\program files\microsoft visual studio 10.0\vc\include\vector(212): warning C4506: no definition for inline function 'void *MemoryManagement::operator new(size_t,EAllocationType)'
        Link:
-         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\tgei\Desktop\sdfghhjohjo\ftmm-game-engine\MainProject\Debug\Project01.exe" /NOLOGO /LIBPATH:"..\Project01\glew-1.7.0\lib" /LIBPATH:"..\Project01\assimp--2.0.863-sdk\lib\assimp_debug-dll_win32" /LIBPATH:"..\Project01\SDL-1.2.14\lib" SDL.lib SDLmain.lib opengl32.lib glu32.lib sdl.lib sdlmain.lib glew32s.lib glew32mxs.lib glew32mx.lib glew32.lib assimp.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Project01.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\tgei\Desktop\sdfghhjohjo\ftmm-game-engine\MainProject\Debug\Project01.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\tgei\Desktop\sdfghhjohjo\ftmm-game-engine\MainProject\Debug\Project01.lib" /MACHINE:X86 Debug\AI_GameModel.obj
+         C:\Program Files\Microsoft Visual Studio 10.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Documents and Settings\merm\Desktop\aserrdfgstdgy\Debug\Project01.exe" /NOLOGO /LIBPATH:"..\Project01\glew-1.7.0\lib" /LIBPATH:"..\Project01\assimp--2.0.863-sdk\lib\assimp_debug-dll_win32" /LIBPATH:"..\Project01\SDL-1.2.14\lib" SDL.lib SDLmain.lib opengl32.lib glu32.lib sdl.lib sdlmain.lib glew32s.lib glew32mxs.lib glew32mx.lib glew32.lib assimp.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /ManifestFile:"Debug\Project01.exe.intermediate.manifest" /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /DEBUG /PDB:"C:\Documents and Settings\merm\Desktop\aserrdfgstdgy\Debug\Project01.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Documents and Settings\merm\Desktop\aserrdfgstdgy\Debug\Project01.lib" /MACHINE:X86 Debug\AI_GameModel.obj
          Debug\Collidable.obj
          Debug\CubeObjectTest.obj
          Debug\A.obj
          Debug\Camera.obj
+         Debug\Defragmentation.obj
          Debug\Event.obj
          Debug\EventHandler.obj
          Debug\FrameListener.obj
@@ -207,6 +67,7 @@
          Debug\Math.obj
          Debug\Matrix3.obj
          Debug\Matrix4.obj
+         Debug\MemoryManagement.obj
          Debug\Mesh.obj
          Debug\PhysicsManager.obj
          Debug\PlayerCar.obj
@@ -223,16 +84,16 @@
          Debug\Vector2.obj
          Debug\Vector3.obj
          Debug\Vector4.obj
-         LINK : C:\Documents and Settings\tgei\Desktop\sdfghhjohjo\ftmm-game-engine\MainProject\Debug\Project01.exe not found or not built by the last incremental link; performing full link
+         LINK : C:\Documents and Settings\merm\Desktop\aserrdfgstdgy\Debug\Project01.exe not found or not built by the last incremental link; performing full link
      1>MSVCRTD.lib(cinitexe.obj) : warning LNK4098: defaultlib 'msvcrt.lib' conflicts with use of other libs; use /NODEFAULTLIB:library
-         Project01.vcxproj -> C:\Documents and Settings\tgei\Desktop\sdfghhjohjo\ftmm-game-engine\MainProject\Debug\Project01.exe
+         Project01.vcxproj -> C:\Documents and Settings\merm\Desktop\aserrdfgstdgy\Debug\Project01.exe
        Manifest:
-         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Documents and Settings\tgei\Desktop\sdfghhjohjo\ftmm-game-engine\MainProject\Debug\Project01.exe;#1" /manifest Debug\Project01.exe.intermediate.manifest
+         C:\Program Files\Microsoft SDKs\Windows\v7.0A\bin\mt.exe /nologo /verbose /outputresource:"C:\Documents and Settings\merm\Desktop\aserrdfgstdgy\Debug\Project01.exe;#1" /manifest Debug\Project01.exe.intermediate.manifest
        FinalizeBuildStatus:
          Deleting file "Debug\Project01.unsuccessfulbuild".
          Touching "Debug\Project01.lastbuildstate".
-     1>Done Building Project "C:\Documents and Settings\tgei\Desktop\sdfghhjohjo\ftmm-game-engine\MainProject\Project01\Project01.vcxproj" (build target(s)).
+     1>Done Building Project "C:\Documents and Settings\merm\Desktop\aserrdfgstdgy\Project01\Project01.vcxproj" (build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:08.73
+Time Elapsed 00:00:02.82
