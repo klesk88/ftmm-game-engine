@@ -1,10 +1,8 @@
 #include <assert.h>
 #include <math.h>
 
-
 #ifndef __Vector2_H__
 #define __Vector2_H__
-
 
 class Vector2 
 {

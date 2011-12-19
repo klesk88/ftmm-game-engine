@@ -9,7 +9,6 @@ class CameraMovementInputWord: public InputWord
 {
 
 public:
-	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX CameraMovementInputWord included")
 	CameraMovementInputWord(int count_gameStates) : InputWord(count_gameStates){}
 
 	InputEvent* update(SDL_Event _event)

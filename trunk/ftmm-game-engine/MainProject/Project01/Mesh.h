@@ -90,9 +90,6 @@ class Mesh
 		float red, green, blue;
 
 	public:
-
-		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX Mesh included")
-
 		Mesh(float size,float red_,float green_,float blue_)
 		{
 			size_p = size;

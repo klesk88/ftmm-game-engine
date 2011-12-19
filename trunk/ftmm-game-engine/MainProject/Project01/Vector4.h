@@ -1,11 +1,9 @@
-#include <assert.h>
-#include <math.h>
-#include "Vector3.h"
-
 #ifndef __Vector4_H__
 #define __Vector4_H__
 
-
+#include <assert.h>
+#include <math.h>
+#include "Vector3.h"
 
 class Vector4
 {

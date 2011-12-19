@@ -1,12 +1,8 @@
 #ifndef __Matrix3_H__
 #define __Matrix3_H__
 
-
 #include "Vector3.h"
 #include "Math.h"
-//#include "Matrix4.h"
-
-
 
 class Matrix3
 {
@@ -29,7 +25,6 @@ class Matrix3
 		{
 			return (float*)m[iRow];
 		}
-
 
 		/** Tests 2 matrices for equality.	*/
 		bool operator== (const Matrix3& rkMatrix) const;
@@ -87,8 +82,6 @@ class Matrix3
 		static const float ms_fSvdEpsilon;
 		static const unsigned int ms_iSvdMaxIterations ;
 		
-		
-
 		//Matrix4 toMatrix4 () const;
 
 };

@@ -17,13 +17,9 @@
 #include "Matrix4.h"
 #include "Quaternion.h"
 
-
-class MovableObject{
-
-
+class MovableObject
+{
 	public:
-
-		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX MovableObject included")
 
 		 enum TransformSpace
         {

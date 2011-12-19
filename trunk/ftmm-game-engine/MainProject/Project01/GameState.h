@@ -2,7 +2,6 @@
 #define __IGameState_h__
 
 #include "EventHandler.h"
-//#include "GameObject.h"
 #include "Vector3.h"
 #include "Quaternion.h"
 #include "EGameObject.h"
@@ -12,8 +11,6 @@
 class GameObject;
 using namespace std;
 
-
-
 //This is the not(?) purely abstract base class for game states
 class GameState
 {
@@ -21,8 +18,6 @@ protected:
 	string name;
 	vector<GameObject*> vector_of_game_object;//list containing all the game objects connected with this frame listener
 public:
-	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX IGameState included")
-
 	GameState(){name = "abstract base class for GameState";};
 
 	virtual void init() = 0;

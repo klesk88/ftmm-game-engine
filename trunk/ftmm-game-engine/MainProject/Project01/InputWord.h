@@ -43,7 +43,6 @@ protected:
 	bool first_call_this_update();
 
 public:
-	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX InputWord included")
 	// this virtual makes this class a polymorphic class
 	virtual InputEvent* update(SDL_Event _event)
 	{

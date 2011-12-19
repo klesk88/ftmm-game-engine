@@ -11,26 +11,17 @@
 #include <list>
 #include <string>
 #include "Mesh.h"
-//#include "RootTransformNode.h"
 class RootTransformNode;
 #include "Camera.h"
-//#include "FrameListener.h"
-//----------------------
 #include "TransformNode.h"
 #include "RootTransformNode.h"
-//#include "SceneManager.h"
 //#include <gl\gl.h>                         // Header File For The OpenGL32 Library
 //#include <gl\glu.h>                            // Header File For The GLu32 Library
 #include <Windows.h>
 #include <wchar.h>
-//#include "Vector4.h"
-//#include "Vector3.h"
-//#include "Matrix4.h"
 #include "Vector2.h"
 #include "Light.h"
-//#include <typeinfo.h>
 
-//#include "GamePlay_01.h"
 class Root;
 
 
@@ -41,8 +32,6 @@ class SceneManager
 	public:
 
 		//Root * m_Root;
-
-		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX SceneManager included")
 
 		static SceneManager * getInstance ();
 		TransformNode * getRootTransformNode();
