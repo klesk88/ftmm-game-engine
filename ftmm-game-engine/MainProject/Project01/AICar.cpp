@@ -22,7 +22,7 @@ AICar::~AICar()
 
 void AICar::init(int code)
 {
-	mMesh = ResourceManager::getInstance()->loadMesh("Data/car.obj");
+	mMesh = ResourceManager::getInstance()->loadMesh("Data/car2.obj");
 	mTransformNode->attachObject(mMesh);
 	mCollidable = PhysicsManager::getInstance()->attachCollidable(this);
 	mAgent = AI_Manager::getInstance()->get_AIAgent(name_this);
@@ -42,7 +42,6 @@ void AICar::onAI()
 		AI_GameModel::getInstance()->set_NOcollision(name_this);
 	}
 
-	cout << mAgent->move_backwards << endl;
 	if(mAgent->move_backwards)
 	{
 		mTransformNode->setPosition(Vector3(-20.0,0.0,0.0));

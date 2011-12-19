@@ -13,7 +13,7 @@ Root * Root::getInstance()
 {
 	if(p_instance == NULL)
 	{
-		p_instance = new Root();
+		p_instance = new (EAllocationType::ROOT) Root();
 	}
 	return p_instance;
 }

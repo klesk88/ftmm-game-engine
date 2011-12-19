@@ -5,7 +5,7 @@
 #include <vector>
 #include <sys/types.h>
 #include "ConfigurationEnums.h"
-
+#include "MemoryManager.h"
 class Event;
 using namespace std;
 

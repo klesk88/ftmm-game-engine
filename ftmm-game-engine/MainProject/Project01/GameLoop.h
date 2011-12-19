@@ -2,7 +2,7 @@
 #define GameLoop_H
 
 #pragma once
-
+#include "MemoryManager.h"
 #include <iostream>
 #include "SDL.h"
 #include "SDL_opengl.h"

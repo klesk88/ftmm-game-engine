@@ -8,7 +8,7 @@ GameLoop* GameLoop::getInstance(){
 
 if(game_loop == NULL)
 	{
-		game_loop = new GameLoop();
+		game_loop = new (EAllocationType::GAME_LOOP) GameLoop();
 	}
 	return game_loop;
 }

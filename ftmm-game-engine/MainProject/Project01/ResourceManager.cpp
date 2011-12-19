@@ -64,7 +64,8 @@ Mesh* ResourceManager::loadMesh(const std::string& mesh_file)
 	}
 	else
 	{	//OK
-		return iter->second;
+		Mesh* mesh_new = (iter->second)->returnCopy();
+		return mesh_new;
 	}
 
 }

@@ -2,6 +2,7 @@
 #define AI_Agent_H
 
 #include<string>
+#include "MemoryManager.h"
 class AI_AgentModel;
 
 using namespace::std;

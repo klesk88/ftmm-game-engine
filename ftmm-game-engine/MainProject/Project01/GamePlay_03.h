@@ -7,6 +7,8 @@
 #include "CubeObjectTest.h"
 #include <string>
 #include "SceneManager.h"
+#include "Material.h"
+#include "Light.h"
 //class SceneManager;
 //class Vector2;
 //class Camera;
@@ -54,6 +56,9 @@ private:
 		PlayerCar * playerCar;
 		AICar* car;
 		AICar* car2;
+		Material * mat_02;
+		Material * mat_03;
+		Light * light3;
 
 		static GamePlay_03 * m_instance;
 		~GamePlay_03();

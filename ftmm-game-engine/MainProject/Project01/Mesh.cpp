@@ -342,3 +342,42 @@ void Mesh::drawCube(){
 
 }
 
+Mesh* Mesh::returnCopy()
+{
+	Mesh* mesh_new = new Mesh(m_name);
+
+	mesh_new->vector_buffer_obj = vector_buffer_obj;
+	mesh_new->index_buffer = index_buffer;
+	mesh_new->normal_buffer = normal_buffer;
+	mesh_new->binormal_buffer = binormal_buffer;
+	mesh_new->tangent_buffer = tangent_buffer;
+	mesh_new->texture_coord_buffer = texture_coord_buffer;
+
+	mesh_new->tangents_attrib_array = tangents_attrib_array;
+	mesh_new->binormals_attrib_array = binormals_attrib_array;
+	mesh_new->texture_coord_attrib_array = texture_coord_attrib_array;
+
+	mesh_new->m_num_faces = m_num_faces;
+	mesh_new->m_num_vertices = m_num_vertices;
+	mesh_new->m_num_indices = m_num_indices;
+	mesh_new->m_tangents = m_tangents;
+	mesh_new->m_vertices = m_vertices;
+	mesh_new->m_indices = m_indices;
+	mesh_new->m_normals = m_normals;
+	mesh_new->m_binormals = m_binormals;
+	mesh_new->m_texture_coord = m_texture_coord;
+
+	mesh_new->m_material = nullptr;
+
+	if(hasSubMesh())
+	{
+		std::map<std::string, Mesh *>::iterator iter;
+		for (iter = sub_mesh_tab.begin(); iter!= sub_mesh_tab.end(); ++iter){
+		
+			mesh_new->addSubMesh(iter->second->returnCopy());
+		
+		}
+	}
+
+	return mesh_new;
+}

@@ -9,7 +9,7 @@ GamePlay_03 * GamePlay_03::getInstance()
 {
 	if(m_instance == NULL)
 	{
-		m_instance = new GamePlay_03();
+		m_instance = new (EAllocationType::GAMEOBJECTS)  GamePlay_03();
 	}
 	return m_instance;
 }
@@ -22,7 +22,9 @@ GamePlay_03::GamePlay_03()
 
 void GamePlay_03::init() 
 {
-	
+	light3 = *SceneManager::getInstance()->getSceneLights().begin();
+	light3->setType(Light::LightTypes::LT_DIRECTIONAL);
+	light3->setDirection(Vector3(0.0,1.0,0.0));
 	cam = newCamera("camera3");//SceneManager::getInstance()->createCamera("camera1");
 
 	x_vel = 0;
@@ -40,17 +42,21 @@ void GamePlay_03::init()
 
 	Root * mRoot = Root::getInstance(); 
 
-	playerCar = new PlayerCar("pCar_01");
+	playerCar = new (EAllocationType::GAMEOBJECTS)  PlayerCar("pCar_01");
 	playerCar ->init();
 
-	car = new AICar("cCar_01");
+	car = new (EAllocationType::AI)  AICar("cCar_01");
 	car ->init(1);
-
+	mat_02 = new Material("mat_02");
+	mat_03 = new Material("mat_03");
 	/*car2 = new AICar("cCar_02");
 	car2 ->init(2);*/
 
 	car->mTransformNode->setPosition(Vector3(20.0,0.0,0.0));
-
+	car->mMesh->setMaterial(mat_02);
+	mat_02->setDiffiuseColour(0.0,1.0,0.0);
+	playerCar->mMesh->setMaterial(mat_03);
+	mat_03->setDiffiuseColour(1.0,0.0,0.0);
 }
 //GamePlay_03::~GamePlay_03()
 //{
@@ -61,15 +67,17 @@ void GamePlay_03::init()
 void GamePlay_03::destroy()
 {
 	SceneManager::getInstance()->destroyCamera("camera3");
-	delete playerCar;
-	delete car;
+	playerCar->~PlayerCar();
+	car->~AICar();
+	MemoryManagement::operator delete(playerCar,(EAllocationType::NO_ASSIGNED)) ;
+	MemoryManagement::operator delete(car,(EAllocationType::NO_ASSIGNED)) ;
 }
 
 bool GamePlay_03::update(vector<Event*> events)
 {
 	Matrix3 * mt3 = new Matrix3;
 	*mt3 = cam->getLocalAxes();
-	
+	car->mMesh->getMaterial()->setDiffiuseColour(0.0,0.0,1.0);
 	for (vector<Event*>::iterator it = events.begin(); it != events.end(); ++it) 
 	{
 		if(CameraMovementInputEvent * cME = dynamic_cast<CameraMovementInputEvent *>(*it)) 
