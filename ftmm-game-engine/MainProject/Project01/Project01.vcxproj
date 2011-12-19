@@ -81,7 +81,6 @@
     <ClCompile Include="Defragmentation.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventHandler.cpp" />
-    <ClCompile Include="FrameListener.cpp" />
     <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GamePlay_01.cpp" />
@@ -141,16 +140,12 @@
     <ClInclude Include="GamePlay_03.h" />
     <ClInclude Include="GameStateManager.h" />
     <ClInclude Include="GJK.h" />
-    <ClInclude Include="IObject3D.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="CameraMovementInputEvent.h" />
     <ClInclude Include="CameraMovementInputWord.h" />
-    <ClInclude Include="Combo_01_InputEvent.h" />
-    <ClInclude Include="Combo_01_InputWord.h" />
     <ClInclude Include="EGameObject.h" />
     <ClInclude Include="Event.h" />
     <ClInclude Include="EventHandler.h" />
-    <ClInclude Include="FrameListener.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="GamePlay_01.h" />
     <ClInclude Include="GameState.h" />
@@ -183,7 +178,6 @@
     <ClInclude Include="textfile.h" />
     <ClInclude Include="Texture2D.h" />
     <ClInclude Include="TransformNode.h" />
-    <ClInclude Include="Triangle.h" />
     <ClInclude Include="Vector2.h" />
     <ClInclude Include="Vector3.h" />
     <ClInclude Include="Vector4.h" />

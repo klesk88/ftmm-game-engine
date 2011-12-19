@@ -44,7 +44,7 @@ void AICar::onAI()
 
 	if(mAgent->move_backwards)
 	{
-		mTransformNode->setPosition(Vector3(-20.0,0.0,0.0));
+		mTransformNode->setPosition(Vector3(0.0,0.0,0.0));
 	}
 
 }

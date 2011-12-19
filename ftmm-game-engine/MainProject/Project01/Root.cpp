@@ -18,21 +18,10 @@ Root * Root::getInstance()
 	return p_instance;
 }
 
-/*Returns current GameState.*/
-/*
-GameState* Root::currentGameState()
-{
-	//  Uses GameStateManager to determine current GameState
-	return mGameStateManager->get_currentGameState();
-}
-*/
-
 void Root::init() //;
 {
 	//And first, there was time (what else?)
 	mGameTime = GameTime::getInstance();
-	//mGameTime = new (EAllocationType::PHYSICS) GameTime::getInstance();
-	//mResourceManager = ResourceManager::getInstance();
 	mRenderManager = RenderManager::getInstance();
 	mRenderManager->initializeRender();
 
@@ -50,16 +39,14 @@ void Root::init() //;
 	mGameStateManager->init();
 	
 	mGameLoop = GameLoop::getInstance();
-	
-
-
-	//cout << mGameStateManager->get_currentGameState()->get_name() << endl;
 
 	//msc->initializeEngine();
 	mGameLoop->startEngine(true,60,10);
 }
 
-void Root::handleInput() //;
+//this was to illustrate a design in which all communication between managers would happen
+//through the root
+void Root::handleInput()
 {
 	//let the InputManager do its job
 	mInputManager->handle_input();

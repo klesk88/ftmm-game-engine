@@ -117,9 +117,6 @@
     <ClCompile Include="InputManager.cpp">
       <Filter>Source Files\Input</Filter>
     </ClCompile>
-    <ClCompile Include="FrameListener.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Event.cpp">
       <Filter>Source Files\EventManagement</Filter>
     </ClCompile>
@@ -260,20 +257,11 @@
     <ClInclude Include="CameraMovementInputWord.h">
       <Filter>Header Files\Input\InputWords &amp; Events</Filter>
     </ClInclude>
-    <ClInclude Include="Combo_01_InputEvent.h">
-      <Filter>Header Files\Input\InputWords &amp; Events</Filter>
-    </ClInclude>
-    <ClInclude Include="Combo_01_InputWord.h">
-      <Filter>Header Files\Input\InputWords &amp; Events</Filter>
-    </ClInclude>
     <ClInclude Include="EventHandler.h">
       <Filter>Header Files\EventManagement</Filter>
     </ClInclude>
     <ClInclude Include="Event.h">
       <Filter>Header Files\EventManagement</Filter>
-    </ClInclude>
-    <ClInclude Include="FrameListener.h">
-      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GameTime.h">
       <Filter>Header Files</Filter>
@@ -284,16 +272,10 @@
     <ClInclude Include="GameObject.h">
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
-    <ClInclude Include="Triangle.h">
-      <Filter>Header Files\GameObjects</Filter>
-    </ClInclude>
     <ClInclude Include="Mesh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="CubeObjectTest.h">
-      <Filter>Header Files\GameObjects</Filter>
-    </ClInclude>
-    <ClInclude Include="IObject3D.h">
       <Filter>Header Files\GameObjects</Filter>
     </ClInclude>
     <ClInclude Include="GameStateManager.h">

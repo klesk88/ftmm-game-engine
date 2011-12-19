@@ -10,7 +10,6 @@
 #include <vector>
 using namespace std;
 
-class FrameListener;
 class Event;
 
 class GameLoop
@@ -24,8 +23,11 @@ private:
 	Uint32 currentFPS;
 	int TICKS_PER_SECOND;
 	int SKIP_TICKS;
+	int TICKS_FOR_SECOND_AI;
+	int SKIP_TICKS_AI;
 	int MAX_FRAMESKIP;
 	DWORD next_game_tick;
+	DWORD next_game_tick_ai;
 	static GameLoop* game_loop;
 	void callGameLoop(bool,const int base_fps,const int low_fps);
 public:
@@ -35,14 +37,11 @@ public:
 	*/
 	static GameLoop* getInstance();
 	
-	
-	void createFrameListener(FrameListener*);
 	/*
 		i set the game_is:run variable so i know if the game loop have to start or not.
 		after i call the method for call the game loop with the right parameters		
 	*/
 	void startEngine(bool,const int base_fps,const int low_fps);
-	std::list <FrameListener*> framelistener_list;
 };
 
 #endif

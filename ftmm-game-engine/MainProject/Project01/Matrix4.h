@@ -6,7 +6,6 @@
 #ifndef __Matrix4_H__
 #define __Matrix4_H__
 
-
 class Matrix4 
 {
     protected:
@@ -106,9 +105,6 @@ class Matrix4
 		}
 
 		void fromMatrix3( const Matrix3& mt3 );
-
-		
-
 };
 
 #endif

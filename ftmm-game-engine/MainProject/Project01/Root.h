@@ -10,20 +10,17 @@
 #include "RootTransformNode.h"
 #include "RenderManager.h"
 #include "AI_Manager.h"
-//#include "ResourceManager.h"
 #include "GameTime.h"
 #include "PhysicsManager.h"
 #include "AI_GameModel.h"
 
 class GameState;
 class Event;
-//#include "GameState.h"
 
 /*Systems should only know the top level of all the sub systems*/
 class Root
 {
 public:
-	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX Root included")
 	static Root * getInstance();
 	
 	//singetons
@@ -48,9 +45,6 @@ public:
 
 	/*Ask InputManager to do its job*/
 	void handleInput();
-
-	/*Returns current GameState.*/
-	//GameState* currentGameState();
 
 	/*Update the GameState*/
 	void updateGameState(vector<Event*> events);

@@ -1,8 +1,6 @@
 #ifndef PlayerCar_H
 #define PlayerCar_H
 
-
-#include "IObject3D.h"
 #include "GameObject.h"
 #include "Quaternion.h"
 #include "Vector3.h"
@@ -17,7 +15,6 @@ private:
 	float speed;
 
 public:
-#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX PlayerCarincluded")
 	PlayerCar();
 	PlayerCar(string name, Vector3 position = Vector3::ZERO, Quaternion orientation = Quaternion::IDENTITY) : GameObject(name, position, orientation){};
 	~PlayerCar();

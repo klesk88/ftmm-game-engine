@@ -14,6 +14,7 @@
 
 #include <vector>
 #include "InputWord.h"
+
 #include "CameraMovementInputWord.h"
 #include "FourDirectionsMovement_InputWord.h"
 #include "EngineControls_InputWord.h"
@@ -24,7 +25,6 @@ using namespace std;
 class InputManager
 {
 public:
-	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX InputManager included")
     /*  Here we define the signals we need to let our parent know the status
         of the program. */
     enum SIGNAL

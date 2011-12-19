@@ -19,7 +19,6 @@
 #include <sstream>
 class Collidable;
 
-
 class TransformNode : public MovableObject
 {
 	friend class PhysicsManager;

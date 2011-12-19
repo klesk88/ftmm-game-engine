@@ -17,13 +17,15 @@ class GameState;
 class GameStateManager
 {
 public:
-	//#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX GameStateManager included")
 	static GameStateManager * getInstance ();
 
 	GameState* get_currentGameState();
 
+	/*use this to initialize all game states that are listes in the ConfigurationEnums*/
 	bool init();
+	/*pass the vector of events to the game state that currently has focus*/
 	bool update(vector<Event*> events);
+	/*Change game state. @Param EGameState: state you want to switch to*/
 	bool transitToGameState(EGameState state);
 
 protected:
@@ -34,9 +36,11 @@ private:
 	~GameStateManager();
 
 	vector<GameState*> gameStates;
+
 	GamePlay_01 * gamePlay_01;
 	GamePlay_02 * gamePlay_02;
 	GamePlay_03 * gamePlay_03;
+	
 	GameState * currentGameState;
 };
 

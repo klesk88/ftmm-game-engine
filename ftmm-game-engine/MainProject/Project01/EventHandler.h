@@ -10,7 +10,6 @@
 class EventHandler{
 
 public:
-	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX EventHandler included")
 	const enum positions{Input,Ai,Physics,Sound, Gameplay};//positions in the vector
 	EventHandler();
 	~EventHandler();

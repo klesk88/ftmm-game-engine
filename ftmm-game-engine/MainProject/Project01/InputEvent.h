@@ -10,8 +10,6 @@ protected:
 	bool eventHasOccured;
 
 public:
-	#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX InputEvent included")
-
 	InputEvent() : Event()
 	{
 		eventHasOccured = false;
