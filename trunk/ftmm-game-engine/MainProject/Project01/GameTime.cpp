@@ -13,7 +13,7 @@ GameTime * GameTime::getInstance()
 {
 	if(p_instance == NULL)
 	{
-		p_instance = new GameTime();
+		p_instance = new (EAllocationType::GAMEOBJECTS) GameTime();
 	}
 	return p_instance;
 }

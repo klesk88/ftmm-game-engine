@@ -13,7 +13,7 @@ GamePlay_01 * GamePlay_01::getInstance()
 {
 	if(m_instance == NULL)
 	{
-		m_instance = new GamePlay_01();
+		m_instance = new (EAllocationType::GAMEOBJECTS) GamePlay_01();
 	}
 	return m_instance;
 }
@@ -33,10 +33,11 @@ void GamePlay_01::init()
 	
 	mat_manager = MaterialManager::getInstance();
 	mat_manager->enableDefaultMaterial();
-	cube_01 = new CubeObjectTest("node_1");
-	light1 = SceneManager::getInstance()->createLight("light01",Light::LightTypes::LT_DIRECTIONAL);
+	cube_01 = new (EAllocationType::GAMEOBJECTS) CubeObjectTest("node_1");
+	light1 = SceneManager::getInstance()->createLight("light01",Light::LightTypes::LT_SPOTLIGHT);
 	light1->setPosition(Vector3(0.0,0.0,8.0));
-	light1->setDirection(Vector3(0.0,1.0,0.0));
+	light1->setDirection(Vector3(0.0,0.0,-1.0));
+	light1->setType(Light::LightTypes::LT_SPOTLIGHT);
 	//light1->setDiffuseColour(0.8,0.8,0.8);
 	//light2 = SceneManager::getInstance()->createLight("light02",Light::LightTypes::LT_SPOTLIGHT);
 	//light2->setPosition(Vector3(0.0,0.0,8.0));
@@ -86,7 +87,8 @@ void GamePlay_01::init()
 void GamePlay_01::destroy()
 {
 	SceneManager::getInstance()->destroyCamera("camera1");
-	delete cube_01;
+	cube_01->~CubeObjectTest();
+	MemoryManagement::operator delete(cube_01,EAllocationType::NO_ASSIGNED);
 }
 
 bool GamePlay_01::update(vector<Event*> events)

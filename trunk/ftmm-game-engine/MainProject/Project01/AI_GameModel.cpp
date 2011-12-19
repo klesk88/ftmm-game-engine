@@ -18,7 +18,7 @@ AI_GameModel * AI_GameModel::getInstance()
 {
 	if(p_instance == NULL)
 	{
-		p_instance = new AI_GameModel();
+		p_instance = new (EAllocationType::AI) AI_GameModel();
 	}
 	return p_instance;
 }

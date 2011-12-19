@@ -1,7 +1,7 @@
 #ifndef __GameTime_h__
 #define __GameTime_h__
 #pragma once
-
+#include "MemoryManager.h"
 class GameTime
 {
 public:

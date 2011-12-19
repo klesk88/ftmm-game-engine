@@ -8,7 +8,7 @@
 #include "EGameObject.h"
 #include <string>
 #include <vector>
-
+#include "MemoryManager.h"
 class GameObject;
 using namespace std;
 

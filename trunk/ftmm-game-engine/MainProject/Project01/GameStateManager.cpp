@@ -13,7 +13,7 @@ GameStateManager * GameStateManager::getInstance()
 {
 	if(p_instance == NULL)
 	{
-		p_instance = new GameStateManager();
+		p_instance = new (EAllocationType::GAMEOBJECTS) GameStateManager();
 	}
 	return p_instance;
 }

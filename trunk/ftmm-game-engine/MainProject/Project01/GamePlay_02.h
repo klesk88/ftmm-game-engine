@@ -5,10 +5,15 @@
 #include "CubeObjectTest.h"
 #include <string>
 #include "SceneManager.h"
+#include "MaterialManager.h"
+#include "Light.h"
+#include "Material.h"
+#include "Texture2D.h"
 //class SceneManager;
 //class Vector2;
 //class Camera;
 class GameObject;
+
 using namespace std;
 
 #pragma once
@@ -22,6 +27,8 @@ private:
 		float speed;
 		float x_vel;
 		float y_vel;
+		float x_vel_li;
+		float y_vel_li;
 		float xrot;
 		float yrot;
 		float xrot_zero;
@@ -44,6 +51,11 @@ private:
 		Camera * cam;
 		Vector2 pos;
 		int posx, posy;
+
+		Light * light2;
+		Material * mat05;
+
+		MaterialManager * mat_manager;
 		//end
 		
 		CubeObjectTest newAgeCube;
@@ -52,6 +64,8 @@ private:
 		~GamePlay_02();
 
 		string name;
+
+		
 
 	protected:
 		GamePlay_02();
@@ -63,7 +77,7 @@ public:
 		CubeObjectTest * cube_03;
 		CubeObjectTest * cube_04;
 
-		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX GamePlay_02 included")
+		#pragma message ("XXXXXXXXXXXXXXXXXXXXXXX GamePlay_01 included")
 		
 		string get_name();
 		

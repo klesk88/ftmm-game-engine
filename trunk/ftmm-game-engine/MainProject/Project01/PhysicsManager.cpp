@@ -21,7 +21,7 @@ PhysicsManager* PhysicsManager::getInstance()
 {
 	if(m_instance == NULL)
 	{
-		m_instance = new PhysicsManager();
+		m_instance = new (EAllocationType::PHYSICS) PhysicsManager();
 	}
 
 	return m_instance;

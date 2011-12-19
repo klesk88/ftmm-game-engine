@@ -7,7 +7,7 @@ GJK* GJK::getInstance()
 	if(m_instance == nullptr)
 	{
 	
-		m_instance = new GJK();
+		m_instance = new (EAllocationType::PHYSICS) GJK();
 
 	}
 

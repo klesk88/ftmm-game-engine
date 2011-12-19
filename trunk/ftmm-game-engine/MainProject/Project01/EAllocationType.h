@@ -3,8 +3,9 @@
 	and if the block is a free block or a used block
 */
 enum EAllocationType
-{
+{	
 		NO_ASSIGNED,
+		ROOT,
 		PHYSICS,
 		AI,
 		RENDERING,
@@ -12,6 +13,7 @@ enum EAllocationType
 		GAME_LOOP,
 		INPUT_MANAGER,
 		MEMORYMANAGEMENT,
+		GAMEOBJECTS,
 };
 
 

@@ -13,14 +13,14 @@ AI_Manager * AI_Manager::getInstance()
 {
 	if(p_instance == NULL)
 	{
-		p_instance = new AI_Manager();
+		p_instance = new (EAllocationType::AI)  AI_Manager();
 	}
 	return p_instance;
 }
 
 AI_Agent* AI_Manager::get_AIAgent(const string & name)
 {
-	AI_Agent * agent = new AI_Agent(name);
+	AI_Agent * agent = new (EAllocationType::AI)  AI_Agent(name);
 	ai_agents.push_back(agent);
 	return agent;
 }

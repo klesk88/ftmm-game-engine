@@ -27,6 +27,7 @@ class Mesh
 		Vector3* getTangents();
 		Vector3* getBinormals();
 		unsigned int getNumVertices();
+		Mesh* returnCopy();
 
 		std::map<std::string, Mesh *> sub_mesh_tab;
 

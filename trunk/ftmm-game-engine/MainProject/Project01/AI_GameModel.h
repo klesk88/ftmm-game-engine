@@ -4,7 +4,7 @@
 #pragma once
 
 #include<string>
-
+#include"MemoryManager.h"
 using namespace::std;
 
 class AI_GameModel
