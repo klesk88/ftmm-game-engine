@@ -75,12 +75,15 @@
     <ClCompile Include="AICar.cpp" />
     <ClCompile Include="AI_GameModel.cpp" />
     <ClCompile Include="AI_Manager.cpp" />
+    <ClCompile Include="CarMovement_Input.cpp" />
     <ClCompile Include="Collidable.cpp" />
     <ClCompile Include="CubeObjectTest.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Defragmentation.cpp" />
+    <ClCompile Include="EngineControlsInput.cpp" />
     <ClCompile Include="Event.cpp" />
     <ClCompile Include="EventHandler.cpp" />
+    <ClCompile Include="FourDirectionsMovement.cpp" />
     <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GamePlay_01.cpp" />
@@ -90,6 +93,7 @@
     <ClCompile Include="GameTime.cpp" />
     <ClCompile Include="GJK.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="CameraMovementInput.cpp" />
     <ClCompile Include="InputWord.cpp" />
     <ClCompile Include="Light.cpp" />
     <ClCompile Include="main.cpp" />

@@ -70,6 +70,9 @@
     <Filter Include="Source Files\MemoryManager">
       <UniqueIdentifier>{3c8d6b43-08ce-4b26-9841-6a3192528138}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Input\InputWords &amp; Events">
+      <UniqueIdentifier>{c5fa1324-6fb9-4113-b247-7c9bf7ba84af}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -200,6 +203,18 @@
     </ClCompile>
     <ClCompile Include="AICar.cpp">
       <Filter>Source Files\GameObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="CameraMovementInput.cpp">
+      <Filter>Source Files\Input\InputWords &amp; Events</Filter>
+    </ClCompile>
+    <ClCompile Include="CarMovement_Input.cpp">
+      <Filter>Source Files\Input\InputWords &amp; Events</Filter>
+    </ClCompile>
+    <ClCompile Include="EngineControlsInput.cpp">
+      <Filter>Source Files\Input\InputWords &amp; Events</Filter>
+    </ClCompile>
+    <ClCompile Include="FourDirectionsMovement.cpp">
+      <Filter>Source Files\Input\InputWords &amp; Events</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
